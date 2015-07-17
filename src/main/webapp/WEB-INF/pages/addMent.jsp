@@ -10,7 +10,7 @@
 
 </head>
 <body>
-
+<h2>Добавить мента</h2>
 <form:form method="post" action="add" commandName="personal">
 
     <table>
@@ -32,7 +32,7 @@
     </table>
 </form:form>
 
-<h2>Добавить мента</h2>
+
 
 
 
