@@ -21,8 +21,6 @@ public class PersonalController {
     }
     @RequestMapping("/personal")
     public String listContacts(Map<String, Object> map) {
-
-      //
         map.put("personalList", personalService.listPersonal());
 
         return "personal";
