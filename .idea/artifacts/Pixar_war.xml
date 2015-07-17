@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="Pixar:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Pixar.war">
+      <element id="artifact" artifact-name="Pixar:war exploded" />
+    </root>
+  </artifact>
+</component>
