@@ -15,6 +15,8 @@ import java.util.Map;
 public class PersonalController {
     @Autowired
    PersonalService personalService;
+
+
     @RequestMapping("/")
     public String home() {
         return "hello";
@@ -35,6 +37,8 @@ public class PersonalController {
 
         return "hello";
     }
+
+
         @RequestMapping("/adds")
         public String add(Map<String, Object> map) {
             map.put("personal", new Personal());
