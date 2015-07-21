@@ -16,14 +16,13 @@
       ">
 
     <!-- Настраивает управление транзакциями с помощью аннотации @Transactional -->
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
 
-
-        <!-- Настройки бина dataSource будем хранить в отдельном файле -->
+    <!-- Настройки бина dataSource будем хранить в отдельном файле -->
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-          p:location="/WEB-INF/jdbc.properties" />
+          p:location="/WEB-INF/jdbc.properties"/>
 
     <!-- Непосредственно бин dataSource -->
     <bean id="dataSource"
@@ -31,33 +30,38 @@
           p:driverClassName="${jdbc.driverClassName}"
           p:url="${jdbc.databaseurl}"
           p:username="${jdbc.username}"
-          p:password="${jdbc.password}" />
+          p:password="${jdbc.password}"/>
 
 
+    <!--<bean id="sessionFactory"-->
+    <!--class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">-->
+    <!--<property name="dataSource" ref="dataSource" />-->
+    <!--&lt;!&ndash;<property name="configLocation">&ndash;&gt;-->
+    <!--&lt;!&ndash;<value>/WEB-INF/hibernate.cfg.xml</value>&ndash;&gt;-->
+    <!--&lt;!&ndash;</property>&ndash;&gt;-->
 
-       <!--<bean id="sessionFactory"-->
-             <!--class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">-->
-           <!--<property name="dataSource" ref="dataSource" />-->
-           <!--&lt;!&ndash;<property name="configLocation">&ndash;&gt;-->
-               <!--&lt;!&ndash;<value>/WEB-INF/hibernate.cfg.xml</value>&ndash;&gt;-->
-           <!--&lt;!&ndash;</property>&ndash;&gt;-->
+    <!--<property name="packagesToScan" value="by.pixar.uvd.domain"/>-->
 
-           <!--<property name="packagesToScan" value="by.pixar.uvd.domain"/>-->
-
-           <!--<property name="configurationClass">-->
-               <!--<value>org.hibernate.cfg.</value>-->
-           <!--</property>-->
-           <!--<property name="hibernateProperties">-->
-               <!--<props>-->
-                   <!--<prop key="hibernate.show_sql">true</prop>-->
-                   <!--<prop key="hibernate.dialect">${jdbc.dialect}</prop>-->
-                   <!--<prop key="hibernate.connection.charSet">UTF-8</prop>-->
-               <!--</props>-->
-           <!--</property>-->
-
+    <!--<property name="configurationClass">-->
+    <!--<value>org.hibernate.cfg.</value>-->
+    <!--</property>-->
+    <!--<property name="hibernateProperties">-->
+    <!--<props>-->
+    <!--<prop key="hibernate.show_sql">true</prop>-->
+    <!--<prop key="hibernate.dialect">${jdbc.dialect}</prop>-->
+    <!--<prop key="hibernate.connection.charSet">UTF-8</prop>-->
+    <!--</props>-->
+    <!--</property>-->
 
 
-       <!--</bean>-->
+    <!--</bean>-->
+
+    <!-- Менеджер транзакций -->
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
@@ -66,17 +70,13 @@
         <!--<value>/WEB-INF/hibernate.cfg.xml</value>-->
         <!--</property>-->
         <property name="hibernateProperties">
-        <props>
-        <prop key="hibernate.show_sql">true</prop>
-        <prop key="hibernate.dialect">${jdbc.dialect}</prop>
-        <prop key="hibernate.connection.charSet">UTF-8</prop>
-        </props>
+            <props>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.dialect">${jdbc.dialect}</prop>
+                <prop key="hibernate.connection.charSet">UTF-8</prop>
+            </props>
         </property>
     </bean>
 
-    <!-- Менеджер транзакций -->
-    <bean id="transactionManager"
-          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
+
 </beans>
