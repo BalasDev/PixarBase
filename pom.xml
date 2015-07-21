@@ -143,6 +143,8 @@
                     <webAppConfig>
                         <contextPath>/${project.name}</contextPath>
                     </webAppConfig>
+                    <stopPort/>
+                    <stopKey/>
                 </configuration>
             </plugin>
             <plugin>

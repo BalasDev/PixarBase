@@ -14,22 +14,24 @@ import java.util.Map;
 @Controller
 public class PersonalController {
     @Autowired
-   PersonalService personalService;
+    PersonalService personalService;
 
 
     @RequestMapping("/")
     public String home() {
         return "hello";
     }
+
     @RequestMapping("/personal")
     public String listContacts(Map<String, Object> map) {
         map.put("personalList", personalService.listPersonal());
 
         return "personal";
     }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addPersonal(@ModelAttribute("personal") Personal personal,
-                             BindingResult result) {
+                              BindingResult result) {
 
         personalService.addPersonal(personal);
 
@@ -37,10 +39,10 @@ public class PersonalController {
     }
 
 
-        @RequestMapping("/adds")
-        public String add(Map<String, Object> map) {
-            map.put("personal", new Personal());
-            return "addPersonal";
-        }
+    @RequestMapping("/adds")
+    public String add(Map<String, Object> map) {
+        map.put("personal", new Personal());
+        return "addPersonal";
+    }
 
 }
