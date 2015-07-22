@@ -1,14 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=utf8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="utf8" %>
 <html>
 <head>
-    <%--<meta http-equiv="Content-Type" content="text/html; charset=utf8">--%>
+    <%--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">--%>
 
     <html>
-    <body>
-    <h1><a href="/personal">Кто тут мент?</a></h1>
 
-    <h1><a href="/adds">Добавить мента</a></h1>
-    <img src="webres/uvd1.jpg">
-    </body>
+    <div align="center"> <h1><font style="color: dodgerblue">Добавь мента!</font></h1></div>
+
+    <div align="center"><h1><a href="/adds"><img src="webres/uvd1.jpg"></a></h1></div>
+    <%--<img  src="webres/uvd1.jpg">--%>
+   <a STYLE="font-style: normal" href="/personal">Узнай кто тут мент</a>
+     </body>
     </html>

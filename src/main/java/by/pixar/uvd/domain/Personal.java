@@ -1,11 +1,9 @@
 package by.pixar.uvd.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-import java.util.Date;
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "personal")
@@ -18,14 +16,20 @@ public class Personal {
     private Integer id;
 
     //'Фамилия'
+
+    // @Pattern(regexp = "[а-яА-Я]")
+    @NotBlank (message="Vvedite familiu")
     @Column(name = "LASTNAME")
     private String lastName;
 
     //'Имя'
+    @NotBlank (message="Vvedite name")
     @Column(name = "FIRSTNAME")
     private String firstName;
 
     //'Отчество'
+    @NotBlank (message = "Vvedite otchestvo")
+//    @NotBlank (message="Введите отчество")
     @Column(name = "SECONDNAME")
     private String secondName;
 

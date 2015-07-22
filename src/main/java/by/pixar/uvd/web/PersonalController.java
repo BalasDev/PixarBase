@@ -5,10 +5,10 @@ import by.pixar.uvd.service.PersonalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
@@ -22,6 +22,7 @@ public class PersonalController {
         return "hello";
     }
 
+
     @RequestMapping("/personal")
     public String listContacts(Map<String, Object> map) {
         map.put("personalList", personalService.listPersonal());
@@ -29,20 +30,22 @@ public class PersonalController {
         return "personal";
     }
 
+
+    @RequestMapping(value = "/adds", method = RequestMethod.GET)
+    public String add(Map<String, Object> map) {
+        map.put("personal", new Personal());
+        return "/addPersonal";
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addPersonal(@ModelAttribute("personal") Personal personal,
+    public String addPersonal(@Valid Personal personal,
                               BindingResult result) {
-
+        if (result.hasErrors()) {
+            return "/addPersonal";
+        }
         personalService.addPersonal(personal);
-
         return "hello";
     }
 
-
-    @RequestMapping("/adds")
-    public String add(Map<String, Object> map) {
-        map.put("personal", new Personal());
-        return "addPersonal";
-    }
 
 }
