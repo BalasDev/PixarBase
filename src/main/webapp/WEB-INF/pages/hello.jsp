@@ -9,6 +9,6 @@
     <h1><a href="/personal">Кто тут мент?</a></h1>
 
     <h1><a href="/adds">Добавить мента</a></h1>
-    <img src="img/uvd1.jpg">
+    <img src="webres/uvd1.jpg">
     </body>
     </html>
