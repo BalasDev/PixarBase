@@ -8,7 +8,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+    <link href="webres/css/input.css"  rel="stylesheet">
+    <link href="webres/css/error.css"  rel="stylesheet">
+    <link href="webres/css/button.css"  rel="stylesheet">
 </head>
 <body>
 
@@ -18,19 +20,19 @@
     <table>
         <tr>
             <td >Фамилия </td>
-            <td><form:input path="lastName" /> <form:errors path="lastName"  cssStyle="color: red"  /></td>
+            <td><form:input path="lastName" /> <form:errors path="lastName"  cssClass="error"  /></td>
         </tr>
         <tr>
             <td>Имя</td>
-            <td><form:input path="firstName"/> <form:errors path="firstName" cssStyle="color: red"/></td>
+            <td><form:input path="firstName"/> <form:errors path="firstName" cssClass="error"/></td>
         </tr>
         <tr>
             <td>Отчество</td>
-            <td><form:input path="secondName"/> <form:errors path="secondName" cssStyle="color: red"/></td>
+            <td><form:input path="secondName"/> <form:errors path="secondName" cssClass="error"/></td>
         </tr>
         <tr>
             <td>Звание</td>
-            <td><form:input type="text" list="zvanie" path="rank"/> <form:errors path="rank" cssStyle="color: red"/>
+            <td><form:input type="text" list="zvanie" path="rank"/> <form:errors path="rank" cssClass="error"/>
                 <datalist id="zvanie">
                     <option>шестерка</option>
                     <option>подстилка</option>
@@ -43,7 +45,7 @@
         </tr>
         <tr>
             <td>День рождения</td>
-            <td><form:input type="date" path="birthday"/> <form:errors  path="birthday" cssStyle="color: red"/></td>
+            <td><form:input type="date" path="birthday"/> <form:errors  path="birthday" cssClass="error"/></td>
         </tr>
         <tr>
             <td><input type="submit" value="Родить мента"/></td>
