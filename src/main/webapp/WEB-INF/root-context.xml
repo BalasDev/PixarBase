@@ -22,6 +22,6 @@
     <context:component-scan base-package="by.pixar.uvd.service" />
 
 
-
+    <import resource="security.xml" />
 
 </beans>

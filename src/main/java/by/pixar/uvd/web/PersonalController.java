@@ -17,7 +17,7 @@ public class PersonalController {
    PersonalService personalService;
 
 
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     public String home() {
         return "hello";
     }
