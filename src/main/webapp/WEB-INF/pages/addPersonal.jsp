@@ -30,7 +30,16 @@
         </tr>
         <tr>
             <td>Звание</td>
-            <td><form:input path="rank"/> <form:errors path="rank" cssStyle="color: red"/></td>
+            <td><form:input type="text" list="zvanie" path="rank"/> <form:errors path="rank" cssStyle="color: red"/>
+                <datalist id="zvanie">
+                    <option>шестерка</option>
+                    <option>подстилка</option>
+                    <option>жопализ</option>
+                    <option>Пихарь</option>
+                    <!-- и остальные -->
+                </datalist>
+
+            </td>
         </tr>
         <tr>
             <td>День рождения</td>
