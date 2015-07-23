@@ -1,9 +1,14 @@
 package by.pixar.uvd.domain;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.Date;
+
 
 @Entity
 @Table(name = "personal")
@@ -15,52 +20,61 @@ public class Personal {
     @GeneratedValue
     private Integer id;
 
-    //'�������'
-
-    // @Pattern(regexp = "[�-��-�]")
-    @NotBlank (message="Vvedite familiu")
+    //'Фамилия'
+    @NotBlank (message="Введите фамилию")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
     @Column(name = "LASTNAME")
     private String lastName;
 
-    //'���'
-    @NotBlank (message="Vvedite name")
+    //'Имя'
+    @NotBlank (message="Введите имя")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
     @Column(name = "FIRSTNAME")
     private String firstName;
 
-    //'��������'
-    @NotBlank (message = "Vvedite otchestvo")
-//    @NotBlank (message="������� ��������")
+    //'Отчество'
+    @NotBlank (message = "Введите отчество")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
     @Column(name = "SECONDNAME")
     private String secondName;
 
-    /*
-    //'������'
+
+    //'Звание'
+    @NotBlank (message = "Введите звание")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
     @Column(name = "RANK")
     private String rank ;
 
-    //'���� ��������'
+    //'Дата рождения'
+    @NotNull(message = "Введите дату")
+   // @DateTimeFormat(style = "S-")
     @Column(name = "BIRTHDAY")
-    private Date birthday;
+    private Date birthday = new java.util.Date(new java.util.Date().getTime());
 
-    //'����� ��������'
+    //'Место рождения'
+    @NotBlank (message = "Введите место")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
     @Column(name = "PLACEOFBORN")
     private String placeOfBorn;
 
-    //'�����������'
+    //'Образование'
+    @NotBlank (message = "Введите оюразование")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
     @Column(name = "EDUCATION")
     private String education;
 
-    //'�������'
+    //'Окончил'
+
     @Column(name = "GRADUATED")
     private String graduated;
 
-    //'�������������'
+    //'Специальность'
     @Column(name = "SPECIALITY")
     private String speciality;
 
-*/
+
     // Getters and setters
-/*
+
     public String getSpeciality() {
         return speciality;
     }
@@ -68,7 +82,7 @@ public class Personal {
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
     }
-*/
+
     public Integer getId() {
         return id;
     }
@@ -100,7 +114,7 @@ public class Personal {
     public void setSecondName(String secondName) {
         this.secondName = secondName;
     }
-/*
+
     public String getRank() {
         return rank;
     }
@@ -140,5 +154,5 @@ public class Personal {
     public void setGraduated(String graduated) {
         this.graduated = graduated;
     }
-*/
+
 }
