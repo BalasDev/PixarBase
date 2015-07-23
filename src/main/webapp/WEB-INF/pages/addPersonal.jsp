@@ -17,8 +17,8 @@
 
     <table>
         <tr>
-            <td>Фамилия </td>
-            <td><form:input path="lastName"/> <form:errors path="lastName" cssStyle="color: red"  /></td>
+            <td >Фамилия </td>
+            <td><form:input path="lastName" /> <form:errors path="lastName"  cssStyle="color: red"  /></td>
         </tr>
         <tr>
             <td>Имя</td>
@@ -27,6 +27,14 @@
         <tr>
             <td>Отчество</td>
             <td><form:input path="secondName"/> <form:errors path="secondName" cssStyle="color: red"/></td>
+        </tr>
+        <tr>
+            <td>Звание</td>
+            <td><form:input path="rank"/> <form:errors path="rank" cssStyle="color: red"/></td>
+        </tr>
+        <tr>
+            <td>День рождения</td>
+            <td><form:input type="date" path="birthday"/> <form:errors  path="birthday" cssStyle="color: red"/></td>
         </tr>
         <tr>
             <td><input type="submit" value="Родить мента"/></td>
