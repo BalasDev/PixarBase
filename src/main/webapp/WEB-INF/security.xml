@@ -11,8 +11,9 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
     <http auto-config="true" use-expressions="false">
         <intercept-url pattern="/" access="ROLE_USER,ROLE_ADMIN" />
         <intercept-url pattern="/adds" access="ROLE_ADMIN" />
-        <form-login  default-target-url="/hello"  />
-        <logout logout-url="/logout" logout-success-url="/" />
+        <form-login  default-target-url="/hello"
+                     login-page="/sing"/>
+        <logout logout-url="/logout" logout-success-url="/"/>
 
         <anonymous username="guest" granted-authority="ROLE_ANONYMOUS" />
         <remember-me />
@@ -27,6 +28,8 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
             </user-service>
         </authentication-provider>
     </authentication-manager>
+
+
 
 </beans:beans>
 
