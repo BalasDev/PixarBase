@@ -22,6 +22,10 @@ public class PersonalController {
         return "hello";
     }
 
+    @RequestMapping("/sing")
+    public String sing() {
+        return "singIn";
+    }
 
     @RequestMapping("/personal")
     public String listContacts(Map<String, Object> map) {
