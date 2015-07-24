@@ -26,6 +26,10 @@ public class PersonalController {
     public String sing() {
         return "singIn";
     }
+    @RequestMapping("/logError")
+    public String logError() {
+        return "logError";
+    }
 
     @RequestMapping("/personal")
     public String listContacts(Map<String, Object> map) {
