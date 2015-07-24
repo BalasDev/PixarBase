@@ -1,8 +1,6 @@
 package by.pixar.uvd.domain;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -49,7 +47,7 @@ public class Personal {
     @NotNull(message = "Введите дату")
    // @DateTimeFormat(style = "S-")
     @Column(name = "BIRTHDAY")
-    private Date birthday = new java.util.Date(new java.util.Date().getTime());
+    private Date birthday;
 
     //'Место рождения'
     @NotBlank (message = "Введите место")
