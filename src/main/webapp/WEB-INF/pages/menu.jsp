@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -6,10 +7,11 @@
   <title>Меню</title>
 
   <link rel="stylesheet" href="webres/css/menu.css" media="screen" type="text/css" />
+  <link rel="stylesheet" href="webres/css/button.css" media="screen" type="text/css" />
 </head>
 <body>
 
-<a href="<c:url value="/logout" />">
+<a href="<c:url value="/logout" />" class="error">
   Выйти
 </a>
 

@@ -53,7 +53,7 @@ public class PersonalController {
             return "/addPersonal";
         }
         personalService.addPersonal(personal);
-        return "hello";
+        return "menu";
     }
 
 

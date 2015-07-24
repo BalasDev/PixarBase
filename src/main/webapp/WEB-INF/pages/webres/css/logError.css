@@ -14,7 +14,7 @@ html {
 
 
 body:after {
-  content: 'Ты не МЕНТ';
+  content: '404 not found';
   font-family: OCR-A;
   font-size: 100px;
   
@@ -32,7 +32,7 @@ body:after {
           animation: noise-1 .2s linear infinite;
 }
 body:before {
-  content: 'Ты не МЕНТ';
+  content: '404 not found';
   font-family: OCR-A;
   font-size: 100px;
   
