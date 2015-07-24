@@ -13,36 +13,42 @@
   Выйти
 </a>
 
-<%--<security:authorize url="/adds">--%>
-  <%--<spring:url value="/adds" var="adds"/>--%>
 
 <div class="container">
+
+
   <nav>
     <ul class="mcd-menu">
-      <li>
-        <a href="/adds">
-          <i class="fa fa-home"></i>
+      <security:authorize url="/adds">
+        <spring:url value="/adds" var="adds"/>
+     <li>
+        <a href="${adds}">
           <strong>Добавить</strong>
           <small>добавить новую запись</small>
         </a>
       </li>
       <li>
-        <a href="" class="active">
-          <i class="fa fa-edit"></i>
+        <a href="">
           <strong>Редактировать</strong>
           <small>редактировать запись</small>
         </a>
       </li>
       <li>
         <a href="">
-          <i class="fa fa-gift"></i>
           <strong>Удалить</strong>
           <small>удалить запись</small>
         </a>
       </li>
+      </security:authorize>
+      <li>
+        <a href="/personal">
+          <strong>Просмотр</strong>
+          <small>просмотреть записи</small>
+        </a>
+      </li>
+
       <li>
         <a href="">
-          <i class="fa fa-globe"></i>
           <strong>Поиск</strong>
           <small>поиск по записям</small>
         </a>
