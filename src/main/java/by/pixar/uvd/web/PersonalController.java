@@ -19,13 +19,14 @@ public class PersonalController {
 
     @RequestMapping("/")
     public String home() {
-        return "hello";
+        return "menu";
     }
 
     @RequestMapping("/sing")
     public String sing() {
         return "singIn";
     }
+
     @RequestMapping("/logError")
     public String logError() {
         return "logError";
