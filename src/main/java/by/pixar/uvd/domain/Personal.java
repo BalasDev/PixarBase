@@ -36,7 +36,7 @@ public class Personal {
     @Column(name = "SECONDNAME")
     private String secondName;
 
-
+/*
     //'Звание'
     @NotBlank (message = "Введите звание")
     @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
@@ -70,17 +70,17 @@ public class Personal {
     @Column(name = "SPECIALITY")
     private String speciality;
 
-
+*/
     // Getters and setters
 
-    public String getSpeciality() {
+   /* public String getSpeciality() {
         return speciality;
     }
 
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
     }
-
+*/
     public Integer getId() {
         return id;
     }
@@ -113,7 +113,7 @@ public class Personal {
         this.secondName = secondName;
     }
 
-    public String getRank() {
+   /* public String getRank() {
         return rank;
     }
 
@@ -151,6 +151,6 @@ public class Personal {
 
     public void setGraduated(String graduated) {
         this.graduated = graduated;
-    }
+    }*/
 
 }

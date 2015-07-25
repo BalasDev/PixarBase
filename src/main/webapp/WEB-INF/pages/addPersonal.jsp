@@ -8,49 +8,77 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="webres/css/input.css"  rel="stylesheet">
-    <link href="webres/css/button.css"  rel="stylesheet">
+    <link href="webres/css/input.css" rel="stylesheet">
+    <link href="webres/css/errors.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
+    <link href="webres/css/style.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
 
-<h2>Добавить мента</h2>
-<form:form method="post" action="add" commandName="personal">
+<div class="container">
+    <div class="row">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
+                        <span class="sr-only">Открыть навигацию</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand" ><i class="fa fa-home pull-left fa-border"></i></a>
+                </div>
+                <div class="collapse navbar-collapse" id="responsive-menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/adds">Добавить</a></li>
+                        <li><a href="#">Редактировать</a></li>
+                        <li><a href="#">Удалить</a></li>
+                        <li><a href="#">Поиск</a></li>
+                    </ul>
+                    <form action="" class="navbar-form navbar-right">
+                        <a href="<c:url value="/logout" />" class="btn btn-danger form-control">Выйти</a>
+                    </form>
 
-    <table>
-        <tr>
-            <td >Фамилия </td>
-            <td><form:input path="lastName" /> <form:errors path="lastName"  cssClass="error"  /></td>
-        </tr>
-        <tr>
-            <td>Имя</td>
-            <td><form:input path="firstName"/> <form:errors path="firstName" cssClass="error"/></td>
-        </tr>
-        <tr>
-            <td>Отчество</td>
-            <td><form:input path="secondName"/> <form:errors path="secondName" cssClass="error"/></td>
-        </tr>
-        <tr>
-            <td>Звание</td>
-            <td><form:input type="text" list="zvanie" path="rank"/> <form:errors path="rank" cssClass="error"/>
-                <datalist id="zvanie">
-                    <option>шестерка</option>
-                    <option>подстилка</option>
-                    <option>жопализ</option>
-                    <option>Пихарь</option>
-                    <!-- и остальные -->
-                </datalist>
+                </div>
 
-            </td>
-        </tr>
-        <tr>
-            <td>День рождения</td>
-            <td><form:input type="date" path="birthday"/> <form:errors  path="birthday" cssClass="error"/></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Родить мента"/></td>
-        </tr>
-    </table>
-</form:form>
+            </div>
+        </div>
+    </div>
+<%--Станица--%>
+    <form:form method="post" action="add" commandName="personal">
 
+        <table>
+            <tr>
+                <td>Фамилия</td>
+                <td><form:input path="lastName"/> <form:errors path="lastName" cssClass="error"/></td>
+            </tr>
+            <tr>
+                <td>Имя</td>
+                <td><form:input path="firstName"/> <form:errors path="firstName" cssClass="error"/></td>
+            </tr>
+            <tr>
+                <td>Отчество</td>
+                <td><form:input path="secondName"/> <form:errors path="secondName" cssClass="error"/></td>
+            </tr>
+
+        </table>
+        <br>
+        <button class="btn btn-primary" type="submit">Добавить</button>
+    </form:form>
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="webres/jquery/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -16,9 +16,16 @@ public class PersonalController {
     @Autowired
     PersonalService personalService;
 
+    @RequestMapping("/menu")
+    public String menu (Map<String, Object> map) {
+        map.put("personalList", personalService.listPersonal());
+        return "menu";
+    }
+
 
     @RequestMapping("/")
-    public String home() {
+    public String home(Map<String, Object> map) {
+        map.put("personalList", personalService.listPersonal());
         return "menu";
     }
 
@@ -48,11 +55,12 @@ public class PersonalController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addPersonal(@Valid Personal personal,
-                              BindingResult result) {
+                              BindingResult result, Map<String, Object> map) {
         if (result.hasErrors()) {
             return "/addPersonal";
         }
         personalService.addPersonal(personal);
+        map.put("personalList", personalService.listPersonal());
         return "menu";
     }
 
