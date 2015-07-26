@@ -3,6 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -63,12 +64,14 @@
                 <td>${personality.lastName}</td>
                 <td>${personality.firstName}</td>
                 <td>${personality.secondName}</td>
-                <td>
-                    <div class="btn-group">
-                        <a href="#"><i class="fa fa-edit" style="color: #28a4c9"></i> </a>
-                        <a href="delete/${personality.id}"><i class="fa fa-remove" style="color: red"></i> </a>
-                    </div>
-                </td>
+                <security:authorize url="/delete/">
+                    <td>
+                        <div class="btn-group">
+                            <a href="#"><i class="fa fa-edit" style="color: #28a4c9"></i> </a>
+                            <a href="delete/${personality.id}"><i class="fa fa-remove" style="color: red"></i> </a>
+                        </div>
+                    </td>
+                </security:authorize>
             </tr>
         </c:forEach>
     </table>
