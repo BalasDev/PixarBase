@@ -52,6 +52,7 @@
   <table class="table">
     <thead>
     <tr>
+      <th> </th>>
       <th>Фамилия</th>
       <th>Имя</th>
       <th>Отчество</th>
@@ -60,6 +61,7 @@
 
     <c:forEach items="${personalList}" var="personality">
       <tr>
+        <td><input type="checkbox" id="ch1"></td>
         <td>${personality.lastName}</td>
         <td>${personality.firstName}</td>
         <td>${personality.secondName}</td>

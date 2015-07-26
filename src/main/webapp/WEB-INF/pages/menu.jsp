@@ -37,7 +37,7 @@
           <ul class="nav navbar-nav">
             <li><a href="/adds">Добавить</a></li>
             <li><a href="#">Редактировать</a></li>
-            <li><a href="#">Удалить</a></li>
+            <li><a href="delete/${personality.id}">Удалить</a></li>
             <li><a href="#">Поиск</a></li>
           </ul>
           <form action="" class="navbar-form navbar-right">
@@ -52,17 +52,21 @@
   <table class="table">
     <thead>
     <tr>
+    <%--  <th></th>--%>
       <th>Фамилия</th>
       <th>Имя</th>
       <th>Отчество</th>
+      <th></th>
     </tr>
     </thead>
 
     <c:forEach items="${personalList}" var="personality">
       <tr>
+       <%-- <td><input type="checkbox" id="${personality.id}"></td>--%>
         <td>${personality.lastName}</td>
         <td>${personality.firstName}</td>
         <td>${personality.secondName}</td>
+        <td><a href="delete/${personality.id}">Удалить мента</a></td>
 
       </tr>
     </c:forEach>

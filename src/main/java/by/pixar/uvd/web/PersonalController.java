@@ -5,6 +5,7 @@ import by.pixar.uvd.service.PersonalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -63,6 +64,13 @@ public class PersonalController {
         map.put("personalList", personalService.listPersonal());
         return "menu";
     }
+// delete
+@RequestMapping("/delete/{id}")
+public String deleteContact(@PathVariable("id") Integer id,Map<String, Object> map) {
 
+    personalService.deletePersonal(id);
+    map.put("personalList", personalService.listPersonal());
+    return "menu";
+}
 
 }
