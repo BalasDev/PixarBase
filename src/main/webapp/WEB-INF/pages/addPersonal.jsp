@@ -39,8 +39,6 @@
                 <div class="collapse navbar-collapse" id="responsive-menu">
                     <ul class="nav navbar-nav">
                         <li><a href="/adds">Добавить</a></li>
-                        <li><a href="#">Редактировать</a></li>
-                        <li><a href="#">Удалить</a></li>
                         <li><a href="#">Поиск</a></li>
                     </ul>
                     <form action="" class="navbar-form navbar-right">
