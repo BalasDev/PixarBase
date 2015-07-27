@@ -65,7 +65,7 @@ public class PersonalController {
         return "menu";
     }
 // delete
-@RequestMapping("/delete/{id}")
+@RequestMapping(value="/delete/{id}", produces = "text/html", method = RequestMethod.GET)
 public String deleteContact(@PathVariable("id") Integer id,Map<String, Object> map) {
 
     personalService.deletePersonal(id);
