@@ -11,7 +11,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
     <http auto-config="true" use-expressions="false">
         <intercept-url pattern="/" access="ROLE_USER,ROLE_ADMIN" />
         <intercept-url pattern="/delete/" access="ROLE_ADMIN" />
-        <form-login  default-target-url="/menu"
+        <form-login  default-target-url="/"
                      authentication-failure-url="/logError"
                      login-page="/sing"/>
         <logout logout-url="/logout" logout-success-url="/"/>
