@@ -17,13 +17,6 @@ public class PersonalController {
     @Autowired
     PersonalService personalService;
 
-    @RequestMapping("/menu")
-    public String menu (Map<String, Object> map) {
-        map.put("personalList", personalService.listPersonal());
-        return "menu";
-    }
-
-
     @RequestMapping("/")
     public String home(Map<String, Object> map) {
         map.put("personalList", personalService.listPersonal());
@@ -56,21 +49,19 @@ public class PersonalController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addPersonal(@Valid Personal personal,
-                              BindingResult result, Map<String, Object> map) {
+                              BindingResult result) {
         if (result.hasErrors()) {
             return "/addPersonal";
         }
         personalService.addPersonal(personal);
-        map.put("personalList", personalService.listPersonal());
-        return "menu";
+        return "redirect:/";
     }
-// delete
-@RequestMapping(value="/delete/{id}", produces = "text/html", method = RequestMethod.GET)
-public String deleteContact(@PathVariable("id") Integer id,Map<String, Object> map) {
 
-    personalService.deletePersonal(id);
-    map.put("personalList", personalService.listPersonal());
-    return "menu";
-}
+    // delete
+    @RequestMapping(value = "/delete/{id}", produces = "text/html", method = RequestMethod.GET)
+    public String deleteContact(@PathVariable("id") Integer id) {
+        personalService.deletePersonal(id);
+        return "redirect:/";
+    }
 
 }
