@@ -15,6 +15,9 @@ public class PersonalDAOImpl implements PersonalDAO {
 
 
     public void addPersonal(Personal personal) {
+        // Temporary fix
+        personal.setBirthday(personal.getStrBirthday());
+
         sessionFactory.getCurrentSession().save(personal);
     }
 

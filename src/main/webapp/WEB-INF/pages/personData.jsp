@@ -18,8 +18,12 @@
     <td><form:input path="rank"/> <form:errors path="rank" cssClass="error"/></td>
   </tr>
   <tr>
+    <td>Дата рождения</td>
+    <td><input type="text" value="111" /> <form:errors path="strBirthday" cssClass="error"/></td>
+  </tr>
+  <tr>
     <td>Место рождения</td>
-    <td><form:input path="placeOfBorn"/> <form:errors path="placeOfBorn" cssClass="error"/></td>
+    <td><form:input path="placeOfBorn" /> <form:errors path="placeOfBorn" cssClass="error"/></td>birthdate
   </tr>
   <tr>
     <td>Образование</td>

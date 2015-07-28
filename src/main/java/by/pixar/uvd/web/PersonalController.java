@@ -53,6 +53,7 @@ public class PersonalController {
         if (result.hasErrors()) {
             return "/addPersonal";
         }
+
         personalService.addPersonal(personal);
         return "redirect:/";
     }
