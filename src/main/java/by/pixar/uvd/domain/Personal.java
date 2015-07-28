@@ -5,6 +5,9 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -43,12 +46,17 @@ public class Personal {
     @Column(name = "RANK")
     private String rank ;
 
-/*    //'Дата рождения'
-    @NotNull(message = "Введите дату")
+   //'Дата рождения'
+   // @NotNull(message = "Введите дату")
    // @DateTimeFormat(style = "S-")
     @Column(name = "BIRTHDAY")
     private Date birthday;
-*/
+
+    @NotNull(message = "Введите дату")
+    // @DateTimeFormat(style = "S-")
+    @Column(name = "STRBIRTHDAY")
+    private  String strBirthday;
+
     //Место рождения'
     @NotBlank (message = "Введите место")
     @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
@@ -164,15 +172,33 @@ public class Personal {
     public void setRank(String rank) {
         this.rank = rank;
     }
-/*
+
+
     public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public void setBirthday(String date) {
+
+        System.out.println(date);
+        DateFormat dateFormat = new SimpleDateFormat("dd MM yyyy");
+        try {
+            this.birthday =  dateFormat.parse(date);
+            System.out.println(this.birthday);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
-*/
+
+    public String getStrBirthday() {
+        return strBirthday;
+    }
+
+    public void setStrBirthday(String strBirthday) {
+        this.strBirthday = strBirthday;
+    }
+
     public String getPlaceOfBorn() {
         return placeOfBorn;
     }
