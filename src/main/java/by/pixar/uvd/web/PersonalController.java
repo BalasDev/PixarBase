@@ -40,9 +40,17 @@ public class PersonalController {
         return "personal";
     }
 
-    @RequestMapping("/search")
-    public String search() {
+    @RequestMapping(value = "/searchs", method = RequestMethod.GET)
+    public String search(Map<String, Object> map) {
+
+        map.put("personal", new Personal());
         return "search";
+    }
+
+    @RequestMapping(value = "/delete/{field}", produces = "text/html", method = RequestMethod.GET)
+    public String searchContact(@PathVariable() Integer id) {
+        personalService.deletePersonal(id);
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/adds", method = RequestMethod.GET)

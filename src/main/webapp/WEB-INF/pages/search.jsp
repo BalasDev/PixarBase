@@ -15,12 +15,13 @@
           <label class="col-lg-6 col-md-6 control-label" for="categoryId">Категория</label>
 
           <div class="col-lg-6 col-md-6 form-group">
+            <c:set var="personal" value="${personal}"/>
             <select class="form-control" name="categoryId" id="categoryId">
-              <option value="">Все</option>
-              <c:forEach var="category" items="${categorylist}">
-                <option value="${category.id}"> ${category.name} </option>
-              </c:forEach>
+              <option value="${personal.firstName}"> ${personal.firstName.get} </option>
+
+
             </select>
+            <div> <c:out value="${personal.firstName}"/></div>
           </div>
         </div>
         <div class="col-lg-6 col-md-6">

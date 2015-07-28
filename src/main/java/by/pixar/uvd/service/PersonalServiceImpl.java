@@ -29,7 +29,7 @@ public class PersonalServiceImpl implements PersonalService{
        personalDAO.deletePersonal(id);
     }
 
-    @Override
+    @Transactional
     public List<Personal> findPersonal(String field, String var) {
         return personalDAO.findPersonal(field,var);
     }
