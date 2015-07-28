@@ -40,6 +40,10 @@ public class PersonalController {
         return "personal";
     }
 
+    @RequestMapping("/search")
+    public String search() {
+        return "search";
+    }
 
     @RequestMapping(value = "/adds", method = RequestMethod.GET)
     public String add(Map<String, Object> map) {

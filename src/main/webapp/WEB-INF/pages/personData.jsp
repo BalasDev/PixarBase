@@ -19,11 +19,11 @@
   </tr>
   <tr>
     <td>Дата рождения</td>
-    <td><input type="text" value="111" /> <form:errors path="strBirthday" cssClass="error"/></td>
+    <td><form:input path="strBirthday" placeholder="10 10 2014" /> <form:errors path="strBirthday" cssClass="error"/></td>
   </tr>
   <tr>
     <td>Место рождения</td>
-    <td><form:input path="placeOfBorn" /> <form:errors path="placeOfBorn" cssClass="error"/></td>birthdate
+    <td><form:input path="placeOfBorn" /> <form:errors path="placeOfBorn" cssClass="error"/></td>
   </tr>
   <tr>
     <td>Образование</td>

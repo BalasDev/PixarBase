@@ -52,7 +52,7 @@ public class Personal {
     @Column(name = "BIRTHDAY")
     private Date birthday;
 
-    @NotNull(message = "Введите дату")
+    @NotBlank(message = "Введите дату")
     // @DateTimeFormat(style = "S-")
     @Column(name = "STRBIRTHDAY")
     private  String strBirthday;

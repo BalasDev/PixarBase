@@ -20,34 +20,6 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="row">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
-            <span class="sr-only">Открыть навигацию</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="/" class="navbar-brand"><i class="fa fa-home pull-left fa-border"></i></a>
-        </div>
-        <div class="collapse navbar-collapse" id="responsive-menu">
-          <ul class="nav navbar-nav">
-            <li><a href="/adds">Добавить</a></li>
-            <li><a href="#">Редактировать</a></li>
-            <li><a href="#">Удалить</a></li>
-            <li><a href="#">Поиск</a></li>
-          </ul>
-          <form action="" class="navbar-form navbar-right">
-            <a href="<c:url value="/logout" />" class="btn btn-danger form-control">Выйти</a>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <h1>Ментозавры</h1>
   <table class="table">
     <thead>
@@ -70,7 +42,7 @@
     </c:forEach>
   </table>
 
-</div>
+
 
 
 

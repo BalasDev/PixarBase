@@ -37,7 +37,7 @@
         <div class="collapse navbar-collapse" id="responsive-menu">
           <ul class="nav navbar-nav">
             <li><a href="/adds">Добавить</a></li>
-            <li><a href="#">Поиск</a></li>
+            <li><a href="/search">Поиск</a></li>
           </ul>
           <form action="" class="navbar-form navbar-right">
             <a href="<c:url value="/logout" />" class="btn btn-danger form-control">Выйти</a>
