@@ -31,7 +31,7 @@
         <c:forEach items="${personalList}" var="personality">
             <tr>
                 <td>
-                    <div style="cursor: pointer" data-toggle="modal" data-target="#info_${personality.id}">${personality.lastName}</div>
+                    <div href="/adds" style="cursor: pointer" data-toggle="modal" data-target="#info_${personality.id}">${personality.lastName}</div>
                 </td>
                 <td>${personality.firstName}</td>
                 <td>${personality.secondName}</td>
@@ -92,6 +92,7 @@
                             </div>
 
                             <div class="modal-body">
+
                                 <div class="form-group">
                                     <label>Фамилия</label>
                                     <input disabled value="${personality.lastName}">
