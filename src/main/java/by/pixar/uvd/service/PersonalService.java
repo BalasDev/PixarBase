@@ -11,4 +11,6 @@ public interface PersonalService {
     public List<Personal> listPersonal();
 
     public void deletePersonal(Integer id);
+
+    public List<Personal> findPersonal(String field, String var);
 }

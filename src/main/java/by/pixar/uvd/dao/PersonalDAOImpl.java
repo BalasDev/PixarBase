@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public class PersonalDAOImpl implements PersonalDAO {
 
+
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -35,4 +36,11 @@ public class PersonalDAOImpl implements PersonalDAO {
 
         }
     }
+
+    @Override
+    public List<Personal> findPersonal(String field, String var) {
+        return sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " = " +var).list();
+    }
+
+
 }

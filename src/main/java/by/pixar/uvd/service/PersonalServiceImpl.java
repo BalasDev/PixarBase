@@ -28,4 +28,9 @@ public class PersonalServiceImpl implements PersonalService{
     public void deletePersonal(Integer id) {
        personalDAO.deletePersonal(id);
     }
+
+    @Override
+    public List<Personal> findPersonal(String field, String var) {
+        return personalDAO.findPersonal(field,var);
+    }
 }
