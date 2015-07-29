@@ -94,8 +94,8 @@
                             <div class="modal-body">
 
                                 <div class="form-group">
-                                    <label>Фамилия</label>
-                                    <input disabled value="${personality.lastName}">
+                                    <label class="col-lg-4">Фамилия</label>
+                                    <input class="col-lg-8" disabled value="${personality.lastName}">
                                 </div>
 
                                 <div class="form-group">

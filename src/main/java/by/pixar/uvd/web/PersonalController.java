@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.Map;
@@ -45,6 +46,14 @@ public class PersonalController {
 
         map.put("personal", new Personal());
         return "search";
+    }
+    @RequestMapping(value = "/searchUser", method = RequestMethod.POST)
+    public String  searchUser(Map<String, Object> map, @RequestParam("categoryId") String category,@RequestParam("searching") String searching){
+
+
+        map.put("personalList", personalService.findPersonal(category,searching));
+
+        return "menu";
     }
 
     @RequestMapping(value = "/delete/{field}", produces = "text/html", method = RequestMethod.GET)

@@ -39,7 +39,7 @@ public class PersonalDAOImpl implements PersonalDAO {
 
     @Override
     public List<Personal> findPersonal(String field, String var) {
-        return sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " = " +var).list();
+        return sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " = " +"'"+var+"'").list();
     }
 
 
