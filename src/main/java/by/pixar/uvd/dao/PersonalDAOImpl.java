@@ -37,9 +37,18 @@ public class PersonalDAOImpl implements PersonalDAO {
         }
     }
 
-    @Override
+
     public List<Personal> findPersonal(String field, String var) {
         return sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " = " +"'"+var+"'").list();
+    }
+
+
+    public void editPersonal(Personal personal) {
+        Personal person = (Personal) sessionFactory.getCurrentSession().load(Personal.class, personal.getId());
+
+        person.setFirstName(personal.getFirstName());
+
+        sessionFactory.getCurrentSession().update(person);
     }
 
 

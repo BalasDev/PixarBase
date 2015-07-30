@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page pageEncoding="UTF-8" isELIgnored="false" %>
 <link href="webres/css/input.css" rel="stylesheet">
 <link href="webres/css/errors.css" rel="stylesheet">
@@ -96,38 +97,39 @@
                             </div>
 
                             <div class="modal-body">
+                                <fieldset>
 
-                                <label class="col-lg-4 text-right">Фамилия</label>
-                                <input class="col-lg-8" disabled value="${personality.lastName}">
+                                    <label class="col-lg-4 text-right">Фамилия</label>
+                                    <input type="text" class="col-lg-8" disabled value="${personality.lastName}">
 
-                                <label class="col-lg-4 text-right">Имя</label>
-                                <input class="col-lg-8" disabled value="${personality.firstName}">
+                                    <label class="col-lg-4 text-right">Имя</label>
+                                    <input type="text" class="col-lg-8" disabled value="${personality.firstName}">
 
-                                <label class="col-lg-4 text-right">Отчество</label>
-                                <input class="col-lg-8" disabled value="${personality.secondName}">
+                                    <label class="col-lg-4 text-right">Отчество</label>
+                                    <input type="text" class="col-lg-8" disabled value="${personality.secondName}">
 
-                                <label class="col-lg-4 text-right">Звание</label>
-                                <input class="col-lg-8" disabled value="${personality.rank}">
+                                    <label class="col-lg-4 text-right">Звание</label>
+                                    <input type="text" class="col-lg-8" disabled value="${personality.rank}">
 
-                                <label class="col-lg-4 text-right">Место рождения</label>
-                                <input class="col-lg-8" disabled value="${personality.placeOfBorn}">
+                                    <label class="col-lg-4 text-right">Место рождения</label>
+                                    <input type="text" class="col-lg-8" disabled value="${personality.placeOfBorn}">
 
-                                <label class="col-lg-4 text-right">Образование</label>
-                                <input class="col-lg-8" disabled value="${personality.education}">
+                                    <label class="col-lg-4 text-right">Образование</label>
+                                    <input type="text" class="col-lg-8" disabled value="${personality.education}">
 
-                                <label class="col-lg-4 text-right">Окончил</label>
-                                <input class="col-lg-8" disabled value="${personality.graduated}">
+                                    <label class="col-lg-4 text-right">Окончил</label>
+                                    <input type="text" class="col-lg-8" disabled value="${personality.graduated}">
 
-                                <label class="col-lg-4 text-right">Специальность</label>
-                                <input class="col-lg-8" disabled value="${personality.speciality}">
+                                    <label class="col-lg-4 text-right">Специальность</label>
+                                    <input type="text" class="col-lg-8" disabled value="${personality.speciality}">
 
-                                <label class="col-lg-4 text-right">Учёная степень</label>
-                                <input class="col-lg-8" disabled value="${personality.degree}">
+                                    <label class="col-lg-4 text-right">Учёная степень</label>
+                                    <input type="text" class="col-lg-8" disabled value="${personality.degree}">
 
-                                <label class="col-lg-4 text-right">Иностранные языки</label>
-                                <input class="col-lg-8" disabled value="${personality.foreigLang}">
+                                    <label class="col-lg-4 text-right">Иностранные языки</label>
+                                    <input type="text" class="col-lg-8" disabled value="${personality.foreigLang}">
 
-                                &nbsp;
+                                </fieldset>
                             </div>
 
                             <div class="modal-footer">
@@ -145,56 +147,69 @@
                 <div class="modal fade" id="edit_${personality.id}">
                     <div class="modal-dialog">
                         <div class="modal-content">
+                            <form:form action="/edit" method="POST" modelAttribute="personal">
+                                <div class="modal-header">
+                                    <button class="close" type="button" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Редактирование информация</h4>
+                                </div>
 
-                            <div class="modal-header">
-                                <button class="close" type="button" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Редактирование информация</h4>
-                            </div>
+                                <div class="modal-body">
+                                    <fieldset>
 
-                            <div class="modal-body">
+                                        <label class="col-lg-4 text-right control-label">Фамилия</label>
+                                        <form:input class="col-lg-8" type="text"
+                                                    path="lastName"
+                                                    value="${personality.lastName}"/>
 
-                                <label class="col-lg-4 text-right">Фамилия</label>
-                                <input class="col-lg-8" value="${personality.lastName}" path="lastName">
+                                        <label class="col-lg-4 text-right  control-label">Имя</label>
+                                        <form:input class="col-lg-8" type="text" path="firstName"
+                                                    value="${personality.firstName}"/>
 
-                                <label class="col-lg-4 text-right">Имя</label>
-                                <input class="col-lg-8" path="firstName" value="${personality.lastName}">
+                                        <label class="col-lg-4 text-right control-label">Отчество</label>
+                                        <form:input class="col-lg-8" type="text" path="secondName"
+                                                    value="${personality.secondName}"/>
 
-                                <label class="col-lg-4 text-right">Отчество</label>
-                                <input class="col-lg-8" path="secondName" value="${personality.secondName}">
+                                        <label class="col-lg-4 text-right control-label">Звание</label>
+                                        <form:input class="col-lg-8" type="text" path="rank"
+                                                    value="${personality.rank}"/>
 
-                                <label class="col-lg-4 text-right">Звание</label>
-                                <input class="col-lg-8" path="rank" value="${personality.rank}">
+                                        <label class="col-lg-4 text-right control-label">Место рождения</label>
+                                        <form:input class="col-lg-8" type="text" path="placeOfBorn"
+                                                    value="${personality.placeOfBorn}"/>
 
-                                <label class="col-lg-4 text-right">Место рождения</label>
-                                <input class="col-lg-8" path="placeOfBorn" value="${personality.placeOfBorn}">
+                                        <label class="col-lg-4 text-right control-label">Образование</label>
+                                        <form:input class="col-lg-8" type="text" path="education"
+                                                    value="${personality.education}"/>
 
-                                <label class="col-lg-4 text-right">Образование</label>
-                                <input class="col-lg-8" path="education" value="${personality.education}">
+                                        <label class="col-lg-4 text-right control-label">Окончил</label>
+                                        <form:input class="col-lg-8" type="text" path="graduated"
+                                                    value="${personality.graduated}"/>
 
-                                <label class="col-lg-4 text-right">Окончил</label>
-                                <input class="col-lg-8" path="graduated" value="${personality.graduated}">
+                                        <label class="col-lg-4 text-right control-label">Специальность</label>
+                                        <form:input class="col-lg-8" type="text" path="speciality"
+                                                    value="${personality.speciality}"/>
 
-                                <label class="col-lg-4 text-right">Специальность</label>
-                                <input class="col-lg-8" path="speciality" value="${personality.speciality}">
+                                        <label class="col-lg-4 text-right control-label">Учёная степень</label>
+                                        <form:input class="col-lg-8" type="text" path="degree"
+                                                    value="${personality.degree}"/>
 
-                                <label class="col-lg-4 text-right">Учёная степень</label>
-                                <input class="col-lg-8" path="degree" value="${personality.degree}">
+                                        <label class="col-lg-4 text-right control-label">Иностранные языки</label>
+                                        <form:input class="col-lg-8" type="text" path="foreigLang"
+                                                    value="${personality.foreigLang}"/>
 
-                                <label class="col-lg-4 text-right">Иностранные языки</label>
-                                <input class="col-lg-8" path="foreigLang" value="${personality.foreigLang}">
-                                &nbsp;
-                            </div>
+                                    </fieldset>
+                                </div>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary"
-                                        onclick="location.href='<%=request.getContextPath()%>/edit/${personality.id}'">
-                                    Да
-                                </button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">
-                                    Отмена
-                                </button>
-                            </div>
-
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary"
+                                            onclick="location.href='<%=request.getContextPath()%>/edit/${personality.id}'">
+                                        Да
+                                    </button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        Отмена
+                                    </button>
+                                </div>
+                            </form:form>
                         </div>
                     </div>
                 </div>

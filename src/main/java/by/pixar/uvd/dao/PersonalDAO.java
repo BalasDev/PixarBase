@@ -14,4 +14,6 @@ public interface PersonalDAO {
 
     public List<Personal> findPersonal(String field, String var);
 
+    public void editPersonal(Personal personal);
+
 }

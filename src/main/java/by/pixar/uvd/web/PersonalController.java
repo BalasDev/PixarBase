@@ -5,10 +5,7 @@ import by.pixar.uvd.service.PersonalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Map;
@@ -21,6 +18,7 @@ public class PersonalController {
     @RequestMapping("/")
     public String home(Map<String, Object> map) {
         map.put("personalList", personalService.listPersonal());
+        map.put("personal", new Personal());
         return "menu";
     }
 
@@ -85,6 +83,11 @@ public class PersonalController {
         personalService.deletePersonal(id);
         return "redirect:/";
     }
-
+    @RequestMapping(value = "/edit",  method = RequestMethod.POST)
+    public String editContact(@ModelAttribute("personal")  Personal personal,
+                              BindingResult result) {
+       personalService.editPersonal(personal);
+        return "redirect:/";
+    }
 
 }

@@ -33,4 +33,9 @@ public class PersonalServiceImpl implements PersonalService{
     public List<Personal> findPersonal(String field, String var) {
         return personalDAO.findPersonal(field,var);
     }
+
+    @Transactional
+    public void editPersonal(Personal personal) {
+        personalDAO.editPersonal(personal);
+    }
 }
