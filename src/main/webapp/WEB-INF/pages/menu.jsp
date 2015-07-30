@@ -31,7 +31,8 @@
         <c:forEach items="${personalList}" var="personality">
             <tr>
                 <td>
-                    <div style="cursor: pointer" data-toggle="modal" data-target="#info_${personality.id}">${personality.lastName}</div>
+                    <div style="cursor: pointer" data-toggle="modal"
+                         data-target="#info_${personality.id}">${personality.lastName}</div>
                 </td>
                 <td>${personality.firstName}</td>
                 <td>${personality.secondName}</td>
@@ -49,9 +50,11 @@
                 <security:authorize url="/delete/">
                     <td>
                         <div class="btn-group">
-                            <a href="#"><i class="fa fa-edit" style="color: #28a4c9"></i> </a>
-                            <a style="cursor: pointer" data-toggle="modal" data-target="#delete_${personality.id}"><i class="fa fa-remove"
-                                                                                                    style="color: red"></i>
+                            <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}"><i
+                                    class="fa fa-edit" style="color: #28a4c9"></i> </a>
+                            <a style="cursor: pointer" data-toggle="modal" data-target="#delete_${personality.id}"><i
+                                    class="fa fa-remove"
+                                    style="color: red"></i>
                             </a>
                         </div>
                     </td>
@@ -65,7 +68,8 @@
                                 <h4 class="modal-title">Подтверждение удаления</h4>
                             </div>
                             <div class="modal-body">
-                                <p class="text-center">Удаление записи пользователя <strong>${personality.lastName}</strong>
+                                <p class="text-center">Удаление записи пользователя
+                                    <strong>${personality.lastName}</strong>
                                 </p>
                             </div>
                             <div class="modal-footer">
@@ -93,57 +97,37 @@
 
                             <div class="modal-body">
 
-                                <div class="form-group">
-                                    <label class="col-lg-4">Фамилия</label>
-                                    <input class="col-lg-8" disabled value="${personality.lastName}">
-                                </div>
+                                <label class="col-lg-4 text-right">Фамилия</label>
+                                <input class="col-lg-8" disabled value="${personality.lastName}">
 
-                                <div class="form-group">
-                                    <label>Имя</label>
-                                    <input disabled value="${personality.firstName}">
-                                </div>
+                                <label class="col-lg-4 text-right">Имя</label>
+                                <input class="col-lg-8" disabled value="${personality.firstName}">
 
-                                <div class="form-group">
-                                    <label>Отчество</label>
-                                    <input disabled value="${personality.secondName}">
-                                </div>
+                                <label class="col-lg-4 text-right">Отчество</label>
+                                <input class="col-lg-8" disabled value="${personality.secondName}">
 
-                                <div class="form-group">
-                                    <label>Звание</label>
-                                    <input disabled value="${personality.rank}">
-                                </div>
+                                <label class="col-lg-4 text-right">Звание</label>
+                                <input class="col-lg-8" disabled value="${personality.rank}">
 
-                                <div class="form-group">
-                                    <label>Место рождения</label>
-                                    <input disabled value="${personality.placeOfBorn}">
-                                </div>
+                                <label class="col-lg-4 text-right">Место рождения</label>
+                                <input class="col-lg-8" disabled value="${personality.placeOfBorn}">
 
-                                <div class="form-group">
-                                    <label>Образование</label>
-                                    <input disabled value="${personality.education}">
-                                </div>
+                                <label class="col-lg-4 text-right">Образование</label>
+                                <input class="col-lg-8" disabled value="${personality.education}">
 
-                                <div class="form-group">
-                                    <label>Окончил</label>
-                                    <input disabled value="${personality.graduated}">
-                                </div>
+                                <label class="col-lg-4 text-right">Окончил</label>
+                                <input class="col-lg-8" disabled value="${personality.graduated}">
 
-                                <div class="form-group">
-                                    <label>Специальность</label>
-                                    <input disabled value="${personality.speciality}">
-                                </div>
+                                <label class="col-lg-4 text-right">Специальность</label>
+                                <input class="col-lg-8" disabled value="${personality.speciality}">
 
-                                <div class="form-group">
-                                    <label>Учёная степень</label>
-                                    <input disabled value="${personality.degree}">
-                                </div>
+                                <label class="col-lg-4 text-right">Учёная степень</label>
+                                <input class="col-lg-8" disabled value="${personality.degree}">
 
-                                <div class="form-group">
-                                    <label>Иностранные языки</label>
-                                    <input disabled value="${personality.foreigLang}">
-                                </div>
+                                <label class="col-lg-4 text-right">Иностранные языки</label>
+                                <input class="col-lg-8" disabled value="${personality.foreigLang}">
 
-
+                                &nbsp;
                             </div>
 
                             <div class="modal-footer">
@@ -155,10 +139,66 @@
                         </div>
                     </div>
                 </div>
+
+
+                    <%--modal Edit Person--%>
+                <div class="modal fade" id="edit_${personality.id}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <button class="close" type="button" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Редактирование информация</h4>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <label class="col-lg-4 text-right">Фамилия</label>
+                                <input class="col-lg-8" value="${personality.lastName}" path="lastName">
+
+                                <label class="col-lg-4 text-right">Имя</label>
+                                <input class="col-lg-8" path="firstName" value="${personality.lastName}">
+
+                                <label class="col-lg-4 text-right">Отчество</label>
+                                <input class="col-lg-8" path="secondName" value="${personality.secondName}">
+
+                                <label class="col-lg-4 text-right">Звание</label>
+                                <input class="col-lg-8" path="rank" value="${personality.rank}">
+
+                                <label class="col-lg-4 text-right">Место рождения</label>
+                                <input class="col-lg-8" path="placeOfBorn" value="${personality.placeOfBorn}">
+
+                                <label class="col-lg-4 text-right">Образование</label>
+                                <input class="col-lg-8" path="education" value="${personality.education}">
+
+                                <label class="col-lg-4 text-right">Окончил</label>
+                                <input class="col-lg-8" path="graduated" value="${personality.graduated}">
+
+                                <label class="col-lg-4 text-right">Специальность</label>
+                                <input class="col-lg-8" path="speciality" value="${personality.speciality}">
+
+                                <label class="col-lg-4 text-right">Учёная степень</label>
+                                <input class="col-lg-8" path="degree" value="${personality.degree}">
+
+                                <label class="col-lg-4 text-right">Иностранные языки</label>
+                                <input class="col-lg-8" path="foreigLang" value="${personality.foreigLang}">
+                                &nbsp;
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary"
+                                        onclick="location.href='<%=request.getContextPath()%>/edit/${personality.id}'">
+                                    Да
+                                </button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                    Отмена
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </tr>
-
-
-
 
 
         </c:forEach>
