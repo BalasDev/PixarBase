@@ -155,10 +155,9 @@
 
                                 <div class="modal-body">
                                     <fieldset>
-
+                                         <form:hidden path="id" value="${personality.id}"/>
                                         <label class="col-lg-4 text-right control-label">Фамилия</label>
-                                        <form:input class="col-lg-8" type="text"
-                                                    path="lastName"
+                                        <form:input class="col-lg-8" type="text"  path="lastName"
                                                     value="${personality.lastName}"/>
 
                                         <label class="col-lg-4 text-right  control-label">Имя</label>

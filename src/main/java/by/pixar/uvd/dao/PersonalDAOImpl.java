@@ -45,10 +45,14 @@ public class PersonalDAOImpl implements PersonalDAO {
 
     public void editPersonal(Personal personal) {
         Personal person = (Personal) sessionFactory.getCurrentSession().load(Personal.class, personal.getId());
-
+       //person = personal;
         person.setFirstName(personal.getFirstName());
+        person.setLastName(personal.getLastName());
+        person.setSecondName(personal.getSecondName());
 
-        sessionFactory.getCurrentSession().update(person);
+        if (null != person) {
+            sessionFactory.getCurrentSession().update(person);
+        }
     }
 
 
