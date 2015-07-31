@@ -1,5 +1,6 @@
 package by.pixar.uvd.web;
 
+import by.pixar.uvd.domain.AtributePersonal;
 import by.pixar.uvd.domain.Personal;
 import by.pixar.uvd.service.PersonalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Map;
+
+import static by.pixar.uvd.domain.AtributePersonal.*;
 
 @Controller
 public class PersonalController {
@@ -42,6 +45,9 @@ public class PersonalController {
     @RequestMapping(value = "/searchs", method = RequestMethod.GET)
     public String search(Map<String, Object> map) {
 
+        for (AtributePersonal atributPersonal : values()) {
+            map.put(atributPersonal.getField(),atributPersonal.getView());
+        }
         map.put("personal", new Personal());
         return "search";
     }
@@ -50,6 +56,7 @@ public class PersonalController {
 
 
         map.put("personalList", personalService.findPersonal(category,searching));
+        map.put("personal", new Personal());
 
         return "menu";
     }
