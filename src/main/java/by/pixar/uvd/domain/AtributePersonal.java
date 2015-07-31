@@ -4,19 +4,19 @@ public enum AtributePersonal {
 
 
 
-    FIRSTNAME("Имя","firstName") ,
-    LASTNAME("Фамилия","lastname"),
-    SECONDNAME("Фамилия","lastname"),
-    RANK("Звание","rank"),
-    PLACEOFBORN("Место рождения","placeOfBorn"),
-    EDUCATION("Образование","education"),
-    GRADUATED("Окончил","graduated"),
-    SPECIALITY("Специальность","speciality"),
-    DEGREE("Учёная степень","degree"),
-    FOREIGNLANG("Иностранные языки","foreigLang"),
-    ABROAD("Был ли за границей","abroad"),
-    FORECLOSURE("Взыскания","foreclosure"),
-    STATEAWARDS("Имеет ли госнаграды","stateAwards");
+    FIRSTNAME("РРјСЏ","firstName") ,
+    LASTNAME("Р¤Р°РјРёР»РёСЏ","lastName"),
+    SECONDNAME("РћС‚С‡РµСЃС‚РІРѕ","secondName"),
+    RANK("Р—РІР°РЅРёРµ","rank"),
+    PLACEOFBORN("РњРµСЃС‚Рѕ СЂРѕР¶РґРµРЅРёСЏ","placeOfBorn"),
+    EDUCATION("РћР±СЂР°Р·РѕРІР°РЅРёРµ","education"),
+    GRADUATED("РћРєРѕРЅС‡РёР»","graduated"),
+    SPECIALITY("РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ","speciality"),
+    DEGREE("РЈС‡С‘РЅР°СЏ СЃС‚РµРїРµРЅСЊ","degree"),
+    FOREIGNLANG("РРЅРѕСЃС‚СЂР°РЅРЅС‹Рµ СЏР·С‹РєРё","foreigLang"),
+    ABROAD("Р‘С‹Р» Р»Рё Р·Р° РіСЂР°РЅРёС†РµР№","abroad"),
+    FORECLOSURE("Р’Р·С‹СЃРєР°РЅРёСЏ","foreclosure"),
+    STATEAWARDS("РРјРµРµС‚ Р»Рё РіРѕСЃРЅР°РіСЂР°РґС‹","stateAwards");
 
     private String view;
     private String field;

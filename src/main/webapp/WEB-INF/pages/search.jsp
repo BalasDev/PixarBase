@@ -18,8 +18,10 @@
                         <div class="col-lg-6 col-md-6 form-group">
                             <c:set var="personal" value="${personal}"/>
                             <select class="form-control" name="categoryId" id="categoryId">
-                                <option value="firstName">${firstName} </option>
-                                <option value="secondName"> ${SecondName} </option>
+                                <option value="lastName">${lastName} </option>
+                                <option value="firstName"> ${firstName} </option>
+                                <option value="secondName"> ${secondName} </option>
+
                             </select>
                         </div>
                     </div>
