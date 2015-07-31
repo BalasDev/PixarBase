@@ -16,6 +16,7 @@ public enum AtributePersonal {
     FOREIGNLANG("Иностранные языки","foreigLang"),
     ABROAD("Был ли за границей","abroad"),
     FORECLOSURE("Взыскания","foreclosure"),
+    ELECTION("Участие в выборочных органах","election"),
     STATEAWARDS("Имеет ли госнаграды","stateAwards");
 
     private String view;

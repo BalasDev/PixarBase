@@ -18,9 +18,20 @@
                         <div class="col-lg-6 col-md-6 form-group">
                             <c:set var="personal" value="${personal}"/>
                             <select class="form-control" name="categoryId" id="categoryId">
-                                <option value="lastName">${lastName} </option>
-                                <option value="firstName"> ${firstName} </option>
-                                <option value="secondName"> ${secondName} </option>
+                                <option value="lastName">     ${lastName} </option>
+                                <option value="firstName">    ${firstName} </option>
+                                <option value="secondName">   ${secondName} </option>
+                                <option value="rank">         ${rank} </option>
+                                <option value="placeOfBorn">  ${placeOfBorn} </option>
+                                <option value="education">    ${education} </option>
+                                <option value="graduated">    ${graduated} </option>
+                                <option value="speciality">   ${speciality} </option>
+                                <option value="degree">       ${degree} </option>
+                                <option value="foreigLang">   ${foreigLang} </option>
+                                <option value="abroad">       ${abroad} </option>
+                                <option value="foreclosure">  ${foreclosure} </option>
+                                <option value="election">     ${election} </option>
+                                <option value="stateAwards">  ${stateAwards} </option>
 
                             </select>
                         </div>

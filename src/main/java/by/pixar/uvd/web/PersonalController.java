@@ -56,7 +56,7 @@ public class PersonalController {
 
 
         map.put("personalList", personalService.findPersonal(category,searching));
-        map.put("personal", new Personal());
+      //  map.put("personal", new Personal());
 
         return "menu";
     }
