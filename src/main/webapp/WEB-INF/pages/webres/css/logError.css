@@ -56,7 +56,7 @@ body:before {
   height: 60px;
   margin: auto;
   position: absolute;
-  top: 280px;
+  top: 80px;
   bottom: 0;
   left: 20px;
   right: 0;
@@ -65,7 +65,7 @@ body:before {
 }
 
 .info:before {
-  content: 'Ты не МЕНТ';
+  content: 'неправильный логин или пароль';
   font-family: OCR-A;
   font-size: 100px;
   text-align: center;
@@ -83,7 +83,7 @@ body:before {
 }
 
 .info:after {
-  content: 'Ты не МЕНТ';
+  content: 'неправильный логин или пароль';
   font-family: OCR-A;
   font-size: 100px;
   text-align: center;

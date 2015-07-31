@@ -3,8 +3,10 @@ package by.pixar.uvd.web;
 import by.pixar.uvd.domain.AtributePersonal;
 import by.pixar.uvd.domain.Personal;
 import by.pixar.uvd.service.PersonalService;
+import com.sun.deploy.nativesandbox.comm.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +21,10 @@ public class PersonalController {
     PersonalService personalService;
 
     @RequestMapping("/")
-    public String home(Map<String, Object> map) {
+    public String home(Map<String, Object> map, ModelMap model) {
         map.put("personalList", personalService.listPersonal());
         map.put("personal", new Personal());
+        model.addAttribute("stringTitle", "Список");
         return "menu";
     }
 
@@ -46,18 +49,17 @@ public class PersonalController {
     public String search(Map<String, Object> map) {
 
         for (AtributePersonal atributPersonal : values()) {
-            map.put(atributPersonal.getField(),atributPersonal.getView());
+            map.put(atributPersonal.getField(), atributPersonal.getView());
         }
         map.put("personal", new Personal());
         return "search";
     }
+
     @RequestMapping(value = "/searchUser", method = RequestMethod.POST)
-    public String  searchUser(Map<String, Object> map, @RequestParam("categoryId") String category,@RequestParam("searching") String searching){
+    public String searchUser(Map<String, Object> map, @RequestParam("categoryId") String category, @RequestParam("searching") String searching, ModelMap model) {
 
-
-        map.put("personalList", personalService.findPersonal(category,searching));
-      //  map.put("personal", new Personal());
-
+        map.put("personalList", personalService.findPersonal(category, searching));
+        model.addAttribute("stringTitle", "Результаты поиска");
         return "menu";
     }
 
@@ -85,10 +87,11 @@ public class PersonalController {
         personalService.deletePersonal(id);
         return "redirect:/";
     }
-    @RequestMapping(value = "/edit",  method = RequestMethod.POST)
-    public String editContact(@ModelAttribute("personal")  Personal personal,
+
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public String editContact(@ModelAttribute("personal") Personal personal,
                               BindingResult result) {
-       personalService.editPersonal(personal);
+        personalService.editPersonal(personal);
         return "redirect:/";
     }
 

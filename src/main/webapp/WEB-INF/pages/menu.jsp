@@ -4,9 +4,10 @@
 <%@page pageEncoding="UTF-8" isELIgnored="false" %>
 <link href="webres/css/input.css" rel="stylesheet">
 <link href="webres/css/errors.css" rel="stylesheet">
+<link href="webres/css/style.css" rel="stylesheet">
 <jsp:include page="header.jsp"/>
 
-<h1>Ментозавры</h1>
+<h1>${stringTitle}</h1>
 
 <div class="table-responsive">
     <table class="table table-condensed table-hover table-striped table-bordered">
@@ -18,6 +19,7 @@
             <th>Отчество</th>
             <th>Звание</th>
             <th>Место рождения</th>
+            <th></th>
             <%--<th>Образование</th>
             <th>Окончил</th>
             <th>Специальность</th>
@@ -96,7 +98,7 @@
                                 <h4 class="modal-title">Подробная информация</h4>
                             </div>
 
-                            <div class="modal-body">
+                            <div class="modal-body scroll">
                                 <fieldset>
 
                                     <label class="col-lg-4 text-right">Фамилия</label>
@@ -110,6 +112,9 @@
 
                                     <label class="col-lg-4 text-right">Звание</label>
                                     <input type="text" class="col-lg-8" disabled value="${personality.rank}">
+
+                                    <label class="col-lg-4 text-right control-label">Дата рождения</label>
+                                    <input class="col-lg-8" type="text" disabled value="${personality.strBirthday}"/>
 
                                     <label class="col-lg-4 text-right">Место рождения</label>
                                     <input type="text" class="col-lg-8" disabled value="${personality.placeOfBorn}">
@@ -128,6 +133,18 @@
 
                                     <label class="col-lg-4 text-right">Иностранные языки</label>
                                     <input type="text" class="col-lg-8" disabled value="${personality.foreigLang}">
+
+                                    <label class="col-lg-4 text-right">Бывал ли за границей</label>
+                                    <input class="col-lg-8" type="text" disabled value="${personality.abroad}"/>
+
+                                    <label class="col-lg-4 text-right control-label">Взыскания</label>
+                                    <input class="col-lg-8" type="text" disabled value="${personality.foreclosure}"/>
+
+                                    <label class="col-lg-4 text-right control-label">Участие в выборочных органах</label>
+                                    <input class="col-lg-8" type="text" disabled value="${personality.election}"/>
+
+                                    <label class="col-lg-4 text-right control-label">Имеет ли госнаграды</label>
+                                    <input class="col-lg-8" type="text" disabled value="${personality.stateAwards}"/>
 
                                 </fieldset>
                             </div>
@@ -150,10 +167,10 @@
                             <form:form action="/edit" method="POST" modelAttribute="personal">
                                 <div class="modal-header">
                                     <button class="close" type="button" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Редактирование информация</h4>
+                                    <h4 class="modal-title">Редактирование информации</h4>
                                 </div>
 
-                                <div class="modal-body">
+                                <div class="modal-body scroll">
                                     <fieldset>
                                          <form:hidden path="id" value="${personality.id}"/>
                                         <label class="col-lg-4 text-right control-label">Фамилия</label>
@@ -173,7 +190,7 @@
                                                     value="${personality.rank}"/>
 
                                         <label class="col-lg-4 text-right control-label">Дата рождения</label>
-                                        <form:input class="col-lg-8" type="text" path="placeOfBorn"
+                                        <form:input class="col-lg-8" type="text" path="strBirthday"
                                                     value="${personality.strBirthday}"/>
 
                                         <label class="col-lg-4 text-right control-label">Место рождения</label>
