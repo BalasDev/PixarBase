@@ -22,27 +22,27 @@ public class Personal {
     private Integer id;
 
     //'Фамилия'
-    @NotBlank (message="Введите фамилию")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+    /*@NotBlank (message="Введите фамилию")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
     @Column(name = "LASTNAME")
     private String lastName;
 
     //'Имя'
-    @NotBlank (message="Введите имя")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+   /* @NotBlank (message="Введите имя")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
     @Column(name = "FIRSTNAME")
     private String firstName;
 
     //'Отчество'
-    @NotBlank (message = "Введите отчество")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+    /*@NotBlank (message = "Введите отчество")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
     @Column(name = "SECONDNAME")
     private String secondName;
 
 
     //'Звание'
-    @NotBlank (message = "Введите звание")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+   /* @NotBlank (message = "Введите звание")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
     @Column(name = "RANK")
     private String rank ;
 
@@ -52,20 +52,20 @@ public class Personal {
     @Column(name = "BIRTHDAY")
     private Date birthday;
 
-    @NotBlank(message = "Введите дату")
+    //@NotBlank(message = "Введите дату")
     // @DateTimeFormat(style = "S-")
     @Column(name = "STRBIRTHDAY")
     private  String strBirthday;
 
     //Место рождения'
-    @NotBlank (message = "Введите место")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+   /* @NotBlank (message = "Введите место")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
     @Column(name = "PLACEOFBORN")
     private String placeOfBorn;
 
     //'Образование'
-    @NotBlank (message = "Введите образование")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+   /* @NotBlank (message = "Введите образование")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
     @Column(name = "EDUCATION")
     private String education;
 
@@ -74,20 +74,20 @@ public class Personal {
     private String graduated;
 
     //'Специальность'
-    @NotBlank (message = "Введите специальность")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+   /* @NotBlank (message = "Введите специальность")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
     @Column(name = "SPECIALITY")
     private String speciality;
 
     //'Учёная степень'
-    @NotBlank (message = "Введите специальность")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+  /*  @NotBlank (message = "Введите специальность")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
     @Column(name = "DEGREE")
     private String degree;
 
     //'Иностранные языки'
-    @NotBlank (message = "Введите специальность")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+    /*@NotBlank (message = "Введите специальность")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
     @Column(name = "FOREIGNLANG")
     private String foreigLang;
 
@@ -100,26 +100,26 @@ public class Personal {
     private Date fnMilitSer;
 */
     //'Был ли за границей'
-    @NotBlank (message = "Введите был ли за границей")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+    /*@NotBlank (message = "Введите был ли за границей")
+    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
     @Column(name = "ABROAD")
     private String abroad;
 
     //'Взыскания'
-    @NotBlank (message = "Введите взыскания")
+   // @NotBlank (message = "Введите взыскания")
     @Column(name = "FORECLOSURE")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+  //  @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
     private String foreclosure;
 
     //'Участие в выборочных органах'
-    @NotBlank (message = "Введите участие в выборочных органах")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+  //  @NotBlank (message = "Введите участие в выборочных органах")
+  //  @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
     @Column(name = "ELECTION")
     private String election;
 
     //'Имеет ли госнаграды'
-    @NotBlank (message = "Введите имеет ли госнаграды")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+ //   @NotBlank (message = "Введите имеет ли госнаграды")
+ //   @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
     @Column(name = "STATEAWARDS")
     private String stateAwards;
 

@@ -49,6 +49,22 @@ public class PersonalDAOImpl implements PersonalDAO {
         person.setFirstName(personal.getFirstName());
         person.setLastName(personal.getLastName());
         person.setSecondName(personal.getSecondName());
+        person.setRank(personal.getRank());
+        // Rebuild for date
+        person.setStrBirthday(personal.getStrBirthday());
+        //
+        personal.setPlaceOfBorn(personal.getPlaceOfBorn());
+        person.setEducation(personal.getEducation());
+        person.setGraduated(personal.getGraduated());
+        person.setSpeciality(personal.getSpeciality());
+        person.setForeclosure(personal.getForeclosure());
+        person.setDegree(personal.getDegree());
+        person.setAbroad(personal.getAbroad());
+        person.setForeclosure(personal.getForeclosure());
+        person.setElection(personal.getElection());
+        person.setStateAwards(personal.getStateAwards());
+
+
 
         if (null != person) {
             sessionFactory.getCurrentSession().update(person);

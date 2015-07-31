@@ -172,6 +172,10 @@
                                         <form:input class="col-lg-8" type="text" path="rank"
                                                     value="${personality.rank}"/>
 
+                                        <label class="col-lg-4 text-right control-label">Дата рождения</label>
+                                        <form:input class="col-lg-8" type="text" path="placeOfBorn"
+                                                    value="${personality.strBirthday}"/>
+
                                         <label class="col-lg-4 text-right control-label">Место рождения</label>
                                         <form:input class="col-lg-8" type="text" path="placeOfBorn"
                                                     value="${personality.placeOfBorn}"/>
@@ -195,6 +199,22 @@
                                         <label class="col-lg-4 text-right control-label">Иностранные языки</label>
                                         <form:input class="col-lg-8" type="text" path="foreigLang"
                                                     value="${personality.foreigLang}"/>
+
+                                        <label class="col-lg-4 text-right control-label">Бывал ли за границей</label>
+                                        <form:input class="col-lg-8" type="text" path="abroad"
+                                                    value="${personality.abroad}"/>
+
+                                        <label class="col-lg-4 text-right control-label">Взыскания</label>
+                                        <form:input class="col-lg-8" type="text" path="foreclosure"
+                                                    value="${personality.foreclosure}"/>
+
+                                        <label class="col-lg-4 text-right control-label">Участие в выборочных органах</label>
+                                        <form:input class="col-lg-8" type="text" path="election"
+                                                    value="${personality.election}"/>
+
+                                        <label class="col-lg-4 text-right control-label">Имеет ли госнаграды</label>
+                                        <form:input class="col-lg-8" type="text" path="stateAwards"
+                                                    value="${personality.stateAwards}"/>
 
                                     </fieldset>
                                 </div>
