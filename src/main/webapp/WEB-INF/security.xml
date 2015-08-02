@@ -11,6 +11,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
     <http auto-config="true" use-expressions="false">
         <intercept-url pattern="/" access="ROLE_USER,ROLE_ADMIN" />
         <intercept-url pattern="/delete/" access="ROLE_ADMIN" />
+        <intercept-url pattern="/searchs/" access="ROLE_ADMIN" />
         <form-login  default-target-url="/"
                      authentication-failure-url="/logError"
                      login-page="/sing"/>
@@ -24,7 +25,8 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
         <authentication-provider>
             <user-service>
                 <user name="pixar" password="pixar" authorities="ROLE_ADMIN" />
-                <user name="ment" password="ment" authorities="ROLE_USER" />
+                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
+                <user name="user" password="user" authorities="ROLE_USER" />
 
             </user-service>
         </authentication-provider>

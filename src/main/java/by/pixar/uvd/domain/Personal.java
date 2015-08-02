@@ -22,104 +22,98 @@ public class Personal {
     private Integer id;
 
     //'Фамилия'
-    /*@NotBlank (message="Введите фамилию")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
+    @NotBlank(message = "Введите фамилию")
     @Column(name = "LASTNAME")
     private String lastName;
 
     //'Имя'
-   /* @NotBlank (message="Введите имя")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
+    @NotBlank(message = "Введите имя")
     @Column(name = "FIRSTNAME")
     private String firstName;
 
     //'Отчество'
-    /*@NotBlank (message = "Введите отчество")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
+    @NotBlank(message = "Введите отчество")
     @Column(name = "SECONDNAME")
     private String secondName;
 
+    //'Личный номер'
+    @NotBlank(message = "Введите личнчый номер")
+    @Column(name = "PERSONALNUMBER")
+    private String personalNumber;
+
 
     //'Звание'
-   /* @NotBlank (message = "Введите звание")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
-    @Column(name = "RANK")
-    private String rank ;
+    @NotBlank(message = "Введите звание")
 
-   //'Дата рождения'
-   // @NotNull(message = "Введите дату")
-   // @DateTimeFormat(style = "S-")
+    @Column(name = "RANK")
+    private String rank;
+
+    //'Дата рождения'
+    // @NotBlank(message = "Введите дату")
+    //@DateTimeFormat(style = "S-")
     @Column(name = "BIRTHDAY")
     private Date birthday;
 
-    //@NotBlank(message = "Введите дату")
-    // @DateTimeFormat(style = "S-")
+    @NotBlank(message = "Введите дату")
+    //  @DateTimeFormat(style = "S-")
     @Column(name = "STRBIRTHDAY")
-    private  String strBirthday;
+    private String strBirthday;
 
     //Место рождения'
-   /* @NotBlank (message = "Введите место")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
+    @NotBlank(message = "Введите место")
     @Column(name = "PLACEOFBORN")
     private String placeOfBorn;
 
     //'Образование'
-   /* @NotBlank (message = "Введите образование")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
+    @NotBlank(message = "Введите образование")
     @Column(name = "EDUCATION")
     private String education;
 
     //'Окончил'
+    @NotBlank(message = "Введите заведение")
     @Column(name = "GRADUATED")
     private String graduated;
 
     //'Специальность'
-   /* @NotBlank (message = "Введите специальность")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
+    @NotBlank(message = "Введите специальность")
     @Column(name = "SPECIALITY")
     private String speciality;
 
     //'Учёная степень'
-  /*  @NotBlank (message = "Введите специальность")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
+    @NotBlank(message = "Введите специальность")
     @Column(name = "DEGREE")
     private String degree;
 
     //'Иностранные языки'
-    /*@NotBlank (message = "Введите специальность")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
+    @NotBlank(message = "Введите специальность")
     @Column(name = "FOREIGNLANG")
     private String foreigLang;
 
-/*    //'С какого времени в ВС, КГБ'
-    @Column(name = "STMILITSERV")
-    private Date stMilitSer;
+    /*    //'С какого времени в ВС, КГБ'
+        @Column(name = "STMILITSERV")
+        private Date stMilitSer;
 
-    //'По какое время в ВС, КГБ'
-    @Column(name = "FNMILITSERV")
-    private Date fnMilitSer;
-*/
+        //'По какое время в ВС, КГБ'
+        @Column(name = "FNMILITSERV")
+        private Date fnMilitSer;
+    */
     //'Был ли за границей'
-    /*@NotBlank (message = "Введите был ли за границей")
-    @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))*/
+    @NotBlank(message = "Введите был ли за границей")
     @Column(name = "ABROAD")
     private String abroad;
 
     //'Взыскания'
-   // @NotBlank (message = "Введите взыскания")
+    @NotBlank(message = "Введите взыскания")
     @Column(name = "FORECLOSURE")
-  //  @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
     private String foreclosure;
 
     //'Участие в выборочных органах'
-  //  @NotBlank (message = "Введите участие в выборочных органах")
-  //  @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+    @NotBlank(message = "Введите участие в выборочных органах")
     @Column(name = "ELECTION")
     private String election;
 
     //'Имеет ли госнаграды'
- //   @NotBlank (message = "Введите имеет ли госнаграды")
- //   @Pattern(regexp = "[а-яА-я]*", message = ("Только русские буквы"))
+    @NotBlank(message = "Введите имеет ли госнаграды")
     @Column(name = "STATEAWARDS")
     private String stateAwards;
 
@@ -183,7 +177,7 @@ public class Personal {
         System.out.println(date);
         DateFormat dateFormat = new SimpleDateFormat("dd MM yyyy");
         try {
-            this.birthday =  dateFormat.parse(date);
+            this.birthday = dateFormat.parse(date);
             System.out.println(this.birthday);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -218,23 +212,34 @@ public class Personal {
     public void setForeigLang(String foreigLang) {
         this.foreigLang = foreigLang;
     }
-/*
-    public Date getStMilitSer() {
-        return stMilitSer;
+
+
+
+    public String getPersonalNumber() {
+        return personalNumber;
     }
 
-    public void setStMilitSer(Date stMilitSer) {
-        this.stMilitSer = stMilitSer;
+    public void setPersonalNumber(String personalNumber) {
+        this.personalNumber = personalNumber;
     }
 
-    public Date getFnMilitSer() {
-        return fnMilitSer;
-    }
+    /*
+        public Date getStMilitSer() {
+            return stMilitSer;
+        }
 
-    public void setFnMilitSer(Date fnMilitSer) {
-        this.fnMilitSer = fnMilitSer;
-    }
-*/
+        public void setStMilitSer(Date stMilitSer) {
+            this.stMilitSer = stMilitSer;
+        }
+
+        public Date getFnMilitSer() {
+            return fnMilitSer;
+        }
+
+        public void setFnMilitSer(Date fnMilitSer) {
+            this.fnMilitSer = fnMilitSer;
+        }
+    */
     public String getAbroad() {
         return abroad;
     }

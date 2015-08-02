@@ -21,10 +21,10 @@ public class PersonalController {
     PersonalService personalService;
 
     @RequestMapping("/")
-    public String home(Map<String, Object> map, ModelMap model) {
+    public String home(Map<String, Object> map) {
         map.put("personalList", personalService.listPersonal());
         map.put("personal", new Personal());
-        model.addAttribute("stringTitle", "Список");
+        map.put("stringTitle", "Список");
         return "menu";
     }
 
@@ -51,15 +51,16 @@ public class PersonalController {
         for (AtributePersonal atributPersonal : values()) {
             map.put(atributPersonal.getField(), atributPersonal.getView());
         }
-        map.put("personal", new Personal());
+        //map.put("personal", new Personal());
         return "search";
     }
 
     @RequestMapping(value = "/searchUser", method = RequestMethod.POST)
-    public String searchUser(Map<String, Object> map, @RequestParam("categoryId") String category, @RequestParam("searching") String searching, ModelMap model) {
+    public String searchUser(Map<String, Object> map, @RequestParam("categoryId") String category, @RequestParam("searching") String searching) {
 
         map.put("personalList", personalService.findPersonal(category, searching));
-        model.addAttribute("stringTitle", "Результаты поиска");
+        map.put("stringTitle", "Результаты поиска");
+        map.put("personal", new Personal());
         return "menu";
     }
 

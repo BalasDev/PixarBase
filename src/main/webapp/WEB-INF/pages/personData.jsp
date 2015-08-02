@@ -14,6 +14,10 @@
     <td><form:input path="secondName"/> <form:errors path="secondName" cssClass="error"/></td>
   </tr>
   <tr>
+    <td>Личный номер</td>
+    <td><form:input path="personalNumber"/> <form:errors path="personalNumber" cssClass="error"/></td>
+  </tr>
+  <tr>
     <td>Звание</td>
     <td><form:input path="rank"/> <form:errors path="rank" cssClass="error"/></td>
   </tr>

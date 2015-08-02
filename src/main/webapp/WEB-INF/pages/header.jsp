@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=utf8"
          pageEncoding="utf8" %>
 
@@ -37,7 +38,9 @@
         <div class="collapse navbar-collapse" id="responsive-menu">
           <ul class="nav navbar-nav">
             <li><a href="/adds">Добавить</a></li>
+            <security:authorize url="/delete/">
             <li><a href="/searchs">Поиск</a></li>
+            </security:authorize>
           </ul>
           <form action="" class="navbar-form navbar-right">
             <a href="<c:url value="/logout" />" class="btn btn-danger form-control">Выйти</a>

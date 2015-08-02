@@ -6,7 +6,7 @@
 <link href="webres/css/errors.css" rel="stylesheet">
 <link href="webres/css/style.css" rel="stylesheet">
 <jsp:include page="header.jsp"/>
-
+<security:authorize url="/delete/">
 <h1>${stringTitle}</h1>
 
 <div class="table-responsive">
@@ -17,8 +17,8 @@
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
+            <th>Личный номер</th>
             <th>Звание</th>
-            <th>Место рождения</th>
             <th></th>
             <%--<th>Образование</th>
             <th>Окончил</th>
@@ -39,17 +39,9 @@
                 </td>
                 <td>${personality.firstName}</td>
                 <td>${personality.secondName}</td>
+                <td>${personality.personalNumber}</td>
                 <td>${personality.rank}</td>
-                <td>${personality.placeOfBorn}</td>
-                    <%--<td>${personality.education}</td>
-                    <td>${personality.graduated}</td>
-                    <td>${personality.speciality}</td>
-                    <td>${personality.degree}</td>
-                    <td>${personality.foreigLang}</td>
-                    <td>${personality.abroad}</td>
-                    <td>${personality.foreclosure}</td>
-                    <td>${personality.election}</td>
-                    <td>${personality.stateAwards}</td>--%>
+
                 <security:authorize url="/delete/">
                     <td>
                         <div class="btn-group">
@@ -108,6 +100,9 @@
                                     <input type="text" class="col-lg-8" disabled value="${personality.firstName}">
 
                                     <label class="col-lg-4 text-right">Отчество</label>
+                                    <input type="text" class="col-lg-8" disabled value="${personality.personalNumber}">
+
+                                    <label class="col-lg-4 text-right">Личный номер</label>
                                     <input type="text" class="col-lg-8" disabled value="${personality.secondName}">
 
                                     <label class="col-lg-4 text-right">Звание</label>
@@ -185,6 +180,10 @@
                                         <form:input class="col-lg-8" type="text" path="secondName"
                                                     value="${personality.secondName}"/>
 
+                                        <label class="col-lg-4 text-right control-label">Личный номер</label>
+                                        <form:input class="col-lg-8" type="text" path="personalNumber"
+                                                    value="${personality.personalNumber}"/>
+
                                         <label class="col-lg-4 text-right control-label">Звание</label>
                                         <form:input class="col-lg-8" type="text" path="rank"
                                                     value="${personality.rank}"/>
@@ -254,7 +253,9 @@
 
         </c:forEach>
     </table>
+
 </div>
+</security:authorize>
 
 
 <jsp:include page="footer.jsp"/>

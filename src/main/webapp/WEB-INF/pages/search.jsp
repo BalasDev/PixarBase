@@ -21,6 +21,7 @@
                                 <option value="lastName"> ${lastName} </option>
                                 <option value="firstName"> ${firstName} </option>
                                 <option value="secondName"> ${secondName} </option>
+                                <option value="personalNumber"> ${personalNumber} </option>
                                 <option value="rank"> ${rank} </option>
                                 <option value="placeOfBorn"> ${placeOfBorn} </option>
                                 <option value="education"> ${education} </option>
