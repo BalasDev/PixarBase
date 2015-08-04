@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page pageEncoding="UTF-8" isELIgnored="false" %>
+
 <jsp:include page="header.jsp"/>
 <div class="panel panel-warning">
     <div class="panel-heading">
@@ -23,6 +24,7 @@
                                 <option value="secondName"> ${secondName} </option>
                                 <option value="personalNumber"> ${personalNumber} </option>
                                 <option value="rank"> ${rank} </option>
+                                <option value="callOfDuty"> ${callOfDuty} </option>
                                 <option value="placeOfBorn"> ${placeOfBorn} </option>
                                 <option value="education"> ${education} </option>
                                 <option value="graduated"> ${graduated} </option>
@@ -32,6 +34,7 @@
                                 <option value="foreclosure"> ${foreclosure} </option>
                                 <option value="election"> ${election} </option>
                                 <option value="stateAwards"> ${stateAwards} </option>
+                                <option value="fired"> ${fired} </option>
                             </select>
                         </div>
                     </div>

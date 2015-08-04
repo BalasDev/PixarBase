@@ -16,104 +16,104 @@ import java.util.Date;
 public class Personal {
 
     // ID
+    // ID
     @Id
     @Column(name = "ID")
     @GeneratedValue
     private Integer id;
 
-    //'Р¤Р°РјРёР»РёСЏ'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ")
+    //'Фамилия'
+    @NotBlank(message = "Введите фамилию")
     @Column(name = "LASTNAME")
     private String lastName;
 
-    //'Р�РјСЏ'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ РёРјСЏ")
+    //'Имя'
+    @NotBlank(message = "Введите имя")
     @Column(name = "FIRSTNAME")
     private String firstName;
 
-    //'РћС‚С‡РµСЃС‚РІРѕ'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ РѕС‚С‡РµСЃС‚РІРѕ")
+    //'Отчество'
+    @NotBlank(message = "Введите отчество")
     @Column(name = "SECONDNAME")
     private String secondName;
 
-    //'Р›РёС‡РЅС‹Р№ РЅРѕРјРµСЂ'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ Р»РёС‡РЅС‡С‹Р№ РЅРѕРјРµСЂ")
+    //'Личный номер'
+    @NotBlank(message = "Введите личнчый номер")
     @Column(name = "PERSONALNUMBER")
     private String personalNumber;
 
 
-    //'Р—РІР°РЅРёРµ'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ Р·РІР°РЅРёРµ")
+    //'Звание'
+    @NotBlank(message = "Введите звание")
 
     @Column(name = "RANK")
     private String rank;
 
-    //'Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ'
-    // @NotBlank(message = "Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ")
+    //'Дата рождения'
+    // @NotBlank(message = "Введите дату")
     //@DateTimeFormat(style = "S-")
     @Column(name = "BIRTHDAY")
     private Date birthday;
 
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ")
+    @NotBlank(message = "Введите дату")
     //  @DateTimeFormat(style = "S-")
     @Column(name = "STRBIRTHDAY")
     private String strBirthday;
 
-    //РњРµСЃС‚Рѕ СЂРѕР¶РґРµРЅРёСЏ'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ РјРµСЃС‚Рѕ")
+    //Место рождения'
+    @NotBlank(message = "Введите место")
     @Column(name = "PLACEOFBORN")
     private String placeOfBorn;
 
-    //'РћР±СЂР°Р·РѕРІР°РЅРёРµ'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ РѕР±СЂР°Р·РѕРІР°РЅРёРµ")
+    //'Образование'
+    @NotBlank(message = "Введите образование")
     @Column(name = "EDUCATION")
     private String education;
 
-    //'РћРєРѕРЅС‡РёР»'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ Р·Р°РІРµРґРµРЅРёРµ")
+    //'Окончил'
+    @NotBlank(message = "Введите заведение")
     @Column(name = "GRADUATED")
     private String graduated;
 
-    //'РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ СЃРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ")
+    //'Специальность'
+    @NotBlank(message = "Введите специальность")
     @Column(name = "SPECIALITY")
     private String speciality;
 
-    //'РЈС‡С‘РЅР°СЏ СЃС‚РµРїРµРЅСЊ'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ СЃРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ")
+    //'Учёная степень'
+    @NotBlank(message = "Введите специальность")
     @Column(name = "DEGREE")
     private String degree;
 
-    //'Р�РЅРѕСЃС‚СЂР°РЅРЅС‹Рµ СЏР·С‹РєРё'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ СЃРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ")
+    //'Иностранные языки'
+    @NotBlank(message = "Введите специальность")
     @Column(name = "FOREIGNLANG")
     private String foreigLang;
 
-    /*    //'РЎ РєР°РєРѕРіРѕ РІСЂРµРјРµРЅРё РІ Р’РЎ, РљР“Р‘'
+    /*    //'С какого времени в ВС, КГБ'
         @Column(name = "STMILITSERV")
         private Date stMilitSer;
-
-        //'РџРѕ РєР°РєРѕРµ РІСЂРµРјСЏ РІ Р’РЎ, РљР“Р‘'
+        //'По какое время в ВС, КГБ'
         @Column(name = "FNMILITSERV")
         private Date fnMilitSer;
     */
-    //'Р‘С‹Р» Р»Рё Р·Р° РіСЂР°РЅРёС†РµР№'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ Р±С‹Р» Р»Рё Р·Р° РіСЂР°РЅРёС†РµР№")
+    //'Был ли за границей'
+    @NotBlank(message = "Введите был ли за границей")
     @Column(name = "ABROAD")
     private String abroad;
 
-    //'Р’Р·С‹СЃРєР°РЅРёСЏ'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ РІР·С‹СЃРєР°РЅРёСЏ")
+    //'Взыскания'
+    @NotBlank(message = "Введите взыскания")
     @Column(name = "FORECLOSURE")
     private String foreclosure;
 
-    //'РЈС‡Р°СЃС‚РёРµ РІ РІС‹Р±РѕСЂРѕС‡РЅС‹С… РѕСЂРіР°РЅР°С…'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ СѓС‡Р°СЃС‚РёРµ РІ РІС‹Р±РѕСЂРѕС‡РЅС‹С… РѕСЂРіР°РЅР°С…")
+    //'Участие в выборочных органах'
+    @NotBlank(message = "Введите участие в выборочных органах")
     @Column(name = "ELECTION")
     private String election;
 
-    //'Р�РјРµРµС‚ Р»Рё РіРѕСЃРЅР°РіСЂР°РґС‹'
-    @NotBlank(message = "Р’РІРµРґРёС‚Рµ РёРјРµРµС‚ Р»Рё РіРѕСЃРЅР°РіСЂР°РґС‹")
+    //'Имеет ли госнаграды'
+    @NotBlank(message = "Введите имеет ли госнаграды")
     @Column(name = "STATEAWARDS")
     private String stateAwards;
 

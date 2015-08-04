@@ -22,6 +22,10 @@
     <td><form:input path="rank"/> <form:errors path="rank" cssClass="error"/></td>
   </tr>
   <tr>
+    <td>Место службы</td>
+    <td><form:input path="callOfDuty"/> <form:errors path="callOfDuty" cssClass="error"/></td>
+  </tr>
+  <tr>
     <td>Дата рождения</td>
     <td><form:input path="strBirthday" placeholder="10 10 2014" /> <form:errors path="strBirthday" cssClass="error"/></td>
   </tr>
@@ -64,5 +68,9 @@
   <tr>
     <td>Имеет ли госнаграды</td>
     <td><form:input path="stateAwards"/> <form:errors path="stateAwards" cssClass="error"/></td>
+  </tr>
+  <tr>
+    <td>Пункт увольнения</td>
+    <td><form:input path="fired"/> <form:errors path="fired" cssClass="error"/></td>
   </tr>
 </table>

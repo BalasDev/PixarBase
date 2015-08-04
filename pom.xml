@@ -20,6 +20,8 @@
         <javassist.version>3.12.1.GA</javassist.version>
         <validation>1.0.0.GA</validation>
         <hibernate-validator>4.1.0.Final</hibernate-validator>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     </properties>
 
 
@@ -191,4 +193,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

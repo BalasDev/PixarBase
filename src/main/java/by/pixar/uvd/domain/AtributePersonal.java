@@ -18,8 +18,9 @@ public enum AtributePersonal {
     ABROAD("Был ли за границей","abroad"),
     FORECLOSURE("Взыскания","foreclosure"),
     ELECTION("Участие в выборочных органах","election"),
-    STATEAWARDS("Имеет ли госнаграды","stateAwards");
-
+    STATEAWARDS("Имеет ли госнаграды","stateAwards"),
+    CALLOFDUTY("Место службы","callOfDuty"),
+    FIRED("Пункт увольнения","fired");
     private String view;
     private String field;
      AtributePersonal(){

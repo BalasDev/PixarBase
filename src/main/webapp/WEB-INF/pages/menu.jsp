@@ -108,6 +108,9 @@
                                     <label class="col-lg-4 text-right">Звание</label>
                                     <input type="text" class="col-lg-8" disabled value="${personality.rank}">
 
+                                    <label class="col-lg-4 text-right">Место службы</label>
+                                    <input type="text" class="col-lg-8" disabled value="${personality.callOfDuty}">
+
                                     <label class="col-lg-4 text-right control-label">Дата рождения</label>
                                     <input class="col-lg-8" type="text" disabled value="${personality.strBirthday}"/>
 
@@ -141,6 +144,8 @@
                                     <label class="col-lg-4 text-right control-label">Имеет ли госнаграды</label>
                                     <input class="col-lg-8" type="text" disabled value="${personality.stateAwards}"/>
 
+                                    <label class="col-lg-4 text-right control-label">Пункт увольнения</label>
+                                    <input class="col-lg-8" type="text" disabled value="${personality.fired}"/>
                                 </fieldset>
                             </div>
 
@@ -188,6 +193,10 @@
                                         <form:input class="col-lg-8" type="text" path="rank"
                                                     value="${personality.rank}"/>
 
+                                        <label class="col-lg-4 text-right control-label">Место службы</label>
+                                        <form:input class="col-lg-8" type="text" path="callOfDuty"
+                                                    value="${personality.callOfDuty}"/>
+
                                         <label class="col-lg-4 text-right control-label">Дата рождения</label>
                                         <form:input class="col-lg-8" type="text" path="strBirthday"
                                                     value="${personality.strBirthday}"/>
@@ -231,6 +240,10 @@
                                         <label class="col-lg-4 text-right control-label">Имеет ли госнаграды</label>
                                         <form:input class="col-lg-8" type="text" path="stateAwards"
                                                     value="${personality.stateAwards}"/>
+
+                                        <label class="col-lg-4 text-right control-label">Пункт увольнения</label>
+                                        <form:input class="col-lg-8" type="text" path="fired"
+                                                    value="${personality.fired}"/>
 
                                     </fieldset>
                                 </div>
