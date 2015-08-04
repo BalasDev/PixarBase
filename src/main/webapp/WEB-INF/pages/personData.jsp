@@ -49,11 +49,6 @@
     <td>Иностранные языки</td>
     <td><form:input path="foreigLang"/> <form:errors path="foreigLang" cssClass="error"/></td>
   </tr>
-  <%--<tr>--%>
-  <%--    <td>С какого времени в ВС, КГБ</td>--%>
-  <%--    <td><form:input path="stMilitSer"/> <form:errors path="stMilitSer" cssClass="error"/></td>--%>
-  <%--</tr>--%>
-
   <tr>
     <td>Был ли за границей</td>
     <td><form:input path="abroad"/> <form:errors path="abroad" cssClass="error"/></td>
