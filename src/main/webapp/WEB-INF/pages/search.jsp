@@ -40,8 +40,20 @@
                             <input class="form-control" type="text" name="searching" id="searching" title="" value="">
                         </div>
                     </div>
-                    <button id='search' type="submit" class="btn btn-outline btn-block btn-success">Найти
-                    </button>
+                    <div class="col-lg-6 col-md-6 ">
+                        <label class="col-lg-6 col-md-6 control-label" for="categoryId">Интервал даты</label>
+
+
+                        <div class="col-lg-6 col-md-6 form-group">
+                            <input class="form-control" type="text" name="stdate" id="stdate" title="" value="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="col-lg-6 col-md-6 form-group">
+                            <input class="form-control" type="text" name="fndate" id="fndate" title="" value="">
+                        </div>
+                    </div>
+                    <button id='search' type="submit" class="btn btn-outline btn-block btn-success">Найти </button>
                 </fieldset>
             </form>
 

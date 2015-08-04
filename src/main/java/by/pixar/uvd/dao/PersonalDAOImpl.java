@@ -10,9 +10,10 @@ import java.util.List;
 @Repository
 public class PersonalDAOImpl implements PersonalDAO {
 
-
+    private static final String query = " ";
     @Autowired
     private SessionFactory sessionFactory;
+
 
 
     public void addPersonal(Personal personal) {
@@ -38,8 +39,33 @@ public class PersonalDAOImpl implements PersonalDAO {
     }
 
 
-    public List<Personal> findPersonal(String field, String var) {
-        return sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " = " +"'"+var+"'").list();
+    public List<Personal> findPersonal(String field, String var,String stDate,String endDate) {
+        if (var.equals("") && endDate.equals("")) {
+            return sessionFactory.getCurrentSession().createQuery("from Personal where     extract(year from BIRTHDAY)  >= " + "'" + stDate + "'").list();
+        } else
+        if (var.equals("") && stDate.equals("")) {
+            return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'").list();
+        } else
+        if (var.equals("") && !stDate.equals("") && !endDate.equals("")) {
+            return sessionFactory.getCurrentSession().createQuery("from BIRTHDAY where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
+            + " and extract(year from BIRTHDAY) >= " + "'" + stDate + "'").list();
+        } else
+
+        if (endDate.equals("")) {
+            return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  >= " + "'" + stDate + "'"
+                    + " and " + field + " = " + "'" + var + "'").list();
+        } else
+        if ( stDate.equals("")) {
+            return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
+               +" and " + field + " = " + "'" + var + "'").list();
+        } else
+        if (!var.equals("") && !stDate.equals("") && !endDate.equals("")) {
+            return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
+                    + " and extract(year from BIRTHDAY) >= " + "'" + stDate + "'"
+                    +" and " + field + " = " + "'" + var + "'").list();
+        } else
+
+            return sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " = " + "'" + var + "'").list();
     }
 
 
@@ -52,6 +78,7 @@ public class PersonalDAOImpl implements PersonalDAO {
         person.setPersonalNumber(personal.getPersonalNumber());
         person.setRank(personal.getRank());
         // Rebuild for date
+        person.setBirthday(personal.getStrBirthday());
         person.setStrBirthday(personal.getStrBirthday());
         //
         person.setPlaceOfBorn(personal.getPlaceOfBorn());

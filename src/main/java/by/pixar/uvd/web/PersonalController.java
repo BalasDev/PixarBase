@@ -3,17 +3,15 @@ package by.pixar.uvd.web;
 import by.pixar.uvd.domain.AtributePersonal;
 import by.pixar.uvd.domain.Personal;
 import by.pixar.uvd.service.PersonalService;
-import com.sun.deploy.nativesandbox.comm.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Map;
 
-import static by.pixar.uvd.domain.AtributePersonal.*;
+import static by.pixar.uvd.domain.AtributePersonal.values;
 
 @Controller
 public class PersonalController {
@@ -56,9 +54,10 @@ public class PersonalController {
     }
 
     @RequestMapping(value = "/searchUser", method = RequestMethod.POST)
-    public String searchUser(Map<String, Object> map, @RequestParam("categoryId") String category, @RequestParam("searching") String searching) {
+    public String searchUser(Map<String, Object> map, @RequestParam("categoryId") String category, @RequestParam("searching") String searching,
+                             @RequestParam("stdate") String startDate,@RequestParam("fndate") String endDate) {
 
-        map.put("personalList", personalService.findPersonal(category, searching));
+        map.put("personalList", personalService.findPersonal(category, searching,startDate,endDate));
         map.put("stringTitle", "Результаты поиска");
         map.put("personal", new Personal());
         return "menu";
