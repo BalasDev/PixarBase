@@ -47,7 +47,7 @@ public class PersonalDAOImpl implements PersonalDAO {
             return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'").list();
         } else
         if (var.equals("") && !stDate.equals("") && !endDate.equals("")) {
-            return sessionFactory.getCurrentSession().createQuery("from BIRTHDAY where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
+            return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
             + " and extract(year from BIRTHDAY) >= " + "'" + stDate + "'").list();
         } else
 
@@ -77,10 +77,8 @@ public class PersonalDAOImpl implements PersonalDAO {
         person.setSecondName(personal.getSecondName());
         person.setPersonalNumber(personal.getPersonalNumber());
         person.setRank(personal.getRank());
-        // Rebuild for date
         person.setBirthday(personal.getStrBirthday());
         person.setStrBirthday(personal.getStrBirthday());
-        //
         person.setPlaceOfBorn(personal.getPlaceOfBorn());
         person.setEducation(personal.getEducation());
         person.setGraduated(personal.getGraduated());
