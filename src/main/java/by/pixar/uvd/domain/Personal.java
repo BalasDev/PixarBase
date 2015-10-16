@@ -81,22 +81,16 @@ public class Personal {
     private String speciality;
 
     //'Учёная степень'
-    @NotBlank(message = "Введите специальность")
+    @NotBlank(message = "Введите учёную степень")
     @Column(name = "DEGREE")
     private String degree;
 
     //'Иностранные языки'
-    @NotBlank(message = "Введите специальность")
+    @NotBlank(message = "Введите владение иностранными языками")
     @Column(name = "FOREIGNLANG")
     private String foreigLang;
 
-    /*    //'С какого времени в ВС, КГБ'
-        @Column(name = "STMILITSERV")
-        private Date stMilitSer;
-        //'По какое время в ВС, КГБ'
-        @Column(name = "FNMILITSERV")
-        private Date fnMilitSer;
-    */
+
     //'Был ли за границей'
     @NotBlank(message = "Введите был ли за границей")
     @Column(name = "ABROAD")
@@ -121,9 +115,24 @@ public class Personal {
     @Column(name = "CALLOFDUTY")
     private String callOfDuty;
 
+   /* //'С какого времени в ВС, КГБ'
+    @NotBlank(message = "Введите дату начала службы")
+    @Column(name = "STMILITSERV")
+    private Date stMilitSer;
+
+    //'По какое время в ВС, КГБ'
+    @NotBlank(message = "Введите дату окончания службы")
+    @Column(name = "FNMILITSERV")
+    private Date fnMilitSer;*/
+
     @NotBlank(message = "Введите увольнение")
     @Column(name = "FIRED")
     private String fired;
+
+    // Место работы
+    @NotBlank(message = "Введите место работы")
+    @Column(name = "WORKPLACE")
+    private String workPlace;
 
 
     // Getters and setters
@@ -317,5 +326,11 @@ public class Personal {
         this.fired = fired;
     }
 
+    public String getWorkPlace() {
+        return workPlace;
+    }
 
+    public void setWorkPlace(String workPlace) {
+        this.workPlace = workPlace;
+    }
 }

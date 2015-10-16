@@ -20,6 +20,7 @@ public enum AtributePersonal {
     ELECTION("Участие в выборочных органах","election"),
     STATEAWARDS("Имеет ли госнаграды","stateAwards"),
     CALLOFDUTY("Место службы","callOfDuty"),
+    WORKPLACE("Место работы","workPlace"),
     FIRED("Пункт увольнения","fired");
     private String view;
     private String field;

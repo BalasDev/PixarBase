@@ -91,6 +91,7 @@ public class PersonalDAOImpl implements PersonalDAO {
         person.setElection(personal.getElection());
         person.setStateAwards(personal.getStateAwards());
         person.setFired(personal.getFired());
+        person.setWorkPlace(personal.getWorkPlace());
 
         if (null != person) {
             sessionFactory.getCurrentSession().update(person);
