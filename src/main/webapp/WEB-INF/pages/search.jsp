@@ -25,6 +25,7 @@
                                 <option value="personalNumber"> ${personalNumber} </option>
                                 <option value="rank"> ${rank} </option>
                                 <option value="callOfDuty"> ${callOfDuty} </option>
+                                <option value="workPlace"> ${workPlace} </option>
                                 <option value="placeOfBorn"> ${placeOfBorn} </option>
                                 <option value="education"> ${education} </option>
                                 <option value="graduated"> ${graduated} </option>

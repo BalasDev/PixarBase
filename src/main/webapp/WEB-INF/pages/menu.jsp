@@ -203,7 +203,7 @@
                                                     value="${personality.callOfDuty}"/>
 
                                         <label class="col-lg-2 text-right control-label">Место работы</label>
-                                        <form:input class="col-lg-10" type="text" path="callOfDuty"
+                                        <form:input class="col-lg-10" type="text" path="workPlace"
                                                     value="${personality.workPlace}"/>
 
                                         <label class="col-lg-2 text-right control-label">Дата рождения</label>
