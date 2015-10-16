@@ -91,62 +91,67 @@
                             </div>
 
                             <div class="modal-body scroll">
-                                <fieldset>
+                               <%-- <fieldset>--%>
+                               <row>
+                                    <label class="col-lg-2 text-right">Фамилия</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.lastName}">
 
-                                    <label class="col-lg-4 text-right">Фамилия</label>
-                                    <input type="text" class="col-lg-8" disabled value="${personality.lastName}">
+                                    <label class="col-lg-2 text-right">Имя</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.firstName}">
 
-                                    <label class="col-lg-4 text-right">Имя</label>
-                                    <input type="text" class="col-lg-8" disabled value="${personality.firstName}">
+                                    <label class="col-lg-2 text-right">Отчество</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.personalNumber}">
 
-                                    <label class="col-lg-4 text-right">Отчество</label>
-                                    <input type="text" class="col-lg-8" disabled value="${personality.personalNumber}">
+                                    <label class="col-lg-2 text-right">Личный номер</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.secondName}">
 
-                                    <label class="col-lg-4 text-right">Личный номер</label>
-                                    <input type="text" class="col-lg-8" disabled value="${personality.secondName}">
+                                    <label class="col-lg-2 text-right">Звание</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.rank}">
 
-                                    <label class="col-lg-4 text-right">Звание</label>
-                                    <input type="text" class="col-lg-8" disabled value="${personality.rank}">
+                                    <label class="col-lg-2 text-right">Место службы</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.callOfDuty}">
 
-                                    <label class="col-lg-4 text-right">Место службы</label>
-                                    <input type="text" class="col-lg-8" disabled value="${personality.callOfDuty}">
+                                    <label class="col-lg-2 text-right">Место работы</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.workPlace}">
 
-                                    <label class="col-lg-4 text-right control-label">Дата рождения</label>
-                                    <input class="col-lg-8" type="text" disabled value="${personality.strBirthday}"/>
+                                    <label class="col-lg-2 text-right control-label">Дата рождения</label>
+                                    <input class="col-lg-10" type="text" disabled value="${personality.strBirthday}"/>
 
-                                    <label class="col-lg-4 text-right">Место рождения</label>
-                                    <input type="text" class="col-lg-8" disabled value="${personality.placeOfBorn}">
+                                    <label class="col-lg-2 text-right">Место рождения</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.placeOfBorn}">
 
-                                    <label class="col-lg-4 text-right">Образование</label>
-                                    <input type="text" class="col-lg-8" disabled value="${personality.education}">
+                                    <label class="col-lg-2 text-right">Образование</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.education}">
 
-                                    <label class="col-lg-4 text-right">Окончил</label>
-                                    <input type="text" class="col-lg-8" disabled value="${personality.graduated}">
+                                    <label class="col-lg-2 text-right">Окончил</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.graduated}">
 
-                                    <label class="col-lg-4 text-right">Специальность</label>
-                                    <input type="text" class="col-lg-8" disabled value="${personality.speciality}">
+                                    <label class="col-lg-2 text-right">Специальность</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.speciality}">
 
-                                    <label class="col-lg-4 text-right">Учёная степень</label>
-                                    <input type="text" class="col-lg-8" disabled value="${personality.degree}">
+                                    <label class="col-lg-2 text-right">Учёная степень</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.degree}">
 
-                                    <label class="col-lg-4 text-right">Иностранные языки</label>
-                                    <input type="text" class="col-lg-8" disabled value="${personality.foreigLang}">
+                                    <label class="col-lg-2 text-right">Иностранные языки</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.foreigLang}">
 
-                                    <label class="col-lg-4 text-right">Бывал ли за границей</label>
-                                    <input class="col-lg-8" type="text" disabled value="${personality.abroad}"/>
+                                    <label class="col-lg-2 text-right">Бывал ли за границей</label>
+                                    <input class="col-lg-10" type="text" disabled value="${personality.abroad}"/>
 
-                                    <label class="col-lg-4 text-right control-label">Взыскания</label>
-                                    <input class="col-lg-8" type="text" disabled value="${personality.foreclosure}"/>
+                                    <label class="col-lg-2 text-right control-label">Взыскания</label>
+                                    <input class="col-lg-10" type="text" disabled value="${personality.foreclosure}"/>
 
-                                    <label class="col-lg-4 text-right control-label">Участие в выборочных органах</label>
-                                    <input class="col-lg-8" type="text" disabled value="${personality.election}"/>
+                                    <label class="col-lg-2 text-right control-label">Участие в выборочных органах</label>
+                                    <input class="col-lg-10" type="text" disabled value="${personality.election}"/>
 
-                                    <label class="col-lg-4 text-right control-label">Имеет ли госнаграды</label>
-                                    <input class="col-lg-8" type="text" disabled value="${personality.stateAwards}"/>
+                                    <label class="col-lg-2 text-right control-label">Имеет ли госнаграды</label>
+                                    <input class="col-lg-10" type="text" disabled value="${personality.stateAwards}"/>
 
-                                    <label class="col-lg-4 text-right control-label">Пункт увольнения</label>
-                                    <input class="col-lg-8" type="text" disabled value="${personality.fired}"/>
-                                </fieldset>
+                                    <label class="col-lg-2 text-right control-label">Пункт увольнения</label>
+                                    <input class="col-lg-10" type="text" disabled value="${personality.fired}"/>
+                               <%-- </fieldset>--%>
+                               </row>
+
                             </div>
 
                             <div class="modal-footer">
@@ -173,76 +178,80 @@
                                 <div class="modal-body scroll">
                                     <fieldset>
                                          <form:hidden path="id" value="${personality.id}"/>
-                                        <label class="col-lg-4 text-right control-label">Фамилия</label>
-                                        <form:input class="col-lg-8" type="text"  path="lastName"
+                                        <label class="col-lg-2 text-right control-label">Фамилия</label>
+                                        <form:input class="col-lg-10" type="text"  path="lastName"
                                                     value="${personality.lastName}"/>
 
-                                        <label class="col-lg-4 text-right  control-label">Имя</label>
-                                        <form:input class="col-lg-8" type="text" path="firstName"
+                                        <label class="col-lg-2 text-right  control-label">Имя</label>
+                                        <form:input class="col-lg-10" type="text" path="firstName"
                                                     value="${personality.firstName}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Отчество</label>
-                                        <form:input class="col-lg-8" type="text" path="secondName"
+                                        <label class="col-lg-2 text-right control-label">Отчество</label>
+                                        <form:input class="col-lg-10" type="text" path="secondName"
                                                     value="${personality.secondName}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Личный номер</label>
-                                        <form:input class="col-lg-8" type="text" path="personalNumber"
+                                        <label class="col-lg-2 text-right control-label">Личный номер</label>
+                                        <form:input class="col-lg-10" type="text" path="personalNumber"
                                                     value="${personality.personalNumber}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Звание</label>
-                                        <form:input class="col-lg-8" type="text" path="rank"
+                                        <label class="col-lg-2 text-right control-label">Звание</label>
+                                        <form:input class="col-lg-10" type="text" path="rank"
                                                     value="${personality.rank}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Место службы</label>
-                                        <form:input class="col-lg-8" type="text" path="callOfDuty"
+                                        <label class="col-lg-2 text-right control-label">Место службы</label>
+                                        <form:input class="col-lg-10" type="text" path="callOfDuty"
                                                     value="${personality.callOfDuty}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Дата рождения</label>
-                                        <form:input class="col-lg-8" type="text" path="strBirthday"
+                                        <label class="col-lg-2 text-right control-label">Место работы</label>
+                                        <form:input class="col-lg-10" type="text" path="callOfDuty"
+                                                    value="${personality.workPlace}"/>
+
+                                        <label class="col-lg-2 text-right control-label">Дата рождения</label>
+                                        <form:input class="col-lg-10" type="text" path="strBirthday"
                                                     value="${personality.strBirthday}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Место рождения</label>
-                                        <form:input class="col-lg-8" type="text" path="placeOfBorn"
+                                        <label class="col-lg-2 text-right control-label">Место рождения</label>
+                                        <form:input class="col-lg-10" type="text" path="placeOfBorn"
                                                     value="${personality.placeOfBorn}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Образование</label>
-                                        <form:input class="col-lg-8" type="text" path="education"
+                                        <label class="col-lg-2 text-right control-label">Образование</label>
+                                        <form:input class="col-lg-10" type="text" path="education"
                                                     value="${personality.education}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Окончил</label>
-                                        <form:input class="col-lg-8" type="text" path="graduated"
+                                        <label class="col-lg-2 text-right control-label">Окончил</label>
+                                        <form:input class="col-lg-10" type="text" path="graduated"
                                                     value="${personality.graduated}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Специальность</label>
-                                        <form:input class="col-lg-8" type="text" path="speciality"
+                                        <label class="col-lg-2 text-right control-label">Специальность</label>
+                                        <form:input class="col-lg-10" type="text" path="speciality"
                                                     value="${personality.speciality}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Учёная степень</label>
-                                        <form:input class="col-lg-8" type="text" path="degree"
+                                        <label class="col-lg-2 text-right control-label">Учёная степень</label>
+                                        <form:input class="col-lg-10" type="text" path="degree"
                                                     value="${personality.degree}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Иностранные языки</label>
-                                        <form:input class="col-lg-8" type="text" path="foreigLang"
+                                        <label class="col-lg-2 text-right control-label">Иностранные языки</label>
+                                        <form:input class="col-lg-10" type="text" path="foreigLang"
                                                     value="${personality.foreigLang}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Бывал ли за границей</label>
-                                        <form:input class="col-lg-8" type="text" path="abroad"
+                                        <label class="col-lg-2 text-right control-label">Бывал ли за границей</label>
+                                        <form:input class="col-lg-10" type="text" path="abroad"
                                                     value="${personality.abroad}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Взыскания</label>
-                                        <form:input class="col-lg-8" type="text" path="foreclosure"
+                                        <label class="col-lg-2 text-right control-label">Взыскания</label>
+                                        <form:input class="col-lg-10" type="text" path="foreclosure"
                                                     value="${personality.foreclosure}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Участие в выборочных органах</label>
-                                        <form:input class="col-lg-8" type="text" path="election"
+                                        <label class="col-lg-2 text-right control-label">Участие в выборочных органах</label>
+                                        <form:input class="col-lg-10" type="text" path="election"
                                                     value="${personality.election}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Имеет ли госнаграды</label>
-                                        <form:input class="col-lg-8" type="text" path="stateAwards"
+                                        <label class="col-lg-2 text-right control-label">Имеет ли госнаграды</label>
+                                        <form:input class="col-lg-10" type="text" path="stateAwards"
                                                     value="${personality.stateAwards}"/>
 
-                                        <label class="col-lg-4 text-right control-label">Пункт увольнения</label>
-                                        <form:input class="col-lg-8" type="text" path="fired"
+                                        <label class="col-lg-2 text-right control-label">Пункт увольнения</label>
+                                        <form:input class="col-lg-10" type="text" path="fired"
                                                     value="${personality.fired}"/>
 
                                     </fieldset>
