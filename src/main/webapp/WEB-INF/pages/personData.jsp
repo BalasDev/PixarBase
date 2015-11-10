@@ -27,8 +27,8 @@
       <td> <form:errors path="rank" cssClass="error"/></td>
    </tr>
    <tr>
-      <td>Место службы</td>
-      <td><form:textarea class="form-control" rows="6" path="callOfDuty"/></td>
+      <td>Служба в армии</td>
+      <td><form:textarea class="form-control" rows="2" path="callOfDuty"/></td>
       <td> <form:errors path="callOfDuty" cssClass="error"/></td>
    </tr>
    <tr>
@@ -41,9 +41,16 @@
       <td><form:textarea class="form-control" rows="1"  path="placeOfBorn" /></td>
       <td> <form:errors path="placeOfBorn" cssClass="error"/></td>
    </tr>
+
+   <tr>
+      <td>Место работы</td>
+      <td><form:textarea class="form-control" rows="6"  path="workPlace" /></td>
+      <td> <form:errors path="workPlace" cssClass="error"/></td>
+   </tr>
+
    <tr>
       <td>Образование</td>
-      <td><form:textarea class="form-control" rows="1"  path="education"/></td>
+      <td><form:textarea class="form-control" rows="3"  path="education"/></td>
       <td> <form:errors path="education" cssClass="error"/></td>
    </tr>
    <tr>
