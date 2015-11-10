@@ -1,63 +1,101 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<fieldset>
+<table>
+   <tr>
+      <td>Фамилия</td>
+      <td><form:textarea class="form-control" rows="1" cols="70" path="lastName"/></td>
+      <td><form:errors path="lastName" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Имя</td>
+      <td><form:textarea class="form-control" rows="1" path="firstName"/></td>
+      <td> <form:errors path="firstName" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Отчество</td>
+      <td><form:textarea class="form-control" rows="1" path="secondName"/></td>
+      <td> <form:errors path="secondName" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Личный номер</td>
+      <td><form:textarea class="form-control" rows="1"  path="personalNumber"/></td>
+      <td> <form:errors path="personalNumber" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Звание</td>
+      <td><form:textarea class="form-control" rows="1"  path="rank"/></td>
+      <td> <form:errors path="rank" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Служба в армии</td>
+      <td><form:textarea class="form-control" rows="2" path="callOfDuty"/></td>
+      <td> <form:errors path="callOfDuty" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Дата рождения</td>
+      <td><form:textarea class="form-control" rows="1"  path="strBirthday" placeholder="10 10 2014" /></td>
+      <td> <form:errors path="strBirthday" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Место рождения</td>
+      <td><form:textarea class="form-control" rows="1"  path="placeOfBorn" /></td>
+      <td> <form:errors path="placeOfBorn" cssClass="error"/></td>
+   </tr>
 
-    <label class="col-lg-2 text-right">Фамилия</label>
-    <form:input path="lastName"  class="col-lg-10"/> <form:errors path="lastName" class="col-lg-12" cssClass="error" />
+   <tr>
+      <td>Место работы</td>
+      <td><form:textarea class="form-control" rows="6"  path="workPlace" /></td>
+      <td> <form:errors path="workPlace" cssClass="error"/></td>
+   </tr>
 
-
-    <label class="col-lg-2 text-right">Имя</label>
-    <form:input path="firstName"  class="col-lg-10"/> <form:errors path="firstName" class="col-lg-12" cssClass="error" />
-
-   <label class="col-lg-2 text-right">Отчество</label>
-   <form:input path="secondName"  class="col-lg-10"/> <form:errors path="secondName" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Личный номер</label>
-   <form:input path="personalNumber"  class="col-lg-10"/> <form:errors path="personalNumber" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Звание</label>
-   <form:input path="rank"  class="col-lg-10"/> <form:errors path="rank" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Место службы</label>
-   <form:input path="callOfDuty"  class="col-lg-10"/> <form:errors path="callOfDuty" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Дата рождения</label>
-   <form:input path="strBirthday"  class="col-lg-10" placeholder="10 10 2014"/> <form:errors path="strBirthday" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Место рождения</label>
-   <form:input path="placeOfBorn"  class="col-lg-10"/> <form:errors path="placeOfBorn" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Место работы</label>
-   <form:input path="workPlace"  class="col-lg-10"/> <form:errors path="workPlace" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Образование</label>
-   <form:input path="education"  class="col-lg-10"/> <form:errors path="education" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Окончил</label>
-   <form:input path="graduated"  class="col-lg-10"/> <form:errors path="graduated" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Специальность</label>
-   <form:input path="speciality"  class="col-lg-10"/> <form:errors path="speciality" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Учёная степень</label>
-   <form:input path="degree"  class="col-lg-10"/> <form:errors path="degree" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Иностранные языки</label>
-   <form:input path="foreigLang"  class="col-lg-10"/> <form:errors path="foreigLang" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Был ли за границей</label>
-   <form:input path="abroad"  class="col-lg-10"/> <form:errors path="abroad" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Взыскания</label>
-   <form:input path="foreclosure"  class="col-lg-10"/> <form:errors path="foreclosure" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Участие в выборочных органах</label>
-   <form:input path="election"  class="col-lg-10"/> <form:errors path="election" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Имеет ли госнаграды</label>
-   <form:input path="stateAwards"  class="col-lg-10"/> <form:errors path="stateAwards" class="col-lg-12" cssClass="error"/>
-
-   <label class="col-lg-2 text-right">Пункт увольнения</label>
-   <form:input path="fired"  class="col-lg-10"/> <form:errors path="fired" class="col-lg-12" cssClass="error"/>
-
-</fieldset>
+   <tr>
+      <td>Образование</td>
+      <td><form:textarea class="form-control" rows="3"  path="education"/></td>
+      <td> <form:errors path="education" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Окончил</td>
+      <td><form:textarea class="form-control" rows="1"  path="graduated"/></td>
+      <td> <form:errors path="graduated" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Специальность</td>
+      <td><form:textarea class="form-control" rows="1"  path="speciality"/></td>
+      <td> <form:errors path="speciality" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Учёная степень</td>
+      <td><form:textarea class="form-control" rows="1"  path="degree"/></td>
+      <td> <form:errors path="degree" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Иностранные языки</td>
+      <td><form:textarea class="form-control" rows="1"  path="foreigLang"/></td>
+      <td> <form:errors path="foreigLang" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Был ли за границей</td>
+      <td><form:textarea class="form-control" rows="1"  path="abroad"/></td>
+      <td> <form:errors path="abroad" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Взыскания</td>
+      <td><form:textarea class="form-control" rows="1"  path="foreclosure"/></td>
+      <td> <form:errors path="foreclosure" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Участие в выборочных органах</td>
+      <td><form:textarea class="form-control" rows="1"  path="election"/> </td>
+      <td><form:errors path="election" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Имеет ли госнаграды</td>
+      <td><form:textarea class="form-control" rows="1"  path="stateAwards"/></td>
+      <td> <form:errors path="stateAwards" cssClass="error"/></td>
+   </tr>
+   <tr>
+      <td>Пункт увольнения</td>
+      <td><form:textarea class="form-control" rows="1"  path="fired"/></td>
+      <td> <form:errors path="fired" cssClass="error"/></td>
+   </tr>
+</table>
