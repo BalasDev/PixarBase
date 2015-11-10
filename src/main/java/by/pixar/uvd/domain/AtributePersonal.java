@@ -9,6 +9,7 @@ public enum AtributePersonal {
     SECONDNAME("Отчество","secondName"),
     PERSONALNUMBER("Личный номер","personalNumber"),
     RANK("Звание","rank"),
+    ROVD("РОВД","rovd"),
     PLACEOFBORN("Место рождения","placeOfBorn"),
     EDUCATION("Образование","education"),
     GRADUATED("Окончил","graduated"),

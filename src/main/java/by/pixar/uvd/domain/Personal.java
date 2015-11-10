@@ -49,9 +49,14 @@ public class Personal {
     @Column(name = "RANK")
     private String rank;
 
+    @NotBlank(message = "Введите РОВД")
+    @Column(name = "ROVD")
+    private String rovd;
+
     //'Дата рождения'
     // @NotBlank(message = "Введите дату")
     //@DateTimeFormat(style = "S-")
+
     @Column(name = "BIRTHDAY")
     private Date birthday;
 
@@ -332,5 +337,13 @@ public class Personal {
 
     public void setWorkPlace(String workPlace) {
         this.workPlace = workPlace;
+    }
+
+    public String getRovd() {
+        return rovd;
+    }
+
+    public void setRovd(String rovd) {
+        this.rovd = rovd;
     }
 }

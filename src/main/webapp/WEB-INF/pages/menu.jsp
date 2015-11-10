@@ -108,6 +108,9 @@
                                     <label class="col-lg-2 text-right">Звание</label>
                                     <input type="text" class="col-lg-10" disabled value="${personality.rank}">
 
+                                    <label class="col-lg-2 text-right">РОВД</label>
+                                    <input type="text" class="col-lg-10" disabled value="${personality.rovd}">
+
                                     <label class="col-lg-2 text-right">Место службы</label>
                                     <input type="text" class="col-lg-10" disabled value="${personality.callOfDuty}">
 
@@ -176,7 +179,7 @@
                                 </div>
 
                                 <div class="modal-body scroll">
-                                    <fieldset>
+                                   <fieldset>
                                          <form:hidden path="id" value="${personality.id}"/>
                                         <label class="col-lg-2 text-right control-label">Фамилия</label>
                                         <form:input class="col-lg-10" type="text"  path="lastName"
@@ -197,6 +200,10 @@
                                         <label class="col-lg-2 text-right control-label">Звание</label>
                                         <form:input class="col-lg-10" type="text" path="rank"
                                                     value="${personality.rank}"/>
+
+                                        <label class="col-lg-2 text-right control-label">РОВД</label>
+                                        <form:input class="col-lg-10" type="text" path="rank"
+                                                    value="${personality.rovd}"/>
 
                                         <label class="col-lg-2 text-right control-label">Место службы</label>
                                         <form:input class="col-lg-10" type="text" path="callOfDuty"
@@ -254,7 +261,7 @@
                                         <form:input class="col-lg-10" type="text" path="fired"
                                                     value="${personality.fired}"/>
 
-                                    </fieldset>
+                                   </fieldset>
                                 </div>
 
                                 <div class="modal-footer">

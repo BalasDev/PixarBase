@@ -27,6 +27,11 @@
       <td> <form:errors path="rank" cssClass="error"/></td>
    </tr>
    <tr>
+      <td>РОВД</td>
+      <td><form:textarea class="form-control" rows="1"  path="rovd"/></td>
+      <td> <form:errors path="rovd" cssClass="error"/></td>
+   </tr>
+   <tr>
       <td>Служба в армии</td>
       <td><form:textarea class="form-control" rows="2" path="callOfDuty"/></td>
       <td> <form:errors path="callOfDuty" cssClass="error"/></td>
