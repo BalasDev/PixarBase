@@ -2,12 +2,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <fieldset>
 
-    <label class="col-xs-3 text-right">Фамилия</label>
-    <form:input path="lastName"  class="col-lg-7"/> <form:errors path="lastName" class="col-lg-2" cssStyle="font-weight: 500; color: red" />
+    <label class="col-lg-2 text-right">Фамилия</label>
+    <form:input path="lastName"  class="col-lg-10"/> <form:errors path="lastName" class="col-lg-12" cssClass="error" />
 
 
-    <label class="col-xs-3 text-right">Имя</label>
-    <form:input path="firstName"  class="col-lg-7"/> <form:errors path="firstName" class="col-lg-2" cssStyle="color: red" />
+    <label class="col-lg-2 text-right">Имя</label>
+    <form:input path="firstName"  class="col-lg-10"/> <form:errors path="firstName" class="col-lg-12" cssClass="error" />
 
    <label class="col-lg-2 text-right">Отчество</label>
    <form:input path="secondName"  class="col-lg-10"/> <form:errors path="secondName" class="col-lg-12" cssClass="error"/>
