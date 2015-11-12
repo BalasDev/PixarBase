@@ -11,7 +11,7 @@ public interface UserDAO {
 
     List<Users> getUsers();
 
-    void addUser(Users user);
+    boolean addUser(Users user);
 
-    void deleteUser(Integer id);
+    boolean deleteUser(Integer id);
 }

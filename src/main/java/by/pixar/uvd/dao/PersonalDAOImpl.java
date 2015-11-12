@@ -2,6 +2,7 @@ package by.pixar.uvd.dao;
 
 import by.pixar.uvd.domain.Personal;
 import org.hibernate.SessionFactory;
+import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -40,32 +41,48 @@ public class PersonalDAOImpl implements PersonalDAO {
 
 
     public List<Personal> findPersonal(String field, String var,String stDate,String endDate) {
+        Query query =null;
+        String beginOfQuery = "from Personal where extract(year from BIRTHDAY)  ";
         if (var.equals("") && endDate.equals("")) {
-            return sessionFactory.getCurrentSession().createQuery("from Personal where     extract(year from BIRTHDAY)  >= " + "'" + stDate + "'").list();
+            query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+">=:stDate");
+         //   return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  >= " + "'" + stDate + "'").list();
         } else
         if (var.equals("") && stDate.equals("")) {
-            return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'").list();
+            query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+"<=:endDate");
+            //return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'").list();
         } else
         if (var.equals("") && !stDate.equals("") && !endDate.equals("")) {
-            return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
-            + " and extract(year from BIRTHDAY) >= " + "'" + stDate + "'").list();
+            query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+"<=:endDate and extract(year from BIRTHDAY)>=:stDate");
+          //  return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
+          //  + " and extract(year from BIRTHDAY) >= " + "'" + stDate + "'").list();
         } else
 
         if (endDate.equals("")) {
-            return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  >= " + "'" + stDate + "'"
-                    + " and " + field + " = " + "'" + var + "'").list();
+            query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+">=:stDate and " + field + " =:var");
+           // return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  >= " + "'" + stDate + "'"
+           //         + " and " + field + " = " + "'" + var + "'").list();
         } else
         if ( stDate.equals("")) {
-            return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
-               +" and " + field + " = " + "'" + var + "'").list();
+            query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+"<=:endDate and " + field + " =:var");
+
+            // return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
+           //    +" and " + field + " = " + "'" + var + "'").list();
         } else
         if (!var.equals("") && !stDate.equals("") && !endDate.equals("")) {
-            return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
-                    + " and extract(year from BIRTHDAY) >= " + "'" + stDate + "'"
-                    +" and " + field + " = " + "'" + var + "'").list();
-        } else
 
-            return sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " = " + "'" + var + "'").list();
+            query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+"<=:endDate and extract(year from BIRTHDAY) >=:stDate and " + field + " =:var");
+
+         //   return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
+         //           + " and extract(year from BIRTHDAY) >= " + "'" + stDate + "'"
+         //           +" and " + field + " = " + "'" + var + "'").list();
+        } else
+            query = sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " =:var");
+            //   return sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " = " + "'" + var + "'").list();
+        query.setParameter("stDate", stDate);
+        query.setParameter("endDate",endDate);
+        query.setParameter("var", var);
+
+     return query.list();
     }
 
 

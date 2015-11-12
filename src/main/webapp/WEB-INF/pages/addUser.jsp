@@ -5,7 +5,7 @@
 <jsp:include page="header.jsp"/>
 
 <form:form method="post" action="addNewUser" commandName="users">
-  <table>
+  <table >
   <tr>
     <td>Фамилия</td>
     <td><form:textarea class="form-control" rows="1" cols="70" path="lastName"/></td>

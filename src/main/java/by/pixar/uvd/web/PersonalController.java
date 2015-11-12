@@ -24,6 +24,8 @@ public class PersonalController {
     @Autowired
     UserService userService;
 
+    private String msg;
+
     @RequestMapping("/")
     public String home(Map<String, Object> map) {
         map.put("personalList", personalService.listPersonal());
@@ -104,6 +106,9 @@ public class PersonalController {
     @RequestMapping(value = "/adminPanel", method = RequestMethod.GET)
     public String admin(Map<String, Object> map) {
         map.put("users", userService.getUsers());
+        map.put("msg",msg);
+        map.put("type","success");
+        msg=null;
         return "/admin";
     }
 
@@ -114,11 +119,15 @@ public class PersonalController {
     }
 
     @RequestMapping(value = "/addNewUser", method = RequestMethod.POST)
-    public String addNewUser(@Valid Users users, BindingResult result) {
-        if (result.hasErrors()) {
+    public String addNewUser(@Valid Users users, BindingResult result,Map map) {
+        if ((result.hasErrors())||(!userService.addUser(users))) {
+            map.put("msg","Не удалось добавить пользователя");
+            map.put("type","danger");
             return "/addUser";
         }
-        userService.addUser(users);
-        return "redirect:/adminPanel";
+        else {
+              msg="Пользователь добавлен";
+             return "redirect:/adminPanel";
+        }
     }
 }
