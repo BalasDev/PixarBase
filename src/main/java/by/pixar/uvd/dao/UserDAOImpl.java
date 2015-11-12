@@ -31,4 +31,16 @@ public class UserDAOImpl implements UserDAO {
     public List<Users> getUsers() {
         return sessionFactory.getCurrentSession().createQuery("from Users").list();
     }
+
+    @Override
+    public void addUser(Users user) {
+        sessionFactory.getCurrentSession().save(user);
+    }
+
+    @Override
+    public void deleteUser(Integer id) {
+        Users user = (Users) sessionFactory.getCurrentSession().load(Users.class,id);
+        if (!user.equals(null))
+            sessionFactory.getCurrentSession().delete(user);
+    }
 }

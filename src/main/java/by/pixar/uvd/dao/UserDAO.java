@@ -10,4 +10,8 @@ public interface UserDAO {
     Users getUserByLogin(String login);
 
     List<Users> getUsers();
+
+    void addUser(Users user);
+
+    void deleteUser(Integer id);
 }

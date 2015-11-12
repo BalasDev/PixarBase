@@ -31,7 +31,7 @@ public class PersonalDAOImpl implements PersonalDAO {
 
     public void deletePersonal(Integer id) {
         Personal personal = (Personal) sessionFactory.getCurrentSession().load(Personal.class, id);
-        if (null != personal) {
+        if (!personal.equals(null)) {
 
             sessionFactory.getCurrentSession().delete(personal);
 

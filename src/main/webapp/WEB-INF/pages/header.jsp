@@ -41,6 +41,9 @@
             <security:authorize url="/delete/">
             <li><a href="/searchs">Поиск</a></li>
             </security:authorize>
+            <security:authorize url="/delete/">
+             <li><a href="/adminPanel">Панель администратора</a></li>
+            </security:authorize>
           </ul>
           <form action="" class="navbar-form navbar-right">
             <a href="<c:url value="/logout" />" class="btn btn-danger form-control">Выйти</a>

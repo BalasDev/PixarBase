@@ -2,7 +2,9 @@ package by.pixar.uvd.web;
 
 import by.pixar.uvd.domain.AtributePersonal;
 import by.pixar.uvd.domain.Personal;
+import by.pixar.uvd.domain.Users;
 import by.pixar.uvd.service.PersonalService;
+import by.pixar.uvd.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -15,8 +17,12 @@ import static by.pixar.uvd.domain.AtributePersonal.values;
 
 @Controller
 public class PersonalController {
+
     @Autowired
     PersonalService personalService;
+
+    @Autowired
+    UserService userService;
 
     @RequestMapping("/")
     public String home(Map<String, Object> map) {
@@ -95,4 +101,24 @@ public class PersonalController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/adminPanel", method = RequestMethod.GET)
+    public String admin(Map<String, Object> map) {
+        map.put("users", userService.getUsers());
+        return "/admin";
+    }
+
+    @RequestMapping(value = "/addUsers", method = RequestMethod.GET)
+    public String addUsers(Map<String, Object> map) {
+        map.put("users", new Users());
+        return "/addUser";
+    }
+
+    @RequestMapping(value = "/addNewUser", method = RequestMethod.POST)
+    public String addNewUser(@Valid Users users, BindingResult result) {
+        if (result.hasErrors()) {
+            return "/addUser";
+        }
+        userService.addUser(users);
+        return "redirect:/adminPanel";
+    }
 }

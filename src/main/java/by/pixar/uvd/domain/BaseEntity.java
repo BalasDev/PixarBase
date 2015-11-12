@@ -9,13 +9,13 @@ public class BaseEntity {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Integer ID;
+    protected Integer Id;
 
-    public Integer getID() {
-        return ID;
+    public Integer getId() {
+        return Id;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer Id) {
+        this.Id = Id;
     }
 }

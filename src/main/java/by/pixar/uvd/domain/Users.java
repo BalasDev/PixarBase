@@ -25,8 +25,6 @@ public class Users extends BaseEntity {
     @Column(name = "IP")
     private String ip;
 
-
-
     @ManyToOne/*(fetch = FetchType.LAZY)*/(cascade=CascadeType.ALL)
     @JoinColumn(name = "ROLEID")
     private Roles role;
@@ -63,6 +61,13 @@ public class Users extends BaseEntity {
         this.login = login;
     }
 
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
 
     public String getPassword() {
         return password;
