@@ -1,12 +1,17 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <table>
+
+   <c:forEach items="${fields}" var="field">
+
    <tr>
-      <td>Фамилия</td>
-      <td><form:textarea class="form-control" rows="1" cols="70" path="lastName"/></td>
-      <td><form:errors path="lastName" cssClass="error"/></td>
+      <td>${field.rusFieldName}</td>
+      <td><form:textarea class="form-control" rows="${field.row}" cols="70" path="${field.fieldName}"/></td>
+      <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
    </tr>
-   <tr>
+   </c:forEach>
+   <%--<tr>
       <td>Имя</td>
       <td><form:textarea class="form-control" rows="1" path="firstName"/></td>
       <td> <form:errors path="firstName" cssClass="error"/></td>
@@ -102,5 +107,5 @@
       <td>Пункт увольнения</td>
       <td><form:textarea class="form-control" rows="1"  path="fired"/></td>
       <td> <form:errors path="fired" cssClass="error"/></td>
-   </tr>
+   </tr>--%>
 </table>

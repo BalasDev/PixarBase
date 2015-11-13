@@ -3,6 +3,7 @@ package by.pixar.uvd.web;
 import by.pixar.uvd.domain.AtributePersonal;
 import by.pixar.uvd.domain.Personal;
 import by.pixar.uvd.domain.Users;
+import by.pixar.uvd.domain.fields.FormFields;
 import by.pixar.uvd.service.PersonalService;
 import by.pixar.uvd.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class PersonalController {
     @Autowired
     UserService userService;
 
+    //Add messages on action (delete,add,edit)
     private String msg;
 
     @RequestMapping("/")
@@ -75,13 +77,15 @@ public class PersonalController {
     @RequestMapping(value = "/adds", method = RequestMethod.GET)
     public String add(Map<String, Object> map) {
         map.put("personal", new Personal());
-        return "/addPersonal";
+        map.put("fields", new FormFields().getFields());
+       return "/addPersonal";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addPersonal(@Valid Personal personal,
-                              BindingResult result) {
+                              BindingResult result, Map map) {
         if (result.hasErrors()) {
+            map.put("fields", new FormFields().getFields());
             return "/addPersonal";
         }
 
@@ -91,13 +95,13 @@ public class PersonalController {
 
     // delete
     @RequestMapping(value = "/delete/{id}", produces = "text/html", method = RequestMethod.GET)
-    public String deleteContact(@PathVariable("id") Integer id) {
+    public String deletePersonal(@PathVariable("id") Integer id) {
         personalService.deletePersonal(id);
         return "redirect:/";
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String editContact(@ModelAttribute("personal") Personal personal,
+    public String editPersonal(@ModelAttribute("personal") Personal personal,
                               BindingResult result) {
         personalService.editPersonal(personal);
         return "redirect:/";
@@ -129,5 +133,14 @@ public class PersonalController {
               msg="Пользователь добавлен";
              return "redirect:/adminPanel";
         }
+    }
+
+    @RequestMapping(value = "/deleteUser/{id}", produces = "text/html", method = RequestMethod.GET)
+    public String deleteUser(@PathVariable("id") Integer id,Map map) {
+        if(!userService.deleteUser(id))
+            map.put("msg","Не удалось удалить пользователя");
+        else
+            msg="Пользователь успешно удален";
+        return "redirect:/adminPanel";
     }
 }

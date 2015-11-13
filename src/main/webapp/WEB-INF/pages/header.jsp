@@ -52,5 +52,6 @@
       </div>
     </div>
   </div>
-
-  <div class="alert alert-${type}">${msg}</div>
+  <c:if test="${not empty msg }">
+   <div class="alert alert-${type}">${msg}</div>
+  </c:if>

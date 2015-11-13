@@ -67,7 +67,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary"
-                      onclick="location.href='<%=request.getContextPath()%>/delete/${user.id}'">
+                      onclick="location.href='<%=request.getContextPath()%>/deleteUser/${user.id}'">
                 Да
               </button>
               <button type="button" class="btn btn-default" data-dismiss="modal">
