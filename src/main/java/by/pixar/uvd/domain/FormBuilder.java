@@ -1,4 +1,4 @@
-package by.pixar.uvd.domain.fields;
+package by.pixar.uvd.domain;
 
 
 public class FormBuilder {

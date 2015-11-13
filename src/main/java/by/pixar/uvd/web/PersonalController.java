@@ -3,7 +3,7 @@ package by.pixar.uvd.web;
 import by.pixar.uvd.domain.AtributePersonal;
 import by.pixar.uvd.domain.Personal;
 import by.pixar.uvd.domain.Users;
-import by.pixar.uvd.domain.fields.FormFields;
+import by.pixar.uvd.domain.FormFields;
 import by.pixar.uvd.service.PersonalService;
 import by.pixar.uvd.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
