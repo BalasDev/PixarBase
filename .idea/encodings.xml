@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/by/pixar/uvd/domain/FormBuilder.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/by/pixar/uvd/domain/FormFields.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/by/pixar/uvd/domain/Personal.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/by/pixar/uvd/web/PersonalController.java" charset="UTF-8" />
   </component>
 </project>

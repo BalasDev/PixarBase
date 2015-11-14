@@ -104,6 +104,7 @@ public class PersonalController {
     public String editPersonal(@ModelAttribute("personal") Personal personal,
                               BindingResult result) {
         personalService.editPersonal(personal);
+
         return "redirect:/";
     }
 

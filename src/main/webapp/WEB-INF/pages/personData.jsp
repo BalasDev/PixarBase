@@ -7,7 +7,7 @@
 
    <tr>
       <td>${field.rusFieldName}</td>
-      <td><form:textarea class="form-control" rows="${field.row}" cols="70" path="${field.fieldName}"/></td>
+      <td><form:textarea class="form-control" rows="${field.row}" cols="70" path="${field.fieldName}" placeholder="your default text"/></td>
       <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
    </tr>
    </c:forEach>
