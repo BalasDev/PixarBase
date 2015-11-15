@@ -12,14 +12,13 @@
 
                 <div class="modal-body scroll">
                     <fieldset>
-                            <form:hidden path="id" value="${personality.id}"/>
+                        <form:hidden path="id" value="${personality.id}"/>
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <label class="text-left">Фамилия</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1"
-                                          name="lastName">${personality.lastName}</textarea>
+                                <form:textarea ng-init='foo="Some default value"' ng-model='foo' class="form-control" rows="1" path="lastName"  />
                             </div>
                         </div>
 
@@ -28,8 +27,7 @@
                                 <label class="text-left">Имя</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1"
-                                          name="firstName">${personality.firstName}</textarea>
+                                <form:textarea class="form-control" rows="1" path="firstName" placeholder="${personality.firstName}"/>
                             </div>
                         </div>
 
@@ -38,8 +36,7 @@
                                 <label class="text-left">Отчество</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1"
-                                          name="secondName">${personality.secondName}</textarea>
+                                <form:textarea class="form-control" rows="1" path="secondName" placeholder="${personality.secondName}"/>
                             </div>
                         </div>
 
@@ -48,8 +45,7 @@
                                 <label class="text-left">Личный номер</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1"
-                                          name="personalNumber">${personality.personalNumber}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="personalNumber" placeholder="${personality.personalNumber}"/>
                             </div>
                         </div>
 
@@ -58,7 +54,7 @@
                                 <label class="text-left">Звание</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1" name="rank">${personality.rank}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="rank" placeholder="${personality.rank}"/>
                             </div>
                         </div>
 
@@ -68,7 +64,7 @@
                                 <label class="text-left">РОВД</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1" name="rovd">${personality.rovd}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="rovd" placeholder="${personality.rovd}"/>
                             </div>
                         </div>
 
@@ -77,8 +73,7 @@
                                 <label class="text-left">Служба в армии</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="2"
-                                          name="callOfDuty">${personality.callOfDuty}</textarea>
+                                <form:textarea class="form-control" rows="2" path="callOfDuty" placeholder="${personality.callOfDuty}"/>
                             </div>
                         </div>
 
@@ -87,8 +82,7 @@
                                 <label class="text-left">Место работы</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="6"
-                                          name="workPlace">${personality.workPlace}</textarea>
+                                <form:textarea class="form-control" rows="6"  path="workPlace" placeholder="${personality.workPlace}"/>
                             </div>
                         </div>
 
@@ -97,8 +91,7 @@
                                 <label class="text-left control-label">Дата рождения</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1"
-                                          name="strBirthday">${personality.strBirthday}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="strBirthday" placeholder="${personality.strBirthday}"/>
                             </div>
                         </div>
 
@@ -107,8 +100,7 @@
                                 <label class="text-left">Место рождения</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1"
-                                          name="placeOfBorn">${personality.placeOfBorn}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="placeOfBorn" placeholder="${personality.placeOfBorn}"/>
                             </div>
                         </div>
 
@@ -117,8 +109,7 @@
                                 <label class="text-left">Образование</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="3"
-                                          name="education">${personality.education}</textarea>
+                                <form:textarea class="form-control" rows="3"  path="education" placeholder="${personality.education}"/>
                             </div>
                         </div>
 
@@ -127,8 +118,7 @@
                                 <label class="text-left">Окончил</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1"
-                                          name="graduated">${personality.graduated}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="graduated" placeholder="${personality.graduated}"/>
                             </div>
                         </div>
 
@@ -137,8 +127,7 @@
                                 <label class="text-left">Специальность</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1"
-                                          name="speciality">${personality.speciality}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="speciality" placeholder="${personality.speciality}"/>
                             </div>
                         </div>
 
@@ -147,7 +136,7 @@
                                 <label class="text-left">Учёная степень</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1" name="degree">${personality.degree}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="degree" placeholder="${personality.degree}"/>
                             </div>
                         </div>
 
@@ -156,8 +145,7 @@
                                 <label class="text-left">Иностранные языки</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1"
-                                          name="foreigLang">${personality.foreigLang}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="foreigLang" placeholder="${personality.foreigLang}"/>
                             </div>
                         </div>
 
@@ -166,7 +154,7 @@
                                 <label class="text-left">Бывал ли за границей</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1" name="abroad">${personality.abroad}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="abroad" placeholder="${personality.abroad}"/>
                             </div>
                         </div>
 
@@ -175,8 +163,7 @@
                                 <label class="text-left">Взыскания</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1"
-                                          name="foreclosure">${personality.foreclosure}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="foreclosure" placeholder="${personality.foreclosure}"/>
                             </div>
                         </div>
 
@@ -185,8 +172,7 @@
                                 <label class="text-left">Участие в выб-ых органах</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1"
-                                          name="election">${personality.election}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="election" placeholder="${personality.election}"/>
                             </div>
                         </div>
 
@@ -195,8 +181,7 @@
                                 <label class="text-left">Имеет ли госнаграды</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1"
-                                          name="stateAwards">${personality.stateAwards}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="stateAwards" placeholder="${personality.stateAwards}"/>
                             </div>
                         </div>
 
@@ -205,7 +190,7 @@
                                 <label class="text-left">Пункт увольнения</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1" name="fired">${personality.fired}</textarea>
+                                <form:textarea class="form-control" rows="1"  path="fired" placeholder="${personality.fired}"/>
                             </div>
                         </div>
 
