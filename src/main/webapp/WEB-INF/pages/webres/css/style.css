@@ -1,8 +1,8 @@
-.container .row {
-	margin-top: 70px;
-}
+.container .row2 {
+	 margin-top: 70px;
+ }
 
 .scroll{
 	overflow: auto;
-	height: 1000px
+	height: 75%;
 }

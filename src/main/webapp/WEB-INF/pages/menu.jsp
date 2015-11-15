@@ -80,7 +80,7 @@
                     </div>
                 </div>
 
-                    <%--modal Person--%>
+                <%--    &lt;%&ndash;modal Person&ndash;%&gt;
                 <div class="modal fade" id="info_${personality.id}">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -91,7 +91,7 @@
                             </div>
 
                             <div class="modal-body scroll">
-                               <%-- <fieldset>--%>
+                               &lt;%&ndash; <fieldset>&ndash;%&gt;
                                <row>
                                     <label class="col-lg-2 text-right">Фамилия</label>
                                     <input type="text" class="col-lg-10" disabled value="${personality.lastName}">
@@ -152,7 +152,7 @@
 
                                     <label class="col-lg-2 text-right control-label">Пункт увольнения</label>
                                     <input class="col-lg-10" type="text" disabled value="${personality.fired}"/>
-                               <%-- </fieldset>--%>
+                               &lt;%&ndash; </fieldset>&ndash;%&gt;
                                </row>
 
                             </div>
@@ -165,10 +165,10 @@
 
                         </div>
                     </div>
-                </div>
+                </div>--%>
+                <%@include file="viewPersonal.jsp"%>
 
-
-                    <%--modal Edit Person--%>
+                <%--    &lt;%&ndash;modal Edit Person&ndash;%&gt;
                 <div class="modal fade" id="edit_${personality.id}">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -276,7 +276,8 @@
                             </form:form>
                         </div>
                     </div>
-                </div>
+                </div>--%>
+                <%@include file="editPersonal.jsp"%>
             </tr>
 
 
