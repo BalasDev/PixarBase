@@ -39,7 +39,7 @@
   <tr>
     <td>Роль</td>
     <td><form:textarea class="form-control" rows="1" path="role.id"/></td>
-    <td> <form:errors path="roleId" cssClass="error"/></td>
+    <td> <form:errors path="role.name" cssClass="error"/></td>
   </tr>
   </table>
   <br>
