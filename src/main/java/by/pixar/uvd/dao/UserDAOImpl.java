@@ -1,6 +1,7 @@
 package by.pixar.uvd.dao;
 
 
+import by.pixar.uvd.domain.Roles;
 import by.pixar.uvd.domain.Users;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -40,6 +41,10 @@ public class UserDAOImpl implements UserDAO {
 
         //
         if((getUserByLogin(user.getLogin())==null)) {
+            Query query = sessionFactory.getCurrentSession().createQuery("from Roles where id=:id");
+            query.setInteger("id", user.getRole().getId());
+
+            user.setRole((Roles)query.list().get(0));
             sessionFactory.getCurrentSession().save(user);
             msg=true;
         }

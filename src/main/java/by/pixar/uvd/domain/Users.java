@@ -29,6 +29,7 @@ public class Users extends BaseEntity {
     @JoinColumn(name = "ROLEID")
     private Roles role;
 
+
     public String getFirstName() {
         return firstName;
     }

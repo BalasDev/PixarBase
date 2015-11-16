@@ -38,9 +38,9 @@
         <div class="collapse navbar-collapse" id="responsive-menu">
           <ul class="nav navbar-nav">
             <li><a href="/adds">Добавить</a></li>
-            <security:authorize url="/searchs">
+           <%-- <security:authorize url="/searchs">--%>
             <li><a href="/searchs">Поиск</a></li>
-            </security:authorize>
+          <%--  </security:authorize>--%>
             <security:authorize url="/adminPanel">
              <li><a href="/adminPanel">Панель администратора</a></li>
             </security:authorize>
