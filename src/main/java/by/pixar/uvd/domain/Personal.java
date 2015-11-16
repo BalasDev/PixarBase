@@ -1,9 +1,9 @@
 package by.pixar.uvd.domain;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -53,13 +53,12 @@ public class Personal {
     private String rovd;
 
     //'Дата рождения'
-    // @NotBlank(message = "Введите дату")
-    @DateTimeFormat(style = "01 01 2015")
+
 
     @Column(name = "BIRTHDAY")
     private Date birthday;
 
-    @NotBlank(message = "Введите дату")
+    @Pattern(message = "Неверный формат", regexp = "[0-9][0-9][ \\f\\n\\r\\t\\v][0-9][0-9][ \\f\\n\\r\\t\\v][0-9][0-9][0-9][0-9]")
     //  @DateTimeFormat(style = "S-")
     @Column(name = "STRBIRTHDAY")
     private String strBirthday;

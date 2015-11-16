@@ -11,7 +11,11 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd http://ww
 
     <http auto-config="true" use-expressions="true">
         <intercept-url pattern="/" access="isAuthenticated()"></intercept-url>
-
+        <intercept-url pattern="/hide" access="hasAnyRole('ADMIN')"></intercept-url>
+        <intercept-url pattern="/adminPanel" access="hasAnyRole('ADMIN')"></intercept-url>
+        <intercept-url pattern="/delete/" access="hasAnyRole('ADMIN')"></intercept-url>
+        <intercept-url pattern="/edit/" access="hasAnyRole('ADMIN')"></intercept-url>
+        <intercept-url pattern="/searchs" access="hasAnyRole('ADMIN')"></intercept-url>
         <form-login default-target-url="/"
                     authentication-failure-url="/logError"
                     login-page="/sing" />

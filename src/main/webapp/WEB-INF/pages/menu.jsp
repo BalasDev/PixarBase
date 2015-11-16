@@ -6,7 +6,7 @@
 <link href="webres/css/errors.css" rel="stylesheet">
 <link href="webres/css/style.css" rel="stylesheet">
 <jsp:include page="header.jsp"/>
-<security:authorize url="/delete/">
+<%--<security:authorize url="/delete/">--%>
 <h1>${stringTitle}</h1>
 
 <div class="table-responsive">
@@ -19,7 +19,7 @@
             <th>Отчество</th>
             <th>Личный номер</th>
             <th>Звание</th>
-            <th></th>
+<security:authorize url="/hide">      <th></th>  </security:authorize>
             <%--<th>Образование</th>
             <th>Окончил</th>
             <th>Специальность</th>
@@ -42,7 +42,7 @@
                 <td>${personality.personalNumber}</td>
                 <td>${personality.rank}</td>
 
-                <security:authorize url="/delete/">
+                <security:authorize url="/hide">
                     <td>
                         <div class="btn-group">
                             <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}"><i
@@ -285,7 +285,7 @@
     </table>
 
 </div>
-</security:authorize>
+<%--</security:authorize>--%>
 
 
 <jsp:include page="footer.jsp"/>
