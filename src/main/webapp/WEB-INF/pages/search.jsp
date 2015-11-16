@@ -17,7 +17,11 @@
                         <label class="col-lg-6 col-md-6 control-label" for="categoryId">Категория</label>
 
                         <div class="col-lg-6 col-md-6 form-group">
-                            <c:set var="personal" value="${personal}"/>
+                        <select class="form-control" name="categoryId" id="categoryId">
+                        <c:forEach items="${fields}" var="field">
+                            <option value="${field.fieldName}"> ${field.rusFieldName} </option>
+                        </c:forEach>
+                            <%--<c:set var="personal" value="${personal}"/>
                             <select class="form-control" name="categoryId" id="categoryId">
                                 <option value="lastName"> ${lastName} </option>
                                 <option value="firstName"> ${firstName} </option>
@@ -37,6 +41,7 @@
                                 <option value="election"> ${election} </option>
                                 <option value="stateAwards"> ${stateAwards} </option>
                                 <option value="fired"> ${fired} </option>
+                            </select>--%>
                             </select>
                         </div>
                     </div>

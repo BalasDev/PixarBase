@@ -1,9 +1,8 @@
 package by.pixar.uvd.web;
 
-import by.pixar.uvd.domain.AtributePersonal;
+import by.pixar.uvd.domain.FormFields;
 import by.pixar.uvd.domain.Personal;
 import by.pixar.uvd.domain.Users;
-import by.pixar.uvd.domain.FormFields;
 import by.pixar.uvd.service.PersonalService;
 import by.pixar.uvd.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Map;
-
-import static by.pixar.uvd.domain.AtributePersonal.values;
 
 @Controller
 public class PersonalController {
@@ -56,9 +53,10 @@ public class PersonalController {
     @RequestMapping(value = "/searchs", method = RequestMethod.GET)
     public String search(Map<String, Object> map) {
 
-        for (AtributePersonal atributPersonal : values()) {
-            map.put(atributPersonal.getField(), atributPersonal.getView());
-        }
+      //  for (AtributePersonal atributPersonal : values()) {
+      //      map.put(atributPersonal.getField(), atributPersonal.getView());
+      //  }
+        map.put("fields", new FormFields().getFields());
         //map.put("personal", new Personal());
         return "search";
     }
@@ -66,6 +64,7 @@ public class PersonalController {
     @RequestMapping(value = "/searchUser", method = RequestMethod.POST)
     public String searchUser(Map<String, Object> map, @RequestParam("categoryId") String category, @RequestParam("searching") String searching,
                              @RequestParam("stdate") String startDate,@RequestParam("fndate") String endDate) {
+
 
         map.put("personalList", personalService.findPersonal(category, searching,startDate,endDate));
         map.put("stringTitle", "Результаты поиска");

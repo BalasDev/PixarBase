@@ -12,7 +12,7 @@ public interface PersonalService {
 
     public void deletePersonal(Integer id);
 
-    public List<Personal> findPersonal(String field, String var,String stDate,String endDate);
+    public List<Personal> findPersonal(String field, String var, String stDate, String endDate);
 
     public void editPersonal(Personal personal);
 }

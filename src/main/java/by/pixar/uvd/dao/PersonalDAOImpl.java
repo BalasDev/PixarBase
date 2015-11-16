@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public class PersonalDAOImpl implements PersonalDAO {
 
-    private static final String query = " ";
+   // private static final String query = " ";
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -40,47 +40,64 @@ public class PersonalDAOImpl implements PersonalDAO {
     }
 
 
-    public List<Personal> findPersonal(String field, String var,String stDate,String endDate) {
+    public List<Personal> findPersonal(String field, String var, String stDate, String endDate) {
         Query query =null;
         String beginOfQuery = "from Personal where extract(year from BIRTHDAY)  ";
+        // var=0 end =0
         if (var.equals("") && endDate.equals("")) {
             query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+">=:stDate");
+            query.setInteger("stDate",Integer.parseInt(stDate));
          //   return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  >= " + "'" + stDate + "'").list();
         } else
+        // var=0 and st=0
         if (var.equals("") && stDate.equals("")) {
             query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+"<=:endDate");
+            query.setInteger("endDate", Integer.parseInt(endDate));
             //return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'").list();
         } else
+        //var=0
         if (var.equals("") && !stDate.equals("") && !endDate.equals("")) {
             query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+"<=:endDate and extract(year from BIRTHDAY)>=:stDate");
+            query.setInteger("stDate", Integer.parseInt(stDate));
+            query.setInteger("endDate", Integer.parseInt(endDate));
           //  return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
           //  + " and extract(year from BIRTHDAY) >= " + "'" + stDate + "'").list();
         } else
-
-        if (endDate.equals("")) {
+        // end =0
+        if (endDate.equals("")&& !var.equals("") && !stDate.equals("")) {
             query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+">=:stDate and " + field + " =:var");
+            query.setInteger("stDate", Integer.parseInt(stDate));
+            query.setParameter("var", var);
            // return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  >= " + "'" + stDate + "'"
            //         + " and " + field + " = " + "'" + var + "'").list();
         } else
-        if ( stDate.equals("")) {
+        //st=0
+        if ( stDate.equals("")&& !var.equals("") && !endDate.equals("")) {
             query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+"<=:endDate and " + field + " =:var");
-
+            query.setInteger("endDate", Integer.parseInt(endDate));
+            query.setParameter("var", var);
             // return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
            //    +" and " + field + " = " + "'" + var + "'").list();
         } else
+        // val!=0 st!=0 end!=0
         if (!var.equals("") && !stDate.equals("") && !endDate.equals("")) {
 
             query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+"<=:endDate and extract(year from BIRTHDAY) >=:stDate and " + field + " =:var");
-
+            query.setInteger("stDate", Integer.parseInt(stDate));
+            query.setInteger("endDate", Integer.parseInt(endDate));
+            query.setParameter("var", var);
          //   return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
          //           + " and extract(year from BIRTHDAY) >= " + "'" + stDate + "'"
          //           +" and " + field + " = " + "'" + var + "'").list();
         } else
+        //var=1
+        {
             query = sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " =:var");
+            query.setParameter("var", var);
             //   return sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " = " + "'" + var + "'").list();
-        query.setParameter("stDate", stDate);
-        query.setParameter("endDate",endDate);
-        query.setParameter("var", var);
+        }
+
+
 
      return query.list();
     }

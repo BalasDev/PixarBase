@@ -30,7 +30,7 @@ public class PersonalServiceImpl implements PersonalService{
     }
 
     @Transactional
-    public List<Personal> findPersonal(String field, String var,String stDate,String endDate) {
+    public List<Personal> findPersonal(String field, String var, String stDate, String endDate) {
         return personalDAO.findPersonal(field,var,stDate,endDate);
     }
 

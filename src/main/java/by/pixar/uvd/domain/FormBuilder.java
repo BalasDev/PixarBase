@@ -8,7 +8,7 @@ public class FormBuilder {
     private  String row;
     private  String value;
 
-    public FormBuilder(String fieldName, String rusFieldName, String row, String value) {
+    public FormBuilder(String rusFieldName,String fieldName,  String row, String value) {
         this.fieldName = fieldName;
         this.RusFieldName = rusFieldName;
         this.row = row;
