@@ -19,6 +19,19 @@ import java.util.List;
 @Service("CustomUserService")
 public class CustomUserDetailsService implements UserDetailsService {
 
+    private static final String[] HEADERS_TO_TRY = {
+            "X-Forwarded-For",
+            "Proxy-Client-IP",
+            "WL-Proxy-Client-IP",
+            "HTTP_X_FORWARDED_FOR",
+            "HTTP_X_FORWARDED",
+            "HTTP_X_CLUSTER_CLIENT_IP",
+            "HTTP_CLIENT_IP",
+            "HTTP_FORWARDED_FOR",
+            "HTTP_FORWARDED",
+            "HTTP_VIA",
+            "REMOTE_ADDR" };
+
     @Autowired
     UserService userService;
     @Autowired
@@ -32,7 +45,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
         Users user = userService.getUserByLogin(login);
-        String ipAddress = request.getRemoteAddr();
+        //String ipAddress = request.getRemoteAddr();
+        String ipAddress = getClientIpAddress(request);
         System.out.println(ipAddress);
         if (!ipAddress.equals(user.getIp())){
 
@@ -61,4 +75,16 @@ public class CustomUserDetailsService implements UserDetailsService {
         return authorities;
     }
 
+    public static String getClientIpAddress(HttpServletRequest request) {
+        for (String header : HEADERS_TO_TRY) {
+            String ip = request.getHeader(header);
+            System.out.println("ip from header " + ip );
+            if (ip != null && ip.length() != 0 && !"unknown".equalsIgnoreCase(ip)) {
+
+                return ip;
+            }
+        }
+        System.out.println("ip from request " + request.getRemoteAddr() );
+        return request.getRemoteAddr();
+    }
 }
