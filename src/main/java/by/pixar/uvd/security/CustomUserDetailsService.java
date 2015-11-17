@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +21,23 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
     UserService userService;
+    @Autowired
+    private HttpServletRequest request;
 
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
 
+
+
+
         Users user = userService.getUserByLogin(login);
+        String ipAddress = request.getRemoteAddr();
+        System.out.println(ipAddress);
+        if (!ipAddress.equals(user.getIp())){
+
+            throw new RuntimeException("Не правельный IP адресс");
+           }
         boolean enabled = true;
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;

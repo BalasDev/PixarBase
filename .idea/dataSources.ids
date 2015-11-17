@@ -6,5 +6,51 @@
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="pixar"/>
+    <table name="personal" schema="" catalog="pixar" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="LASTNAME" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="FIRSTNAME" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="SECONDNAME" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="PERSONALNUMBER" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="RANK" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="BIRTHDAY" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="STRBIRTHDAY" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="PLACEOFBORN" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="EDUCATION" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="GRADUATED" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="SPECIALITY" sqlType="VARCHAR" precision="1500" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="DEGREE" sqlType="VARCHAR" precision="1500" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="FOREIGNLANG" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="ABROAD" sqlType="VARCHAR" precision="1500" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="FORECLOSURE" sqlType="VARCHAR" precision="1500" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="ELECTION" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="CALLOFDUTY" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="STATEAWARDS" sqlType="VARCHAR" precision="1500" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="FIRED" sqlType="VARCHAR" precision="1500" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="WORKPLACE" sqlType="VARCHAR" precision="1500" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="created" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="ROVD" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+    </table>
+    <table name="roles" schema="" catalog="pixar" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="users_ibfk_1" table="users" schema="" catalog="pixar" columns="ROLEID"/>
+    </table>
+    <table name="users" schema="" catalog="pixar" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="LASTNAME" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="FIRSTNAME" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="SECONDNAME" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="LOGIN" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="PASSWORD" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="IP" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12" def="JyAn"/>
+      <column name="ROLEID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="users_ibfk_1" columns="ROLEID" ref-table="roles" ref-schema="" ref-catalog="pixar" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="users_ibfk_1" unique="false" columns="ROLEID"/>
+    </table>
   </data-source>
 </component>

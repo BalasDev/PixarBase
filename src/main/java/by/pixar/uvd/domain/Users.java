@@ -25,7 +25,8 @@ public class Users extends BaseEntity {
     @Column(name = "IP")
     private String ip;
 
-    @ManyToOne/*(fetch = FetchType.LAZY)*/(cascade=CascadeType.ALL)
+    @ManyToOne//(fetch = FetchType.LAZY)
+   // (cascade=CascadeType.ALL)
     @JoinColumn(name = "ROLEID")
     private Roles role;
 
