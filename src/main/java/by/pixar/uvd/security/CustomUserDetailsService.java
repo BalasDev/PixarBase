@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,13 +47,25 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
         Users user = userService.getUserByLogin(login);
-        //String ipAddress = request.getRemoteAddr();
-        String ipAddress = getClientIpAddress(request);
-        System.out.println(ipAddress);
+        // ipAddress = request.
+        //String ipAddress = getClientIpAddress(request);
+        InetAddress ip;
+        try {
+
+            ip = InetAddress.getLocalHost();
+            System.out.println("Current IP address : " + ip.getHostAddress());
+
+        } catch (UnknownHostException e) {
+
+            e.printStackTrace();
+
+        }
+
+        /*System.out.println(ipAddress);
         if (!ipAddress.equals(user.getIp())){
 
             throw new RuntimeException("Не правельный IP адресс");
-           }
+           }*/
         boolean enabled = true;
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
