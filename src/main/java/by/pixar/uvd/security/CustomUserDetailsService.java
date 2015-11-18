@@ -48,24 +48,14 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         Users user = userService.getUserByLogin(login);
         // ipAddress = request.
-        //String ipAddress = getClientIpAddress(request);
-        InetAddress ip;
-        try {
+        String ipAddress = getClientIpAddress(request);
 
-            ip = InetAddress.getLocalHost();
-            System.out.println("Current IP address : " + ip.getHostAddress());
 
-        } catch (UnknownHostException e) {
-
-            e.printStackTrace();
-
-        }
-
-        /*System.out.println(ipAddress);
+        System.out.println(ipAddress);
         if (!ipAddress.equals(user.getIp())){
 
             throw new RuntimeException("Не правельный IP адресс");
-           }*/
+           }
         boolean enabled = true;
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
