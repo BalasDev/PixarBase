@@ -11,6 +11,10 @@
   <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
   <link href="webres/css/style.css" rel="stylesheet">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="webres/jquery/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
   <%--<link href="webres/css/input.css" rel="stylesheet">--%>
   <%--<link href="webres/css/errors.css" rel="stylesheet">--%>
   <%--<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->--%>
@@ -19,9 +23,15 @@
   <%--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>--%>
   <%--<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>--%>
   <![endif]-->
+  <script type="text/javascript">
+    $(function() {
+      $("#message").show().delay(3000).fadeOut();
+    });
+  </script>
 </head>
 
 <body>
+
 <div class="container">
   <div class="row2">
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -53,5 +63,5 @@
     </div>
   </div>
   <c:if test="${not empty msg }">
-   <div class="alert alert-${type}">${msg}</div>
+   <div id =message class="alert alert-${type}">${msg}</div>
   </c:if>

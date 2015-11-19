@@ -11,9 +11,10 @@ public interface UserService {
 
     List<Users> getUsers();
 
-    boolean addUser(Users user);
+    void addUser(Users user);
 
-    boolean deleteUser(Integer id);
+    void deleteUser(Integer id);
 
+    void editUser(Users user);
 
 }

@@ -1,8 +1,8 @@
 package by.pixar.uvd.dao;
 
 import by.pixar.uvd.domain.Personal;
-import org.hibernate.SessionFactory;
 import org.hibernate.Query;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -104,7 +104,7 @@ public class PersonalDAOImpl implements PersonalDAO {
 
 
     public void editPersonal(Personal personal) {
-        Personal person = (Personal) sessionFactory.getCurrentSession().load(Personal.class, personal.getId());
+       /* Personal person = (Personal) sessionFactory.getCurrentSession().load(Personal.class, personal.getId());
        //person = personal;
         person.setFirstName(personal.getFirstName());
         person.setLastName(personal.getLastName());
@@ -130,7 +130,8 @@ public class PersonalDAOImpl implements PersonalDAO {
 
         if (null != person) {
             sessionFactory.getCurrentSession().update(person);
-        }
+        }*/
+        sessionFactory.getCurrentSession().saveOrUpdate(personal);
     }
 
 

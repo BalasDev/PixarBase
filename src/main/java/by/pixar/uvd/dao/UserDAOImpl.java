@@ -2,6 +2,7 @@ package by.pixar.uvd.dao;
 
 
 import by.pixar.uvd.domain.Users;
+import by.pixar.uvd.exceptions.UserExistException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,35 +37,31 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean addUser(Users user) {
+    public void addUser(Users user) {
 
         //
         if((getUserByLogin(user.getLogin())==null)) {
 
             sessionFactory.getCurrentSession().save(user);
-            msg=true;
+
         }
         else
-            msg=false;
+            throw new UserExistException();
 
-     return msg;
+
     }
 
     @Override
-    public boolean deleteUser(Integer id) {
+    public void deleteUser(Integer id) {
         Users user = (Users) sessionFactory.getCurrentSession().load(Users.class,id);
-        if (!user.equals(null)) {
+        if (user!=null) {
             sessionFactory.getCurrentSession().delete(user);
-            msg=true;
         }
-        else
-            msg=false;
-
-        return msg;
     }
+    @Override
+    public void editUser(Users user){
 
-   /* public void editUser(Users user){
-
-        Users users = (Users)sessionFactory.getCurrentSession().load()
-    }*/
+     //   Users users = (Users)sessionFactory.getCurrentSession().load(Users.class,user.getId());
+     sessionFactory.getCurrentSession().saveOrUpdate(user);
+    }
 }
