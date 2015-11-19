@@ -93,7 +93,7 @@
       <form:form action="/editUser" method="POST" modelAttribute="user" id="formUser">
         <div class="modal-header">
           <button class="close" type="button" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Редактирование информация</h4>
+          <h4 class="modal-title">Редактирование информация  </h4>
         </div>
 
         <div class="modal-body scroll">
