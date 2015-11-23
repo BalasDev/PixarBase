@@ -13,6 +13,20 @@
                 <div class="modal-body scroll">
                     <fieldset>
                             <form:hidden path="id" value="${personality.id}"/>
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label class="text-left">Фамилия</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                <select class="form-control">
+                                    <option value="2">22</option>
+                                    <option value="1">11</option>
+                                </select>
+                            </div>
+                        </div>
+
+
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <label class="text-left">Фамилия</label>

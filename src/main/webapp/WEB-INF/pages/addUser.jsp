@@ -38,7 +38,13 @@
   </tr>
   <tr>
     <td>Роль</td>
-    <td><form:textarea class="form-control" rows="1" path="role.id"/></td>
+    <td>
+      <select class="form-control" name="role.id">
+        <option value="2">USER</option>
+        <option value="1">ADMIN</option>
+      </select>
+    </td>
+    <%--<td><form:textarea class="form-control" rows="1" path="role.id"/></td>--%>
     <td> <form:errors path="role.name" cssClass="error"/></td>
   </tr>
   </table>
