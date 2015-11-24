@@ -11,7 +11,7 @@ public class Users extends BaseEntity {
     private String firstName;
 
     @Column(name = "SECONDNAME")
-    private String SecondName;
+    private String secondName;
 
     @Column(name = "LASTNAME")
     private String lastName;
@@ -40,11 +40,11 @@ public class Users extends BaseEntity {
     }
 
     public String getSecondName() {
-        return SecondName;
+        return secondName;
     }
 
     public void setSecondName(String secondName) {
-        SecondName = secondName;
+        this.secondName = secondName;
     }
 
     public String getLastName() {

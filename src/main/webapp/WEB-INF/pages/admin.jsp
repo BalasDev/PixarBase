@@ -15,7 +15,7 @@
 
         <tr>
             <%--  <th></th>--%>
-            <th>ID</th>
+           <%-- <th>ID</th>--%>
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
@@ -28,7 +28,7 @@
 
         <c:forEach items="${users}" var="user">
         <tr>
-            <td>${user.id}</td>
+          <%--  <td>${user.id}</td>--%>
             <td>${user.lastName}</td>
             <td>${user.firstName}</td>
             <td>${user.secondName}</td>

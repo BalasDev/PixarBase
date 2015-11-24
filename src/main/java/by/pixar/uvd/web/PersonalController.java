@@ -168,6 +168,7 @@ public class PersonalController {
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
     public String editUser(@ModelAttribute("user") Users user,
                                BindingResult result) {
+
        userService.editUser(user);
 
         return "redirect:/adminPanel";
