@@ -5,11 +5,49 @@
 
    <c:forEach items="${fields}" var="field">
 
+   <c:choose>
+      <c:when test="${field.fieldName=='rank'}">
+         <tr>
+            <td>${field.rusFieldName}</td>
+            <td>
+               <select class="form-control" name="${field.fieldName}">
+                  <option value="рядовой">рядовой</option>
+                  <option value="младший сержант">младший сержант</option>
+                  <option value="сержант">сержант</option>
+                  <option value="старший сержант">старший сержант</option>
+                  <option value="старшина">старшина</option>
+                  <option value="прапорщик">прапорщик</option>
+                  <option value="старший прапорщик">старший прапорщик</option>
+                  <option value="младший лейтенант">младший лейтенант</option>
+                  <option value="лейтенант">лейтенант</option>
+                  <option value="старший лейтенант">старший лейтенант</option>
+                  <option value="капитан">капитан</option>
+                  <option value="майор">майор</option>
+                  <option value="подполковник">подполковник</option>
+                  <option value="полковник">полковник</option>
+                  <option value="генерал-майор">генерал-майор</option>
+                  <option value="генерал-лейтенант">генерал-лейтенант</option>
+                  <option value="генерал-полковник">генерал-полковник</option>
+               </select>
+            </td>
+            <%--<td><form:textarea class="form-control" rows="${field.row}" cols="70" path="${field.fieldName}" placeholder="${field.value}"/></td>--%>
+            <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
+         </tr>
+      </c:when>
+      <c:otherwise>
+         <tr>
+            <td>${field.rusFieldName}</td>
+            <td><form:textarea class="form-control" rows="${field.row}" cols="70" path="${field.fieldName}" placeholder="${field.value}"/></td>
+            <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
+         </tr>
+      </c:otherwise>
+   </c:choose>
+<%--
    <tr>
       <td>${field.rusFieldName}</td>
       <td><form:textarea class="form-control" rows="${field.row}" cols="70" path="${field.fieldName}" placeholder="${field.value}"/></td>
       <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
-   </tr>
+   </tr>--%>
    </c:forEach>
    <%--<tr>
       <td>Имя</td>
