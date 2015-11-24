@@ -4,7 +4,7 @@
 <div class="modal fade" id="edit_${user.id}">
     <div class="modal-dialog" style="width: 60%;">
         <div class="modal-content">
-            <form:form action="/edit" method="POST" modelAttribute="user" id="formUser">
+            <form:form action="/editUser" method="POST" modelAttribute="user" id="formUser">
                 <div class="modal-header">
                     <button class="close" type="button" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Редактирование пользователя</h4>
@@ -19,7 +19,7 @@
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1"
-                                          name="lastName" disabled>${user.id}</textarea>
+                                          name="id" disabled>${user.id}</textarea>
                             </div>
                         </div>
 
@@ -45,11 +45,21 @@
 
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label class="text-left">Отчество</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                <textarea class="form-control" rows="1"
+                                          name="secondName">${user.secondName}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <label class="text-left">Логин</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1"
-                                          name="secondName">${user.login}</textarea>
+                                          name="login">${user.login}</textarea>
                             </div>
                         </div>
 
@@ -59,7 +69,7 @@
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1"
-                                          name="personalNumber">${user.password}</textarea>
+                                          name="password">${user.password}</textarea>
                             </div>
                         </div>
 
@@ -68,7 +78,7 @@
                                 <label class="text-left">IP</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1" name="rank">${user.ip}</textarea>
+                                <textarea class="form-control" rows="1" name="ip">${user.ip}</textarea>
                             </div>
                         </div>
 
@@ -78,7 +88,12 @@
                                 <label class="text-left">Роль</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1" name="rovd">${user.role.name}</textarea>
+                                <select class="form-control" name="role.id">
+                                    <option value="2">USER</option>
+                                    <option value="1">ADMIN</option>
+                                </select>
+
+                                <%--<textarea class="form-control" rows="1" name="role.name">${user.role.name}</textarea>--%>
                             </div>
                         </div>
 
@@ -87,7 +102,8 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary"
                         <%--onclick="location.href='<%=request.getContextPath()%>/edit/${personality.id}'">--%>
-                            onclick="location.href='#'">
+                            onclick="location.href='<%=request.getContextPath()%>/editUser'">
+                            <%--onclick="location.href='#'">--%>
                         Да
                     </button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">
