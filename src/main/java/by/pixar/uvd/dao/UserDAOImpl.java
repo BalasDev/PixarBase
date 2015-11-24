@@ -61,7 +61,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void editUser(Users user){
 
-     //   Users users = (Users)sessionFactory.getCurrentSession().load(Users.class,user.getId());
+     //Users users = (Users)sessionFactory.getCurrentSession().load(Users.class,user.getId());
      sessionFactory.getCurrentSession().saveOrUpdate(user);
     }
 }
