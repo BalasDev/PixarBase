@@ -12,8 +12,8 @@
 
                 <div class="modal-body scroll">
                     <fieldset>
-                          <form:hidden path="id" value="${user.id}"/>
-                            <%--  <input type="hidden" name="id" value="${user.id}">--%>
+                         <%-- <form:hidden path="id" value="${user.id}"/>--%>
+                             <input type="hidden" name="id" value="${user.id}">
                         <%--<div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <label class="text-left">ID</label>
@@ -85,29 +85,40 @@
                         </div>
 
 
-                              <%--<div class="row">
+                              <div class="row">
                                   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                       <label class="text-left">Роль</label>
                                   </div>
                               <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                 &lt;%&ndash; <select class="form-control" name="role">
-                                      <option value="2">USER</option>
-                                      <option value="1">ADMIN</option>
-                                  </select>&ndash;%&gt;
-                                     <form:select path="role" class="form-control">
+
+                                  <select class="form-control" name="role.id">
+
+                                      <option value="${user.role.id}">${user.role.name}</option>
+                                      <option value=" <c:choose> <c:when test="${user.role['id']==1}"> 2 </c:when>
+                                                      <c:otherwise> 1 </c:otherwise>  </c:choose>
+                                                    ">
+                                      <c:choose>
+                                      <c:when test="${user.role['id']==1}"> USER </c:when>
+                                          <c:otherwise> ADMIN </c:otherwise> </c:choose></option>
+                                  </select>
+
+
+
+
+                                     <%--<form:select path="role" class="form-control">
                                          <form:option value="1">Admin</form:option>
                                          <form:option value="2">User</form:option>
-                                     </form:select>
+                                     </form:select>--%>
                               </div>
-                          </div>--%>
-                        <div class="row">
+                          </div>
+                       <%-- <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <label class="text-left">Роль</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1" name="role">${user.role.name}</textarea>
                             </div>
-                        </div>
+                        </div>--%>
 
                 </div>
 
