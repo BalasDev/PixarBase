@@ -64,6 +64,14 @@ public class UserDAOImpl implements UserDAO {
 
     Roles role = (Roles)sessionFactory.getCurrentSession().load(Roles.class,user.getRole().getId());
     user.setRole(role);
-    sessionFactory.getCurrentSession().saveOrUpdate(user);
+    Users users =(Users)sessionFactory.getCurrentSession().load(Users.class,user.getId());
+        System.out.println(users.getLogin() + " = "+ user.getLogin() +
+         " " + getUserByLogin(user.getLogin()));
+        if(!(users.getLogin().equals(user.getLogin()))&&(getUserByLogin(user.getLogin())!=null))
+            throw new UserExistException();
+        else
+             sessionFactory.getCurrentSession().saveOrUpdate(user);
+
+
     }
 }

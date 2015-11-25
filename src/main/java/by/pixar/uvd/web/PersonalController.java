@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -168,10 +169,26 @@ public class PersonalController {
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
     public String editUser(@ModelAttribute("user") Users user,
                                BindingResult result) {
+        Map map = new HashMap();
+       try {
+           userService.editUser(user);
+           msg = "Пользователь успешно отредактирован";
 
-       userService.editUser(user);
 
-        return "redirect:/adminPanel";
+       }
+       catch (UserExistException e) {
+               map.put("msg",e.getMSG());
+               map.put("type","danger");
+
+           }
+       catch (Exception e) {
+               map.put("msg","Не удалось отредактировать пользователя");
+               map.put("type","danger");
+
+           }
+        finally {
+           return "redirect:/adminPanel";
+       }
     }
 
     @ExceptionHandler(CannotCreateTransactionException.class)
