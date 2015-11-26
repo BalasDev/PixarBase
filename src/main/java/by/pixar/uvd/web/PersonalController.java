@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -28,6 +27,7 @@ public class PersonalController {
 
     //Add messages on action (delete,add,edit)
     private String msg;
+    private String type;
 
     @RequestMapping("/")
     public String home(Map<String, Object> map) {
@@ -115,8 +115,12 @@ public class PersonalController {
     public String admin(Map<String, Object> map) {
         map.put("users", userService.getUsers());
         map.put("msg",msg);
-        map.put("type","success");
+        if(type==null)
+         map.put("type","success");
+        else
+         map.put("type",type);
         msg=null;
+        type=null;
         return "/admin";
     }
 
@@ -151,14 +155,15 @@ public class PersonalController {
     }
 
     @RequestMapping(value = "/deleteUser/{id}", produces = "text/html", method = RequestMethod.GET)
-    public String deleteUser(@PathVariable("id") Integer id,Map map) {
+    public String deleteUser(@PathVariable("id") Integer id) {
         try {
             userService.deleteUser(id);
             msg = "Пользователь успешно удален";
 
         }
         catch (Exception e) {
-            map.put("msg", "Не удалось удалить пользователя");
+            msg = "Не удалось удалить пользователя";
+            type="danger";
         }
         finally {
             return "redirect:/adminPanel";
@@ -169,7 +174,7 @@ public class PersonalController {
     @RequestMapping(value = "/editUser", method = RequestMethod.POST)
     public String editUser(@ModelAttribute("user") Users user,
                                BindingResult result) {
-        Map map = new HashMap();
+
        try {
            userService.editUser(user);
            msg = "Пользователь успешно отредактирован";
@@ -178,13 +183,12 @@ public class PersonalController {
        }
        catch (UserExistException e) {
               msg = e.getMSG();
-              // map.put("msg",e.getMSG());
-               map.put("type","danger");
+              type="danger";
 
            }
        catch (Exception e) {
                msg ="Не удалось отредактировать пользователя";
-               map.put("type","danger");
+               type="danger";
 
            }
         finally {
