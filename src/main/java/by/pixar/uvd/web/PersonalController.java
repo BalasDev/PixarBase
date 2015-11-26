@@ -177,12 +177,13 @@ public class PersonalController {
 
        }
        catch (UserExistException e) {
-               map.put("msg",e.getMSG());
+              msg = e.getMSG();
+              // map.put("msg",e.getMSG());
                map.put("type","danger");
 
            }
        catch (Exception e) {
-               map.put("msg","Не удалось отредактировать пользователя");
+               msg ="Не удалось отредактировать пользователя";
                map.put("type","danger");
 
            }
