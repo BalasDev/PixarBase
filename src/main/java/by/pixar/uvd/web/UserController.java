@@ -49,7 +49,7 @@ public class UserController {
         try {
             userService.addUser(users);
             msg = "Пользователь добавлен";
-            return "redirect:/adminPanel";
+             return "redirect:/adminPanel";
         }
 
         catch (UserExistException e) {
