@@ -63,5 +63,5 @@
     </div>
   </div>
   <c:if test="${not empty msg }">
-   <div id =message class="alert alert-${type}">${msg}</div>
+
   </c:if>

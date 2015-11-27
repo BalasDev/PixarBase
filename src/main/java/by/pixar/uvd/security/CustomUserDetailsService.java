@@ -13,8 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +52,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         System.out.println(ipAddress);
         if (!ipAddress.equals(user.getIp())){
 
-            throw new RuntimeException("Не правельный IP адресс");
+            throw new UsernameNotFoundException("Не правельный IP адресс");
            }
         boolean enabled = true;
         boolean accountNonExpired = true;

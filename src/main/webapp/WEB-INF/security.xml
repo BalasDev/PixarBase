@@ -19,6 +19,8 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd http://ww
         <form-login default-target-url="/"
                     authentication-failure-url="/logError"
                     login-page="/sing" />
+
+
         <logout logout-url="/logout" logout-success-url="/"/>
 
         <!-- access="hasAnyRole('ROLE_ADMIN,ROLE_USER')-->
