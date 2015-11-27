@@ -13,8 +13,8 @@
                 <div class="modal-body scroll">
                     <fieldset>
                             <form:hidden path="id" value="${personality.id}"/>
-
-                        <div class="row">
+                               <%--  Что за дичь ты добавил?--%>
+                        <%--<div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <label class="text-left">Фамилия</label>
                             </div>
@@ -24,7 +24,7 @@
                                     <option value="1">11</option>
                                 </select>
                             </div>
-                        </div>
+                        </div>--%>
 
 
                         <div class="row">
@@ -72,7 +72,25 @@
                                 <label class="text-left">Звание</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1" name="rank">${personality.rank}</textarea>
+                                <select class="form-control" name="${field.fieldName}">
+                                    <option value="рядовой">рядовой</option>
+                                    <option value="младший сержант">младший сержант</option>
+                                    <option value="сержант">сержант</option>
+                                    <option value="старший сержант">старший сержант</option>
+                                    <option value="старшина">старшина</option>
+                                    <option value="прапорщик">прапорщик</option>
+                                    <option value="старший прапорщик">старший прапорщик</option>
+                                    <option value="младший лейтенант">младший лейтенант</option>
+                                    <option value="лейтенант">лейтенант</option>
+                                    <option value="старший лейтенант">старший лейтенант</option>
+                                    <option value="капитан">капитан</option>
+                                    <option value="майор">майор</option>
+                                    <option value="подполковник">подполковник</option>
+                                    <option value="полковник">полковник</option>
+                                    <option value="генерал-майор">генерал-майор</option>
+                                    <option value="генерал-лейтенант">генерал-лейтенант</option>
+                                    <option value="генерал-полковник">генерал-полковник</option>
+                                </select>
                             </div>
                         </div>
 
