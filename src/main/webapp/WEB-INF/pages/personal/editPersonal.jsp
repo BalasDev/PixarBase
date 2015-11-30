@@ -13,18 +13,6 @@
                 <div class="modal-body scroll">
                     <fieldset>
                             <form:hidden path="id" value="${personality.id}"/>
-                               <%--  Что за дичь ты добавил?--%>
-                        <%--<div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                <label class="text-left">Фамилия</label>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <select class="form-control">
-                                    <option value="2">22</option>
-                                    <option value="1">11</option>
-                                </select>
-                            </div>
-                        </div>--%>
 
 
                         <div class="row">
@@ -101,7 +89,39 @@
                                 <label class="text-left">РОВД</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <textarea class="form-control" rows="1" name="rovd">${personality.rovd}</textarea>
+                                <select class="form-control" name="rovd">
+                                    <option value="${personality.rovd}">${personality.rovd}</option>
+                                    <option value="Железнодорожный">Железнодорожный</option>
+                                    <option value="Новобелецкий">Новобелецкий</option>
+                                    <option value="Центральный">Центральный</option>
+                                    <option value="Советский">Советский</option>
+                                    <option value="Гомельский">Гомельский</option>
+                                    <option value="Брагинский">Брагинский</option>
+                                    <option value="Буда-Кошелевский">Буда-Кошелевский</option>
+                                    <option value="Ветковский">Ветковский</option>
+                                    <option value="Добрушский">Добрушский</option>
+                                    <option value="Ельский">Ельский</option>
+                                    <option value="Житковичский">Житковичский</option>
+                                    <option value="Жлобинский">Жлобинский</option>
+                                    <option value="Калинковичский">Калинковичский</option>
+                                    <option value="Кормянский">Кормянский</option>
+                                    <option value="Лельчицкий">Лельчицкий</option>
+                                    <option value="Лоевский">Лоевский</option>
+                                    <option value="Мозырьский">Мозырьский</option>
+                                    <option value="Наровлянский">Наровлянский</option>
+                                    <option value="Октябрьский">Октябрьский</option>
+                                    <option value="Петриковский">Петриковский</option>
+                                    <option value="Речицкий">Речицкий</option>
+                                    <option value="Рогачевский">Рогачевский</option>
+                                    <option value="Светлогорский">Светлогорский</option>
+                                    <option value="Хойникский">Хойникский</option>
+                                    <option value="Чечерский">Чечерский</option>
+                                    <option value="Полк ППСМ">Полк ППСМ</option>
+                                    <option value="БДПС">БДПС</option>
+                                    <option value="Гомельский ОВДТ">Гомельский ОВДТ</option>
+                                </select>
+
+
                             </div>
                         </div>
 

@@ -34,13 +34,13 @@ public class UserController {
             map.put("type",type);
         msg=null;
         type=null;
-        return "/admin";
+        return "user/user";
     }
 
     @RequestMapping(value = "/addUsers", method = RequestMethod.GET)
     public String addUsers(Map<String, Object> map) {
         map.put("users", new Users());
-        return "/addUser";
+        return "user/addUser";
     }
 
     @RequestMapping(value = "/addNewUser", method = RequestMethod.POST)
@@ -55,12 +55,12 @@ public class UserController {
         catch (UserExistException e) {
             map.put("msg",e.getMSG());
             map.put("type","danger");
-            return "/addUser";
+            return "user/addUser";
         }
         catch (Exception e) {
             map.put("msg","Не удалось добавить пользователя");
             map.put("type","danger");
-            return "/addUser";
+            return "user/addUser";
         }
 
 

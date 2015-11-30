@@ -2,10 +2,10 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page pageEncoding="UTF-8" isELIgnored="false" %>
-<link href="webres/css/input.css" rel="stylesheet">
-<link href="webres/css/errors.css" rel="stylesheet">
-<link href="webres/css/style.css" rel="stylesheet">
-<jsp:include page="header.jsp"/>
+<link href="../webres/css/input.css" rel="stylesheet">
+<link href="../webres/css/errors.css" rel="stylesheet">
+<link href="../webres/css/style.css" rel="stylesheet">
+<jsp:include page="../header.jsp"/>
 
 <a href="/addUsers" class="btn btn-primary" role="button">Добавить пользователя</a>
 <br>
@@ -52,35 +52,11 @@
                 <%--modal edit--%>
                 <%@include file="editUser.jsp"%>
                 <%--modal delete--%>
-            <div class="modal fade" id="delete_${user.id}">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button class="close" type="button" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Подтверждение удаления</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p class="text-center">Удаление записи пользователя
-                                <strong>${user.lastName}</strong>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary"
-                                    onclick="location.href='<%=request.getContextPath()%>/deleteUser/${user.id}'">
-                                Да
-                            </button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">
-                                Отмена
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+              <%@include file="deleteUser.jsp"%>
             </c:forEach>
     </table>
 
 </div>
 
 
-<jsp:include page="footer.jsp"/>
+<jsp:include page="../footer.jsp"/>

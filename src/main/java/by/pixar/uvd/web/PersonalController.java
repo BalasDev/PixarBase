@@ -38,7 +38,7 @@ public class PersonalController {
             map.put("type",type);
         msg=null;
         type=null;
-        return "menu";
+        return "personal/personal";
     }
 
     @RequestMapping("/sing")
@@ -84,7 +84,7 @@ public class PersonalController {
                 map.put("personalList", personalService.findPersonal(category, searching, startDate, endDate));
                 map.put("stringTitle", "Результаты поиска");
                 map.put("personal", new Personal());
-                return "menu";
+                return "personal/personal";
   //          } else {
  //               msg = "Параметры поиска пустые";
  //               type = "danger";
@@ -109,7 +109,7 @@ public class PersonalController {
     public String add(Map<String, Object> map) {
         map.put("personal", new Personal());
         map.put("fields", new FormFields().getFields());
-       return "/addPersonal";
+       return "personal/addPersonal";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -119,7 +119,7 @@ public class PersonalController {
             map.put("fields", new FormFields().getFields());
             map.put("msg","Не удалось добавить запись");
             map.put("type","danger");
-            return "/addPersonal";
+            return "personal/addPersonal";
         }
        try {
            personalService.addPersonal(personal);
@@ -128,12 +128,12 @@ public class PersonalController {
        }catch (PersonExistException e) {
            map.put("msg",e.getMSG());
            map.put("type","danger");
-           return "/addUser";
+           return "user/addUser";
        }
        catch (Exception e) {
            map.put("msg","Не удалось добавить запись");
            map.put("type","danger");
-           return "/addUser";
+           return "user/addUser";
        }
 
     }
