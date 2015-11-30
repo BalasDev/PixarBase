@@ -72,7 +72,8 @@
                                 <label class="text-left">Звание</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <select class="form-control" name="${field.fieldName}">
+                                <select class="form-control" name="rank">
+                                    <option value="${personality.rank}">${personality.rank}</option>
                                     <option value="рядовой">рядовой</option>
                                     <option value="младший сержант">младший сержант</option>
                                     <option value="сержант">сержант</option>
