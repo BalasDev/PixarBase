@@ -72,6 +72,9 @@ public class PersonalController {
       //  }
         map.put("fields", new FormFields().getFields());
         //map.put("personal", new Personal());
+        map.put("msg",msg);
+        map.put("type",type);
+        msg=null;
         return "search";
     }
 
@@ -80,24 +83,24 @@ public class PersonalController {
                              @RequestParam("stdate") String startDate,@RequestParam("fndate") String endDate) {
 
         try {
- //           if ((category != null) && (searching != null) && (startDate != null) && (endDate != null)) {
+//            if (/*(category != null) && */(searching.equals("")) && (startDate.equals("")) && (endDate.equals(""))) {
                 map.put("personalList", personalService.findPersonal(category, searching, startDate, endDate));
                 map.put("stringTitle", "Результаты поиска");
                 map.put("personal", new Personal());
                 return "personal/personal";
-  //          } else {
- //               msg = "Параметры поиска пустые";
- //               type = "danger";
- //               return "redirect:/";
- //           }
+//            } else {
+//                msg = "Параметры поиска пустые";
+//                type = "danger";
+//                return "redirect:/searchs";
+//            }
         }catch (NumberFormatException e){
 
             msg = "Не верные параметры поиска";
             type = "danger";
-            map.put("msg",msg);
-            map.put("type",type);
+ //           map.put("msg",msg);
+ //           map.put("type",type);
 
-            return "/searchs";
+            return "redirect:/searchs";
 
         }
 
