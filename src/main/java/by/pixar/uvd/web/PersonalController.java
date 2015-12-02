@@ -10,7 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -43,9 +42,9 @@ public class PersonalController {
 
     @RequestMapping("/sing")
     public String sing() {
-        Map map = new HashMap();
+       /* Map map = new HashMap();
         map.put("msg",msg);
-        msg=null;
+        msg=null;*/
         return "singIn";
     }
 
@@ -53,7 +52,7 @@ public class PersonalController {
     public String logError() {
     msg = "Wrong";
 
-    return "redirect:/sing";
+    return "logError";
     }
 
     @RequestMapping("/personal")

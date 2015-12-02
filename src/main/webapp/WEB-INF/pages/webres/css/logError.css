@@ -65,7 +65,7 @@ body:before {
 }
 
 .info:before {
-  content: 'неправильный логин или пароль';
+  content: 'неправильный логин или пароль или IP номер';
   font-family: OCR-A;
   font-size: 100px;
   text-align: center;
@@ -83,7 +83,7 @@ body:before {
 }
 
 .info:after {
-  content: 'неправильный логин или пароль';
+  content: 'неправильный логин или пароль или IP номер';
   font-family: OCR-A;
   font-size: 100px;
   text-align: center;
@@ -156,5 +156,3 @@ body:before {
   43% {opacity: 1; -webkit-transform: scaleX(10) rotate(60deg); transform: scaleX(10) rotate(60deg);}
 }
 
-
-}
