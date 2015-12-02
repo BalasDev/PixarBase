@@ -50,7 +50,7 @@ public class PersonalController {
 
     @RequestMapping("/logError")
     public String logError() {
-    msg = "Wrong";
+    //msg = "Wrong";
 
     return "logError";
     }
