@@ -46,14 +46,14 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         Users user = userService.getUserByLogin(login);
         // ipAddress = request.
-      /*  String ipAddress = getClientIpAddress(request);
+        String ipAddress = getClientIpAddress(request);
 
 
         System.out.println(ipAddress);
         if (!ipAddress.equals(user.getIp())){
 
             throw new UsernameNotFoundException("Не правельный IP адресс");
-           }*/
+           }
         boolean enabled = true;
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
