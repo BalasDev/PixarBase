@@ -4,6 +4,7 @@ import by.pixar.uvd.domain.FormFields;
 import by.pixar.uvd.domain.Personal;
 import by.pixar.uvd.exceptions.PersonExistException;
 import by.pixar.uvd.service.PersonalService;
+import by.pixar.uvd.service.RovdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -17,6 +18,9 @@ public class PersonalController {
 
     @Autowired
     PersonalService personalService;
+
+    @Autowired
+    RovdService rovdService;
 
 
 
@@ -59,6 +63,7 @@ public class PersonalController {
     @RequestMapping("/personal")
     public String listContacts(Map<String, Object> map) {
         map.put("personalList", personalService.listPersonal());
+        map.put("rovd",rovdService.listRovd());
 
         return "personal";
     }
@@ -110,6 +115,7 @@ public class PersonalController {
     public String add(Map<String, Object> map) {
         map.put("personal", new Personal());
         map.put("fields", new FormFields().getFields());
+        map.put("rovd",rovdService.listRovd());
        return "personal/addPersonal";
     }
 
