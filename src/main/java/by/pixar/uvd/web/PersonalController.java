@@ -67,9 +67,7 @@ public class PersonalController {
     public String search(Map<String, Object> map) {
 
 
-      //  for (AtributePersonal atributPersonal : values()) {
-      //      map.put(atributPersonal.getField(), atributPersonal.getView());
-      //  }
+
         map.put("fields", new FormFields().getFields());
         //map.put("personal", new Personal());
         map.put("msg",msg);

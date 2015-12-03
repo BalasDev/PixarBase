@@ -30,6 +30,11 @@ public class Users extends BaseEntity {
     @JoinColumn(name = "ROLEID")
     private Roles role;
 
+    @ManyToOne
+    @JoinColumn(name = "ROVDID")
+    private Rovd rovd;
+
+
 
     public String getFirstName() {
         return firstName;
@@ -85,5 +90,13 @@ public class Users extends BaseEntity {
 
     public void setRole(Roles role) {
         this.role = role;
+    }
+
+    public Rovd getRovd() {
+        return rovd;
+    }
+
+    public void setRovd(Rovd rovd) {
+        this.rovd = rovd;
     }
 }

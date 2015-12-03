@@ -111,6 +111,26 @@
                                      </form:select>--%>
                               </div>
                           </div>
+
+                             <div class="row">
+                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                     <label class="text-left">РОВД</label>
+                                 </div>
+                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+
+                                     <select class="form-control" name="rovd.id">
+
+                                         <option value="${user.rovd.id}">${user.rovd.name}</option>
+                                         <c:forEach items="${rovd}" var="rovd">
+                                           <option value="${rovd.id}">${rovd.name}</option>
+                                         </c:forEach>
+
+                                     </select>
+                                 </div>
+                             </div>
+
+
+
                        <%-- <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <label class="text-left">Роль</label>

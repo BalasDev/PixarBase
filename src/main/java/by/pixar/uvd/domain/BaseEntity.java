@@ -9,7 +9,7 @@ public class BaseEntity {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer id;
+    protected Integer id;
 
     public Integer getId() {
         return id;

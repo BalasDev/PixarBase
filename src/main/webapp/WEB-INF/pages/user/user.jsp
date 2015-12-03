@@ -22,6 +22,7 @@
             <th>Логин</th>
             <th>Пароль</th>
             <th>IP</th>
+            <th>РОВД</th>
             <th>Роль</th>
             <th></th>
         </tr>
@@ -35,6 +36,7 @@
             <td>${user.login}</td>
             <td>${user.password}</td>
             <td>${user.ip}</td>
+            <td>${user.rovd.name}</td>
             <td>${user.role.name}</td>
 
             <security:authorize url="/delete/">

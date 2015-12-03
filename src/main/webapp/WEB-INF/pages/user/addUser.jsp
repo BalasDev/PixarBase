@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page pageEncoding="UTF-8" isELIgnored="false" %>
 <link href="../webres/css/input.css" rel="stylesheet">
@@ -37,16 +38,30 @@
     <td> <form:errors path="ip" cssClass="error"/></td>
   </tr>
   <tr>
-    <td>Роль</td>
+    <td>РОВД</td>
     <td>
-      <select class="form-control" name="role.id">
-        <option value="2">USER</option>
-        <option value="1">ADMIN</option>
+      <select class="form-control" name="rovd.id">
+
+        <c:forEach items="${rovd}" var="rovd">
+        <option value="${rovd.id}">${rovd.name}</option>
+        </c:forEach>
+
       </select>
     </td>
     <%--<td><form:textarea class="form-control" rows="1" path="role.id"/></td>--%>
-    <td> <form:errors path="role.name" cssClass="error"/></td>
+    <td> <form:errors path="rovd.name" cssClass="error"/></td>
   </tr>
+    <tr>
+      <td>Роль</td>
+      <td>
+        <select class="form-control" name="role.id">
+          <option value="2">USER</option>
+          <option value="1">ADMIN</option>
+        </select>
+      </td>
+        <%--<td><form:textarea class="form-control" rows="1" path="role.id"/></td>--%>
+      <td> <form:errors path="role.name" cssClass="error"/></td>
+    </tr>
   </table>
   <br>
   <button class="btn btn-primary" type="submit">Добавить</button>

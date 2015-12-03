@@ -2,6 +2,7 @@ package by.pixar.uvd.web;
 
 import by.pixar.uvd.domain.Users;
 import by.pixar.uvd.exceptions.UserExistException;
+import by.pixar.uvd.service.RovdService;
 import by.pixar.uvd.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    RovdService rovdService;
+
     //Add messages on action (delete,add,edit)
     private String msg;
     private String type;
@@ -27,6 +31,7 @@ public class UserController {
     @RequestMapping(value = "/adminPanel", method = RequestMethod.GET)
     public String admin(Map<String, Object> map) {
         map.put("users", userService.getUsers());
+        map.put("rovd",rovdService.listRovd());
         map.put("msg",msg);
         if(type==null)
             map.put("type","success");
@@ -40,6 +45,7 @@ public class UserController {
     @RequestMapping(value = "/addUsers", method = RequestMethod.GET)
     public String addUsers(Map<String, Object> map) {
         map.put("users", new Users());
+        map.put("rovd",rovdService.listRovd());
         return "user/addUser";
     }
 

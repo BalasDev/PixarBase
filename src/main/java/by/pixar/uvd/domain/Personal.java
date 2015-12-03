@@ -12,15 +12,15 @@ import java.util.Date;
 
 @Entity
 @Table(name = "personal")
-public class Personal {
+public class Personal extends BaseEntity {
 
     // ID
     // ID
-    @Id
+   /* @Id
     @Column(name = "ID")
     @GeneratedValue
     private Integer id;
-
+*/
     //'Фамилия'
     @NotBlank(message = "Введите фамилию")
     @Column(name = "LASTNAME")
@@ -48,9 +48,6 @@ public class Personal {
     @Column(name = "RANK")
     private String rank;
 
-    @NotBlank(message = "Введите РОВД")
-    @Column(name = "ROVD")
-    private String rovd;
 
     //'Дата рождения'
 
@@ -136,6 +133,16 @@ public class Personal {
     @NotBlank(message = "Введите место работы")
     @Column(name = "WORKPLACE")
     private String workPlace;
+
+    @ManyToOne
+    @JoinColumn(name = "ROVDID")
+    private Rovd rovd;
+
+    @ManyToOne
+    @JoinColumn(name = "CREATEDBY")
+    private Users users;
+
+
 
 
     // Getters and setters
@@ -337,11 +344,19 @@ public class Personal {
         this.workPlace = workPlace;
     }
 
-    public String getRovd() {
+    public Rovd getRovd() {
         return rovd;
     }
 
-    public void setRovd(String rovd) {
+    public void setRovd(Rovd rovd) {
         this.rovd = rovd;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

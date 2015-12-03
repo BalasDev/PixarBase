@@ -33,5 +33,6 @@ public class FormFields {
         fields.add(new FormBuilder("Имеет ли госнаграды","stateAwards","1"));
         fields.add(new FormBuilder("Пункт увольнения","fired","1"));
 
+
     }
 }
