@@ -4,6 +4,7 @@ import by.pixar.uvd.domain.Users;
 import by.pixar.uvd.exceptions.UserExistException;
 import by.pixar.uvd.service.RovdService;
 import by.pixar.uvd.service.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -17,6 +18,9 @@ import java.util.Map;
 
 @Controller
 public class UserController {
+
+    // init log
+    private static final Logger log = Logger.getLogger(UserController.class);
 
     @Autowired
     UserService userService;
@@ -45,7 +49,7 @@ public class UserController {
     @RequestMapping(value = "/addUsers", method = RequestMethod.GET)
     public String addUsers(Map<String, Object> map) {
         map.put("users", new Users());
-        map.put("rovd",rovdService.listRovd());
+        map.put("rovd", rovdService.listRovd());
         return "user/addUser";
     }
 
@@ -54,6 +58,7 @@ public class UserController {
 
         try {
             userService.addUser(users);
+            log.info("Добавлен новый пользователь: " + users.getLogin());
             msg = "Пользователь добавлен";
              return "redirect:/adminPanel";
         }
@@ -96,6 +101,7 @@ public class UserController {
 
         try {
             userService.editUser(user);
+            log.info("Отредактирован пользователь: " + user.getLogin());
             msg = "Пользователь успешно отредактирован";
 
 
