@@ -134,6 +134,9 @@ public class Personal extends BaseEntity {
     @Column(name = "WORKPLACE")
     private String workPlace;
 
+    @Column(name = "EDITEDBY")
+    private Date editedBy;
+
     @ManyToOne
     @JoinColumn(name = "ROVDID")
     private Rovd rovd;

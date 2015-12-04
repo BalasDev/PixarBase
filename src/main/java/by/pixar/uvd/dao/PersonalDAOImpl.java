@@ -1,9 +1,13 @@
 package by.pixar.uvd.dao;
 
 import by.pixar.uvd.domain.Personal;
+import by.pixar.uvd.domain.Users;
+import by.pixar.uvd.service.UserService;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,13 +18,21 @@ public class PersonalDAOImpl implements PersonalDAO {
    // private static final String query = " ";
     @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private UserService userService;
+
 
 
 
     public void addPersonal(Personal personal) {
         // Temporary fix
         personal.setBirthday(personal.getStrBirthday());
-
+        //
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String name = user.getUsername();
+        System.out.println(name);
+        Users users=userService.getUserByLogin(name);
+        personal.setUsers(users);
         sessionFactory.getCurrentSession().save(personal);
     }
 

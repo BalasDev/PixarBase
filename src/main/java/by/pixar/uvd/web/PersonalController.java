@@ -2,6 +2,7 @@ package by.pixar.uvd.web;
 
 import by.pixar.uvd.domain.FormFields;
 import by.pixar.uvd.domain.Personal;
+import by.pixar.uvd.domain.Users;
 import by.pixar.uvd.exceptions.PersonExistException;
 import by.pixar.uvd.service.PersonalService;
 import by.pixar.uvd.service.RovdService;
@@ -32,6 +33,7 @@ public class PersonalController {
     public String home(Map<String, Object> map) {
         map.put("personalList", personalService.listPersonal());
         map.put("personal", new Personal());
+        map.put("rovd",rovdService.listRovd());
         map.put("stringTitle", "Список");
 
         map.put("msg",msg);
@@ -60,13 +62,13 @@ public class PersonalController {
     return "logError";
     }
 
-    @RequestMapping("/personal")
+   /* @RequestMapping("/personal")
     public String listContacts(Map<String, Object> map) {
         map.put("personalList", personalService.listPersonal());
         map.put("rovd",rovdService.listRovd());
 
         return "personal";
-    }
+    }*/
 
     @RequestMapping(value = "/searchs", method = RequestMethod.GET)
     public String search(Map<String, Object> map) {
@@ -114,6 +116,7 @@ public class PersonalController {
     @RequestMapping(value = "/adds", method = RequestMethod.GET)
     public String add(Map<String, Object> map) {
         map.put("personal", new Personal());
+        map.put("users", new Users());
         map.put("fields", new FormFields().getFields());
         map.put("rovd",rovdService.listRovd());
        return "personal/addPersonal";
@@ -124,6 +127,7 @@ public class PersonalController {
                               BindingResult result, Map map) {
         if (result.hasErrors()) {
             map.put("fields", new FormFields().getFields());
+            map.put("personal", new Personal());
             map.put("msg","Не удалось добавить запись");
             map.put("type","danger");
             return "personal/addPersonal";
@@ -133,14 +137,18 @@ public class PersonalController {
            msg = "Запись добавлена";
            return "redirect:/";
        }catch (PersonExistException e) {
+           map.put("fields", new FormFields().getFields());
+           map.put("personal", new Personal());
            map.put("msg",e.getMSG());
            map.put("type","danger");
-           return "user/addUser";
+           return "personal/addPersonal";
        }
        catch (Exception e) {
+           map.put("fields", new FormFields().getFields());
+           map.put("personal", new Personal());
            map.put("msg","Не удалось добавить запись");
            map.put("type","danger");
-           return "user/addUser";
+           return "personal/addPersonal";
        }
 
     }

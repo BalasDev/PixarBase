@@ -37,8 +37,11 @@
                 <tr>
                     <td>${field.rusFieldName}</td>
                     <td>
-                        <select class="form-control" name="${field.fieldName}">
-                            <option value="Железнодорожный">Железнодорожный</option>
+                        <select class="form-control" name=rovd.id>
+                            <c:forEach items="${rovd}" var="rovds">
+                                <option value="${rovds.id}">${rovds.name}</option>
+                            </c:forEach>
+                            <%--<option value="Железнодорожный">Железнодорожный</option>
                             <option value="Новобелецкий">Новобелецкий</option>
                             <option value="Центральный">Центральный</option>
                             <option value="Советский">Советский</option>
@@ -65,7 +68,7 @@
                             <option value="Чечерский">Чечерский</option>
                             <option value="Полк ППСМ">Полк ППСМ</option>
                             <option value="БДПС">БДПС</option>
-                            <option value="Гомельский ОВДТ">Гомельский ОВДТ</option>
+                            <option value="Гомельский ОВДТ">Гомельский ОВДТ</option>--%>
                         </select>
                     </td>
                     <td><form:errors path="${field.fieldName}" cssClass="error"/></td>

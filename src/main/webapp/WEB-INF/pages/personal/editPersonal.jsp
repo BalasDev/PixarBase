@@ -14,6 +14,8 @@
                     <fieldset>
                             <form:hidden path="id" value="${personality.id}"/>
 
+                            <form:hidden path="users.id" value="${personality.users.id}"/>
+
 
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -89,7 +91,13 @@
                                 <label class="text-left">РОВД</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <select class="form-control" name="rovd">
+                                <select class="form-control" name="rovd.id">
+                                    <option value="${personality.rovd.id}">${personality.rovd.name}</option>
+                                    <c:forEach items="${rovd}" var="rovd">
+                                    <option value="${rovd.id}">${rovd.name}</option>
+                                    </c:forEach>
+                                </select>
+                               <%-- <select class="form-control" name="rovd">
                                     <option value="${personality.rovd}">${personality.rovd}</option>
                                     <option value="Железнодорожный">Железнодорожный</option>
                                     <option value="Новобелецкий">Новобелецкий</option>
@@ -119,7 +127,7 @@
                                     <option value="Полк ППСМ">Полк ППСМ</option>
                                     <option value="БДПС">БДПС</option>
                                     <option value="Гомельский ОВДТ">Гомельский ОВДТ</option>
-                                </select>
+                                </select>--%>
 
 
                             </div>
