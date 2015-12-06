@@ -9,6 +9,9 @@ public interface UserService {
 
     Users getUserByLogin(String login);
 
+    Users getUserById(Integer id);
+
+
     List<Users> getUsers();
 
     void addUser(Users user);
