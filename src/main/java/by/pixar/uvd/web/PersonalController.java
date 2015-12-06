@@ -179,7 +179,7 @@ public class PersonalController {
 
         try {
             personalService.editPersonal(personal);
-            log.info("Отредактирован: " + personal.getFirstName() + " " + personal.getSecondName() + " " + personal.getLastName());
+            log.info(request.getRemoteUser() + "отредактировал: " + personal.getFirstName() + " " + personal.getSecondName() + " " + personal.getLastName());
             msg ="Запись успешно отредактирована";
         }
         catch (PersonExistException e) {
