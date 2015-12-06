@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Map;
 
@@ -26,7 +27,8 @@ public class PersonalController {
     @Autowired
     RovdService rovdService;
 
-
+    @Autowired
+    private HttpServletRequest request;
 
     //Add messages on action (delete,add,edit)
     private String msg;
@@ -134,7 +136,7 @@ public class PersonalController {
         }
        try {
            personalService.addPersonal(personal);
-           log.info("Добавлен: " + personal.getFirstName() + " " + personal.getSecondName() + " " + personal.getLastName());
+           log.info(request.getRemoteUser() + "добавил: " + personal.getFirstName() + " " + personal.getSecondName() + " " + personal.getLastName());
            msg = "Запись добавлена";
            return "redirect:/";
        }catch (PersonExistException e) {
