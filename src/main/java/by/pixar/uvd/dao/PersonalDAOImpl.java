@@ -147,7 +147,7 @@ public class PersonalDAOImpl implements PersonalDAO {
     }
 
     public Personal getPersonal (Integer id){
-        return (Personal) sessionFactory.getCurrentSession().load(Personal.class, id);
+        return (Personal) sessionFactory.getCurrentSession().get(Personal.class, id);
     }
 
 }
