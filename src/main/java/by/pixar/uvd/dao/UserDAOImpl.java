@@ -34,7 +34,9 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public Users getUserById(Integer id) {
-        System.out.println("Id " + id);
+        Users user = (Users) sessionFactory.getCurrentSession().load(Users.class, id);
+        return user;
+   /*     System.out.println("Id " + id);
         String strQuery = "from Users u where u.id =:id";
         Query query = sessionFactory.getCurrentSession().createQuery(strQuery);
         query.setParameter("id", id);
@@ -42,7 +44,7 @@ public class UserDAOImpl implements UserDAO {
         if(query.list().size()!=0)
             return (Users)query.list().get(0);
         else
-            return null;
+            return null;*/
     }
 
     @Override
