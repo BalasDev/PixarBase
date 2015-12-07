@@ -77,11 +77,6 @@
                                     <div class="btn-group">
                                         <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}"><i
                                                 class="fa fa-edit" style="color: #28a4c9"></i> </a>
-                                        <a style="cursor: pointer" data-toggle="modal"
-                                           data-target="#delete_${personality.id}"><i
-                                                class="fa fa-remove"
-                                                style="color: red"></i>
-                                        </a>
                                     </div>
                                 </td>
                                     <%--</security:authorize>--%>
