@@ -54,13 +54,15 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void addUser(Users user, Integer rovdId) {
+    public void addUser(Users user, Integer rovdId, Integer roleId) {
 
         //
         if((getUserByLogin(user.getLogin())==null)) {
 
-            Rovd rovd = (Rovd) sessionFactory.getCurrentSession().load(Rovd.class, rovdId);
+            Rovd rovd = (Rovd) sessionFactory.getCurrentSession().get(Rovd.class, rovdId);
+            Roles role = (Roles) sessionFactory.getCurrentSession().get(Roles.class, rovdId);
             user.setRovd(rovd);
+            user.setRole(role);
             sessionFactory.getCurrentSession().save(user);
 
         }

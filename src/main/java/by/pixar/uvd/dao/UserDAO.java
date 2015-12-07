@@ -13,7 +13,7 @@ public interface UserDAO {
 
     List<Users> getUsers();
 
-    void addUser(Users user, Integer rovdId);
+    void addUser(Users user, Integer rovdId, Integer roleId);
 
     void deleteUser(Integer id);
 

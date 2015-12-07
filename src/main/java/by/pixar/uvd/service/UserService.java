@@ -14,7 +14,7 @@ public interface UserService {
 
     List<Users> getUsers();
 
-    void addUser(Users user, Integer rovdId);
+    void addUser(Users user, Integer rovdId, Integer roleId);
 
     void deleteUser(Integer id);
 

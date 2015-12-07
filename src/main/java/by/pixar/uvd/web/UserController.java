@@ -57,10 +57,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/addNewUser", method = RequestMethod.POST)
-    public String addNewUser(@Valid Users users, BindingResult result,Map map, @RequestParam("rovdId") Integer rovdId) {
+    public String addNewUser(@Valid Users users, BindingResult result,Map map, @RequestParam("rovdId") Integer rovdId, @RequestParam("roleId") Integer roleId) {
 
         try {
-            userService.addUser(users, rovdId);
+            userService.addUser(users, rovdId, roleId);
             log.info(request.getRemoteUser() + " добавил нового пользователя: " + users.getLogin() + "(" + users.getRovd().getName() + ")");
             msg = "Пользователь добавлен";
              return "redirect:/adminPanel";

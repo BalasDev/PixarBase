@@ -61,7 +61,7 @@
     <tr>
       <td>Роль</td>
       <td>
-        <select class="form-control" name="role.id">
+        <select class="form-control" name="roleId">
           <option value="2">USER</option>
           <option value="1">ADMIN</option>
         </select>
