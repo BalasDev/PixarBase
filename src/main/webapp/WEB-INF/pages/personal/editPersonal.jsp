@@ -93,41 +93,49 @@
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <select class="form-control" name="rovd.id">
                                     <option value="${personality.rovd.id}">${personality.rovd.name}</option>
-                                    <c:forEach items="${rovd}" var="rovd">
-                                    <option value="${rovd.id}">${rovd.name}</option>
-                                    </c:forEach>
+                                    <c:choose>
+                                        <c:when test="${userSingIn.getRole().getName()=='ADMIN'}">
+                                            <c:forEach items="${rovd}" var="rovd">
+                                                <option value="${rovd.id}">${rovd.name}</option>
+                                            </c:forEach>
+                                        </c:when>
+                                    </c:choose>
+
+                                   <%-- <c:forEach items="${rovd}" var="rovd">
+                                        <option value="${rovd.id}">${rovd.name}</option>
+                                    </c:forEach>--%>
                                 </select>
-                               <%-- <select class="form-control" name="rovd">
-                                    <option value="${personality.rovd}">${personality.rovd}</option>
-                                    <option value="Железнодорожный">Железнодорожный</option>
-                                    <option value="Новобелецкий">Новобелецкий</option>
-                                    <option value="Центральный">Центральный</option>
-                                    <option value="Советский">Советский</option>
-                                    <option value="Гомельский">Гомельский</option>
-                                    <option value="Брагинский">Брагинский</option>
-                                    <option value="Буда-Кошелевский">Буда-Кошелевский</option>
-                                    <option value="Ветковский">Ветковский</option>
-                                    <option value="Добрушский">Добрушский</option>
-                                    <option value="Ельский">Ельский</option>
-                                    <option value="Житковичский">Житковичский</option>
-                                    <option value="Жлобинский">Жлобинский</option>
-                                    <option value="Калинковичский">Калинковичский</option>
-                                    <option value="Кормянский">Кормянский</option>
-                                    <option value="Лельчицкий">Лельчицкий</option>
-                                    <option value="Лоевский">Лоевский</option>
-                                    <option value="Мозырьский">Мозырьский</option>
-                                    <option value="Наровлянский">Наровлянский</option>
-                                    <option value="Октябрьский">Октябрьский</option>
-                                    <option value="Петриковский">Петриковский</option>
-                                    <option value="Речицкий">Речицкий</option>
-                                    <option value="Рогачевский">Рогачевский</option>
-                                    <option value="Светлогорский">Светлогорский</option>
-                                    <option value="Хойникский">Хойникский</option>
-                                    <option value="Чечерский">Чечерский</option>
-                                    <option value="Полк ППСМ">Полк ППСМ</option>
-                                    <option value="БДПС">БДПС</option>
-                                    <option value="Гомельский ОВДТ">Гомельский ОВДТ</option>
-                                </select>--%>
+                                    <%-- <select class="form-control" name="rovd">
+                                         <option value="${personality.rovd}">${personality.rovd}</option>
+                                         <option value="Железнодорожный">Железнодорожный</option>
+                                         <option value="Новобелецкий">Новобелецкий</option>
+                                         <option value="Центральный">Центральный</option>
+                                         <option value="Советский">Советский</option>
+                                         <option value="Гомельский">Гомельский</option>
+                                         <option value="Брагинский">Брагинский</option>
+                                         <option value="Буда-Кошелевский">Буда-Кошелевский</option>
+                                         <option value="Ветковский">Ветковский</option>
+                                         <option value="Добрушский">Добрушский</option>
+                                         <option value="Ельский">Ельский</option>
+                                         <option value="Житковичский">Житковичский</option>
+                                         <option value="Жлобинский">Жлобинский</option>
+                                         <option value="Калинковичский">Калинковичский</option>
+                                         <option value="Кормянский">Кормянский</option>
+                                         <option value="Лельчицкий">Лельчицкий</option>
+                                         <option value="Лоевский">Лоевский</option>
+                                         <option value="Мозырьский">Мозырьский</option>
+                                         <option value="Наровлянский">Наровлянский</option>
+                                         <option value="Октябрьский">Октябрьский</option>
+                                         <option value="Петриковский">Петриковский</option>
+                                         <option value="Речицкий">Речицкий</option>
+                                         <option value="Рогачевский">Рогачевский</option>
+                                         <option value="Светлогорский">Светлогорский</option>
+                                         <option value="Хойникский">Хойникский</option>
+                                         <option value="Чечерский">Чечерский</option>
+                                         <option value="Полк ППСМ">Полк ППСМ</option>
+                                         <option value="БДПС">БДПС</option>
+                                         <option value="Гомельский ОВДТ">Гомельский ОВДТ</option>
+                                     </select>--%>
 
 
                             </div>

@@ -45,7 +45,7 @@ public class PersonalController {
         map.put("personal", new Personal());
         map.put("rovd",rovdService.listRovd());
         map.put("stringTitle", "Список");
-
+        map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
         map.put("msg",msg);
         if(type==null)
             map.put("type","success");

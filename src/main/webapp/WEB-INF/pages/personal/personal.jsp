@@ -35,7 +35,7 @@
                 <td>${personality.personalNumber}</td>
                 <td>${personality.rank}</td>
 
-                <security:authorize url="/hide">
+                <%--<security:authorize url="/hide">--%>
                     <td>
                         <div class="btn-group">
                             <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}"><i
@@ -46,7 +46,7 @@
                             </a>
                         </div>
                     </td>
-                </security:authorize>
+                <%--</security:authorize>--%>
                     <%--modal--%>
                 <%@include file="deletePersonal.jsp" %>
                 <%@include file="viewPersonal.jsp" %>
