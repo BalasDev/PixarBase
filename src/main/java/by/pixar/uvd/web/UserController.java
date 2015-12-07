@@ -64,7 +64,7 @@ public class UserController {
 
         try {
             userService.addUser(users);
-            log.info(request.getRemoteUser() +" добавил нового пользователя: " + users.getLogin());
+            log.info(request.getRemoteUser() + " добавил нового пользователя: " + users.getLogin() + "(" + users.getRovd().getName() + ")");
             msg = "Пользователь добавлен";
              return "redirect:/adminPanel";
         }
@@ -87,9 +87,9 @@ public class UserController {
     @RequestMapping(value = "/deleteUser/{id}", produces = "text/html", method = RequestMethod.GET)
     public String deleteUser(@PathVariable("id") Integer id) {
         try {
-            String login = userService.getUserById(id).getLogin();
+            Users user = userService.getUserById(id);
             userService.deleteUser(id);
-            log.info(request.getRemoteUser() + " удалил пользователя: " + login);
+            log.info(request.getRemoteUser() + " удалил пользователя: " + user.getLogin() + "(" + user.getRovd().getName() + ")");
             msg = "Пользователь успешно удален";
 
         }
@@ -109,11 +109,10 @@ public class UserController {
 
         try {
             userService.editUser(user);
-            log.info(request.getRemoteUser() +" отредактировал пользователя: " + user.getLogin());
+            log.info(request.getRemoteUser() + " отредактировал пользователя: " + user.getLogin() + "(" + user.getRovd().getName() + ")");
             msg = "Пользователь успешно отредактирован";
-
-
         }
+
         catch (UserExistException e) {
             msg = e.getMSG();
             type="danger";
