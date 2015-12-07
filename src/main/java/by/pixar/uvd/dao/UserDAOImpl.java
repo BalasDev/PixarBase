@@ -33,6 +33,19 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public Users getUserById(Integer id) {
+        System.out.println("Id " + id);
+        String strQuery = "from Users u where u.id =:id";
+        Query query = sessionFactory.getCurrentSession().createQuery(strQuery);
+        query.setParameter("id", id);
+        System.out.println("size " + query.list().size());
+        if(query.list().size()!=0)
+            return (Users)query.list().get(0);
+        else
+            return null;
+    }
+
+    @Override
     public List<Users> getUsers() {
         return sessionFactory.getCurrentSession().createQuery("from Users").list();
     }

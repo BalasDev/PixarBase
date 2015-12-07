@@ -6,16 +6,21 @@ import by.pixar.uvd.domain.Users;
 import by.pixar.uvd.exceptions.PersonExistException;
 import by.pixar.uvd.service.PersonalService;
 import by.pixar.uvd.service.RovdService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
 public class PersonalController {
+    // init log
+
+    private static final Logger log = Logger.getLogger(PersonalController.class);
 
     @Autowired
     PersonalService personalService;
@@ -23,7 +28,8 @@ public class PersonalController {
     @Autowired
     RovdService rovdService;
 
-
+    @Autowired
+    private HttpServletRequest request;
 
     //Add messages on action (delete,add,edit)
     private String msg;
@@ -134,6 +140,7 @@ public class PersonalController {
         }
        try {
            personalService.addPersonal(personal);
+           log.info(request.getRemoteUser() + "добавил: " + personal.getFirstName() + " " + personal.getSecondName() + " " + personal.getLastName());
            msg = "Запись добавлена";
            return "redirect:/";
        }catch (PersonExistException e) {
@@ -180,6 +187,7 @@ public class PersonalController {
 
         try {
             personalService.editPersonal(personal);
+            log.info(request.getRemoteUser() + "отредактировал: " + personal.getFirstName() + " " + personal.getSecondName() + " " + personal.getLastName());
             msg ="Запись успешно отредактирована";
         }
         catch (PersonExistException e) {

@@ -2,8 +2,10 @@ package by.pixar.uvd.web;
 
 import by.pixar.uvd.domain.Users;
 import by.pixar.uvd.exceptions.UserExistException;
+import by.pixar.uvd.security.CustomUserDetailsService;
 import by.pixar.uvd.service.RovdService;
 import by.pixar.uvd.service.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -12,11 +14,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
 public class UserController {
+
+    // init log
+    private static final Logger log = Logger.getLogger(UserController.class);
 
     @Autowired
     UserService userService;
@@ -24,10 +30,14 @@ public class UserController {
     @Autowired
     RovdService rovdService;
 
+    @Autowired
+    private HttpServletRequest request;
+
     //Add messages on action (delete,add,edit)
     private String msg;
     private String type;
 
+//
     @RequestMapping(value = "/adminPanel", method = RequestMethod.GET)
     public String admin(Map<String, Object> map) {
         map.put("users", userService.getUsers());
@@ -45,7 +55,7 @@ public class UserController {
     @RequestMapping(value = "/addUsers", method = RequestMethod.GET)
     public String addUsers(Map<String, Object> map) {
         map.put("users", new Users());
-        map.put("rovd",rovdService.listRovd());
+        map.put("rovd", rovdService.listRovd());
         return "user/addUser";
     }
 
@@ -54,6 +64,7 @@ public class UserController {
 
         try {
             userService.addUser(users);
+            log.info(request.getRemoteUser() +" добавил нового пользователя: " + users.getLogin());
             msg = "Пользователь добавлен";
              return "redirect:/adminPanel";
         }
@@ -76,7 +87,9 @@ public class UserController {
     @RequestMapping(value = "/deleteUser/{id}", produces = "text/html", method = RequestMethod.GET)
     public String deleteUser(@PathVariable("id") Integer id) {
         try {
+            String login = userService.getUserById(id).getLogin();
             userService.deleteUser(id);
+            log.info(request.getRemoteUser() + " удалил пользователя: " + login);
             msg = "Пользователь успешно удален";
 
         }
@@ -96,6 +109,7 @@ public class UserController {
 
         try {
             userService.editUser(user);
+            log.info(request.getRemoteUser() +" отредактировал пользователя: " + user.getLogin());
             msg = "Пользователь успешно отредактирован";
 
 
