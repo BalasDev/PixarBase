@@ -2,6 +2,7 @@ package by.pixar.uvd.dao;
 
 
 import by.pixar.uvd.domain.Roles;
+import by.pixar.uvd.domain.Rovd;
 import by.pixar.uvd.domain.Users;
 import by.pixar.uvd.exceptions.UserExistException;
 import org.hibernate.Query;
@@ -53,11 +54,13 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void addUser(Users user) {
+    public void addUser(Users user, Integer rovdId) {
 
         //
         if((getUserByLogin(user.getLogin())==null)) {
 
+            Rovd rovd = (Rovd) sessionFactory.getCurrentSession().load(Rovd.class, rovdId);
+            user.setRovd(rovd);
             sessionFactory.getCurrentSession().save(user);
 
         }

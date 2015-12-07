@@ -40,13 +40,20 @@
   <tr>
     <td>РОВД</td>
     <td>
-      <select class="form-control" name="rovd.id">
+      <select class="form-control" name="rovdId">
+
+        <c:forEach items="${rovd}" var="rovd">
+          <option value="${rovd.id}">${rovd.name}</option>
+        </c:forEach>
+
+      </select>
+     <%-- <select class="form-control" name="rovd.id">
 
         <c:forEach items="${rovd}" var="rovd">
         <option value="${rovd.id}">${rovd.name}</option>
         </c:forEach>
 
-      </select>
+      </select>--%>
     </td>
     <%--<td><form:textarea class="form-control" rows="1" path="role.id"/></td>--%>
     <td> <form:errors path="rovd.name" cssClass="error"/></td>

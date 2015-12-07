@@ -9,10 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -60,10 +57,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/addNewUser", method = RequestMethod.POST)
-    public String addNewUser(@Valid Users users, BindingResult result,Map map) {
+    public String addNewUser(@Valid Users users, BindingResult result,Map map, @RequestParam("rovdId") Integer rovdId) {
 
         try {
-            userService.addUser(users);
+            userService.addUser(users, rovdId);
             log.info(request.getRemoteUser() + " добавил нового пользователя: " + users.getLogin() + "(" + users.getRovd().getName() + ")");
             msg = "Пользователь добавлен";
              return "redirect:/adminPanel";
