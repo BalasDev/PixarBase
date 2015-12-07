@@ -6,6 +6,7 @@ import by.pixar.uvd.domain.Users;
 import by.pixar.uvd.exceptions.PersonExistException;
 import by.pixar.uvd.service.PersonalService;
 import by.pixar.uvd.service.RovdService;
+import by.pixar.uvd.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,9 @@ public class PersonalController {
 
     @Autowired
     private HttpServletRequest request;
+
+    @Autowired
+    UserService userService;
 
     //Add messages on action (delete,add,edit)
     private String msg;
@@ -140,7 +144,10 @@ public class PersonalController {
         }
        try {
            personalService.addPersonal(personal);
-           log.info(request.getRemoteUser() + "добавил: " + personal.getFirstName() + " " + personal.getSecondName() + " " + personal.getLastName());
+           String login = request.getRemoteUser();
+           Users user = userService.getUserByLogin(login);
+           String rovd = user.getRovd().getName();
+           log.info(login + "(" + rovd + ") добавил: " + personal.getLastName() + " " + personal.getFirstName() + " " + personal.getSecondName());
            msg = "Запись добавлена";
            return "redirect:/";
        }catch (PersonExistException e) {
@@ -164,7 +171,12 @@ public class PersonalController {
     @RequestMapping(value = "/delete/{id}", produces = "text/html", method = RequestMethod.GET)
     public String deletePersonal(@PathVariable("id") Integer id) {
       try {
+          String login = request.getRemoteUser();
+          Users user = userService.getUserByLogin(login);
+          String rovd = user.getRovd().getName();
+          Personal personal = personalService.getPersonal(id);
           personalService.deletePersonal(id);
+          log.info(login + "(" + rovd + ") удалил: " + personal.getLastName() + " " + personal.getFirstName() + " " + personal.getSecondName());
           msg = "Запись успешно удалена";
       } catch (Exception e)
       {
@@ -187,7 +199,10 @@ public class PersonalController {
 
         try {
             personalService.editPersonal(personal);
-            log.info(request.getRemoteUser() + "отредактировал: " + personal.getFirstName() + " " + personal.getSecondName() + " " + personal.getLastName());
+            String login = request.getRemoteUser();
+            Users user = userService.getUserByLogin(login);
+            String rovd = user.getRovd().getName();
+            log.info(login + "(" + rovd + ") отредактировал: " + personal.getLastName() + " " + personal.getFirstName() + " " + personal.getSecondName());
             msg ="Запись успешно отредактирована";
         }
         catch (PersonExistException e) {
