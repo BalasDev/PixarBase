@@ -223,5 +223,14 @@ public class PersonalController {
     }
 
 
+    @RequestMapping(value="/logoutUser", method = RequestMethod.GET)
+    public String logout() {
+        String login = request.getRemoteUser();
+        Users user = userService.getUserByLogin(login);
+        String rovd = user.getRovd().getName();
+        log.info("ВЫШЕЛ пользователь: " + login + "(" + rovd + ")");
+        return "redirect:/logout";
+    }
+
 
 }

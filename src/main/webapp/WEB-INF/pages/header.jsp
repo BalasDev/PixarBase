@@ -56,7 +56,7 @@
             </security:authorize>
           </ul>
           <form action="" class="navbar-form navbar-right">
-            <a href="<c:url value="/logout" />" class="btn btn-danger form-control">Выйти</a>
+            <a href="/logoutUser" class="btn btn-danger form-control">Выйти</a>
           </form>
         </div>
       </div>
