@@ -24,37 +24,80 @@
             </security:authorize>
         </tr>
 
-        <c:forEach items="${personalList}" var="personality">
-            <tr>
-                <td>
-                    <div style="cursor: pointer" data-toggle="modal"
-                         data-target="#info_${personality.id}">${personality.lastName}</div>
-                </td>
-                <td>${personality.firstName}</td>
-                <td>${personality.secondName}</td>
-                <td>${personality.personalNumber}</td>
-                <td>${personality.rank}</td>
 
-                <%--<security:authorize url="/hide">--%>
-                    <td>
-                        <div class="btn-group">
-                            <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}"><i
-                                    class="fa fa-edit" style="color: #28a4c9"></i> </a>
-                            <a style="cursor: pointer" data-toggle="modal" data-target="#delete_${personality.id}"><i
-                                    class="fa fa-remove"
-                                    style="color: red"></i>
-                            </a>
-                        </div>
-                    </td>
-                <%--</security:authorize>--%>
-                    <%--modal--%>
-                <%@include file="deletePersonal.jsp" %>
-                <%@include file="viewPersonal.jsp" %>
-                <%@include file="editPersonal.jsp" %>
-            </tr>
+        <c:choose>
+            <c:when test="${userSingIn.getRole().getName()=='ADMIN'}">
+                <c:forEach items="${personalList}" var="personality">
+                    <tr>
+                        <td>
+                            <div style="cursor: pointer" data-toggle="modal"
+                                 data-target="#info_${personality.id}">${personality.lastName}</div>
+                        </td>
+                        <td>${personality.firstName}</td>
+                        <td>${personality.secondName}</td>
+                        <td>${personality.personalNumber}</td>
+                        <td>${personality.rank}</td>
+
+                            <%--<security:authorize url="/hide">--%>
+                        <td>
+                            <div class="btn-group">
+                                <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}"><i
+                                        class="fa fa-edit" style="color: #28a4c9"></i> </a>
+                                <a style="cursor: pointer" data-toggle="modal"
+                                   data-target="#delete_${personality.id}"><i
+                                        class="fa fa-remove"
+                                        style="color: red"></i>
+                                </a>
+                            </div>
+                        </td>
+                            <%--</security:authorize>--%>
+                            <%--modal--%>
+                        <%@include file="deletePersonal.jsp" %>
+                        <%@include file="viewPersonal.jsp" %>
+                        <%@include file="editPersonal.jsp" %>
+                    </tr>
+                </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <c:forEach items="${personalList}" var="personality">
+                    <c:choose>
+                        <c:when test="${personality.rovd.name==userSingIn.getRovd().getName()}">
+                            <tr>
+                                <td>
+                                    <div style="cursor: pointer" data-toggle="modal"
+                                         data-target="#info_${personality.id}">${personality.lastName}</div>
+                                </td>
+                                <td>${personality.firstName}</td>
+                                <td>${personality.secondName}</td>
+                                <td>${personality.personalNumber}</td>
+                                <td>${personality.rank}</td>
+
+                                    <%--<security:authorize url="/hide">--%>
+                                <td>
+                                    <div class="btn-group">
+                                        <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}"><i
+                                                class="fa fa-edit" style="color: #28a4c9"></i> </a>
+                                        <a style="cursor: pointer" data-toggle="modal"
+                                           data-target="#delete_${personality.id}"><i
+                                                class="fa fa-remove"
+                                                style="color: red"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                                    <%--</security:authorize>--%>
+                                    <%--modal--%>
+                                <%@include file="deletePersonal.jsp" %>
+                                <%@include file="viewPersonal.jsp" %>
+                                <%@include file="editPersonal.jsp" %>
+                            </tr>
+                        </c:when>
+                    </c:choose>
+
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
 
 
-        </c:forEach>
     </table>
 
 </div>

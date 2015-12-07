@@ -148,7 +148,6 @@ public class PersonalController {
            personalService.addPersonal(personal);
            String login = request.getRemoteUser();
            Users user = userService.getUserByLogin(login);
-           user.getRole().getName();
            String rovd = user.getRovd().getName();
            log.info(login + "(" + rovd + ") добавил: " + personal.getLastName() + " " + personal.getFirstName() + " " + personal.getSecondName());
            msg = "Запись добавлена";
