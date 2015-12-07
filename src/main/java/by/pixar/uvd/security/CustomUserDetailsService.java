@@ -3,6 +3,7 @@ package by.pixar.uvd.security;
 
 import by.pixar.uvd.domain.Users;
 import by.pixar.uvd.service.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -18,6 +19,9 @@ import java.util.List;
 
 @Service("CustomUserService")
 public class CustomUserDetailsService implements UserDetailsService {
+
+    // init log
+    private static final Logger log = Logger.getLogger(CustomUserDetailsService.class);
 
     private static final String[] HEADERS_TO_TRY = {
             "X-Forwarded-For",
@@ -55,6 +59,8 @@ public class CustomUserDetailsService implements UserDetailsService {
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;
+
+        log.info("ВОШЕЛ пользователь: " + user.getLogin() + "(" + user.getRovd().getName() + ")");
 
         return new User(
             user.getLogin(),
