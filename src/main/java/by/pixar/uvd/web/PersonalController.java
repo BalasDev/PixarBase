@@ -129,6 +129,8 @@ public class PersonalController {
         map.put("users", new Users());
         map.put("fields", new FormFields().getFields());
         map.put("rovd",rovdService.listRovd());
+        map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
+//        map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
        return "personal/addPersonal";
     }
 
@@ -146,6 +148,7 @@ public class PersonalController {
            personalService.addPersonal(personal);
            String login = request.getRemoteUser();
            Users user = userService.getUserByLogin(login);
+           user.getRole().getName();
            String rovd = user.getRovd().getName();
            log.info(login + "(" + rovd + ") добавил: " + personal.getLastName() + " " + personal.getFirstName() + " " + personal.getSecondName());
            msg = "Запись добавлена";

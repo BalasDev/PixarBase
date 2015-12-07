@@ -37,10 +37,24 @@
                 <tr>
                     <td>${field.rusFieldName}</td>
                     <td>
-                        <select class="form-control" name=rovd.id>
-                            <c:forEach items="${rovd}" var="rovds">
-                                <option value="${rovds.id}">${rovds.name}</option>
-                            </c:forEach>
+                        <c:choose>
+
+
+                            <c:when test="${userSingIn.getRole().getName()=='ADMIN'}">
+                                <select class="form-control" name=rovd.id>
+                                    <c:forEach items="${rovd}" var="rovds">
+                                        <option value="${rovds.id}">${rovds.name}</option>
+                                    </c:forEach>
+                                </select>
+                            </c:when>
+                            <c:otherwise>
+                                <%--<textarea class="form-control" rows="${field.row}" cols="70" name="${field.fieldName}"></textarea>--%>
+                                <select class="form-control" name=rovd.id>
+                                    <option value="${userSingIn.getRovd().getId()}">${userSingIn.getRovd().getName()}</option>
+                                </select>
+                            </c:otherwise>
+                        </c:choose>
+
                             <%--<option value="Железнодорожный">Железнодорожный</option>
                             <option value="Новобелецкий">Новобелецкий</option>
                             <option value="Центральный">Центральный</option>
@@ -69,7 +83,7 @@
                             <option value="Полк ППСМ">Полк ППСМ</option>
                             <option value="БДПС">БДПС</option>
                             <option value="Гомельский ОВДТ">Гомельский ОВДТ</option>--%>
-                        </select>
+
                     </td>
                     <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
                 </tr>
