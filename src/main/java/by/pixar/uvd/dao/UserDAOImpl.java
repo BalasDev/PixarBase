@@ -2,6 +2,7 @@ package by.pixar.uvd.dao;
 
 
 import by.pixar.uvd.domain.Roles;
+import by.pixar.uvd.domain.Rovd;
 import by.pixar.uvd.domain.Users;
 import by.pixar.uvd.exceptions.UserExistException;
 import org.hibernate.Query;
@@ -26,10 +27,10 @@ public class UserDAOImpl implements UserDAO {
         Query query = sessionFactory.getCurrentSession().createQuery(strQuery);
         query.setParameter("login", login);
         System.out.println("size " + query.list().size());
-        if(query.list().size()!=0)
-         return (Users)query.list().get(0);
+        if (query.list().size() != 0)
+            return (Users) query.list().get(0);
         else
-        return null;
+            return null;
     }
 
     @Override
@@ -56,12 +57,13 @@ public class UserDAOImpl implements UserDAO {
     public void addUser(Users user) {
 
         //
-        if((getUserByLogin(user.getLogin())==null)) {
-
+        if ((getUserByLogin(user.getLogin()) == null)) {
+            Roles role = (Roles) sessionFactory.getCurrentSession().get(Roles.class, user.getRole().getId());
+            Rovd rovd = (Rovd) sessionFactory.getCurrentSession().get(Rovd.class, user.getRovd().getId());
+            user.setRole(role);
+            user.setRovd(rovd);
             sessionFactory.getCurrentSession().save(user);
-
-        }
-        else
+        } else
             throw new UserExistException();
 
 
@@ -69,27 +71,29 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void deleteUser(Integer id) {
-        Users user = (Users) sessionFactory.getCurrentSession().load(Users.class,id);
-        if (user!=null) {
+        Users user = (Users) sessionFactory.getCurrentSession().load(Users.class, id);
+        if (user != null) {
             sessionFactory.getCurrentSession().delete(user);
         }
     }
+
     @Override
-    public void editUser(Users user){
+    public void editUser(Users user) {
 
-    Roles role = (Roles)sessionFactory.getCurrentSession().load(Roles.class,user.getRole().getId());
-    user.setRole(role);
-    Users users =(Users)sessionFactory.getCurrentSession().load(Users.class,user.getId());
- //       Users users = getUserByLogin(user.getLogin());
+        Roles role = (Roles) sessionFactory.getCurrentSession().get(Roles.class, user.getRole().getId());
+        user.setRole(role);
+        Rovd rovd = (Rovd) sessionFactory.getCurrentSession().get(Rovd.class, user.getRovd().getId());
+        user.setRovd(rovd);
+        Users users = (Users) sessionFactory.getCurrentSession().get(Users.class, user.getId());
 
-        System.out.println(users.getLogin() + " = "+ user.getLogin() +
-         " " + getUserByLogin(user.getLogin()));
-        if((users.getLogin().equals(user.getLogin()))||(!(users.getLogin().equals(user.getLogin()))&&(getUserByLogin(user.getLogin())==null))) {
+        //       Users users = getUserByLogin(user.getLogin());
+
+        System.out.println(users.getLogin() + " = " + user.getLogin() +
+                " " + getUserByLogin(user.getLogin()));
+        if ((users.getLogin().equals(user.getLogin())) || (!(users.getLogin().equals(user.getLogin())) && (getUserByLogin(user.getLogin()) == null))) {
             sessionFactory.getCurrentSession().clear();
             sessionFactory.getCurrentSession().saveOrUpdate(user);
-        }
-
-        else
+        } else
             throw new UserExistException();
 
     }
