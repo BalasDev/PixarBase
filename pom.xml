@@ -15,11 +15,11 @@
         <persistence.version>1.0.2</persistence.version>
         <hibernate-core.version>3.6.4.Final</hibernate-core.version>
         <hibernate-commons.version>4.0.4.Final</hibernate-commons.version>
+        <hibernate-validator>4.1.0.Final</hibernate-validator>
         <jstl.version>1.2</jstl.version>
         <mysql.version>5.1.6</mysql.version>
         <javassist.version>3.12.1.GA</javassist.version>
         <validation>1.0.0.GA</validation>
-        <hibernate-validator>4.1.0.Final</hibernate-validator>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     </properties>

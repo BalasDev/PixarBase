@@ -16,4 +16,6 @@ public interface PersonalDAO {
 
     public void editPersonal(Personal personal);
 
+    public Personal getPersonal(Integer id);
+
 }

@@ -38,4 +38,9 @@ public class PersonalServiceImpl implements PersonalService{
     public void editPersonal(Personal personal) {
         personalDAO.editPersonal(personal);
     }
+
+    @Transactional
+    public Personal getPersonal(Integer id){
+        return personalDAO.getPersonal(id);
+    }
 }

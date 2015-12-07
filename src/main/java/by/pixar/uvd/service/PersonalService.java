@@ -15,4 +15,6 @@ public interface PersonalService {
     public List<Personal> findPersonal(String field, String var, String stDate, String endDate);
 
     public void editPersonal(Personal personal);
+
+    public Personal getPersonal(Integer id);
 }
