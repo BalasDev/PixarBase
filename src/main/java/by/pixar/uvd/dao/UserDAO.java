@@ -17,5 +17,5 @@ public interface UserDAO {
 
     void deleteUser(Integer id);
 
-    void editUser(Users user);
+    void editUser(Users user, Integer rovdId, Integer roleId);
 }
