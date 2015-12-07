@@ -7,9 +7,9 @@
 <link href="../webres/css/style.css" rel="stylesheet">
 <jsp:include page="../header.jsp"/>
 
-<a href="/addUsers" class="btn btn-primary" role="button">Добавить пользователя</a>
-<br>
-
+<a href="/addUsers" class="btn btn-primary" role="button"><i
+        class="fa fa-user-plus fa-lg"></i> Добавить пользователя</a>
+<br><br>
 <div class="table-responsive">
     <table class="table table-condensed table-hover table-striped table-bordered">
 
