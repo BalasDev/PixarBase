@@ -19,9 +19,9 @@
             <th>Отчество</th>
             <th>Личный номер</th>
             <th>Звание</th>
-            <security:authorize url="/hide">
+            <%--<security:authorize url="/hide">--%>
                 <th></th>
-            </security:authorize>
+            <%--</security:authorize>--%>
         </tr>
 
         <c:forEach items="${personalList}" var="personality">
@@ -35,18 +35,18 @@
                 <td>${personality.personalNumber}</td>
                 <td>${personality.rank}</td>
 
-                <security:authorize url="/hide">
                     <td>
                         <div class="btn-group">
                             <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}"><i
                                     class="fa fa-edit" style="color: #28a4c9"></i> </a>
+                <security:authorize url="/hide">
                             <a style="cursor: pointer" data-toggle="modal" data-target="#delete_${personality.id}"><i
                                     class="fa fa-remove"
                                     style="color: red"></i>
                             </a>
+                </security:authorize>
                         </div>
                     </td>
-                </security:authorize>
                     <%--modal--%>
                 <%@include file="deletePersonal.jsp" %>
                 <%@include file="viewPersonal.jsp" %>
