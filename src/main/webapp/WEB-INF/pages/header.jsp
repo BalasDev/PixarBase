@@ -7,6 +7,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- Bootstrap -->
   <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
