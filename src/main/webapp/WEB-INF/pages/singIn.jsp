@@ -2,10 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Авторизация</title>
     <link href="webres/css/singIn.css" rel="stylesheet">
-    <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
+    <%--<link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">--%>
+    <%--<link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">--%>
 
 </head>
 <body>
