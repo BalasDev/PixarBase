@@ -1,0 +1,12 @@
+USE `pixar`;
+
+DELIMITER $$
+
+DROP TRIGGER IF EXISTS pixar.personal_BEFORE_INSERT$$
+USE `pixar`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pixar`.`personal_BEFORE_INSERT` BEFORE INSERT ON `personal` FOR EACH ROW
+BEGIN
+set new.created = now();
+END
+$$
+DELIMITER ;
