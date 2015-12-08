@@ -284,9 +284,11 @@
 
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-3">
                         Создан: ${personality.created} пользователем ${personality.users.login}
+                        <div>
                         <c:if test="${not empty personality.editedBy}">
                             Редактирован:${personality.edited}  пользователем ${personality.editedBy}
                         </c:if>
+                        </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
                         <button type="submit" class="btn btn-primary"
