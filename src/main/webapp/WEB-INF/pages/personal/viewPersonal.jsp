@@ -203,9 +203,11 @@
       <div class="modal-footer">
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
             Создан: ${personality.created} пользователем ${personality.users.login}
+           <div>
             <c:if test="${not empty personality.editedBy}">
             Редактирован:${personality.edited}  пользователем ${personality.editedBy}
             </c:if>
+           </div>
         </div>
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
         <button type="button" class="btn btn-default" data-dismiss="modal">
