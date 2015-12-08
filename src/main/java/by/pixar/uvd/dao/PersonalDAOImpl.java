@@ -22,12 +22,18 @@ public class PersonalDAOImpl implements PersonalDAO {
     private UserService userService;
 
 
-
+    public boolean checkRole(){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Users users=userService.getUserByLogin(user.getUsername());
+        if (users.getRole().getName().equals("ADMIN"))
+            return true;
+        else
+            return false;
+    }
 
     public void addPersonal(Personal personal) {
-        // Temporary fix
-        //personal.setBirthday(personal.getStrBirthday());
-        //
+
+
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String name = user.getUsername();
         System.out.println(name);
@@ -40,8 +46,21 @@ public class PersonalDAOImpl implements PersonalDAO {
 
     public List<Personal> listPersonal() {
 
+        String strQuery ="from Personal p ";
+        if(checkRole()){
+            return sessionFactory.getCurrentSession().createQuery(strQuery).list();
+        }
+        else {
+            strQuery = ("select p from Personal p inner join p.rovd r  where r.name = :rovd");
+            Query query = sessionFactory.getCurrentSession().createQuery(strQuery);
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            String name = user.getUsername();
+            Users users = userService.getUserByLogin(name);
+            sessionFactory.getCurrentSession().createQuery(strQuery);
+            query.setParameter("rovd", users.getRovd().getName());
 
-        return sessionFactory.getCurrentSession().createQuery("from Personal").list();
+            return query.list();
+        }
     }
 
 
