@@ -5,6 +5,7 @@
 <link href="../webres/css/input.css" rel="stylesheet">
 <link href="../webres/css/errors.css" rel="stylesheet">
 <link href="../webres/css/style.css" rel="stylesheet">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <jsp:include page="../header.jsp"/>
 <%--<security:authorize url="/delete/">--%>
 <h1>${stringTitle}</h1>
