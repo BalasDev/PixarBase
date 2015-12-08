@@ -26,18 +26,21 @@ public class PersonalDAOImpl implements PersonalDAO {
 
     public void addPersonal(Personal personal) {
         // Temporary fix
-        personal.setBirthday(personal.getStrBirthday());
+        //personal.setBirthday(personal.getStrBirthday());
         //
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String name = user.getUsername();
         System.out.println(name);
         Users users=userService.getUserByLogin(name);
         personal.setUsers(users);
+
         sessionFactory.getCurrentSession().save(personal);
     }
 
 
     public List<Personal> listPersonal() {
+
+
         return sessionFactory.getCurrentSession().createQuery("from Personal").list();
     }
 
@@ -143,6 +146,10 @@ public class PersonalDAOImpl implements PersonalDAO {
         if (null != person) {
             sessionFactory.getCurrentSession().update(person);
         }*/
+       // personal.setEdited();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        //Users users=userService.getUserByLogin(user.getUsername());
+        personal.setEditedBy(user.getUsername());
         sessionFactory.getCurrentSession().saveOrUpdate(personal);
     }
 

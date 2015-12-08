@@ -134,8 +134,17 @@ public class Personal extends BaseEntity {
     @Column(name = "WORKPLACE")
     private String workPlace;
 
+    @Column(name = "EDITED")
+    private Date edited;
+
+    //@ManyToOne
     @Column(name = "EDITEDBY")
-    private Date editedBy;
+    private String editedBy;
+
+    @Column(name = "CREATED")
+    private Date created;
+
+
 
     @ManyToOne
     @JoinColumn(name = "ROVDID")
@@ -222,6 +231,7 @@ public class Personal extends BaseEntity {
 
     public void setStrBirthday(String strBirthday) {
         this.strBirthday = strBirthday;
+        setBirthday(strBirthday);
     }
 
     public String getPlaceOfBorn() {
@@ -361,5 +371,39 @@ public class Personal extends BaseEntity {
 
     public void setUsers(Users users) {
         this.users = users;
+    }
+
+    public String getEdited() {
+
+        String date ="-";
+        DateFormat dateFormat = new SimpleDateFormat("dd MM yyyy hh:mm:ss");
+        if (edited!=null)
+        date = dateFormat.format(edited);
+        return date;
+    }
+
+    public void setEdited(Date edited) {
+        this.edited = edited;
+    }
+
+    public String getEditedBy() {
+        return editedBy;
+    }
+
+    public void setEditedBy(String editedBy) {
+        this.editedBy = editedBy;
+    }
+
+    public String getCreated() {
+
+        String date ="-";
+        DateFormat dateFormat = new SimpleDateFormat("dd MM yyyy hh:mm:ss");
+        if (created!=null)
+            date = dateFormat.format(created);
+        return date;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
     }
 }
