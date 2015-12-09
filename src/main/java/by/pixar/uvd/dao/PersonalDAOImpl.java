@@ -51,7 +51,7 @@ public class PersonalDAOImpl implements PersonalDAO {
             return sessionFactory.getCurrentSession().createQuery(strQuery).list();
         }
         else {
-            strQuery = ("select p from Personal p inner join p.rovd r  where r.name = :rovd");
+            strQuery = "select p from Personal p inner join p.rovd r  where r.name = :rovd";
             Query query = sessionFactory.getCurrentSession().createQuery(strQuery);
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             String name = user.getUsername();
@@ -75,59 +75,133 @@ public class PersonalDAOImpl implements PersonalDAO {
 
 
     public List<Personal> findPersonal(String field, String var, String stDate, String endDate) {
+
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String name = user.getUsername();
+        Users users = userService.getUserByLogin(name);
         Query query =null;
-        String beginOfQuery = "from Personal where extract(year from BIRTHDAY)  ";
+        String beginOfQuery=null;
+        String exeQuery;
+        if (checkRole()) {
+             beginOfQuery = "from Personal where extract(year from BIRTHDAY)  ";
+        } else{
+             beginOfQuery = "select p from Personal p inner join p.rovd r where extract(year from BIRTHDAY)  ";
+
+        }
         // var=0 end =0
         if (var.equals("") && endDate.equals("")) {
-            query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+">=:stDate");
-            query.setInteger("stDate", Integer.parseInt(stDate));
+            exeQuery=beginOfQuery+">=:stDate";
+            if (checkRole()) {
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setInteger("stDate", Integer.parseInt(stDate));
+            } else {
+                exeQuery=exeQuery+" and r.name = :rovd";
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setInteger("stDate", Integer.parseInt(stDate));
+                query.setParameter("rovd", users.getRovd().getName());
+            }
          //   return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  >= " + "'" + stDate + "'").list();
         } else
         // var=0 and st=0
         if (var.equals("") && stDate.equals("")) {
-            query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+"<=:endDate");
-            query.setInteger("endDate", Integer.parseInt(endDate));
+            exeQuery=beginOfQuery+"<=:endDate";
+            if (checkRole()) {
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setInteger("endDate", Integer.parseInt(endDate));
+            } else {
+                exeQuery=exeQuery+" and r.name = :rovd";
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setInteger("endDate", Integer.parseInt(stDate));
+                query.setParameter("rovd", users.getRovd().getName());
+            }
             //return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'").list();
         } else
         //var=0
         if (var.equals("") && !stDate.equals("") && !endDate.equals("")) {
-            query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+"<=:endDate and extract(year from BIRTHDAY)>=:stDate");
-            query.setInteger("stDate", Integer.parseInt(stDate));
-            query.setInteger("endDate", Integer.parseInt(endDate));
+            exeQuery=beginOfQuery+"<=:endDate and extract(year from BIRTHDAY)>=:stDate";
+            if (checkRole()) {
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setInteger("stDate", Integer.parseInt(stDate));
+                query.setInteger("endDate", Integer.parseInt(endDate));
+            } else {
+                exeQuery=exeQuery+" and r.name = :rovd";
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setInteger("stDate", Integer.parseInt(stDate));
+                query.setInteger("endDate", Integer.parseInt(endDate));
+                query.setParameter("rovd", users.getRovd().getName());
+
+            }
           //  return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
           //  + " and extract(year from BIRTHDAY) >= " + "'" + stDate + "'").list();
         } else
         // end =0
         if (endDate.equals("")&& !var.equals("") && !stDate.equals("")) {
-            query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+">=:stDate and " + field + " =:var");
-            query.setInteger("stDate", Integer.parseInt(stDate));
-            query.setParameter("var", var);
+            exeQuery=beginOfQuery+">=:stDate and " + field + " =:var";
+            if (checkRole()) {
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setInteger("stDate", Integer.parseInt(stDate));
+                query.setParameter("var", var);
+            } else {
+                exeQuery=exeQuery+" and r.name = :rovd";
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setInteger("stDate", Integer.parseInt(stDate));
+                query.setParameter("var", var);
+                query.setParameter("rovd", users.getRovd().getName());
+            }
            // return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  >= " + "'" + stDate + "'"
            //         + " and " + field + " = " + "'" + var + "'").list();
         } else
         //st=0
         if ( stDate.equals("")&& !var.equals("") && !endDate.equals("")) {
-            query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+"<=:endDate and " + field + " =:var");
-            query.setInteger("endDate", Integer.parseInt(endDate));
-            query.setParameter("var", var);
+            exeQuery=beginOfQuery+"<=:endDate and " + field + " =:var";
+            if (checkRole()) {
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setInteger("endDate", Integer.parseInt(endDate));
+                query.setParameter("var", var);
+            } else {
+                exeQuery=exeQuery+" and r.name = :rovd";
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setInteger("endDate", Integer.parseInt(endDate));
+                query.setParameter("var", var);
+                query.setParameter("rovd", users.getRovd().getName());
+
+            }
             // return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
            //    +" and " + field + " = " + "'" + var + "'").list();
         } else
         // val!=0 st!=0 end!=0
         if (!var.equals("") && !stDate.equals("") && !endDate.equals("")) {
-
-            query = sessionFactory.getCurrentSession().createQuery(beginOfQuery+"<=:endDate and extract(year from BIRTHDAY) >=:stDate and " + field + " =:var");
-            query.setInteger("stDate", Integer.parseInt(stDate));
-            query.setInteger("endDate", Integer.parseInt(endDate));
-            query.setParameter("var", var);
+            exeQuery=beginOfQuery+"<=:endDate and extract(year from BIRTHDAY) >=:stDate and " + field + " =:var";
+            if (checkRole()) {
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setInteger("stDate", Integer.parseInt(stDate));
+                query.setInteger("endDate", Integer.parseInt(endDate));
+                query.setParameter("var", var);
+            } else {
+                exeQuery=exeQuery+" and r.name = :rovd";
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setInteger("stDate", Integer.parseInt(stDate));
+                query.setInteger("endDate", Integer.parseInt(endDate));
+                query.setParameter("var", var);
+                query.setParameter("rovd", users.getRovd().getName());
+            }
          //   return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
          //           + " and extract(year from BIRTHDAY) >= " + "'" + stDate + "'"
          //           +" and " + field + " = " + "'" + var + "'").list();
         } else
         //var=1
         {
-            query = sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " =:var");
-            query.setParameter("var", var);
+            exeQuery="from Personal where " + field + " =:var";
+            if (checkRole()) {
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setParameter("var", var);
+            } else {
+                exeQuery="select p from Personal p inner join p.rovd r where " + field + " =:var and r.name = :rovd";
+                query = sessionFactory.getCurrentSession().createQuery(exeQuery);
+                query.setParameter("var", var);
+                query.setParameter("rovd", users.getRovd().getName());
+
+            }
             //   return sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " = " + "'" + var + "'").list();
         }
 
