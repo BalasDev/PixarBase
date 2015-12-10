@@ -9,6 +9,9 @@
 
 <a href="/addUsers" class="btn btn-primary" role="button"><i
         class="fa fa-user-plus fa-lg"></i> Добавить пользователя</a>
+
+<a href="/download/log_file" class="btn btn-primary" role="button"><i
+        class="fa fa-download fa-lg"></i> Скачать логи</a>
 <br><br>
 <div class="table-responsive">
     <table class="table table-condensed table-hover table-striped table-bordered">
