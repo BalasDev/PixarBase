@@ -2,9 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>Страница ошибки</title>
 </head>
 <body>
-<H1>${er}</H1>
+<H1>Проблема с базой данных, обратитесь к сетевому администратору</H1>
+${er}
 </body>
 </html>
