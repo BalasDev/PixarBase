@@ -139,9 +139,12 @@ public class PersonalController {
                               BindingResult result, Map map) {
         if (result.hasErrors()) {
             map.put("fields", new FormFields().getFields());
-            map.put("personal", new Personal());
+           // map.put("personal", new Personal());
+            map.put("rovd",rovdService.listRovd());
+            map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
             map.put("msg","Не удалось добавить запись");
             map.put("type","danger");
+
             return "personal/addPersonal";
         }
        try {
@@ -154,14 +157,18 @@ public class PersonalController {
            return "redirect:/";
        }catch (PersonExistException e) {
            map.put("fields", new FormFields().getFields());
-           map.put("personal", new Personal());
+           //map.put("personal", new Personal());
            map.put("msg",e.getMSG());
            map.put("type","danger");
+           map.put("rovd",rovdService.listRovd());
+           map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
            return "personal/addPersonal";
        }
        catch (Exception e) {
            map.put("fields", new FormFields().getFields());
-           map.put("personal", new Personal());
+          // map.put("personal", new Personal());
+           map.put("rovd",rovdService.listRovd());
+           map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
            map.put("msg","Не удалось добавить запись");
            map.put("type","danger");
            return "personal/addPersonal";

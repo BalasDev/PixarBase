@@ -72,11 +72,13 @@ public class UserController {
         catch (UserExistException e) {
             map.put("msg",e.getMSG());
             map.put("type","danger");
+            map.put("rovd", rovdService.listRovd());
             return "user/addUser";
         }
         catch (Exception e) {
             map.put("msg","Не удалось добавить пользователя");
             map.put("type","danger");
+            map.put("rovd", rovdService.listRovd());
             return "user/addUser";
         }
 
