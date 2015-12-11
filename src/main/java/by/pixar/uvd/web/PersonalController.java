@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Map;
@@ -33,6 +34,9 @@ public class PersonalController {
     private HttpServletRequest request;
 
     @Autowired
+    private ServletContext context;
+
+    @Autowired
     UserService userService;
 
     //Add messages on action (delete,add,edit)
@@ -46,7 +50,14 @@ public class PersonalController {
         map.put("rovd",rovdService.listRovd());
         map.put("stringTitle", "Список");
         map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
-        map.put("msg",msg);
+        map.put("msg", msg);
+
+        //
+        String globMes = (String)context.getAttribute("globMes");
+        if (globMes!=null){
+        if (!globMes.equals("".trim()))
+        map.put("globalMes",globMes);}
+        //
         if(type==null)
             map.put("type","success");
         else
@@ -130,6 +141,12 @@ public class PersonalController {
         map.put("fields", new FormFields().getFields());
         map.put("rovd",rovdService.listRovd());
         map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
+
+        //
+          context.setAttribute("globMes", "Test message");
+        //
+
+
 //        map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
        return "personal/addPersonal";
     }
@@ -185,6 +202,11 @@ public class PersonalController {
           String rovd = user.getRovd().getName();
           Personal personal = personalService.getPersonal(id);
           personalService.deletePersonal(id);
+
+          //
+          context.setAttribute("globMes","");
+          //
+
           log.info(login + "(" + rovd + ") удалил: " + personal.getLastName() + " " + personal.getFirstName() + " " + personal.getSecondName());
           msg = "Запись успешно удалена";
       } catch (Exception e)

@@ -25,9 +25,53 @@
   <%--<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>--%>
   <![endif]-->
   <script type="text/javascript">
+    /*Hide popup message after 3 seconds*/
     $(function() {
       $("#message").show().delay(3000).fadeOut();
+
+
     });
+    /*Open modal */
+    $('document').ready(function(){
+      $("#modalButton").click(function(){
+        $("#mModal").modal('show');
+        $.ajax({
+          url: "getGlobalMessage",
+          type: 'GET',
+          contentType: 'application/json',
+          mimeType: 'application/json',
+          success: function(data) {
+            //   alert(data.mes);
+            /* if (data.mes=''){
+             $('#glm').hide();
+             }  else*/
+            $('#area').val(data.mes);
+          }
+        });
+      });
+
+      /*show global message*/
+      $.ajax({
+        url: "getGlobalMessage",
+        type: 'GET',
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        success: function(data) {
+       //   alert(data.mes);
+         /* if (data.mes=''){
+            $('#glm').hide();
+          }  else*/
+          $('#glm').text(data.mes);
+        }
+      });
+
+
+
+
+    });
+
+
+
   </script>
 </head>
 
@@ -63,6 +107,7 @@
       </div>
     </div>
   </div>
+<div id="glm" class="alert alert-info"><%--${applicationScope['globMes']}--%><%--${globalMes}--%></div>
   <c:if test="${not empty msg }">
     <div id =message class="alert alert-${type}">${msg}</div>
   </c:if>

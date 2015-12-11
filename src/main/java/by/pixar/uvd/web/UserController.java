@@ -1,19 +1,17 @@
 package by.pixar.uvd.web;
 
+import by.pixar.uvd.domain.AjaxResponce;
 import by.pixar.uvd.domain.Users;
 import by.pixar.uvd.exceptions.UserExistException;
-import by.pixar.uvd.security.CustomUserDetailsService;
 import by.pixar.uvd.service.RovdService;
 import by.pixar.uvd.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Map;
@@ -32,6 +30,9 @@ public class UserController {
 
     @Autowired
     private HttpServletRequest request;
+
+    @Autowired
+    private ServletContext context;
 
     //Add messages on action (delete,add,edit)
     private String msg;
@@ -130,4 +131,19 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "/addMessage", method = RequestMethod.POST)
+    public String editUser(@ModelAttribute("text") String text) {
+
+        context.setAttribute("globMes",text);
+
+        return "redirect:/adminPanel";
+    }
+
+    @RequestMapping(value = "/getGlobalMessage", method = RequestMethod.GET)
+    public @ResponseBody
+    AjaxResponce setMessage( ) {
+
+        return new AjaxResponce((String)context.getAttribute("globMes"));
+
+    }
 }
