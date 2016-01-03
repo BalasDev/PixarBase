@@ -7,11 +7,17 @@
 <link href="../webres/css/style.css" rel="stylesheet">
 <jsp:include page="../header.jsp"/>
 
+
 <a href="/addUsers" class="btn btn-primary" role="button"><i
         class="fa fa-user-plus fa-lg"></i> Добавить пользователя</a>
 
 <a href="/download/log_file" class="btn btn-primary" role="button"><i
         class="fa fa-download fa-lg"></i> Скачать логи</a>
+
+<button id="modalButton" class="btn btn-primary"> Добавить сообщение </button>
+
+
+
 <br><br>
 <div class="table-responsive">
     <table class="table table-condensed table-hover table-striped table-bordered">
@@ -58,6 +64,8 @@
                 <%@include file="editUser.jsp"%>
                 <%--modal delete--%>
               <%@include file="deleteUser.jsp"%>
+                  <%--modal add message--%>
+              <%@include file="addMessage.jsp"%>
             </c:forEach>
     </table>
 
