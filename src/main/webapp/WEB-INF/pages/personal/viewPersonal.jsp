@@ -90,7 +90,7 @@
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                             <textarea class="form-control" rows="1"
-                                                      disabled>${personality.strBirthday}</textarea>
+                                                      disabled>${personality.birthday}</textarea>
             </div>
           </div>
           <div class="row">

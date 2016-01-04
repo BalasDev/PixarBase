@@ -1,8 +1,10 @@
 package by.pixar.uvd.domain;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -51,16 +53,18 @@ public class Personal extends BaseEntity {
 
     //'Дата рождения'
 
+    @DateTimeFormat(pattern="dd MM yyyy")
+    @NotNull(message = "Введите дату рождения (дд мм гггг)")
 
     @Column(name = "BIRTHDAY")
     private Date birthday;
 
-    @Pattern(message = "Неверный формат", regexp = "[0-9][0-9][ \\f\\n\\r\\t\\v][0-9][0-9][ \\f\\n\\r\\t\\v][0-9][0-9][0-9][0-9]")
+   /* @Pattern(message = "Неверный формат", regexp = "[0-9][0-9][ \\f\\n\\r\\t\\v][0-9][0-9][ \\f\\n\\r\\t\\v][0-9][0-9][0-9][0-9]")
     //  @DateTimeFormat(style = "S-")
     @Column(name = "STRBIRTHDAY")
-    private String strBirthday;
+    private String strBirthday;*/
 
-    //Место рождения'
+    //Место рождения
     @NotBlank(message = "Введите место")
     @Column(name = "PLACEOFBORN")
     private String placeOfBorn;
@@ -212,27 +216,18 @@ public class Personal extends BaseEntity {
         return birthday;
     }
 
-    public void setBirthday(String date) {
-
-        System.out.println(date);
-        DateFormat dateFormat = new SimpleDateFormat("dd MM yyyy");
-        try {
-            this.birthday = dateFormat.parse(date);
-            System.out.println(this.birthday);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
+    public void setBirthday( Date birthday) {
+        this.birthday = birthday;
     }
 
-    public String getStrBirthday() {
+    /*public String getStrBirthday() {
         return strBirthday;
     }
 
     public void setStrBirthday(String strBirthday) {
         this.strBirthday = strBirthday;
-        setBirthday(strBirthday);
-    }
+     //   setBirthday(strBirthday);
+    }*/
 
     public String getPlaceOfBorn() {
         return placeOfBorn;

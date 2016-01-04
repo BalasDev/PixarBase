@@ -167,7 +167,7 @@
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1"
-                                          name="strBirthday">${personality.strBirthday}</textarea>
+                                          name="birthday">${personality.birthday}</textarea>
                             </div>
                         </div>
 

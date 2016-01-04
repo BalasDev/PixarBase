@@ -17,10 +17,10 @@
                         <label class="col-lg-6 col-md-6 control-label" for="categoryId">Категория</label>
 
                         <div class="col-lg-6 col-md-6 form-group">
-                        <select class="form-control" name="categoryId" id="categoryId">
-                        <c:forEach items="${fields}" var="field">
+                        <select class="form-control" name="categoryId" id="categoryId" onchange="update();">
+                        <%--<c:forEach items="${fields}" var="field">
                             <option value="${field.fieldName}"> ${field.rusFieldName} </option>
-                        </c:forEach>
+                        </c:forEach>--%>
                             <%--<c:set var="personal" value="${personal}"/>
                             <select class="form-control" name="categoryId" id="categoryId">
                                 <option value="lastName"> ${lastName} </option>
@@ -47,7 +47,11 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="col-lg-6 col-md-6 form-group">
-                            <input class="form-control" type="text" name="searching" id="searching" title="" value="">
+                            <select class="form-control" name="searching" id="searchingSelect">
+                                <option value="lastName"> ${lastName} </option>
+                            </select>
+                            <input class="form-control" type="text" name="searching" id="searchingInput" title="" value="">
+
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 ">

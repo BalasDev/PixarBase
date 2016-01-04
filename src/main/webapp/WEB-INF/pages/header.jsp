@@ -49,6 +49,9 @@
           }
         });
       });
+      /*hide select element with rovd on serch.jsp*/
+      $('#searchingSelect').hide();
+      $('#searchingSelect').empty();
 
       /*show global message*/
       $.ajax({
@@ -65,11 +68,65 @@
         }
       });
 
+     /* create search select*/
 
-
-
+      $.ajax({
+        url:"getSearchParam",
+        type: 'GET',
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        success: function (data) {
+          var obj = data;
+          $('#categoryId').empty();
+          $.each(obj, function (key, value) {
+            $('#categoryId').append($("<option></option>")
+                    .
+                    attr("value", value.fieldName)
+                    .text(value.rusFieldName));
+          });
+        }
+      })
     });
 
+    /*change on selected rovd input to select with list*/
+    function update() {
+      var s = $("#categoryId option:selected").text();
+      if (s == 'РОВД'){
+        $.ajax({
+          url:"getRovdForSearch",
+          type: 'GET',
+          contentType: 'application/json',
+          mimeType: 'application/json',
+          success: function (data) {
+            var obj = data;
+            var list = $("#searchingSelect");
+            $.each(obj, function(index, item) {
+              list.append(new Option(item.name, item.name));
+            });
+            /*$('#searchingSelect').empty();
+            $.each(obj, function (key, value) {
+              $('#searchingSelect').append($("<option></option>")
+                      .attr("value",value.name)
+                      .text(value.id));
+                alert(value)
+
+            });*/
+
+
+          }
+        });
+        $('#searchingInput').hide();
+        $('#searchingInput').empty();
+        $('#searchingSelect').show();
+      }
+      else {
+        $('#searchingSelect').hide();
+        $('#searchingInput').show();
+        $('#searchingSelect').empty();
+
+      }
+
+    }
 
 
   </script>

@@ -132,7 +132,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/addMessage", method = RequestMethod.POST)
-    public String editUser(@ModelAttribute("text") String text) {
+    public String addMessage(@ModelAttribute("text") String text) {
 
         context.setAttribute("globMes",text);
 

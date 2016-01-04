@@ -9,6 +9,7 @@ import by.pixar.uvd.service.RovdService;
 import by.pixar.uvd.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -25,10 +26,10 @@ public class PersonalController {
     private static final Logger log = Logger.getLogger(PersonalController.class);
 
     @Autowired
-    PersonalService personalService;
+    private PersonalService personalService;
 
     @Autowired
-    RovdService rovdService;
+    private RovdService rovdService;
 
     @Autowired
     private HttpServletRequest request;
@@ -37,7 +38,10 @@ public class PersonalController {
     private ServletContext context;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
+
+ /*   @Autowired
+    private ConversionService conversionService;*/
 
     //Add messages on action (delete,add,edit)
     private String msg;
@@ -96,7 +100,7 @@ public class PersonalController {
 
 
 
-        map.put("fields", new FormFields().getFields());
+       // map.put("fields", new FormFields().getFields());
         //map.put("personal", new Personal());
         map.put("msg",msg);
         map.put("type",type);
@@ -106,10 +110,11 @@ public class PersonalController {
 
     @RequestMapping(value = "/searchUser", method = RequestMethod.POST)
     public String searchUser(Map<String, Object> map, @RequestParam("categoryId") String category, @RequestParam("searching") String searching,
-                             @RequestParam("stdate") String startDate,@RequestParam("fndate") String endDate) {
+                            @RequestParam("stdate") String startDate,@RequestParam("fndate") String endDate) {
 
         try {
-//            if (/*(category != null) && */(searching.equals("")) && (startDate.equals("")) && (endDate.equals(""))) {
+                // crutch for replacing ','
+                searching = searching.replace(',',' ').trim();
                 map.put("personalList", personalService.findPersonal(category, searching, startDate, endDate));
                 map.put("stringTitle", "Результаты поиска");
                 map.put("personal", new Personal());
