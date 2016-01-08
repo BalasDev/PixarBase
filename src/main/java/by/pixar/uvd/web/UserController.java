@@ -142,7 +142,9 @@ public class UserController {
     @RequestMapping(value = "/getGlobalMessage", method = RequestMethod.GET)
     public @ResponseBody
     AjaxResponce setMessage( ) {
-
+        if (context.getAttribute("globMes")==null) {
+            context.setAttribute("globMes","");
+        }
         return new AjaxResponce((String)context.getAttribute("globMes"));
 
     }

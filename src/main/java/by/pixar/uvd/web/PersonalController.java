@@ -66,10 +66,10 @@ public class PersonalController {
         map.put("msg", msg);
 
         //
-        String globMes = (String)context.getAttribute("globMes");
+        /*String globMes = (String)context.getAttribute("globMes");
         if (globMes!=null){
         if (!globMes.equals("".trim()))
-        map.put("globalMes",globMes);}
+        map.put("globalMes",globMes);}*/
         //
         if(type==null)
             map.put("type","success");
@@ -156,10 +156,6 @@ public class PersonalController {
         map.put("rovd",rovdService.listRovd());
         map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
 
-        //
-          context.setAttribute("globMes", "Test message");
-        //
-
 
 //        map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
        return "personal/addPersonal";
@@ -217,9 +213,7 @@ public class PersonalController {
           Personal personal = personalService.getPersonal(id);
           personalService.deletePersonal(id);
 
-          //
-          context.setAttribute("globMes","");
-          //
+
 
           log.info(login + "(" + rovd + ") удалил: " + personal.getLastName() + " " + personal.getFirstName() + " " + personal.getSecondName());
           msg = "Запись успешно удалена";

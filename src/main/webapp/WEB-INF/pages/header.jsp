@@ -50,7 +50,7 @@
           }
         });
       });
-      /*hide select element with rovd on serch.jsp*/
+      /*hide select element with rovd on search.jsp*/
       $('#searchingSelect').hide();
       $('#searchingSelect').empty();
 
@@ -62,10 +62,12 @@
         mimeType: 'application/json',
         success: function(data) {
        //   alert(data.mes);
-         /* if (data.mes=''){
-            $('#glm').hide();
-          }  else*/
-          $('#glm').text(data.mes);
+          var el = data.mes;
+          if (el!="") {
+            /* $('#glm').css("visibility", "visible");*/
+            $('#glm').css('visibility', 'visible').hide().fadeIn().removeClass('hidden');
+            $('#glm').text(data.mes);
+          }
         }
       });
 
@@ -183,7 +185,7 @@
       </div>
     </div>
   </div>
-<div id="glm" class="alert alert-info"><%--${applicationScope['globMes']}--%><%--${globalMes}--%></div>
+<div id="glm" class="alert alert-info hidden" ><%--${applicationScope['globMes']}--%><%--${globalMes}--%></div>
   <c:if test="${not empty msg }">
     <div id =message class="alert alert-${type}">${msg}</div>
 
