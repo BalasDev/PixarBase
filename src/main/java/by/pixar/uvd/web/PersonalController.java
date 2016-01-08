@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -40,7 +42,14 @@ public class PersonalController {
     @Autowired
     private UserService userService;
 
- /*   @Autowired
+    List<String> stringDateList = new ArrayList<>();
+
+    public List<String> getStringDateList() {
+
+        return stringDateList;
+    }
+
+    /*   @Autowired
     private ConversionService conversionService;*/
 
     //Add messages on action (delete,add,edit)

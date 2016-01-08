@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=utf8"
          pageEncoding="utf8" %>
@@ -85,7 +86,23 @@
                     .text(value.rusFieldName));
           });
         }
-      })
+      });
+
+      // Create select for category
+      var sost = [
+        {val : 'в/н', text: 'в/н'},
+        {val : 'младший нач. состав', text: 'младший нач. состав'},
+        {val : 'средний нач. состав', text: 'средний нач. состав'},
+        {val : 'старший нач. состав', text: 'старший нач. состав'},
+        {val : 'высший нач. состав', text: 'высший нач. состав'}
+      ];
+
+      var selsost1 = $('#category1');
+      var selsost2 = $('#category2');
+      $.each(sost, function(index, item) {
+        selsost1.append(new Option(this.val, this.text));
+        selsost2.append(new Option(this.val, this.text));
+      });
     });
 
     /*change on selected rovd input to select with list*/
@@ -125,6 +142,8 @@
         $('#searchingSelect').empty();
 
       }
+
+
 
     }
 
@@ -167,4 +186,5 @@
 <div id="glm" class="alert alert-info"><%--${applicationScope['globMes']}--%><%--${globalMes}--%></div>
   <c:if test="${not empty msg }">
     <div id =message class="alert alert-${type}">${msg}</div>
+
   </c:if>

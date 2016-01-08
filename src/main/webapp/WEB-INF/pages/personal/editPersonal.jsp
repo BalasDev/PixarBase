@@ -64,27 +64,42 @@
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <select class="form-control" name="rank">
                                     <option value="${personality.rank}">${personality.rank}</option>
-                                    <option value="рядовой">рядовой</option>
-                                    <option value="младший сержант">младший сержант</option>
-                                    <option value="сержант">сержант</option>
-                                    <option value="старший сержант">старший сержант</option>
-                                    <option value="старшина">старшина</option>
-                                    <option value="прапорщик">прапорщик</option>
-                                    <option value="старший прапорщик">старший прапорщик</option>
-                                    <option value="младший лейтенант">младший лейтенант</option>
-                                    <option value="лейтенант">лейтенант</option>
-                                    <option value="старший лейтенант">старший лейтенант</option>
-                                    <option value="капитан">капитан</option>
-                                    <option value="майор">майор</option>
-                                    <option value="подполковник">подполковник</option>
-                                    <option value="полковник">полковник</option>
-                                    <option value="генерал-майор">генерал-майор</option>
-                                    <option value="генерал-лейтенант">генерал-лейтенант</option>
-                                    <option value="генерал-полковник">генерал-полковник</option>
+                                    <option value="рядовой">рядовой милиции</option>
+                                    <option value="младший сержант">младший сержант милиции</option>
+                                    <option value="сержант">сержант милиции</option>
+                                    <option value="старший сержант">старший сержант милиции</option>
+                                    <option value="старшина">старшина милиции</option>
+                                    <option value="прапорщик">прапорщик милиции</option>
+                                    <option value="старший прапорщик">старший прапорщик милиции</option>
+                                    <option value="младший лейтенант">младший лейтенант милиции</option>
+                                    <option value="лейтенант">лейтенант милиции</option>
+                                    <option value="старший лейтенант">старший лейтенант милиции</option>
+                                    <option value="капитан">капитан милиции</option>
+                                    <option value="майор">майор милиции</option>
+                                    <option value="подполковник">подполковник милиции</option>
+                                    <option value="полковник">полковник милиции</option>
+                                    <option value="генерал-майор">генерал-майор милиции</option>
+                                    <option value="генерал-лейтенант">генерал-лейтенант милиции</option>
+                                    <option value="генерал-полковник">генерал-полковник милиции</option>
                                 </select>
                             </div>
                         </div>
 
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <label class="text-left">Категория сотрудника</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                        <select class="form-control" name="category" id="category2">
+                                            <option value="${personality.category}">${personality.category}</option>
+                                            <option value="б/н">б/н</option>
+                                            <option value="младший нач. состав">младший нач. состав</option>
+                                            <option value="средний нач. состав">средний нач. состав</option>
+                                            <option value="высший нач. состав">высший нач. состав</option>
+
+                                        </select>
+                                    </div>
+                                </div>
 
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -101,41 +116,8 @@
                                         </c:when>
                                     </c:choose>
 
-                                   <%-- <c:forEach items="${rovd}" var="rovd">
-                                        <option value="${rovd.id}">${rovd.name}</option>
-                                    </c:forEach>--%>
+
                                 </select>
-                                    <%-- <select class="form-control" name="rovd">
-                                         <option value="${personality.rovd}">${personality.rovd}</option>
-                                         <option value="Железнодорожный">Железнодорожный</option>
-                                         <option value="Новобелецкий">Новобелецкий</option>
-                                         <option value="Центральный">Центральный</option>
-                                         <option value="Советский">Советский</option>
-                                         <option value="Гомельский">Гомельский</option>
-                                         <option value="Брагинский">Брагинский</option>
-                                         <option value="Буда-Кошелевский">Буда-Кошелевский</option>
-                                         <option value="Ветковский">Ветковский</option>
-                                         <option value="Добрушский">Добрушский</option>
-                                         <option value="Ельский">Ельский</option>
-                                         <option value="Житковичский">Житковичский</option>
-                                         <option value="Жлобинский">Жлобинский</option>
-                                         <option value="Калинковичский">Калинковичский</option>
-                                         <option value="Кормянский">Кормянский</option>
-                                         <option value="Лельчицкий">Лельчицкий</option>
-                                         <option value="Лоевский">Лоевский</option>
-                                         <option value="Мозырьский">Мозырьский</option>
-                                         <option value="Наровлянский">Наровлянский</option>
-                                         <option value="Октябрьский">Октябрьский</option>
-                                         <option value="Петриковский">Петриковский</option>
-                                         <option value="Речицкий">Речицкий</option>
-                                         <option value="Рогачевский">Рогачевский</option>
-                                         <option value="Светлогорский">Светлогорский</option>
-                                         <option value="Хойникский">Хойникский</option>
-                                         <option value="Чечерский">Чечерский</option>
-                                         <option value="Полк ППСМ">Полк ППСМ</option>
-                                         <option value="БДПС">БДПС</option>
-                                         <option value="Гомельский ОВДТ">Гомельский ОВДТ</option>
-                                     </select>--%>
 
 
                             </div>
@@ -167,7 +149,7 @@
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1"
-                                          name="birthday">${personality.birthday}</textarea>
+                                          name="birthday"><fmt:formatDate value="${personality.birthday}" pattern="dd MM yyyy"/></textarea>
                             </div>
                         </div>
 
@@ -277,6 +259,24 @@
                                 <textarea class="form-control" rows="1" name="fired">${personality.fired}</textarea>
                             </div>
                         </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <label class="text-left">Контракт</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                        <textarea class="form-control" rows="1" name="contract"><fmt:formatDate value="${personality.contract}" pattern="dd MM yyyy"/></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <label class="text-left">Дата аттестации</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                        <textarea class="form-control" rows="1" name="dateOfCertification"><fmt:formatDate value="${personality.dateOfCertification}" pattern="dd MM yyyy"/></textarea>
+                                    </div>
+                                </div>
 
                 </div>
 

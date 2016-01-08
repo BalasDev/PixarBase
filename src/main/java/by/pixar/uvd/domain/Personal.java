@@ -9,7 +9,10 @@ import javax.validation.constraints.Pattern;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -22,7 +25,9 @@ public class Personal extends BaseEntity {
     @Column(name = "ID")
     @GeneratedValue
     private Integer id;
+
 */
+
     //'Фамилия'
     @NotBlank(message = "Введите фамилию")
     @Column(name = "LASTNAME")
@@ -50,17 +55,22 @@ public class Personal extends BaseEntity {
     @Column(name = "RANK")
     private String rank;
 
+    //Категории сотрудников
+    @NotBlank(message = "Введите категорию сотрудника")
+    @Column(name = "CATEGORY")
+    private String category;
+
+
 
     //'Дата рождения'
 
     @DateTimeFormat(pattern="dd MM yyyy")
     @NotNull(message = "Введите дату рождения (дд мм гггг)")
-
     @Column(name = "BIRTHDAY")
     private Date birthday;
 
-   /* @Pattern(message = "Неверный формат", regexp = "[0-9][0-9][ \\f\\n\\r\\t\\v][0-9][0-9][ \\f\\n\\r\\t\\v][0-9][0-9][0-9][0-9]")
-    //  @DateTimeFormat(style = "S-")
+    /*@Pattern(message = "Неверный формат", regexp = "[0-9][0-9][ \\f\\n\\r\\t\\v][0-9][0-9][ \\f\\n\\r\\t\\v][0-9][0-9][0-9][0-9]")
+    //  @DateTimeFormat(style = "S-")*//*
     @Column(name = "STRBIRTHDAY")
     private String strBirthday;*/
 
@@ -115,6 +125,7 @@ public class Personal extends BaseEntity {
     @Column(name = "STATEAWARDS")
     private String stateAwards;
 
+    // Место службы
     @NotBlank(message = "Введите место службы")
     @Column(name = "CALLOFDUTY")
     private String callOfDuty;
@@ -129,6 +140,7 @@ public class Personal extends BaseEntity {
     @Column(name = "FNMILITSERV")
     private Date fnMilitSer;*/
 
+    //Увольнение
     @NotBlank(message = "Введите увольнение")
     @Column(name = "FIRED")
     private String fired;
@@ -138,22 +150,41 @@ public class Personal extends BaseEntity {
     @Column(name = "WORKPLACE")
     private String workPlace;
 
+    //Отредактировано когда
     @Column(name = "EDITED")
     private Date edited;
 
+    //Отредактирвано кем
     //@ManyToOne
     @Column(name = "EDITEDBY")
     private String editedBy;
 
+    //Создано когда
     @Column(name = "CREATED")
     private Date created;
 
+    //Контракт
+    @DateTimeFormat(pattern="dd MM yyyy")
+    @NotNull(message = "Введите контракт")
+    @Column(name = "CONTRACT")
+    private Date contract;
+
+    //Дата аттестации
+    @DateTimeFormat(pattern="dd MM yyyy")
+    @NotNull(message = "Введите дату аттестации (дд мм гггг)")
+    @Column(name = "DATEOFCERTIFICATION")
+    private Date dateOfCertification;
 
 
+
+
+
+    //РОВД
     @ManyToOne
     @JoinColumn(name = "ROVDID")
     private Rovd rovd;
 
+    //Создано кем
     @ManyToOne
     @JoinColumn(name = "CREATEDBY")
     private Users users;
@@ -211,23 +242,22 @@ public class Personal extends BaseEntity {
         this.rank = rank;
     }
 
+    public String getCategory() {
+        return category;
+    }
 
-    public Date getBirthday() {
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public Date getBirthday()  {
         return birthday;
+
     }
 
     public void setBirthday( Date birthday) {
-        this.birthday = birthday;
+        this.birthday =  birthday;
     }
-
-    /*public String getStrBirthday() {
-        return strBirthday;
-    }
-
-    public void setStrBirthday(String strBirthday) {
-        this.strBirthday = strBirthday;
-     //   setBirthday(strBirthday);
-    }*/
 
     public String getPlaceOfBorn() {
         return placeOfBorn;
@@ -370,11 +400,7 @@ public class Personal extends BaseEntity {
 
     public String getEdited() {
 
-        String date ="-";
-        DateFormat dateFormat = new SimpleDateFormat("dd MM yyyy hh:mm:ss");
-        if (edited!=null)
-        date = dateFormat.format(edited);
-        return date;
+        return formatDateAndTime(edited);
     }
 
     public void setEdited(Date edited) {
@@ -391,14 +417,58 @@ public class Personal extends BaseEntity {
 
     public String getCreated() {
 
-        String date ="-";
-        DateFormat dateFormat = new SimpleDateFormat("dd MM yyyy hh:mm:ss");
-        if (created!=null)
-            date = dateFormat.format(created);
-        return date;
+        return formatDateAndTime(created);
     }
 
     public void setCreated(Date created) {
         this.created = created;
     }
+
+    public Date getContract() {
+        return contract;
+    }
+
+    public void setContract(Date contract) {
+        this.contract = contract;
+    }
+
+    public Date getDateOfCertification() {
+        return dateOfCertification;
+    }
+
+    public void setDateOfCertification(Date dateOfCertification) {
+        this.dateOfCertification = dateOfCertification;
+    }
+
+
+    //Format date and time
+    private String formatDateAndTime(Date date){
+        String stringDate="";
+        DateFormat dateFormat = new SimpleDateFormat("dd MM yyyy HH:mm:ss");
+        if (date!=null)
+            stringDate = dateFormat.format(date);
+        return stringDate;
+    }
+    //Format date
+    private String formatDate(Date date){
+        String stringDate="";
+        DateFormat dateFormat = new SimpleDateFormat("dd MM yyyy");
+        if (date!=null)
+            stringDate = dateFormat.format(date);
+        return stringDate;
+    }
+
+    private Date formatDate(String date){
+        Date d = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd MM yyyy");
+        try {
+            d = dateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return d;
+    }
+
+
+
 }

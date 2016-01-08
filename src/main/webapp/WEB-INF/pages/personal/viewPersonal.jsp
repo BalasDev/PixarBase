@@ -1,4 +1,5 @@
-<%@page pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--modal Person--%>
 <div class="modal fade" id="info_${personality.id}">
   <div class="modal-dialog" style="width: 60%;">
@@ -59,6 +60,15 @@
           </div>
           <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+              <label class="text-left">Категория сотрудника</label>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                            <textarea class="form-control" rows="1"
+                                                      disabled>${personality.category}</textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
               <label class="text-left">РОВД</label>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
@@ -90,7 +100,8 @@
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                             <textarea class="form-control" rows="1"
-                                                      disabled>${personality.birthday}</textarea>
+                                                      disabled><fmt:formatDate value="${personality.birthday}" pattern="dd MM yyyy"/></textarea>
+
             </div>
           </div>
           <div class="row">
@@ -192,6 +203,30 @@
                                                       disabled>${personality.fired}</textarea>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+              <label class="text-left control-label">Контракт</label>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                            <textarea class="form-control" rows="1"
+                                                      disabled><fmt:formatDate value="${personality.contract}" pattern="dd MM yyyy"/></textarea>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+              <label class="text-left control-label">Дата аттестации</label>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                            <textarea class="form-control" rows="1"
+                                                      disabled><fmt:formatDate value="${personality.dateOfCertification}" pattern="dd MM yyyy"/></textarea>
+
+            </div>
+          </div>
+
+
+
 
 
 

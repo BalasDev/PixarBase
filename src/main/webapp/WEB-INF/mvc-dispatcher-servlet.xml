@@ -17,6 +17,7 @@
      <beans:set>
          <beans:bean class="by.pixar.uvd.dao.converter.DateSerializer"/>
          <beans:bean class="by.pixar.uvd.dao.converter.DateDeserializer"/>
+        <!-- <beans:bean class="by.pixar.uvd.dao.converter.XMLGrigorianCalendarDeserializer"/>-->
      </beans:set>
      </beans:property>
 

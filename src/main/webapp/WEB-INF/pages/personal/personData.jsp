@@ -11,23 +11,23 @@
                     <td>${field.rusFieldName}</td>
                     <td>
                         <select class="form-control" name="${field.fieldName}">
-                            <option value="рядовой">рядовой</option>
-                            <option value="младший сержант">младший сержант</option>
-                            <option value="сержант">сержант</option>
-                            <option value="старший сержант">старший сержант</option>
-                            <option value="старшина">старшина</option>
-                            <option value="прапорщик">прапорщик</option>
-                            <option value="старший прапорщик">старший прапорщик</option>
-                            <option value="младший лейтенант">младший лейтенант</option>
-                            <option value="лейтенант">лейтенант</option>
-                            <option value="старший лейтенант">старший лейтенант</option>
-                            <option value="капитан">капитан</option>
-                            <option value="майор">майор</option>
-                            <option value="подполковник">подполковник</option>
-                            <option value="полковник">полковник</option>
-                            <option value="генерал-майор">генерал-майор</option>
-                            <option value="генерал-лейтенант">генерал-лейтенант</option>
-                            <option value="генерал-полковник">генерал-полковник</option>
+                            <option value="рядовой">рядовой милиции</option>
+                            <option value="младший сержант">младший сержант милиции</option>
+                            <option value="сержант">сержант милиции</option>
+                            <option value="старший сержант">старший сержант милиции</option>
+                            <option value="старшина">старшина милиции</option>
+                            <option value="прапорщик">прапорщик милиции</option>
+                            <option value="старший прапорщик">старший прапорщик милиции</option>
+                            <option value="младший лейтенант">младший лейтенант милиции</option>
+                            <option value="лейтенант">лейтенант милиции</option>
+                            <option value="старший лейтенант">старший лейтенант милиции</option>
+                            <option value="капитан">капитан милиции</option>
+                            <option value="майор">майор милиции</option>
+                            <option value="подполковник">подполковник милиции</option>
+                            <option value="полковник">полковник милиции</option>
+                            <option value="генерал-майор">генерал-майор милиции</option>
+                            <option value="генерал-лейтенант">генерал-лейтенант милиции</option>
+                            <option value="генерал-полковник">генерал-полковник милиции</option>
                         </select>
                     </td>
                     <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
@@ -54,6 +54,8 @@
                                 </select>
                             </c:otherwise>
                         </c:choose>
+
+
 
                             <%--<option value="Железнодорожный">Железнодорожный</option>
                             <option value="Новобелецкий">Новобелецкий</option>
@@ -87,6 +89,17 @@
                     </td>
                     <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
                 </tr>
+            </c:when>
+
+            <c:when test="${field.fieldName=='category'}">
+            <tr>
+                <td>${field.rusFieldName}</td>
+            <td>
+            <select class="form-control" name="${field.fieldName}" id="category1">
+            </select>
+            </td>
+                <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
+            </tr>
             </c:when>
             <c:otherwise>
                 <tr>
