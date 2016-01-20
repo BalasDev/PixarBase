@@ -51,7 +51,6 @@ public class Personal extends BaseEntity {
 
     //'Звание'
     @NotBlank(message = "Введите звание")
-
     @Column(name = "RANK")
     private String rank;
 
@@ -63,7 +62,6 @@ public class Personal extends BaseEntity {
 
 
     //'Дата рождения'
-
     @DateTimeFormat(pattern="dd MM yyyy")
     @NotNull(message = "Введите дату рождения (дд мм гггг)")
     @Column(name = "BIRTHDAY")

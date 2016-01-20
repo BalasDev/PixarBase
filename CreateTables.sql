@@ -1,3 +1,9 @@
+create USER pixar@localhost identified BY 'pixar';
+GRANT usage ON *.* TO pixar@localhost identified BY 'pixar';
+CREATE DATABASE IF NOT EXISTS pixar;
+GRANT ALL privileges ON pixar.* TO pixar@localhost;
+USE pixar;
+
 /*Table ROLES*/
 
 CREATE TABLE IF NOT EXISTS ROLES (
@@ -115,6 +121,18 @@ ALTER TABLE USERS
 ADD CONSTRAINT users_ibfk_1 FOREIGN KEY (ROLEID) REFERENCES roles (ID);
 ALTER TABLE USERS
 ADD CONSTRAINT users_ibfk_2 FOREIGN KEY (ROVDID) REFERENCES rovd (ID);
+
+
+/* Do it last*/
+ALTER TABLE PERSONAL
+ADD CATEGORY TEXT;
+
+ALTER TABLE PERSONAL
+ADD CONTRACT DATE;
+
+ALTER TABLE PERSONAL
+ADD DATEOFCERTIFICATION DATE;
+
 
 
 
