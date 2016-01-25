@@ -103,7 +103,7 @@
                                                       disabled><fmt:formatDate value="${personality.callOfOVD}" pattern="dd MM yyyy"/></textarea>
 
             </div>
-
+            </div>
             <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                           <label class="text-left control-label">Дата рождения</label>

@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <table>
 
@@ -101,6 +102,17 @@
                 <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
             </tr>
             </c:when>
+
+            <%--<c:when test="${field.fieldName=='birthday'}">
+                <tr>
+                    <td>${field.rusFieldName}</td>
+                    <td><form:textarea class="form-control" rows="${field.row}" cols="70" path="${field.fieldName}"
+                                       placeholder="${field.value}"/></td>
+                    <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
+                </tr>
+
+            </c:when>--%>
+
             <c:otherwise>
                 <tr>
                     <td>${field.rusFieldName}</td>

@@ -143,7 +143,7 @@ public class Personal extends BaseEntity {
     @DateTimeFormat(pattern="dd MM yyyy")
     @NotNull(message = "Введите дату службы в ОВД (дд мм гггг)")
     @Column(name = "CALLOFOVD")
-    private Date callOfUVD;
+    private Date callOfOVD;
 
 
     //Увольнение
@@ -446,12 +446,12 @@ public class Personal extends BaseEntity {
         this.dateOfCertification = dateOfCertification;
     }
 
-    public Date getCallOfUVD() {
-        return callOfUVD;
+    public Date getCallOfOVD() {
+        return callOfOVD;
     }
 
-    public void setCallOfUVD(Date callOfUVD) {
-        this.callOfUVD = callOfUVD;
+    public void setCallOfOVD(Date callOfOVD) {
+        this.callOfOVD = callOfOVD;
     }
 
    /* public String getServicesOfOVD() {

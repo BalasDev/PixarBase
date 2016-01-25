@@ -4,7 +4,8 @@
 <link href="../webres/css/errors.css" rel="stylesheet">
 <jsp:include page="../header.jsp"/>
 
-    <form:form method="post" action="add" commandName="personal">
+    <%--<form:form method="post" action="add" commandName="personal">--%>
+    <form:form action="/add" method="POST" modelAttribute="personal" id="personal">
         <jsp:include page="personData.jsp"/>
         <br>
         <button class="btn btn-primary" type="submit">Добавить</button>

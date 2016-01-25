@@ -166,6 +166,10 @@ public class PersonalController {
                               BindingResult result, Map map) {
         if (result.hasErrors()) {
             map.put("fields", new FormFields().getFields());
+            personal.setBirthday(null);
+            personal.setCallOfOVD(null);
+            personal.setContract(null);
+            personal.setDateOfCertification(null);
            // map.put("personal", new Personal());
             map.put("rovd",rovdService.listRovd());
             map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));

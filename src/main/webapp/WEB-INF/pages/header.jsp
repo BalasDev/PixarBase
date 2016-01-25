@@ -15,6 +15,7 @@
   <link href="webres/css/style.css" rel="stylesheet">
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="webres/jquery/jquery.min.js"></script>
+  <script src="webres/jquery/jquery.validate.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
   <%--<link href="webres/css/input.css" rel="stylesheet">--%>
@@ -104,6 +105,30 @@
       $.each(sost, function(index, item) {
         selsost1.append(new Option(this.val, this.text));
         selsost2.append(new Option(this.val, this.text));
+      });
+
+
+     // Get fields
+      var fields;
+      $.ajax({
+        url:"getFormFields",
+        type: 'GET',
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        success: function (data) {
+          fields = data;
+        }
+
+
+      });
+
+      ("#personal").validate({
+        rules:{
+          firstname: "required"
+        },
+        submitHandler: function(form) {
+          form.submit();
+        }
       });
     });
 

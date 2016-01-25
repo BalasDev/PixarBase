@@ -28,4 +28,11 @@ public class AjaxController {
     public List<Rovd> getRovd(){
         return rovdService.listRovd();
     }
+
+    @RequestMapping(value = "/getFormFields", method = RequestMethod.GET)
+    public List<FormBuilder> getFormFields(){
+        return new FormFields().getFields();
+    }
+
+
 }
