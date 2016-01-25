@@ -5,14 +5,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-
 import java.util.Date;
-import java.util.List;
 
 
 @Entity
@@ -59,6 +55,11 @@ public class Personal extends BaseEntity {
     @Column(name = "CATEGORY")
     private String category;
 
+    //Службы ОВД
+    /*@NotBlank(message = "Введите службу ОВД")
+    @Column(name = "SERVICESOFOVD")
+    private String servicesOfOVD;
+*/
 
 
     //'Дата рождения'
@@ -73,7 +74,7 @@ public class Personal extends BaseEntity {
     private String strBirthday;*/
 
     //Место рождения
-    @NotBlank(message = "Введите место")
+    @NotBlank(message = "Введите место рождения")
     @Column(name = "PLACEOFBORN")
     private String placeOfBorn;
 
@@ -137,6 +138,13 @@ public class Personal extends BaseEntity {
     @NotBlank(message = "Введите дату окончания службы")
     @Column(name = "FNMILITSERV")
     private Date fnMilitSer;*/
+
+    //Служба в ОВД
+    @DateTimeFormat(pattern="dd MM yyyy")
+    @NotNull(message = "Введите дату службы в ОВД (дд мм гггг)")
+    @Column(name = "CALLOFOVD")
+    private Date callOfUVD;
+
 
     //Увольнение
     @NotBlank(message = "Введите увольнение")
@@ -438,6 +446,21 @@ public class Personal extends BaseEntity {
         this.dateOfCertification = dateOfCertification;
     }
 
+    public Date getCallOfUVD() {
+        return callOfUVD;
+    }
+
+    public void setCallOfUVD(Date callOfUVD) {
+        this.callOfUVD = callOfUVD;
+    }
+
+   /* public String getServicesOfOVD() {
+        return servicesOfOVD;
+    }
+
+    public void setServicesOfOVD(String servicesOfOVD) {
+        this.servicesOfOVD = servicesOfOVD;
+    }*/
 
     //Format date and time
     private String formatDateAndTime(Date date){
