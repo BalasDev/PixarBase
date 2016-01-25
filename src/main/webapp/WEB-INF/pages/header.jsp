@@ -122,7 +122,7 @@
 
       });
 
-      ("#personal").validate({
+      $("#personal").validate({
         rules:{
           firstname: "required"
         },

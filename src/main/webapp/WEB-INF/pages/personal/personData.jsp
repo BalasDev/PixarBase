@@ -116,7 +116,7 @@
             <c:otherwise>
                 <tr>
                     <td>${field.rusFieldName}</td>
-                    <td><form:textarea class="form-control" rows="${field.row}" cols="70" path="${field.fieldName}"
+                    <td><form:textarea class="form-control" rows="${field.row}" cols="70" id="${field.fieldName}" path="${field.fieldName}"
                                        placeholder="${field.value}"/></td>
                     <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
                 </tr>
