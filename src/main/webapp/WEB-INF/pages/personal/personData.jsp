@@ -96,7 +96,7 @@
             <tr>
                 <td>${field.rusFieldName}</td>
             <td>
-            <select class="form-control" name="${field.fieldName}" id="category1">
+            <select class="form-control error" name="${field.fieldName}" id="category1">
             </select>
             </td>
                 <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
@@ -117,7 +117,7 @@
                 <tr>
                     <td>${field.rusFieldName}</td>
                     <td><form:textarea class="form-control" rows="${field.row}" cols="70" id="${field.fieldName}" path="${field.fieldName}"
-                                       placeholder="${field.value}"/></td>
+                                       placeholder="${field.value}" required="true"/></td>
                     <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
                 </tr>
             </c:otherwise>
