@@ -36,6 +36,10 @@
     });
     /*Open modal */
     $('document').ready(function(){
+
+
+
+
       $("#modalButton").click(function(){
         $("#mModal").modal('show');
         $.ajax({
@@ -109,22 +113,10 @@
       });
 
 
-     // Get fields
-      var fields;
-      var matrix = ['firstName', 'secondName'];
-      var n = matrix[0];
-      $.ajax({
-        url:"getFormFields",
-        type: 'GET',
-        contentType: 'application/json',
-        mimeType: 'application/json',
-        success: function (data) {
-          fields = data;
-        }
+
+      //Validate add person form
 
 
-      });
-      $("#message2").hide();
       $("#personal").validate({
 
         errorPlacement: function(){
@@ -134,8 +126,8 @@
           // 'this' refers to the form
           var errors = validator.numberOfInvalids();
           if (errors) {
-            $("#message2").show();
-            $("#message2").text("Введите поле!")
+            $('#message2').css('visibility', 'visible').hide().fadeIn().removeClass('hidden');
+
 
           }
           },
@@ -228,4 +220,4 @@
     <div id =message class="alert alert-${type}">${msg}</div>
 
   </c:if>
-  <div id =message2 class="alert alert-danger">111111</div>
+  <div id =message2 class="alert alert-danger hidden">Не все поля введены!</div>
