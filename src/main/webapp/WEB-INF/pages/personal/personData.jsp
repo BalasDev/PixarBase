@@ -46,6 +46,10 @@
                             <option value="МОБ">МОБ</option>
                             <option value="КМ">КМ</option>
                             <option value="Штаб">Штаб</option>
+                            <option value="ИРиКО">ИРиКО</option>
+                            <option value="ФиТ">ФиТ</option>
+                            <option value="Другие службы">Другие службы</option>
+                            <option value="Подразделения РСД">Подразделения РСД</option>
                         </select>
                     </td>
                     <td>
@@ -53,6 +57,9 @@
                             <option value="ОПиП">ОПиП</option>
                             <option value="ОДС">ОДС</option>
                             <option value="НиД">НиД</option>
+                            <option value="ГАИ">ГАИ</option>
+                            <option value="ГиМ">ГиМ</option>
+                            <option value="Другие службы">Другие службы МОБ</option>
                         </select>
                     </td>
 
