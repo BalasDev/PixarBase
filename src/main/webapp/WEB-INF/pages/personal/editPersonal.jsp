@@ -101,7 +101,7 @@
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                         <select class="form-control" name="category" id="category2">
                                             <option value="${personality.category}">${personality.category}</option>
-                                            <option value="в/н">б/н</option>
+                                            <option value="в/н">в/н</option>
                                             <option value="младший нач. состав">младший нач. состав</option>
                                             <option value="средний нач. состав">средний нач. состав</option>
                                             <option value="высший нач. состав">высший нач. состав</option>
