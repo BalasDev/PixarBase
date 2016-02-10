@@ -165,6 +165,40 @@
             });
         });
 
+        //test
+        function t(){
+          var mob = [
+            {val: 'ОПиП', text: 'ОПиП'},
+            {val: 'ОДС', text: 'ОДС'},
+            {val: 'НиД', text: 'НиД'},
+            {val: 'ГАИ', text: 'ГАИ'},
+            {val: 'ГиМ', text: 'ГиМ'},
+            {val: 'Другие службы МОБ', text: 'Другие службы МОБ'}
+          ];
+
+          var ovd = [
+            {val: 'МОБ', text: 'МОБ'},
+            {val: 'КМ', text: 'КМ'},
+            {val: 'Штаб', text: 'Штаб'},
+            {val: 'ИРиКО', text: 'ИРиКО'},
+            {val: 'ФиТ', text: 'ФиТ'},
+            {val: 'Другие службы', text: 'Другие службы'},
+            {val: 'Подразделения РСД', text: 'Подразделения РСД'}
+          ];
+
+          $.each(ovd, function (index, item) {
+            $("#sel_first").append(new Option(this.val, this.text));
+          });
+
+          $.each(mob, function (index, item) {
+            $("#sel_second").append(new Option(this.val, this.text));
+          });
+        }
+
+
+
+
+
         /*change on selected rovd,rank,category input to select with list*/
         function update() {
             var s = $("#categoryId option:selected").text();

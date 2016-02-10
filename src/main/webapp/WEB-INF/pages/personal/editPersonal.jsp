@@ -159,11 +159,13 @@
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-3">
                                 <select id="sel_first" onclick="funSelect()" class="form-control" name="${personality.serviceOfOVD}">
+                                    <option value="${personality.serviceOfOVD}">${personality.serviceOfOVD}</option>
                                 </select>
                             </div>
 
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                 <select id="sel_second" class="form-control" name="${personality.underServiceOfOVD}">
+                                    <option value="${personality.underServiceOfOVD}">${personality.underServiceOfOVD}</option>
                                 </select>
                             </div>
 

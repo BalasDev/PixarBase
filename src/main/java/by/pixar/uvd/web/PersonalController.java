@@ -1,6 +1,7 @@
 package by.pixar.uvd.web;
 
 import by.pixar.uvd.dao.DateSearch;
+import by.pixar.uvd.domain.FormBuilder;
 import by.pixar.uvd.domain.FormFields;
 import by.pixar.uvd.domain.Personal;
 import by.pixar.uvd.domain.Users;
@@ -154,7 +155,10 @@ public class PersonalController {
     public String add(Map<String, Object> map) {
         map.put("personal", new Personal());
         map.put("users", new Users());
-        map.put("fields", new FormFields().getFields());
+        // need to fix
+        List<FormBuilder> f = new FormFields().getFields();
+        f.remove(8);
+        map.put("fields",f);
         map.put("rovd",rovdService.listRovd());
         map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
 

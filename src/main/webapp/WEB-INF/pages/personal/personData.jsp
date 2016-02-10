@@ -47,7 +47,7 @@
                     </td>
 
                     <td>
-                        <select id="sel_second" class="form-control" name="${underServiceOfOVD}/>
+                        <select id="sel_second" class="form-control" name="${underServiceOfOVD}"/>
                     </td>
 
         </tr>
