@@ -84,31 +84,32 @@
                                 </select>
                             </div>
                         </div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                        <label class="text-left control-label">Дата присвоения звания</label>
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label class="text-left control-label">Дата присвоения звания</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1"
-                                          name="dateOfGotRank"><fmt:formatDate value="${personality.dateOfGotRank}" pattern="dd MM yyyy"/></textarea>
-                                    </div>
-                                </div>
+                                          name="dateOfGotRank"><fmt:formatDate value="${personality.dateOfGotRank}"
+                                                                               pattern="dd MM yyyy"/></textarea>
+                            </div>
+                        </div>
 
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                        <label class="text-left">Категория сотрудника</label>
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                        <select class="form-control" name="category" id="category2">
-                                            <option value="${personality.category}">${personality.category}</option>
-                                            <option value="в/н">в/н</option>
-                                            <option value="младший нач. состав">младший нач. состав</option>
-                                            <option value="средний нач. состав">средний нач. состав</option>
-                                            <option value="высший нач. состав">высший нач. состав</option>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label class="text-left">Категория сотрудника</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                <select class="form-control" name="category" id="category2">
+                                    <option value="${personality.category}">${personality.category}</option>
+                                    <option value="в/н">в/н</option>
+                                    <option value="младший нач. состав">младший нач. состав</option>
+                                    <option value="средний нач. состав">средний нач. состав</option>
+                                    <option value="высший нач. состав">высший нач. состав</option>
 
-                                        </select>
-                                    </div>
-                                </div>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -151,16 +152,35 @@
                                           name="workPlace">${personality.workPlace}</textarea>
                             </div>
                         </div>
+                            <%--**********************************--%>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label class="text-left">Bla bla bla</label>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-3">
+                                <select id="sel_first" onclick="funSelect()" class="form-control" name="blabla">
+                                </select>
+                            </div>
 
-                       <div class="row">
-                                                   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                       <label class="text-left control-label">Служба в ОВД</label>
-                                                   </div>
-                                                   <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <select id="sel_second" class="form-control" name="blabla">
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label class="text-left control-label">Служба в ОВД</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                                        <textarea class="form-control" rows="1"
-                                                                 name="callOfOVD"><fmt:formatDate value="${personality.callOfOVD}" pattern="dd MM yyyy"/></textarea>
-                                                   </div>
-                                             </div>
+                                                                 name="callOfOVD"><fmt:formatDate
+                                                               value="${personality.callOfOVD}"
+                                                               pattern="dd MM yyyy"/></textarea>
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -168,7 +188,8 @@
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1"
-                                          name="birthday"><fmt:formatDate value="${personality.birthday}" pattern="dd MM yyyy"/></textarea>
+                                          name="birthday"><fmt:formatDate value="${personality.birthday}"
+                                                                          pattern="dd MM yyyy"/></textarea>
                             </div>
                         </div>
 
@@ -279,23 +300,25 @@
                             </div>
                         </div>
 
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                        <label class="text-left">Дата окончания контракта</label>
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                        <textarea class="form-control" rows="1" name="contract"><fmt:formatDate value="${personality.contract}" pattern="dd MM yyyy"/></textarea>
-                                    </div>
-                                </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label class="text-left">Дата окончания контракта</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                <textarea class="form-control" rows="1" name="contract"><fmt:formatDate
+                                        value="${personality.contract}" pattern="dd MM yyyy"/></textarea>
+                            </div>
+                        </div>
 
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                        <label class="text-left">Дата аттестации</label>
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                        <textarea class="form-control" rows="1" name="dateOfCertification"><fmt:formatDate value="${personality.dateOfCertification}" pattern="dd MM yyyy"/></textarea>
-                                    </div>
-                                </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label class="text-left">Дата аттестации</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                <textarea class="form-control" rows="1" name="dateOfCertification"><fmt:formatDate
+                                        value="${personality.dateOfCertification}" pattern="dd MM yyyy"/></textarea>
+                            </div>
+                        </div>
 
                 </div>
 
@@ -304,9 +327,9 @@
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-3">
                         Создан: ${personality.created} пользователем ${personality.users.login}
                         <div>
-                        <c:if test="${not empty personality.editedBy}">
-                            Редактирован:${personality.edited}  пользователем ${personality.editedBy}
-                        </c:if>
+                            <c:if test="${not empty personality.editedBy}">
+                                Редактирован:${personality.edited}  пользователем ${personality.editedBy}
+                            </c:if>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
