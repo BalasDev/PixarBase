@@ -38,22 +38,20 @@
         </c:when>
 
 
-
-        <tr>
             <c:when test="${field.fieldName=='serviceOfOVD'}">
+        <tr>
+
                     <td>${field.rusFieldName}</td>
                     <td>
                         <select id="sel_first" class="form-control" onclick="funSelect()" name="${field.fieldName}"/>
                     </td>
-            </c:when>
+
                     <td>
-                        <%-- <c:when test="${field.fieldName=='underServiceOfOVD'}">--%>
-                                 <select id="sel_second" class="form-control"<%-- name="${field.fieldName}--%>/>
-                        <%-- </c:when>--%>
+                        <select id="sel_second" class="form-control" name="${underServiceOfOVD}/>
                     </td>
 
         </tr>
-
+            </c:when>
 
             <c:when test="${field.fieldName=='rovd'}">
                 <tr>

@@ -155,15 +155,15 @@
                             <%--**********************************--%>
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                <label class="text-left">Bla bla bla</label>
+                                <label class="text-left">Службы ОВД</label>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-3">
-                                <select id="sel_first" onclick="funSelect()" class="form-control" name="blabla">
+                                <select id="sel_first" onclick="funSelect()" class="form-control" name="${personality.serviceOfOVD}">
                                 </select>
                             </div>
 
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                <select id="sel_second" class="form-control" name="blabla">
+                                <select id="sel_second" class="form-control" name="${personality.underServiceOfOVD}">
                                 </select>
                             </div>
 
