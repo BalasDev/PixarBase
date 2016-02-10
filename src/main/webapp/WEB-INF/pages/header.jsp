@@ -64,6 +64,13 @@
                 $("#sel_second").append(new Option(this.val, this.text));
             });
 
+            $.each(ovd, function (index, item) {
+                $(".sel_first").append(new Option(this.val, this.text));
+            });
+
+            $.each(mob, function (index, item) {
+                $(".sel_second").append(new Option(this.val, this.text));
+            });
 
 
 
@@ -342,6 +349,44 @@
             }
             else {
                 $("#sel_second").hide();
+
+            }
+        }
+        ;
+
+        function funSelectForClass() {
+            var s = $(".sel_first :selected").text();
+            var mob = [
+                {val: 'ОПиП', text: 'ОПиП'},
+                {val: 'ОДС', text: 'ОДС'},
+                {val: 'НиД', text: 'НиД'},
+                {val: 'ГАИ', text: 'ГАИ'},
+                {val: 'ГиМ', text: 'ГиМ'},
+                {val: 'Другие службы МОБ', text: 'Другие службы МОБ'}
+            ];
+            var km = [
+                {val: 'УР', text: 'УР'},
+                {val: 'БЭП', text: 'БЭП'},
+                {val: 'НиПГЛ', text: 'НиПГЛ'},
+                {val: 'Другие службы КМ', text: 'Другие службы КМ'},
+            ];
+            if (s == 'МОБ') {
+                $(".sel_second").show();
+                $(".sel_second").empty();
+                $.each(mob, function (index, item) {
+                    $(".sel_second").append(new Option(this.val, this.text));
+                });
+            }
+            else if (s == 'КМ') {
+                $(".sel_second").show();
+                $(".sel_second").empty();
+                $.each(km, function (index, item) {
+                    $(".sel_second").append(new Option(this.val, this.text));
+                });
+
+            }
+            else {
+                $(".sel_second").hide();
 
             }
         }
