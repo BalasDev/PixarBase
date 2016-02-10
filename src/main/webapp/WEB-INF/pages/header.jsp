@@ -169,7 +169,32 @@
         function update() {
             var s = $("#categoryId option:selected").text();
             var list = $("#searchingSelect");
-            if (s == 'РОВД' || s == 'Звание' || s == 'Категория сотрудника') {
+
+            var povd = [
+                {val: 'ОПиП', text: 'ОПиП'},
+                {val: 'ОДС', text: 'ОДС'},
+                {val: 'НиД', text: 'НиД'},
+                {val: 'ГАИ', text: 'ГАИ'},
+                {val: 'ГиМ', text: 'ГиМ'},
+                {val: 'Другие службы МОБ', text: 'Другие службы МОБ'},
+                {val: 'УР', text: 'УР'},
+                {val: 'БЭП', text: 'БЭП'},
+                {val: 'НиПГЛ', text: 'НиПГЛ'},
+                {val: 'Другие службы КМ', text: 'Другие службы КМ'}
+            ];
+
+            var ovd = [
+                {val: 'МОБ', text: 'МОБ'},
+                {val: 'КМ', text: 'КМ'},
+                {val: 'Штаб', text: 'Штаб'},
+                {val: 'ИРиКО', text: 'ИРиКО'},
+                {val: 'ФиТ', text: 'ФиТ'},
+                {val: 'Другие службы', text: 'Другие службы'},
+                {val: 'Подразделения РСД', text: 'Подразделения РСД'}
+            ];
+
+
+            if (s == 'РОВД' || s == 'Звание' || s == 'Категория сотрудника' || s == 'Службы ОВД' || s == 'Подслужбы ОВД') {
                 list.empty();
                 if (s == 'РОВД') {
                     $.ajax({
@@ -185,7 +210,17 @@
                             });
                         }
                     });
-                } else if (s == 'Категория сотрудника') {
+                } else  if (s == 'Службы ОВД') {
+                    $.each(ovd, function (index, item) {
+                        list.append(new Option(this.val, this.text));
+                    });
+                } else  if (s == 'Подслужбы ОВД') {
+                    $.each(povd, function (index, item) {
+                        list.append(new Option(this.val, this.text));
+                    });
+                }
+
+                else if (s == 'Категория сотрудника') {
 
                     var sost = [
                         {val: 'в/н', text: 'в/н'},
