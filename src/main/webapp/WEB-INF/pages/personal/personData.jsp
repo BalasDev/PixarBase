@@ -12,23 +12,23 @@
                     <td>${field.rusFieldName}</td>
                     <td>
                         <select class="form-control" name="${field.fieldName}">
-                            <option value="рядовой">рядовой милиции</option>
-                            <option value="младший сержант">младший сержант милиции</option>
-                            <option value="сержант">сержант милиции</option>
-                            <option value="старший сержант">старший сержант милиции</option>
-                            <option value="старшина">старшина милиции</option>
-                            <option value="прапорщик">прапорщик милиции</option>
-                            <option value="старший прапорщик">старший прапорщик милиции</option>
-                            <option value="младший лейтенант">младший лейтенант милиции</option>
-                            <option value="лейтенант">лейтенант милиции</option>
-                            <option value="старший лейтенант">старший лейтенант милиции</option>
-                            <option value="капитан">капитан милиции</option>
-                            <option value="майор">майор милиции</option>
-                            <option value="подполковник">подполковник милиции</option>
-                            <option value="полковник">полковник милиции</option>
-                            <option value="генерал-майор">генерал-майор милиции</option>
-                            <option value="генерал-лейтенант">генерал-лейтенант милиции</option>
-                            <option value="генерал-полковник">генерал-полковник милиции</option>
+                            <option value="рядовой милиции">рядовой милиции</option>
+                            <option value="младший сержант милиции">младший сержант милиции</option>
+                            <option value="сержант милиции">сержант милиции</option>
+                            <option value="старший сержант милиции">старший сержант милиции</option>
+                            <option value="старшина милиции">старшина милиции</option>
+                            <option value="прапорщик милиции">прапорщик милиции</option>
+                            <option value="старший прапорщик милиции">старший прапорщик милиции</option>
+                            <option value="младший лейтенант милиции">младший лейтенант милиции</option>
+                            <option value="лейтенант милиции">лейтенант милиции</option>
+                            <option value="старший лейтенант милиции">старший лейтенант милиции</option>
+                            <option value="капитан милиции">капитан милиции</option>
+                            <option value="майор милиции">майор милиции</option>
+                            <option value="подполковник милиции">подполковник милиции</option>
+                            <option value="полковник милиции">полковник милиции</option>
+                            <option value="генерал-майор милиции">генерал-майор милиции</option>
+                            <option value="генерал-лейтенант милиции">генерал-лейтенант милиции</option>
+                            <option value="генерал-полковник милиции">генерал-полковник милиции</option>
                         </select>
                     </td>
                     <td><form:errors path="${field.fieldName}" cssClass="error"/></td>

@@ -181,7 +181,12 @@ public class Personal extends BaseEntity {
     @Column(name = "DATEOFCERTIFICATION")
     private Date dateOfCertification;
 
+   /* @NotNull(message = "Введите дату аттестации (дд мм гггг)")*/
+    @Column(name = "SERVICESOFOVD")
+    private String serviceOfOVD;
 
+    @Column(name = "UNDERSERVICESOFOVD")
+    private String underServiceOfOVD;
 
 
 
@@ -189,6 +194,12 @@ public class Personal extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "ROVDID")
     private Rovd rovd;
+
+    //Дата присвоения звания
+    @DateTimeFormat(pattern="dd MM yyyy")
+    @NotNull(message = "Введите присвоения звания (дд мм гггг)")
+    @Column(name = "DATEOFGOTRANK")
+    private Date dateOfGotRank;
 
     //Создано кем
     @ManyToOne
@@ -454,7 +465,15 @@ public class Personal extends BaseEntity {
         this.callOfOVD = callOfOVD;
     }
 
-   /* public String getServicesOfOVD() {
+    public Date getDateOfGotRank() {
+        return dateOfGotRank;
+    }
+
+    public void setDateOfGotRank(Date dateOfGotRank) {
+        this.dateOfGotRank = dateOfGotRank;
+    }
+
+    /* public String getServicesOfOVD() {
         return servicesOfOVD;
     }
 
@@ -490,6 +509,19 @@ public class Personal extends BaseEntity {
         return d;
     }
 
+    public String getServiceOfOVD() {
+        return serviceOfOVD;
+    }
 
+    public void setServiceOfOVD(String serviceOfOVD) {
+        this.serviceOfOVD = serviceOfOVD;
+    }
 
+    public String getUnderServiceOfOVD() {
+        return underServiceOfOVD;
+    }
+
+    public void setUnderServiceOfOVD(String underServiceOfOVD) {
+        this.underServiceOfOVD = underServiceOfOVD;
+    }
 }

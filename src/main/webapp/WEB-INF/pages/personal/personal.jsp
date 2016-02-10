@@ -13,7 +13,7 @@
     <table class="table table-condensed table-hover table-striped table-bordered">
 
         <tr>
-            <%--  <th></th>--%>
+            <th></th>
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
@@ -23,9 +23,14 @@
                 <th></th>
             <%--</security:authorize>--%>
         </tr>
+        <c:set var="count" value="0" scope="page"/>
+
+
 
         <c:forEach items="${personalList}" var="personality">
+            <c:set var="count" value="${count + 1}" scope="page"/>
             <tr>
+                <td>${count}</td>
                 <td>
                     <div style="cursor: pointer" data-toggle="modal"
                          data-target="#info_${personality.id}">${personality.lastName}</div>

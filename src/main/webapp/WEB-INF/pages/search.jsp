@@ -54,7 +54,33 @@
 
                         </div>
                     </div>
+
+                    <div class="col-lg-12 col-md-12">
+                    <%--<div class="input-group">--%>
+                    <table align="center" class="table-condensed">
+                        <tr>
+                            <td><input type="radio" class="radio-inline" name="dateSearching" value="1">День рождения
+                            </td>
+                            <td></td>
+
+                            <td><input type="radio" class="radio-inline" name="dateSearching" value="2">Служба в ОВД
+                            </td>
+
+                            <td><input type="radio" class="radio-inline" name="dateSearching" value="3">Дата окончания контракта
+                            </td>
+
+                            <td><input type="radio" class="radio-inline" name="dateSearching" value="4">Дата аттестации
+                            </td>
+
+                            <td><input type="radio" class="radio-inline" name="dateSearching" value="5">Дата присвоения звания
+                            </td>
+                        </tr>
+                    </table>
+                    <%--</div>--%>
+                    </div>
+
                     <div class="col-lg-6 col-md-6 ">
+
                         <label class="col-lg-6 col-md-6 control-label" for="categoryId">Интервал даты</label>
 
 
@@ -67,7 +93,7 @@
                             <input class="form-control" type="text" name="fndate" id="fndate" title="" value="">
                         </div>
                     </div>
-                    <button id='search' type="submit" class="btn btn-outline btn-block btn-success">Найти </button>
+                    <button id='search' type="submit" class="btn btn-outline btn-block btn-success">Найти</button>
                 </fieldset>
             </form>
 

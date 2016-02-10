@@ -1,5 +1,6 @@
 package by.pixar.uvd.web;
 
+import by.pixar.uvd.dao.DateSearch;
 import by.pixar.uvd.domain.FormFields;
 import by.pixar.uvd.domain.Personal;
 import by.pixar.uvd.domain.Users;
@@ -119,12 +120,13 @@ public class PersonalController {
 
     @RequestMapping(value = "/searchUser", method = RequestMethod.POST)
     public String searchUser(Map<String, Object> map, @RequestParam("categoryId") String category, @RequestParam("searching") String searching,
-                            @RequestParam("stdate") String startDate,@RequestParam("fndate") String endDate) {
+                            @RequestParam("stdate") String startDate,@RequestParam("fndate") String endDate,
+                            @RequestParam(value = "dateSearching",required = false)String dateSearching ) {
 
         try {
                 // crutch for replacing ','
                 searching = searching.replace(',',' ').trim();
-                map.put("personalList", personalService.findPersonal(category, searching, startDate, endDate));
+                map.put("personalList", personalService.findPersonal(category, searching, startDate, endDate,dateSearching));
                 map.put("stringTitle", "Результаты поиска");
                 map.put("personal", new Personal());
                 return "personal/personal";

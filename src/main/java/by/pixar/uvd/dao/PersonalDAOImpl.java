@@ -74,18 +74,26 @@ public class PersonalDAOImpl implements PersonalDAO {
     }
 
 
-    public List<Personal> findPersonal(String field, String var, String stDate, String endDate) {
+    public List<Personal> findPersonal(String field, String var, String stDate, String endDate, String dateSearching) {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String name = user.getUsername();
         Users users = userService.getUserByLogin(name);
         Query query =null;
         String beginOfQuery=null;
-        String exeQuery;
+        String exeQuery=null;
+        String dateParam=null;
+        if (!(dateSearching==null)) {
+            for (DateSearch d : DateSearch.values()) {
+                if (d.val()==Integer.valueOf(dateSearching)){
+                    dateParam=d.toString();
+                }
+            }
+        }
 //        if (checkRole()) {
 //             beginOfQuery = "from Personal where extract(year from BIRTHDAY)  ";
 //       } else{
-             beginOfQuery = "select p from Personal p inner join p.rovd r where extract(year from BIRTHDAY)  ";
+             beginOfQuery = "select p from Personal p inner join p.rovd r where extract(year from " + dateParam+")  ";
 
  //       }
         // var=0 end =0
@@ -118,7 +126,7 @@ public class PersonalDAOImpl implements PersonalDAO {
         } else
         //var=0
         if (var.equals("") && !stDate.equals("") && !endDate.equals("")) {
-            exeQuery=beginOfQuery+"<=:endDate and extract(year from BIRTHDAY)>=:stDate";
+            exeQuery=beginOfQuery+"<=:endDate and extract(year from " + dateParam+")>=:stDate";
             if (checkRole()) {
                 query = sessionFactory.getCurrentSession().createQuery(exeQuery);
                 query.setInteger("stDate", Integer.parseInt(stDate));
@@ -178,9 +186,9 @@ public class PersonalDAOImpl implements PersonalDAO {
         // val!=0 st!=0 end!=0
         if (!var.equals("") && !stDate.equals("") && !endDate.equals("")) {
             if (!field.equals("rovd"))
-                exeQuery=beginOfQuery+"<=:endDate and extract(year from BIRTHDAY) >=:stDate and " + field + " =:var";
+                exeQuery=beginOfQuery+"<=:endDate and extract(year from " + dateParam+") >=:stDate and " + field + " =:var";
             else
-                exeQuery=beginOfQuery+"<=:endDate and extract(year from BIRTHDAY) >=:stDate and r.name =:var";
+                exeQuery=beginOfQuery+"<=:endDate and extract(year from " + dateParam+") >=:stDate and r.name =:var";
             if (checkRole()) {
                 query = sessionFactory.getCurrentSession().createQuery(exeQuery);
                 query.setInteger("stDate", Integer.parseInt(stDate));

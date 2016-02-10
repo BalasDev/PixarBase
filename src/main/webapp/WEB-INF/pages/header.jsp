@@ -88,10 +88,12 @@
           var obj = data;
           $('#categoryId').empty();
           $.each(obj, function (key, value) {
-            $('#categoryId').append($("<option></option>")
-                    .
-                    attr("value", value.fieldName)
-                    .text(value.rusFieldName));
+
+              $('#categoryId').append($("<option></option>")
+                      .
+                      attr("value", value.fieldName)
+                      .text(value.rusFieldName));
+
           });
         }
       });
@@ -106,10 +108,10 @@
       ];
 
       var selsost1 = $('#category1');
-      var selsost2 = $('#category2');
+
       $.each(sost, function(index, item) {
         selsost1.append(new Option(this.val, this.text));
-        selsost2.append(new Option(this.val, this.text));
+
       });
 
 
@@ -137,33 +139,66 @@
       });
     });
 
-    /*change on selected rovd input to select with list*/
+    /*change on selected rovd,rank,category input to select with list*/
     function update() {
       var s = $("#categoryId option:selected").text();
-      if (s == 'РОВД'){
-        $.ajax({
-          url:"getRovdForSearch",
-          type: 'GET',
-          contentType: 'application/json',
-          mimeType: 'application/json',
-          success: function (data) {
-            var obj = data;
-            var list = $("#searchingSelect");
-            $.each(obj, function(index, item) {
-              list.append(new Option(item.name, item.name));
-            });
-            /*$('#searchingSelect').empty();
-            $.each(obj, function (key, value) {
-              $('#searchingSelect').append($("<option></option>")
-                      .attr("value",value.name)
-                      .text(value.id));
-                alert(value)
+      var list = $("#searchingSelect");
+      if (s == 'РОВД'||s =='Звание'||s =='Категория сотрудника'){
+        list.empty();
+        if(s=='РОВД') {
+          $.ajax({
+            url: "getRovdForSearch",
+            type: 'GET',
+            contentType: 'application/json',
+            mimeType: 'application/json',
+            success: function (data) {
+              var obj = data;
+              var list = $("#searchingSelect");
+              $.each(obj, function (index, item) {
+                list.append(new Option(item.name, item.name));
+              });
+            }
+          });
+        } else if(s=='Категория сотрудника'){
 
-            });*/
+          var sost = [
+            {val : 'в/н', text: 'в/н'},
+            {val : 'младший нач. состав', text: 'младший нач. состав'},
+            {val : 'средний нач. состав', text: 'средний нач. состав'},
+            {val : 'старший нач. состав', text: 'старший нач. состав'},
+            {val : 'высший нач. состав', text: 'высший нач. состав'}
+          ];
 
-
-          }
+          $.each(sost, function(index, item) {
+            list.append(new Option(this.val, this.text));
         });
+        } else if(s=='Звание') {
+          var rank = [
+            {val : 'рядовой милиции', text : 'рядовой милиции'},
+            {val : 'младший сержант милиции', text : 'младший сержант милиции'},
+            {val : 'сержант милиции', text : 'сержант милиции'},
+            {val : 'старший сержант милиции', text : 'старший сержант милиции'},
+            {val : 'старшина милиции', text : 'старшина милиции'},
+            {val : 'прапорщик милиции', text : 'прапорщик милиции'},
+            {val : 'старший прапорщик милиции', text : 'старший прапорщик милиции'},
+            {val : 'младший лейтенант милиции', text : 'младший лейтенант милиции'},
+            {val : 'лейтенант милиции', text : 'лейтенант милиции'},
+            {val : 'старший лейтенант милиции', text : 'старший лейтенант милиции'},
+            {val : 'капитан милиции', text : 'капитан милиции'},
+            {val : 'майор милиции', text : 'майор милиции'},
+            {val : 'подполковник милиции', text : 'подполковник милиции'},
+            {val : 'полковник милиции', text : 'полковник милиции'},
+            {val : 'генерал-майор милиции', text : 'генерал-майор милиции'},
+            {val : 'генерал-лейтенант милиции', text : 'генерал-лейтенант милиции'},
+            {val : 'генерал-полковник милиции', text : 'генерал-полковник милиции'}
+          ];
+
+          $.each(rank, function(index, item) {
+            list.append(new Option(this.val, this.text));
+          });
+
+
+        }
         $('#searchingInput').hide();
         $('#searchingInput').empty();
         $('#searchingSelect').show();

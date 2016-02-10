@@ -64,26 +64,35 @@
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <select class="form-control" name="rank">
                                     <option value="${personality.rank}">${personality.rank}</option>
-                                    <option value="рядовой">рядовой милиции</option>
-                                    <option value="младший сержант">младший сержант милиции</option>
-                                    <option value="сержант">сержант милиции</option>
-                                    <option value="старший сержант">старший сержант милиции</option>
-                                    <option value="старшина">старшина милиции</option>
-                                    <option value="прапорщик">прапорщик милиции</option>
-                                    <option value="старший прапорщик">старший прапорщик милиции</option>
-                                    <option value="младший лейтенант">младший лейтенант милиции</option>
-                                    <option value="лейтенант">лейтенант милиции</option>
-                                    <option value="старший лейтенант">старший лейтенант милиции</option>
-                                    <option value="капитан">капитан милиции</option>
-                                    <option value="майор">майор милиции</option>
-                                    <option value="подполковник">подполковник милиции</option>
-                                    <option value="полковник">полковник милиции</option>
-                                    <option value="генерал-майор">генерал-майор милиции</option>
-                                    <option value="генерал-лейтенант">генерал-лейтенант милиции</option>
-                                    <option value="генерал-полковник">генерал-полковник милиции</option>
+                                    <option value="рядовой милиции">рядовой милиции</option>
+                                    <option value="младший сержант милиции">младший сержант милиции</option>
+                                    <option value="сержант милиции">сержант милиции</option>
+                                    <option value="старший сержант милиции">старший сержант милиции</option>
+                                    <option value="старшина милиции">старшина милиции</option>
+                                    <option value="прапорщик милиции">прапорщик милиции</option>
+                                    <option value="старший прапорщик милиции">старший прапорщик милиции</option>
+                                    <option value="младший лейтенант милиции">младший лейтенант милиции</option>
+                                    <option value="лейтенант милиции">лейтенант милиции</option>
+                                    <option value="старший лейтенант милиции">старший лейтенант милиции</option>
+                                    <option value="капитан милиции">капитан милиции</option>
+                                    <option value="майор милиции">майор милиции</option>
+                                    <option value="подполковник милиции">подполковник милиции</option>
+                                    <option value="полковник милиции">полковник милиции</option>
+                                    <option value="генерал-майор милиции">генерал-майор милиции</option>
+                                    <option value="генерал-лейтенант милиции">генерал-лейтенант милиции</option>
+                                    <option value="генерал-полковник милиции">генерал-полковник милиции</option>
                                 </select>
                             </div>
                         </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <label class="text-left control-label">Дата присвоения звания</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                <textarea class="form-control" rows="1"
+                                          name="dateOfGotRank"><fmt:formatDate value="${personality.dateOfGotRank}" pattern="dd MM yyyy"/></textarea>
+                                    </div>
+                                </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -92,7 +101,7 @@
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                         <select class="form-control" name="category" id="category2">
                                             <option value="${personality.category}">${personality.category}</option>
-                                            <option value="б/н">б/н</option>
+                                            <option value="в/н">б/н</option>
                                             <option value="младший нач. состав">младший нач. состав</option>
                                             <option value="средний нач. состав">средний нач. состав</option>
                                             <option value="высший нач. состав">высший нач. состав</option>
@@ -272,7 +281,7 @@
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                        <label class="text-left">Контракт</label>
+                                        <label class="text-left">Дата окончания контракта</label>
                                     </div>
                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                         <textarea class="form-control" rows="1" name="contract"><fmt:formatDate value="${personality.contract}" pattern="dd MM yyyy"/></textarea>
