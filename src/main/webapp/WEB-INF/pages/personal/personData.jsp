@@ -4,36 +4,61 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <table>
 
+
+
     <c:forEach items="${fields}" var="field">
 
         <c:choose>
             <c:when test="${field.fieldName=='rank'}">
+            <tr>
+                <td>${field.rusFieldName}</td>
+                <td>
+                    <select class="form-control" name="${field.fieldName}">
+                        <option value="рядовой милиции">рядовой милиции</option>
+                        <option value="младший сержант милиции">младший сержант милиции</option>
+                        <option value="сержант милиции">сержант милиции</option>
+                        <option value="старший сержант милиции">старший сержант милиции</option>
+                        <option value="старшина милиции">старшина милиции</option>
+                        <option value="прапорщик милиции">прапорщик милиции</option>
+                        <option value="старший прапорщик милиции">старший прапорщик милиции</option>
+                        <option value="младший лейтенант милиции">младший лейтенант милиции</option>
+                        <option value="лейтенант милиции">лейтенант милиции</option>
+                        <option value="старший лейтенант милиции">старший лейтенант милиции</option>
+                        <option value="капитан милиции">капитан милиции</option>
+                        <option value="майор милиции">майор милиции</option>
+                        <option value="подполковник милиции">подполковник милиции</option>
+                        <option value="полковник милиции">полковник милиции</option>
+                        <option value="генерал-майор милиции">генерал-майор милиции</option>
+                        <option value="генерал-лейтенант милиции">генерал-лейтенант милиции</option>
+                        <option value="генерал-полковник милиции">генерал-полковник милиции</option>
+                    </select>
+                </td>
+                <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
+            </tr>
+        </c:when>
+
+
+            <c:when test="${field.fieldName=='callOfOVD'}">
                 <tr>
                     <td>${field.rusFieldName}</td>
                     <td>
-                        <select class="form-control" name="${field.fieldName}">
-                            <option value="рядовой милиции">рядовой милиции</option>
-                            <option value="младший сержант милиции">младший сержант милиции</option>
-                            <option value="сержант милиции">сержант милиции</option>
-                            <option value="старший сержант милиции">старший сержант милиции</option>
-                            <option value="старшина милиции">старшина милиции</option>
-                            <option value="прапорщик милиции">прапорщик милиции</option>
-                            <option value="старший прапорщик милиции">старший прапорщик милиции</option>
-                            <option value="младший лейтенант милиции">младший лейтенант милиции</option>
-                            <option value="лейтенант милиции">лейтенант милиции</option>
-                            <option value="старший лейтенант милиции">старший лейтенант милиции</option>
-                            <option value="капитан милиции">капитан милиции</option>
-                            <option value="майор милиции">майор милиции</option>
-                            <option value="подполковник милиции">подполковник милиции</option>
-                            <option value="полковник милиции">полковник милиции</option>
-                            <option value="генерал-майор милиции">генерал-майор милиции</option>
-                            <option value="генерал-лейтенант милиции">генерал-лейтенант милиции</option>
-                            <option value="генерал-полковник милиции">генерал-полковник милиции</option>
+                        <select id="sel_first" class="form-control" onclick="funSelect()" name="${field.fieldName}">
+                            <option value="МОБ">МОБ</option>
+                            <option value="КМ">КМ</option>
+                            <option value="Штаб">Штаб</option>
                         </select>
                     </td>
-                    <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
+                    <td>
+                        <select id="sel_second" class="form-control">
+                            <option value="ОПиП">ОПиП</option>
+                            <option value="ОДС">ОДС</option>
+                            <option value="НиД">НиД</option>
+                        </select>
+                    </td>
+
                 </tr>
             </c:when>
+
             <c:when test="${field.fieldName=='rovd'}">
                 <tr>
                     <td>${field.rusFieldName}</td>
