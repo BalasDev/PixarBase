@@ -350,6 +350,7 @@
                 });
             }
             else {
+                $("#sel_second"+i).empty();
                 $("#sel_second"+i).hide();
 
             }

@@ -263,6 +263,7 @@ public class PersonalDAOImpl implements PersonalDAO {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         //Users users=userService.getUserByLogin(user.getUsername());
         personal.setEditedBy(user.getUsername());
+
         sessionFactory.getCurrentSession().saveOrUpdate(personal);
     }
 
