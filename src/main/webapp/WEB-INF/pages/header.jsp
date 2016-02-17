@@ -56,6 +56,8 @@
                 {val: 'Подразделения РСД', text: 'Подразделения РСД'}
             ];
 
+            var s = $(".sel_first :selected").text();
+
             $.each(ovd, function (index, item) {
                 $("#sel_first").append(new Option(this.val, this.text));
             });
@@ -67,11 +69,6 @@
             $.each(ovd, function (index, item) {
                 $(".sel_first").append(new Option(this.val, this.text));
             });
-
-            $.each(mob, function (index, item) {
-                $(".sel_second").append(new Option(this.val, this.text));
-            });
-
 
 
             $("#modalButton").click(function () {
@@ -172,40 +169,6 @@
             });
         });
 
-        //test
-        function t(){
-          var mob = [
-            {val: 'ОПиП', text: 'ОПиП'},
-            {val: 'ОДС', text: 'ОДС'},
-            {val: 'НиД', text: 'НиД'},
-            {val: 'ГАИ', text: 'ГАИ'},
-            {val: 'ГиМ', text: 'ГиМ'},
-            {val: 'Другие службы МОБ', text: 'Другие службы МОБ'}
-          ];
-
-          var ovd = [
-            {val: 'МОБ', text: 'МОБ'},
-            {val: 'КМ', text: 'КМ'},
-            {val: 'Штаб', text: 'Штаб'},
-            {val: 'ИРиКО', text: 'ИРиКО'},
-            {val: 'ФиТ', text: 'ФиТ'},
-            {val: 'Другие службы', text: 'Другие службы'},
-            {val: 'Подразделения РСД', text: 'Подразделения РСД'}
-          ];
-
-          $.each(ovd, function (index, item) {
-            $("#sel_first").append(new Option(this.val, this.text));
-          });
-
-          $.each(mob, function (index, item) {
-            $("#sel_second").append(new Option(this.val, this.text));
-          });
-        }
-
-
-
-
-
         /*change on selected rovd,rank,category input to select with list*/
         function update() {
             var s = $("#categoryId option:selected").text();
@@ -251,11 +214,11 @@
                             });
                         }
                     });
-                } else  if (s == 'Службы ОВД') {
+                } else if (s == 'Службы ОВД') {
                     $.each(ovd, function (index, item) {
                         list.append(new Option(this.val, this.text));
                     });
-                } else  if (s == 'Подслужбы ОВД') {
+                } else if (s == 'Подслужбы ОВД') {
                     $.each(povd, function (index, item) {
                         list.append(new Option(this.val, this.text));
                     });
@@ -354,8 +317,10 @@
         }
         ;
 
-        function funSelectForClass() {
-            var s = $(".sel_first :selected").text();
+        function funSelectForClass(i) {
+
+            var s = $("#sel_first"+i+" :selected").text();
+
             var mob = [
                 {val: 'ОПиП', text: 'ОПиП'},
                 {val: 'ОДС', text: 'ОДС'},
@@ -371,26 +336,40 @@
                 {val: 'Другие службы КМ', text: 'Другие службы КМ'},
             ];
             if (s == 'МОБ') {
-                $(".sel_second").show();
-                $(".sel_second").empty();
+                $("#sel_second"+i).show();
+                $("#sel_second"+i).empty();
                 $.each(mob, function (index, item) {
-                    $(".sel_second").append(new Option(this.val, this.text));
+                    $("#sel_second"+i).append(new Option(this.val, this.text));
                 });
             }
             else if (s == 'КМ') {
-                $(".sel_second").show();
-                $(".sel_second").empty();
+                $("#sel_second"+i).show();
+                $("#sel_second"+i).empty();
                 $.each(km, function (index, item) {
-                    $(".sel_second").append(new Option(this.val, this.text));
+                    $("#sel_second"+i).append(new Option(this.val, this.text));
                 });
-
             }
             else {
-                $(".sel_second").hide();
+                $("#sel_second"+i).hide();
 
             }
         }
         ;
+
+
+        function editPersonal(){
+
+            var ovd = [
+                {val: 'МОБ', text: 'МОБ'},
+                {val: 'КМ', text: 'КМ'},
+                {val: 'Штаб', text: 'Штаб'},
+                {val: 'ИРиКО', text: 'ИРиКО'},
+                {val: 'ФиТ', text: 'ФиТ'},
+                {val: 'Другие службы', text: 'Другие службы'},
+                {val: 'Подразделения РСД', text: 'Подразделения РСД'}
+            ];
+
+        };
 
     </script>
 </head>

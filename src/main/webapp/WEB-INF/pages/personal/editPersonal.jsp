@@ -158,13 +158,14 @@
                                 <label class="text-left">Службы ОВД</label>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-3">
-                                <select onclick="funSelectForClass()" class="form-control sel_first" name="${personality.serviceOfOVD}">
+                                <select id="sel_first${personality.id}" onclick="funSelectForClass(${personality.id})" class="form-control sel_first" name="${personality.serviceOfOVD}">
                                     <option value="${personality.serviceOfOVD}">${personality.serviceOfOVD}</option>
                                 </select>
                             </div>
 
+
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                <select class="form-control sel_second" name="${personality.underServiceOfOVD}">
+                                <select id="sel_second${personality.id}" class="form-control sel_second" name="${personality.underServiceOfOVD}">
                                     <option value="${personality.underServiceOfOVD}">${personality.underServiceOfOVD}</option>
                                 </select>
                             </div>
