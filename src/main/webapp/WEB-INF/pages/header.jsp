@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=utf8"
          pageEncoding="utf8" %>
@@ -312,6 +313,7 @@
             }
             else {
                 $("#sel_second").hide();
+                $("#sel_second").empty();
 
             }
         }

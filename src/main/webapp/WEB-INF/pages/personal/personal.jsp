@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page pageEncoding="UTF-8" isELIgnored="false" %>
 <link href="../webres/css/input.css" rel="stylesheet">
 <link href="../webres/css/errors.css" rel="stylesheet">
@@ -19,6 +20,9 @@
             <th>Отчество</th>
             <th>Личный номер</th>
             <th>Звание</th>
+            <th>Дата присвоения звания</th>
+            <th>Дата аттестации</th>
+            <th>Дата окончания контракта</th>
             <%--<security:authorize url="/hide">--%>
                 <th></th>
             <%--</security:authorize>--%>
@@ -39,8 +43,10 @@
                 <td>${personality.secondName}</td>
                 <td>${personality.personalNumber}</td>
                 <td>${personality.rank}</td>
-
-                    <td>
+                <td><fmt:formatDate value="${personality.dateOfGotRank}" pattern="dd MM yyyy"/></td>
+                <td><fmt:formatDate value="${personality.dateOfCertification}" pattern="dd MM yyyy"/></td>
+                <td><fmt:formatDate value="${personality.contract}" pattern="dd MM yyyy"/></td>
+                <td>
                         <div class="btn-group">
                             <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}" onclick="rovdEdit(${personality.id})"><i
                                     class="fa fa-edit" style="color: #28a4c9"></i> </a>
