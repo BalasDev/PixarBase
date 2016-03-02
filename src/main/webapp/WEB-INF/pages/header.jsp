@@ -372,6 +372,22 @@
 
         };
 
+        function rovdEdit(i){
+            $.ajax({
+                url: "getRovdForSearch",
+                type: 'GET',
+                contentType: 'application/json',
+                mimeType: 'application/json',
+                success: function (data) {
+                    var obj = data;
+                    var list = $("#rovdEdit"+i);
+                    $.each(obj, function (index, item) {
+                        list.append(new Option(item.name, item.name));
+                    });
+                }
+            });
+        };
+
     </script>
 </head>
 

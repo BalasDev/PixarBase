@@ -42,7 +42,7 @@
 
                     <td>
                         <div class="btn-group">
-                            <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}"><i
+                            <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}" onclick="rovdEdit(${personality.id})"><i
                                     class="fa fa-edit" style="color: #28a4c9"></i> </a>
                 <security:authorize url="/hide">
                             <a style="cursor: pointer" data-toggle="modal" data-target="#delete_${personality.id}"><i

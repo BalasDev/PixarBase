@@ -115,6 +115,7 @@ public class PersonalController {
         //map.put("personal", new Personal());
         map.put("msg",msg);
         map.put("type",type);
+        map.put("rovd",rovdService.listRovd());
         msg=null;
         return "search";
     }
@@ -130,6 +131,7 @@ public class PersonalController {
                 map.put("personalList", personalService.findPersonal(category, searching, startDate, endDate,dateSearching));
                 map.put("stringTitle", "Результаты поиска");
                 map.put("personal", new Personal());
+                map.put("rovd",rovdService.listRovd());
                 return "personal/personal";
 //            } else {
 //                msg = "Параметры поиска пустые";

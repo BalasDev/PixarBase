@@ -105,6 +105,7 @@
                                     <option value="в/н">в/н</option>
                                     <option value="младший нач. состав">младший нач. состав</option>
                                     <option value="средний нач. состав">средний нач. состав</option>
+                                    <option value="старший нач. состав">старший нач. состав</option>
                                     <option value="высший нач. состав">высший нач. состав</option>
 
                                 </select>
@@ -116,15 +117,15 @@
                                 <label class="text-left">РОВД</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <select class="form-control" name="rovd.id">
+                                <select class="form-control" name="rovd.id" id="rovdEdit${personality.id}" >
                                     <option value="${personality.rovd.id}">${personality.rovd.name}</option>
-                                    <c:choose>
+                                  <%--  <c:choose>
                                         <c:when test="${userSingIn.getRole().getName()=='ADMIN'}">
                                             <c:forEach items="${rovd}" var="rovd">
                                                 <option value="${rovd.id}">${rovd.name}</option>
                                             </c:forEach>
                                         </c:when>
-                                    </c:choose>
+                                    </c:choose>--%>
 
 
                                 </select>
