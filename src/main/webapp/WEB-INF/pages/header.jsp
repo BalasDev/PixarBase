@@ -388,7 +388,7 @@
                     var obj = data;
                     var list = $("#rovdEdit"+i);
                     $.each(obj, function (index, item) {
-                        list.append(new Option(item.name, item.name));
+                        list.append(new Option(item.name, item.id));
                     });
                 }
             });

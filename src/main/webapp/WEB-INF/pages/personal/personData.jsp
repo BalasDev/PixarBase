@@ -70,6 +70,7 @@
                                 <%--<textarea class="form-control" rows="${field.row}" cols="70" name="${field.fieldName}"></textarea>--%>
                                 <select class="form-control" name=rovd.id>
                                     <option value="${userSingIn.getRovd().getId()}">${userSingIn.getRovd().getName()}</option>
+                                    <option value="30" >Архив</option>
                                 </select>
                             </c:otherwise>
                         </c:choose>

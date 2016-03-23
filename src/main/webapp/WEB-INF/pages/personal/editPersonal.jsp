@@ -119,6 +119,7 @@
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <select class="form-control" name="rovd.id" id="rovdEdit${personality.id}" >
                                     <option value="${personality.rovd.id}">${personality.rovd.name}</option>
+
                                   <%--  <c:choose>
                                         <c:when test="${userSingIn.getRole().getName()=='ADMIN'}">
                                             <c:forEach items="${rovd}" var="rovd">

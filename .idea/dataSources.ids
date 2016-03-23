@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - pixar@localhost" uuid="fb1e8cdb-3351-4088-88ad-7be716666498">
-    <database-info product="MySQL" version="5.7.10-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+    <database-info product="MySQL" version="5.7.11-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -92,8 +92,7 @@
         <default-expression>&apos; &apos;</default-expression>
       </column>
       <column id="26" parent="2" name="WORKPLACE">
-        <data-type>varchar(1500)</data-type>
-        <default-expression>&apos; &apos;</default-expression>
+        <data-type>text</data-type>
       </column>
       <column id="27" parent="2" name="ROVDID">
         <mandatory>1</mandatory>
@@ -152,84 +151,83 @@
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
       <trigger id="42" parent="2" name="personal_BEFORE_INSERT"/>
-      <trigger id="43" parent="2" name="personal_BEFORE_UPDATE"/>
-      <column id="44" parent="3" name="ID">
+      <column id="43" parent="3" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="45" parent="3" name="NAME">
+      <column id="44" parent="3" name="NAME">
         <data-type>varchar(1000)</data-type>
         <default-expression>&apos; &apos;</default-expression>
       </column>
-      <key id="46" parent="3" name="PRIMARY">
+      <key id="45" parent="3" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <column id="47" parent="4" name="ID">
+      <column id="46" parent="4" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="48" parent="4" name="NAME">
+      <column id="47" parent="4" name="NAME">
         <data-type>varchar(1000)</data-type>
         <default-expression>&apos; &apos;</default-expression>
       </column>
-      <key id="49" parent="4" name="PRIMARY">
+      <key id="48" parent="4" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <column id="50" parent="5" name="ID">
+      <column id="49" parent="5" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="51" parent="5" name="LASTNAME">
+      <column id="50" parent="5" name="LASTNAME">
         <data-type>varchar(1000)</data-type>
         <default-expression>&apos; &apos;</default-expression>
       </column>
-      <column id="52" parent="5" name="FIRSTNAME">
+      <column id="51" parent="5" name="FIRSTNAME">
         <data-type>varchar(1000)</data-type>
         <default-expression>&apos; &apos;</default-expression>
       </column>
-      <column id="53" parent="5" name="SECONDNAME">
+      <column id="52" parent="5" name="SECONDNAME">
         <data-type>varchar(1000)</data-type>
         <default-expression>&apos; &apos;</default-expression>
       </column>
-      <column id="54" parent="5" name="LOGIN">
+      <column id="53" parent="5" name="LOGIN">
         <data-type>varchar(1000)</data-type>
         <default-expression>&apos; &apos;</default-expression>
       </column>
-      <column id="55" parent="5" name="PASSWORD">
+      <column id="54" parent="5" name="PASSWORD">
         <data-type>varchar(1000)</data-type>
         <default-expression>&apos; &apos;</default-expression>
       </column>
-      <column id="56" parent="5" name="IP">
+      <column id="55" parent="5" name="IP">
         <data-type>varchar(1000)</data-type>
         <default-expression>&apos; &apos;</default-expression>
       </column>
-      <column id="57" parent="5" name="ROVDID">
+      <column id="56" parent="5" name="ROVDID">
         <data-type>int(11)</data-type>
       </column>
-      <column id="58" parent="5" name="ROLEID">
+      <column id="57" parent="5" name="ROLEID">
         <data-type>int(11)</data-type>
       </column>
-      <index id="59" parent="5" name="users_ibfk_1">
+      <index id="58" parent="5" name="users_ibfk_1">
         <columns>ROLEID</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="60" parent="5" name="users_ibfk_2">
+      <index id="59" parent="5" name="users_ibfk_2">
         <columns>ROVDID</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="61" parent="5" name="PRIMARY">
+      <key id="60" parent="5" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="62" parent="5" name="users_ibfk_1">
+      <foreign-key id="61" parent="5" name="users_ibfk_1">
         <columns>ROLEID</columns>
         <ref-key>~.roles.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="63" parent="5" name="users_ibfk_2">
+      <foreign-key id="62" parent="5" name="users_ibfk_2">
         <columns>ROVDID</columns>
         <ref-key>~.rovd.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
