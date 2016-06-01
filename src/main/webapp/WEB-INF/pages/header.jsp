@@ -394,6 +394,10 @@
             });
         };
 
+        function GET_ROVD_FOR_ADMIN(i){
+            alert(i);
+        };
+
     </script>
 </head>
 

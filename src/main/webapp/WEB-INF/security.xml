@@ -14,6 +14,8 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd http://ww
         <intercept-url pattern="/adds" access="isAuthenticated()"></intercept-url>
         <intercept-url pattern="/addNewUser" access="isAuthenticated()"></intercept-url>
         <intercept-url pattern="/hide" access="hasAnyRole('ADMIN')"></intercept-url>
+        <intercept-url pattern="/forUser" access="hasAnyRole('USER')"></intercept-url>
+        <intercept-url pattern="/forAdmin" access="hasAnyRole('ADMIN')"></intercept-url>
         <intercept-url pattern="/adminPanel" access="hasAnyRole('ADMIN')"></intercept-url>
         <intercept-url pattern="/delete/" access="hasAnyRole('ADMIN')"></intercept-url>
         <intercept-url pattern="/edit/" access="hasAnyRole('ADMIN')"></intercept-url>

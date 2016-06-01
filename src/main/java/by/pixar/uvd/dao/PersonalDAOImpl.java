@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -48,7 +49,13 @@ public class PersonalDAOImpl implements PersonalDAO {
 
         String strQuery ="from Personal p ";
         if(checkRole()){
-            return sessionFactory.getCurrentSession().createQuery(strQuery).list();
+            //return sessionFactory.getCurrentSession().createQuery(strQuery).list();
+            strQuery = "select p from Personal p inner join p.rovd r  where r.id = :rovdId";
+            Query query = sessionFactory.getCurrentSession().createQuery(strQuery);
+            sessionFactory.getCurrentSession().createQuery(strQuery);
+            query.setParameter("rovdId", 1);
+
+            return query.list();
         }
         else {
             strQuery = "select p from Personal p inner join p.rovd r  where r.name = :rovd";
