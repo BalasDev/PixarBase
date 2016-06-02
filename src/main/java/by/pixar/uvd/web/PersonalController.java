@@ -82,6 +82,30 @@ public class PersonalController {
         return "personal/personal";
     }
 
+    @RequestMapping(value = "/mans/{id}", produces = "text/html", method = RequestMethod.GET)
+    public String home(@PathVariable("id") Integer id, Map<String, Object> map) {
+        map.put("personalList", personalService.listPersonal());
+        map.put("personal", new Personal());
+        map.put("rovd",rovdService.listRovd());
+        map.put("stringTitle", "Список");
+        map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
+        map.put("msg", msg);
+
+        //
+        /*String globMes = (String)context.getAttribute("globMes");
+        if (globMes!=null){
+        if (!globMes.equals("".trim()))
+        map.put("globalMes",globMes);}*/
+        //
+        if(type==null)
+            map.put("type","success");
+        else
+            map.put("type",type);
+        msg=null;
+        type=null;
+        return "personal/personal";
+    }
+
     @RequestMapping("/sing")
     public String sing() {
        /* Map map = new HashMap();
