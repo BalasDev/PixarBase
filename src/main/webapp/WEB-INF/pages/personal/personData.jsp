@@ -85,6 +85,7 @@
                             <option value="генерал-майор милиции">генерал-майор милиции</option>
                             <option value="генерал-лейтенант милиции">генерал-лейтенант милиции</option>
                             <option value="генерал-полковник милиции">генерал-полковник милиции</option>
+                            <option value="вольнонаемный">вольнонаемный</option>
                         </select>
                     </td>
                     <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
