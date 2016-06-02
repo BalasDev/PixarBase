@@ -8,7 +8,7 @@ public interface PersonalDAO {
 
     public void addPersonal(Personal personal);
 
-    public List<Personal> listPersonal();
+    public List<Personal> listPersonal(Integer userId);
 
     public void deletePersonal(Integer id);
 

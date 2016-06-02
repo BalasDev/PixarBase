@@ -45,7 +45,7 @@ public class PersonalDAOImpl implements PersonalDAO {
     }
 
 
-    public List<Personal> listPersonal() {
+    public List<Personal> listPersonal(Integer rovdId) {
 
         String strQuery ="from Personal p ";
         if(checkRole()){
@@ -53,7 +53,7 @@ public class PersonalDAOImpl implements PersonalDAO {
             strQuery = "select p from Personal p inner join p.rovd r  where r.id = :rovdId";
             Query query = sessionFactory.getCurrentSession().createQuery(strQuery);
             sessionFactory.getCurrentSession().createQuery(strQuery);
-            query.setParameter("rovdId", 1);
+            query.setParameter("rovdId", rovdId);
 
             return query.list();
         }

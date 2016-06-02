@@ -44,6 +44,9 @@ public class PersonalController {
     @Autowired
     private UserService userService;
 
+    private Integer rovdId;
+    private static final Integer UVD_ID = 1;
+
     List<String> stringDateList = new ArrayList<>();
 
     public List<String> getStringDateList() {
@@ -60,7 +63,7 @@ public class PersonalController {
 
     @RequestMapping("/")
     public String home(Map<String, Object> map) {
-        map.put("personalList", personalService.listPersonal());
+        map.put("personalList", personalService.listPersonal(UVD_ID));
         map.put("personal", new Personal());
         map.put("rovd",rovdService.listRovd());
         map.put("stringTitle", "Список");
@@ -82,14 +85,9 @@ public class PersonalController {
         return "personal/personal";
     }
 
-    @RequestMapping(value = "/mans/{id}", produces = "text/html", method = RequestMethod.GET)
-    public String home(@PathVariable("id") Integer id, Map<String, Object> map) {
-        map.put("personalList", personalService.listPersonal());
-        map.put("personal", new Personal());
-        map.put("rovd",rovdService.listRovd());
-        map.put("stringTitle", "Список");
-        map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
-        map.put("msg", msg);
+    @RequestMapping(value = "/men/{id}", produces = "text/html", method = RequestMethod.GET)
+    public String home(@PathVariable("id") Integer id) {
+        rovdId = id;
 
         //
         /*String globMes = (String)context.getAttribute("globMes");
@@ -97,12 +95,25 @@ public class PersonalController {
         if (!globMes.equals("".trim()))
         map.put("globalMes",globMes);}*/
         //
+
+        return "redirect:/tomen";
+    }
+    @RequestMapping("/tomen")
+    public String toMen(Map<String, Object> map) {
+        map.put("personalList", personalService.listPersonal(rovdId));
+        map.put("personal", new Personal());
+        map.put("rovd",rovdService.listRovd());
+        map.put("stringTitle", "Список");
+        map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
+        map.put("msg", msg);
+
         if(type==null)
             map.put("type","success");
         else
             map.put("type",type);
         msg=null;
         type=null;
+
         return "personal/personal";
     }
 

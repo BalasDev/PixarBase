@@ -76,7 +76,7 @@
     <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
             <c:forEach items="${rovd}" var="rovds">
-                <li><a href="/mans/${rovds.id}" onclick="GET_ROVD_FOR_ADMIN()">${rovds.name}</a> </li>
+                <li><a href="/men/${rovds.id}">${rovds.name}</a> </li>
             </c:forEach>
         </ul>
      <%--   <c:forEach items="${rovd}" var="rovds">
