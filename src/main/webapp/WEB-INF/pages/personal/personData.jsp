@@ -9,7 +9,7 @@
 
         <c:choose>
 
-            <c:when test="${field.fieldName=='callOfOVD'}">
+            <%--<c:when test="${field.fieldName=='callOfOVD'}">
                 <tr>
                     <td>${field.rusFieldName}</td>
                     <td>
@@ -61,7 +61,7 @@
 
                     <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
                 </tr>
-            </c:when>
+            </c:when>--%>
 
             <c:when test="${field.fieldName=='rank'}">
                 <tr>

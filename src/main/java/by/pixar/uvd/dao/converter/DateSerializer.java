@@ -10,7 +10,7 @@ import java.util.Date;
 public class DateSerializer implements Converter<String,Date>{
     @Override
     public Date convert(String s) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd MM yyyy");
 
         try {
             Date date = formatter.parse(s);
