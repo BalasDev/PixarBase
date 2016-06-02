@@ -19,6 +19,7 @@
     <script src="webres/jquery/jquery.validate.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="webres/bootstrap/dist/js/bootstrap-datepicker.js"></script>
     <%--<link href="webres/css/input.css" rel="stylesheet">--%>
     <%--<link href="webres/css/errors.css" rel="stylesheet">--%>
     <%--<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->--%>
@@ -185,7 +186,7 @@
                 {val: 'Другие службы МОБ', text: 'Другие службы МОБ'},
                 {val: 'УР', text: 'УР'},
                 {val: 'БЭП', text: 'БЭП'},
-                {val: 'НиПГЛ', text: 'НиПГЛ'},
+                {val: 'НиПТЛ', text: 'НиПТЛ'},
                 {val: 'ИДН', text: 'ИДН'},
                 {val: 'Другие службы КМ', text: 'Другие службы КМ'}
             ];
@@ -296,7 +297,7 @@
             var km = [
                 {val: 'УР', text: 'УР'},
                 {val: 'БЭП', text: 'БЭП'},
-                {val: 'НиПГЛ', text: 'НиПГЛ'},
+                {val: 'НиПТЛ', text: 'НиПТЛ'},
                 {val: 'Другие службы КМ', text: 'Другие службы КМ'},
             ];
             if (s == 'МОБ') {
@@ -338,7 +339,7 @@
             var km = [
                 {val: 'УР', text: 'УР'},
                 {val: 'БЭП', text: 'БЭП'},
-                {val: 'НиПГЛ', text: 'НиПГЛ'},
+                {val: 'НиПТЛ', text: 'НиПТЛ'},
                 {val: 'Другие службы КМ', text: 'Другие службы КМ'},
             ];
             if (s == 'МОБ') {
@@ -397,6 +398,17 @@
         function GET_ROVD_FOR_ADMIN(i){
             alert(i);
         };
+
+       function functionDate() {
+                    $('input[name="birthdate"]').daterangepicker({
+                                singleDatePicker: true,
+                                showDropdowns: true
+                            },
+                            function(start, end, label) {
+                                var years = moment().diff(start, 'years');
+                                alert("You are " + years + " years old.");
+                            });
+                };
 
     </script>
 </head>
