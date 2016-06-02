@@ -8,7 +8,7 @@ import java.util.List;
 public interface PersonalService {
     public void addPersonal(Personal personal);
 
-    public List<Personal> listPersonal();
+    public List<Personal> listPersonal(Integer rovdId);
 
     public void deletePersonal(Integer id);
 

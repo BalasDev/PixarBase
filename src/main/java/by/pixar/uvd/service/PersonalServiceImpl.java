@@ -20,8 +20,8 @@ public class PersonalServiceImpl implements PersonalService{
     }
 
     @Transactional
-    public List<Personal> listPersonal() {
-        return personalDAO.listPersonal();
+    public List<Personal> listPersonal(Integer rovdId) {
+        return personalDAO.listPersonal(rovdId);
     }
 
     @Transactional

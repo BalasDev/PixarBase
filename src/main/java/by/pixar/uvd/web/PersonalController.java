@@ -44,6 +44,8 @@ public class PersonalController {
     @Autowired
     private UserService userService;
 
+    private Integer rovdId;
+
     List<String> stringDateList = new ArrayList<>();
 
     public List<String> getStringDateList() {
@@ -60,7 +62,7 @@ public class PersonalController {
 
     @RequestMapping("/")
     public String home(Map<String, Object> map) {
-        map.put("personalList", personalService.listPersonal());
+        map.put("personalList", personalService.listPersonal(1));
         map.put("personal", new Personal());
         map.put("rovd",rovdService.listRovd());
         map.put("stringTitle", "Список");
@@ -79,6 +81,38 @@ public class PersonalController {
             map.put("type",type);
         msg=null;
         type=null;
+        return "personal/personal";
+    }
+
+    @RequestMapping(value = "/men/{id}", produces = "text/html", method = RequestMethod.GET)
+    public String home(@PathVariable("id") Integer id) {
+        rovdId = id;
+
+        //
+        /*String globMes = (String)context.getAttribute("globMes");
+        if (globMes!=null){
+        if (!globMes.equals("".trim()))
+        map.put("globalMes",globMes);}*/
+        //
+
+        return "redirect:/tomen";
+    }
+    @RequestMapping("/tomen")
+    public String toMen(Map<String, Object> map) {
+        map.put("personalList", personalService.listPersonal(rovdId));
+        map.put("personal", new Personal());
+        map.put("rovd",rovdService.listRovd());
+        map.put("stringTitle", "Список");
+        map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));
+        map.put("msg", msg);
+
+        if(type==null)
+            map.put("type","success");
+        else
+            map.put("type",type);
+        msg=null;
+        type=null;
+
         return "personal/personal";
     }
 
