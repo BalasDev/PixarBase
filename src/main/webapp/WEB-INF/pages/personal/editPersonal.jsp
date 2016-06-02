@@ -91,7 +91,7 @@
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1"
                                           name="dateOfGotRank"><fmt:formatDate value="${personality.dateOfGotRank}"
-                                                                               pattern="dd MM yyyy"/></textarea>
+                                                                               pattern="yyyy-MM-dd"/></textarea>
                             </div>
                         </div>
 
@@ -183,7 +183,7 @@
                                                        <textarea class="form-control" rows="1"
                                                                  name="callOfOVD"><fmt:formatDate
                                                                value="${personality.callOfOVD}"
-                                                               pattern="dd MM yyyy"/></textarea>
+                                                               pattern="yyyy-MM-dd"/></textarea>
                             </div>
                         </div>
 
@@ -194,7 +194,7 @@
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1"
                                           name="birthday"><fmt:formatDate value="${personality.birthday}"
-                                                                          pattern="dd MM yyyy"/></textarea>
+                                                                          pattern="yyyy-MM-dd"/></textarea>
                             </div>
                         </div>
 
@@ -311,7 +311,7 @@
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1" name="contract"><fmt:formatDate
-                                        value="${personality.contract}" pattern="dd MM yyyy"/></textarea>
+                                        value="${personality.contract}" pattern="yyyy-MM-dd"/></textarea>
                             </div>
                         </div>
 
@@ -321,7 +321,7 @@
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1" name="dateOfCertification"><fmt:formatDate
-                                        value="${personality.dateOfCertification}" pattern="dd MM yyyy"/></textarea>
+                                        value="${personality.dateOfCertification}" pattern="yyyy-MM-dd"/></textarea>
                             </div>
                         </div>
 
