@@ -17,7 +17,7 @@ public class FormFields {
         fields.add(new FormBuilder("Отчество","secondName","1"));
         fields.add(new FormBuilder("Личный номер","personalNumber","1"));
         fields.add(new FormBuilder("Звание","rank","1"));
-        fields.add(new FormBuilder("Дата присвоения звания","dateOfGotRank","1","01 01 2015"));
+        fields.add(new FormBuilder("Дата присвоения звания, класс госслужбы","dateOfGotRank","1","01 01 2015"));
         fields.add(new FormBuilder("Категория сотрудника","category","1"));
         fields.add(new FormBuilder("Службы ОВД","serviceOfOVD","1"));
         fields.add(new FormBuilder("Подслужбы ОВД","underServiceOfOVD","1"));
@@ -33,7 +33,7 @@ public class FormFields {
         fields.add(new FormBuilder("Учёная степень","degree","1"));
         fields.add(new FormBuilder("Иностранные языки","foreigLang","1"));
         fields.add(new FormBuilder("Был ли за границей","abroad","1"));
-        fields.add(new FormBuilder("Взыскания","foreclosure","1"));
+        fields.add(new FormBuilder("Взыскания","foreclosure","2"));
         fields.add(new FormBuilder("Участие в выборочных органах","election","1"));
         fields.add(new FormBuilder("Имеет ли госнаграды","stateAwards","1"));
         fields.add(new FormBuilder("Пункт увольнения","fired","1"));

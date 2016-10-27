@@ -197,7 +197,7 @@ public class Personal extends BaseEntity {
     @JoinColumn(name = "ROVDID")
     private Rovd rovd;
 
-    //Дата присвоения звания
+    //Дата присвоения звания, класс госслужбы
     @DateTimeFormat(pattern="dd MM yyyy")
     @NotNull(message = "Введите присвоения звания (дд мм гггг)")
     @Column(name = "DATEOFGOTRANK")

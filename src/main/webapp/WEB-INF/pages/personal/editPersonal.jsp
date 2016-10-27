@@ -82,12 +82,25 @@
                                     <option value="генерал-лейтенант милиции">генерал-лейтенант милиции</option>
                                     <option value="генерал-полковник милиции">генерал-полковник милиции</option>
                                     <option value="вольнонаемный">вольнонаемный</option>
+                                    <option value="1 класс госслужащего">1 класс госслужащего</option>
+                                    <option value="2 класс госслужащего">2 класс госслужащего</option>
+                                    <option value="3 класс госслужащего">3 класс госслужащего</option>
+                                    <option value="4 класс госслужащего">4 класс госслужащего</option>
+                                    <option value="5 класс госслужащего">5 класс госслужащего</option>
+                                    <option value="6 класс госслужащего">6 класс госслужащего</option>
+                                    <option value="7 класс госслужащего">7 класс госслужащего</option>
+                                    <option value="8 класс госслужащего">8 класс госслужащего</option>
+                                    <option value="9 класс госслужащего">9 класс госслужащего</option>
+                                    <option value="10 класс госслужащего">10 класс госслужащего</option>
+                                    <option value="11 класс госслужащего">11 класс госслужащего</option>
+                                    <option value="12 класс госслужащего">12 класс госслужащего</option>
+
                                 </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                <label class="text-left control-label">Дата присвоения звания</label>
+                                <label class="text-left control-label">Дата присвоения звания, класс госслужбы</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1"
@@ -108,6 +121,7 @@
                                     <option value="средний нач. состав">средний нач. состав</option>
                                     <option value="старший нач. состав">старший нач. состав</option>
                                     <option value="высший нач. состав">высший нач. состав</option>
+                                    <option value="госслужащий">госслужащий</option>
 
                                 </select>
                             </div>

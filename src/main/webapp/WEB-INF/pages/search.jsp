@@ -72,7 +72,7 @@
                             <td><input type="radio" class="radio-inline" name="dateSearching" value="4">Дата аттестации
                             </td>
 
-                            <td><input type="radio" class="radio-inline" name="dateSearching" value="5">Дата присвоения звания
+                            <td><input type="radio" class="radio-inline" name="dateSearching" value="5">Дата присвоения звания, класс госслужбы
                             </td>
                         </tr>
                     </table>
