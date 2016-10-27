@@ -1,5 +1,7 @@
 package by.pixar.uvd.domain;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -204,6 +206,7 @@ public class Personal extends BaseEntity {
     //Создано кем
     @ManyToOne
     @JoinColumn(name = "CREATEDBY")
+    @NotFound(action = NotFoundAction.IGNORE)
     private Users users;
 
 

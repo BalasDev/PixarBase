@@ -1,5 +1,8 @@
 package by.pixar.uvd.domain;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.*;
 
 
@@ -25,13 +28,15 @@ public class Users extends BaseEntity {
     @Column(name = "IP")
     private String ip;
 
-    @ManyToOne//(fetch = FetchType.LAZY)
+    @ManyToOne
    // (cascade=CascadeType.ALL)
     @JoinColumn(name = "ROLEID")
+    @NotFound(action = NotFoundAction.IGNORE)
     private Roles role;
 
     @ManyToOne
     @JoinColumn(name = "ROVDID")
+    @NotFound(action = NotFoundAction.IGNORE)
     private Rovd rovd;
 
 
