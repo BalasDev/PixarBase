@@ -61,7 +61,7 @@
 
           <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-              <label class="text-left control-label">Дата присвоения звания</label>
+              <label class="text-left control-label">Дата присвоения звания, класс госслужбы</label>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                                         <textarea class="form-control" rows="1"
