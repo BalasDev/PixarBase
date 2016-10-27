@@ -152,18 +152,18 @@ public class PersonalDAOImpl implements PersonalDAO {
         // end =0
         if (endDate.equals("")&& !var.equals("") && !stDate.equals("")) {
             if (!field.equals("rovd"))
-              exeQuery=beginOfQuery+">=:stDate and " + field + " =:var";
+              exeQuery=beginOfQuery+">=:stDate and " + field + " like :var";
             else
-              exeQuery=beginOfQuery+">=:stDate and r.name = :var";
+              exeQuery=beginOfQuery+">=:stDate and r.name like :var";
             if (checkRole()) {
                 query = sessionFactory.getCurrentSession().createQuery(exeQuery);
                 query.setInteger("stDate", Integer.parseInt(stDate));
-                query.setParameter("var", var);
+                query.setParameter("var", "%" + var + "%");
             } else {
                 exeQuery=exeQuery+" and r.name = :rovd";
                 query = sessionFactory.getCurrentSession().createQuery(exeQuery);
                 query.setInteger("stDate", Integer.parseInt(stDate));
-                query.setParameter("var", var);
+                query.setParameter("var", "%" + var + "%");
                 query.setParameter("rovd", users.getRovd().getName());
             }
            // return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  >= " + "'" + stDate + "'"
@@ -172,18 +172,18 @@ public class PersonalDAOImpl implements PersonalDAO {
         //st=0
         if ( stDate.equals("")&& !var.equals("") && !endDate.equals("")) {
             if (!field.equals("rovd"))
-                exeQuery=beginOfQuery+"<=:endDate and " + field + " =:var";
+                exeQuery=beginOfQuery+"<=:endDate and " + field + " like :var";
             else
-                exeQuery=beginOfQuery+"<=:endDate and r.name =:var";
+                exeQuery=beginOfQuery+"<=:endDate and r.name like :var";
             if (checkRole()) {
                 query = sessionFactory.getCurrentSession().createQuery(exeQuery);
                 query.setInteger("endDate", Integer.parseInt(endDate));
-                query.setParameter("var", var);
+                query.setParameter("var", "%" + var + "%");
             } else {
                 exeQuery=exeQuery+" and r.name = :rovd";
                 query = sessionFactory.getCurrentSession().createQuery(exeQuery);
                 query.setInteger("endDate", Integer.parseInt(endDate));
-                query.setParameter("var", var);
+                query.setParameter("var", "%" + var + "%");
                 query.setParameter("rovd", users.getRovd().getName());
 
             }
@@ -193,20 +193,20 @@ public class PersonalDAOImpl implements PersonalDAO {
         // val!=0 st!=0 end!=0
         if (!var.equals("") && !stDate.equals("") && !endDate.equals("")) {
             if (!field.equals("rovd"))
-                exeQuery=beginOfQuery+"<=:endDate and extract(year from " + dateParam+") >=:stDate and " + field + " =:var";
+                exeQuery=beginOfQuery+"<=:endDate and extract(year from " + dateParam+") >=:stDate and " + field + " like :var";
             else
-                exeQuery=beginOfQuery+"<=:endDate and extract(year from " + dateParam+") >=:stDate and r.name =:var";
+                exeQuery=beginOfQuery+"<=:endDate and extract(year from " + dateParam+") >=:stDate and r.name like :var";
             if (checkRole()) {
                 query = sessionFactory.getCurrentSession().createQuery(exeQuery);
                 query.setInteger("stDate", Integer.parseInt(stDate));
                 query.setInteger("endDate", Integer.parseInt(endDate));
-                query.setParameter("var", var);
+                query.setParameter("var", "%" + var + "%");
             } else {
                 exeQuery=exeQuery+" and r.name = :rovd";
                 query = sessionFactory.getCurrentSession().createQuery(exeQuery);
                 query.setInteger("stDate", Integer.parseInt(stDate));
                 query.setInteger("endDate", Integer.parseInt(endDate));
-                query.setParameter("var", var);
+                query.setParameter("var", "%" + var + "%");
                 query.setParameter("rovd", users.getRovd().getName());
             }
          //   return sessionFactory.getCurrentSession().createQuery("from Personal where extract(year from BIRTHDAY)  <= " + "'" + endDate + "'"
@@ -216,17 +216,18 @@ public class PersonalDAOImpl implements PersonalDAO {
         //var=1
         {
             if (!field.equals("rovd"))
-                 exeQuery="from Personal where " + field + " =:var";
+                 exeQuery="from Personal where " + field + " like :var";
             else
-                exeQuery="select p from Personal p inner join p.rovd r where r.name =:var";
+                exeQuery="select p from Personal p inner join p.rovd r where r.name like :var";
             if (checkRole()) {
                 query = sessionFactory.getCurrentSession().createQuery(exeQuery);
-                query.setParameter("var", var);
+                query.setParameter("var", "%" + var + "%");
             } else {
-                exeQuery="select p from Personal p inner join p.rovd r where " + field + " =:var and r.name = :rovd";
+                exeQuery="select p from Personal p inner join p.rovd r where " + field + "  like :var and r.name = :rovd";
                 query = sessionFactory.getCurrentSession().createQuery(exeQuery);
-                query.setParameter("var", var);
+                query.setParameter("var", "%" + var + "%");
                 query.setParameter("rovd", users.getRovd().getName());
+
 
             }
             //   return sessionFactory.getCurrentSession().createQuery("from Personal where " + field + " = " + "'" + var + "'").list();
