@@ -74,6 +74,9 @@
 
                             <td><input type="radio" class="radio-inline" name="dateSearching" value="5">Дата присвоения звания
                             </td>
+
+                            <td><input type="radio" class="radio-inline" name="dateSearching" value="6">Дата присвоения классности
+                            </td>
                         </tr>
                     </table>
                     <%--</div>--%>

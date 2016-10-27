@@ -190,7 +190,12 @@ public class Personal extends BaseEntity {
     @Column(name = "UNDERSERVICESOFOVD")
     private String underServiceOfOVD;
 
+    @Column(name = "CLASSLEVEL")
+    private String classLevel;
 
+    @DateTimeFormat(pattern="dd MM yyyy")
+    @Column(name = "CLASSLEVELGOTDATE")
+    private Date classLevelGotDate;
 
     //РОВД
     @ManyToOne
@@ -527,4 +532,21 @@ public class Personal extends BaseEntity {
     public void setUnderServiceOfOVD(String underServiceOfOVD) {
         this.underServiceOfOVD = underServiceOfOVD;
     }
+
+    public String getClassLevel() {
+        return classLevel;
+    }
+
+    public void setClassLevel(String classLevel) {
+        this.classLevel = classLevel;
+    }
+
+    public Date getClassLevelGotDate() {
+        return classLevelGotDate;
+    }
+
+    public void setClassLevelGotDate(Date classLevelGotDate) {
+        this.classLevelGotDate = classLevelGotDate;
+    }
 }
+

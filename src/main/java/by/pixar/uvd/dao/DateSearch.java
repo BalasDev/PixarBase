@@ -8,7 +8,9 @@ public enum DateSearch {
     CALLOFOVD(2),
     CONTRACT(3),
     DATEOFCERTIFICATION(4),
-    DATEOFGOTRANK(5);
+    DATEOFGOTRANK(5),
+    CLASSLEVELGOTDATE(6)
+    ;
 
     private int val;
 

@@ -18,6 +18,8 @@ public class FormFields {
         fields.add(new FormBuilder("Личный номер","personalNumber","1"));
         fields.add(new FormBuilder("Звание","rank","1"));
         fields.add(new FormBuilder("Дата присвоения звания","dateOfGotRank","1","01 01 2015"));
+        fields.add(new FormBuilder("Классность","classLevel","1"));
+        fields.add(new FormBuilder("Дата присвоения классности","classLevelGotDate","1","01 01 2015"));
         fields.add(new FormBuilder("Категория сотрудника","category","1"));
         fields.add(new FormBuilder("Службы ОВД","serviceOfOVD","1"));
         fields.add(new FormBuilder("Подслужбы ОВД","underServiceOfOVD","1"));

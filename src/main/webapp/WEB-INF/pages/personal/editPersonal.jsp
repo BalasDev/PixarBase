@@ -98,6 +98,31 @@
 
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label class="text-left">Классность</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                <select class="form-control" name="classLevel">
+                                    <option value="${personality.classLevel}">${personality.classLevel}</option>
+                                    <option value="1 класс">1 класс</option>
+                                    <option value="2 класс">2 класс</option>
+                                    <option value="3 класс">3 класс</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label class="text-left control-label">Дата присвоения классности</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                <textarea class="form-control" rows="1"
+                                    name="classLevelGotDate"><fmt:formatDate value="${personality.classLevelGotDate}"
+                                         pattern="dd MM yyyy"/></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <label class="text-left">Категория сотрудника</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">

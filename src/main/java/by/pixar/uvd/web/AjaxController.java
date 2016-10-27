@@ -29,7 +29,8 @@ public class AjaxController {
                     !f.getFieldName().equalsIgnoreCase("callOfOVD") &&
                     !f.getFieldName().equalsIgnoreCase("contract") &&
                     !f.getFieldName().equalsIgnoreCase("dateOfCertification") &&
-                    !f.getFieldName().equalsIgnoreCase("dateOfGotRank"))
+                    !f.getFieldName().equalsIgnoreCase("dateOfGotRank") &&
+                    !f.getFieldName().equalsIgnoreCase("classLevelGotDate"))
                 res.add(f);
         }
         return res;
