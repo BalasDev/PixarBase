@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,7 +31,7 @@ public class PersonalServiceImpl implements PersonalService{
     }
 
     @Transactional
-    public List<Personal> findPersonal(String field, String var, String stDate, String endDate, String dateSearching) {
+    public List<Personal> findPersonal(String field, String var, Date stDate, Date endDate, String dateSearching) {
         return personalDAO.findPersonal(field,var,stDate,endDate,dateSearching);
     }
 

@@ -158,6 +158,12 @@ public class Personal extends BaseEntity {
     @Column(name = "WORKPLACE")
     private String workPlace;
 
+    //Резерв
+    @NotBlank(message = "Введите резерв")
+    @Column(name = "RESERVE")
+    private String reserve;
+
+
     //Отредактировано когда
     @Column(name = "EDITED")
     private Date edited;
@@ -547,6 +553,14 @@ public class Personal extends BaseEntity {
 
     public void setClassLevelGotDate(Date classLevelGotDate) {
         this.classLevelGotDate = classLevelGotDate;
+    }
+
+    public String getReserve() {
+        return reserve;
+    }
+
+    public void setReserve(String reserve) {
+        this.reserve = reserve;
     }
 }
 

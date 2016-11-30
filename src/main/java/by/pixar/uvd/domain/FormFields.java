@@ -25,6 +25,7 @@ public class FormFields {
         fields.add(new FormBuilder("Подслужбы ОВД","underServiceOfOVD","1"));
         fields.add(new FormBuilder("РОВД","rovd","1"));
         fields.add(new FormBuilder("Место работы", "workPlace", "2"));
+        fields.add(new FormBuilder("Резерв", "reserve", "2"));
         fields.add(new FormBuilder("Служба в ОВД","callOfOVD","1","01 01 2015"));
         fields.add(new FormBuilder("Служба в армии","callOfDuty","1"));
         fields.add(new FormBuilder("Дата рождения","birthday","1","01 01 2015"));

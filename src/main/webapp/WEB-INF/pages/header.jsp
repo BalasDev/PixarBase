@@ -175,7 +175,7 @@
         /*change on selected rovd,rank,category input to select with list*/
         function update() {
             var s = $("#categoryId option:selected").text();
-            alert(s);
+
             var list = $("#searchingSelect");
 
             var povd = [
@@ -244,7 +244,7 @@
                         list.append(new Option(this.val, this.text));
                     });
                 } else if (s == 'Звание') {
-                    alert(s);
+
                     var rank = [
                         {val: 'рядовой милиции', text: 'рядовой милиции'},
                         {val: 'младший сержант милиции', text: 'младший сержант милиции'},
@@ -285,7 +285,7 @@
 
 
                 } else if (s == 'Классность'){
-                    alert(s);
+
                     var classLevel = [
                         {val: '1 класс', text: '1 класс'},
                         {val: '2 класс', text: '2 класс'},

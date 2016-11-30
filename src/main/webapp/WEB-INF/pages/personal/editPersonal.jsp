@@ -194,6 +194,16 @@
                                           name="workPlace">${personality.workPlace}</textarea>
                             </div>
                         </div>
+
+                        <div class="row">
+                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                 <label class="text-left">Резерв</label>
+                             </div>
+                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                 <textarea class="form-control" rows="6"
+                                 name="reserve">${personality.reserve}</textarea>
+                             </div>
+                        </div>
                             <%--**********************************--%>
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">

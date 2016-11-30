@@ -20,6 +20,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -156,8 +157,8 @@ public class PersonalController {
 
     @RequestMapping(value = "/searchUser", method = RequestMethod.POST)
     public String searchUser(Map<String, Object> map, @RequestParam("categoryId") String category, @RequestParam("searching") String searching,
-                            @RequestParam("stdate") String startDate,@RequestParam("fndate") String endDate,
-                            @RequestParam(value = "dateSearching",required = false)String dateSearching ) {
+                             @RequestParam("stdate") Date startDate, @RequestParam("fndate") Date endDate,
+                             @RequestParam(value = "dateSearching",required = false)String dateSearching ) {
 
         try {
                 // crutch for replacing ','
