@@ -12,8 +12,8 @@
     <h1>${stringTitle}</h1>
 
 <div class="table-responsive">
-    <table class="table table-condensed table-hover table-striped table-bordered">
-
+    <table id="personalTableUser" class="table table-condensed table-hover table-striped table-bordered">
+        <thead>
         <tr>
             <th></th>
             <th>Фамилия</th>
@@ -28,6 +28,7 @@
                 <th></th>
             <%--</security:authorize>--%>
         </tr>
+        </thead>
         <c:set var="count" value="0" scope="page"/>
 
 
@@ -44,9 +45,9 @@
                 <td>${personality.secondName}</td>
                 <td>${personality.personalNumber}</td>
                 <td>${personality.rank}</td>
-                <td><fmt:formatDate value="${personality.dateOfGotRank}" pattern="dd MM yyyy"/></td>
-                <td><fmt:formatDate value="${personality.dateOfCertification}" pattern="dd MM yyyy"/></td>
-                <td><fmt:formatDate value="${personality.contract}" pattern="dd MM yyyy"/></td>
+                <td data-sort-value=<fmt:formatDate value="${personality.dateOfGotRank}" pattern="yyyy/MM/dd"/>><fmt:formatDate value="${personality.dateOfGotRank}" pattern="dd MM yyyy"/></td>
+                <td data-sort-value=<fmt:formatDate value="${personality.dateOfCertification}" pattern="yyyy/MM/dd"/>><fmt:formatDate value="${personality.dateOfCertification}" pattern="dd MM yyyy"/></td>
+                <td data-sort-value=<fmt:formatDate value="${personality.contract}" pattern="yyyy/MM/dd"/>><fmt:formatDate value="${personality.contract}" pattern="dd MM yyyy"/></td>
                 <td>
                         <div class="btn-group">
                             <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}" onclick="rovdEdit(${personality.id})"><i
@@ -87,8 +88,8 @@
         <h1>${stringTitle}</h1>
 
         <div class="table-responsive">
-            <table class="table table-condensed table-hover table-striped table-bordered">
-
+            <table id="personalTableAdmin" class="table table-condensed table-hover table-striped table-bordered">
+                <thead>
                 <tr>
                     <th></th>
                     <th>Фамилия</th>
@@ -103,6 +104,7 @@
                     <th></th>
                         <%--</security:authorize>--%>
                 </tr>
+                </thead>
                 <c:set var="count" value="0" scope="page"/>
 
 
@@ -119,9 +121,9 @@
                         <td>${personality.secondName}</td>
                         <td>${personality.personalNumber}</td>
                         <td>${personality.rank}</td>
-                        <td><fmt:formatDate value="${personality.dateOfGotRank}" pattern="dd MM yyyy"/></td>
-                        <td><fmt:formatDate value="${personality.dateOfCertification}" pattern="dd MM yyyy"/></td>
-                        <td><fmt:formatDate value="${personality.contract}" pattern="dd MM yyyy"/></td>
+                        <td data-sort-value=<fmt:formatDate value="${personality.dateOfGotRank}" pattern="yyyy/MM/dd"/>><fmt:formatDate value="${personality.dateOfGotRank}" pattern="dd MM yyyy"/></td>
+                        <td data-sort-value=<fmt:formatDate value="${personality.dateOfCertification}" pattern="yyyy/MM/dd"/>><fmt:formatDate value="${personality.dateOfCertification}" pattern="dd MM yyyy"/></td>
+                        <td data-sort-value=<fmt:formatDate value="${personality.contract}" pattern="yyyy/MM/dd"/>><fmt:formatDate value="${personality.contract}" pattern="dd MM yyyy"/></td>
                         <td>
                             <div class="btn-group">
                                 <a style="cursor: pointer" data-toggle="modal" data-target="#edit_${personality.id}" onclick="rovdEdit(${personality.id})"><i

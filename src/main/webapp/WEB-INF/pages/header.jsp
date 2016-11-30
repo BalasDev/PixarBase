@@ -14,9 +14,13 @@
     <link href="webres/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="webres/bootstrap/dist/css/font-awesome.css" rel="stylesheet">
     <link href="webres/css/style.css" rel="stylesheet">
+    <link href="webres/css/jquery.dynatable.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="webres/css/themes/blue/style.css">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="webres/jquery/jquery.min.js"></script>
     <script src="webres/jquery/jquery.validate.min.js"></script>
+    <script src="webres/jquery/jquery.dynatable.js"></script>
+    <script src="webres/jquery/jquery.tablesorter.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="webres/bootstrap/dist/js/bootstrap.min.js"></script>
     <%--<link href="webres/css/input.css" rel="stylesheet">--%>
@@ -28,6 +32,7 @@
     <%--<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>--%>
     <![endif]-->
     <script type="text/javascript">
+
         /*Hide popup message after 3 seconds*/
         $(function () {
             $("#message").show().delay(3000).fadeOut()
@@ -37,6 +42,19 @@
         });
         /*Open modal */
         $('document').ready(function () {
+
+           /!*Sort table*!/
+ /*       $('#personalTableAdmin').dynatable({
+            inputs: {
+                paginationPrev: 'Предыдущая',
+                paginationNext: 'Следующая',
+                perPageText: 'Показать: ',
+                recordCountText: 'Показано '
+            }
+        });*/
+
+           $("#personalTableAdmin").tablesorter();
+           $("#personalTableUser").tablesorter();
 
             var mob = [
                 {val: 'ОПиП', text: 'ОПиП'},
