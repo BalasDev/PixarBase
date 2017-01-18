@@ -194,7 +194,6 @@ public class PersonalController {
         map.put("users", new Users());
         // need to fix
         List<FormBuilder> f = new FormFields().getFields();
-        f.remove(8);
         map.put("fields",f);
         map.put("rovd",rovdService.listRovd());
         map.put("userSingIn",userService.getUserByLogin(request.getRemoteUser()));

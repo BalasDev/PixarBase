@@ -221,7 +221,7 @@
             ];
 
 
-            if (s == 'РОВД' || s == 'Звание' || s == 'Категория сотрудника' || s == 'Службы ОВД' || s == 'Подслужбы ОВД' || s == 'Классность') {
+            if (s == 'РОВД' || s == 'Звание' || s == 'Категория сотрудника' || s == 'Службы ОВД' || s == 'Подслужбы ОВД' || s == 'Классность' || s == "Пол") {
                 list.empty();
                 if (s == 'РОВД') {
                     $.ajax({
@@ -305,6 +305,7 @@
                 } else if (s == 'Классность'){
 
                     var classLevel = [
+                        {val: 'Не имеет', text: 'Не имеет'},
                         {val: '1 класс', text: '1 класс'},
                         {val: '2 класс', text: '2 класс'},
                         {val: '3 класс', text: '3 класс'}
@@ -312,7 +313,17 @@
                     $.each(classLevel, function (index, item) {
                         list.append(new Option(this.val, this.text));
                     });
+                } else if (s == "Пол") {
+                    var sex = [
+                        {val: 'Нет', text: 'Нет'},
+                        {val: 'Мужской', text: 'Мужской'},
+                        {val: 'Женский', text: 'Женский'}
+                    ];
+                    $.each(sex, function (index, item) {
+                        list.append(new Option(this.val, this.text));
+                    });
                 }
+
                 $('#searchingInput').hide();
                 $('#searchingInput').empty();
                 $('#searchingSelect').show();

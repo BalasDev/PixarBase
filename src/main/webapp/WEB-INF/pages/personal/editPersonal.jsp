@@ -116,6 +116,7 @@
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <select class="form-control" name="classLevel">
                                     <option value="${personality.classLevel}">${personality.classLevel}</option>
+                                    <option value="Не имеет">Не имеет</option>
                                     <option value="1 класс">1 класс</option>
                                     <option value="2 класс">2 класс</option>
                                     <option value="3 класс">3 класс</option>
@@ -129,8 +130,9 @@
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                 <textarea class="form-control" rows="1"
-                                    name="classLevelGotDate"><fmt:formatDate value="${personality.classLevelGotDate}"
-                                         pattern="dd MM yyyy"/></textarea>
+                                          name="classLevelGotDate"><fmt:formatDate
+                                        value="${personality.classLevelGotDate}"
+                                        pattern="dd MM yyyy"/></textarea>
                             </div>
                         </div>
 
@@ -157,16 +159,16 @@
                                 <label class="text-left">РОВД</label>
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
-                                <select class="form-control" name="rovd.id" id="rovdEdit${personality.id}" >
+                                <select class="form-control" name="rovd.id" id="rovdEdit${personality.id}">
                                     <option value="${personality.rovd.id}">${personality.rovd.name}</option>
 
-                                  <%--  <c:choose>
-                                        <c:when test="${userSingIn.getRole().getName()=='ADMIN'}">
-                                            <c:forEach items="${rovd}" var="rovd">
-                                                <option value="${rovd.id}">${rovd.name}</option>
-                                            </c:forEach>
-                                        </c:when>
-                                    </c:choose>--%>
+                                        <%--  <c:choose>
+                                              <c:when test="${userSingIn.getRole().getName()=='ADMIN'}">
+                                                  <c:forEach items="${rovd}" var="rovd">
+                                                      <option value="${rovd.id}">${rovd.name}</option>
+                                                  </c:forEach>
+                                              </c:when>
+                                          </c:choose>--%>
 
 
                                 </select>
@@ -196,13 +198,13 @@
                         </div>
 
                         <div class="row">
-                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                 <label class="text-left">Резерв</label>
-                             </div>
-                             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label class="text-left">Резерв</label>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
                                  <textarea class="form-control" rows="6"
-                                 name="reserve">${personality.reserve}</textarea>
-                             </div>
+                                           name="reserve">${personality.reserve}</textarea>
+                            </div>
                         </div>
                             <%--**********************************--%>
                         <div class="row">
@@ -210,14 +212,16 @@
                                 <label class="text-left">Службы ОВД</label>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-3">
-                                <select id="sel_first${personality.id}" onclick="funSelectForClass(${personality.id})" class="form-control sel_first" name="serviceOfOVD">
+                                <select id="sel_first${personality.id}" onclick="funSelectForClass(${personality.id})"
+                                        class="form-control sel_first" name="serviceOfOVD">
                                     <option value="${personality.serviceOfOVD}">${personality.serviceOfOVD}</option>
                                 </select>
                             </div>
 
 
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                <select id="sel_second${personality.id}" class="form-control sel_second" name="underServiceOfOVD">
+                                <select id="sel_second${personality.id}" class="form-control sel_second"
+                                        name="underServiceOfOVD">
                                     <option value="${personality.underServiceOfOVD}">${personality.underServiceOfOVD}</option>
                                 </select>
                             </div>
@@ -236,7 +240,19 @@
                                                                pattern="dd MM yyyy"/></textarea>
                             </div>
                         </div>
-
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <label class="text-left">Пол</label>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-3">
+                                        <select class="form-control" name="sex" id="sex">
+                                            <option value="${personality.sex}">${personality.sex}</option>
+                                            <option value="Нет">Нет</option>
+                                            <option value="Мужской">Мужской</option>
+                                            <option value="Женский">Женский</option>
+                                        </select>
+                                    </div>
+                                </div>
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                 <label class="text-left control-label">Дата рождения</label>

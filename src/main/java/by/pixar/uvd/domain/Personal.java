@@ -220,9 +220,8 @@ public class Personal extends BaseEntity {
     @NotFound(action = NotFoundAction.IGNORE)
     private Users users;
 
-
-
-
+    @Column(name = "SEX")
+    private String sex;
     // Getters and setters
 
     public String getSpeciality() {
@@ -561,6 +560,14 @@ public class Personal extends BaseEntity {
 
     public void setReserve(String reserve) {
         this.reserve = reserve;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 }
 

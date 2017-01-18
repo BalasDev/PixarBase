@@ -187,15 +187,30 @@
                     <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
                 </tr>
             </c:when>
-
+            <c:when test="${field.fieldName=='underServiceOfOVD'}">
+            </c:when>
             <c:when test="${field.fieldName=='classLevel'}">
                 <tr>
                     <td>${field.rusFieldName}</td>
                     <td>
                         <select class="form-control" name="${field.fieldName}">
+                            <option value="Не имеет">Не имеет</option>
                             <option value="1 класс">1 класс</option>
                             <option value="2 класс">2 класс</option>
                             <option value="3 класс">3 класс</option>
+                        </select>
+                    </td>
+                    <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
+                </tr>
+            </c:when>
+            <c:when test="${field.fieldName=='sex'}">
+                <tr>
+                    <td>${field.rusFieldName}</td>
+                    <td>
+                        <select class="form-control" name="${field.fieldName}">
+                            <option value="Нет">Нет</option>
+                            <option value="Мужской">Мужской</option>
+                            <option value="Женский">Женский</option>
                         </select>
                     </td>
                     <td><form:errors path="${field.fieldName}" cssClass="error"/></td>
